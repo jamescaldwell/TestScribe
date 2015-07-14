@@ -1,0 +1,13 @@
+{
+    "chmod": "0755",
+    "directories": [
+        "src",
+        "vendor"
+    ],
+    "files": [
+      "LICENSE"
+    ],
+    "main": "bin/test-scribe",
+    "output": "test-scribe.phar",
+    "stub": true
+}

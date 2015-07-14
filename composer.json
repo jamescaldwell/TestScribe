@@ -1,0 +1,39 @@
+{
+  "name": "box/TestScribe",
+  "description": "A tool that automates testing a piece of PHP code",
+  "license": "Apache-2.0",
+  "keywords": [
+    "phpunit",
+    "testing"
+  ],
+  "version": "0.3",
+  "authors": [
+    {
+      "name": "Ray Yang",
+      "email": "ry@box.com"
+    },
+    {
+      "name": "Jamil Seaidoun",
+      "email": "jamil@box.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/console": "2.6.6",
+    "symfony/yaml": "2.6.6",
+    "mnapoli/php-di": "4.4.7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.5.1",
+    "box/shmock": "2.0.0-alpha6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Box\\TestScribe\\": ["src/", "tests/"]
+    }
+  },
+  "bin": [
+    "bin/test-scribe.php"
+  ]
+}
+
