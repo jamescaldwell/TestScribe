@@ -1,6 +1,6 @@
 <?php
 
-namespace Box\TestScribe\Tests;
+namespace Box\TestScribe\Integration;
 
 use Box\TestScribe\PHPClassTokenizer;
 use PHPUnit_Framework_TestCase;
@@ -12,7 +12,7 @@ class PHPClassTokenizerTest extends PHPUnit_Framework_TestCase
 {
     public function testParseAndSetClassNameAndNamespaceReturnsClass()
     {
-        $file = __DIR__ . '/_fixture/_input/Calculator.php';
+        $file = __DIR__ . '/../_fixture/_input/Calculator.php';
         $tokenize = new PHPClassTokenizer($file);
         $tokenize->parseAndSetClassNameAndNamespace();
         $classes = $tokenize->getClassesDeclared();

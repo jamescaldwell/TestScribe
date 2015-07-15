@@ -38,7 +38,7 @@ class StackTraceFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 
         $fileNameInFirstFrame = $executionResult[0]['file'];
         $this->assertContains(
-            'tests/FunctionWrappers/StackTraceFunctionWrapperTest.php',
+            'tests/unit/FunctionWrappers/StackTraceFunctionWrapperTest.php',
             $fileNameInFirstFrame
         );
 

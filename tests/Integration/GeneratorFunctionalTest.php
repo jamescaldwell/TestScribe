@@ -1,5 +1,5 @@
 <?php
-namespace Box\TestScribe\Tests;
+namespace Box\TestScribe\Integration;
 
 use Box\TestScribe\_fixture\_input\TestMethodsProvider;
 use Box\TestScribe\_fixture\Directory;
