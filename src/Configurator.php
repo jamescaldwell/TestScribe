@@ -185,12 +185,12 @@ class Configurator
      */
     private function getTestRootPath(InputInterface $input)
     {
-        $testFileRoot = (string) $input->getOption(CmdOption::TEST_SOURCE_ROOT_OPTION_NAME);
-        $testFileRoot = realpath($testFileRoot);
-        if (!file_exists($testFileRoot)) {
+        $origTestFileRoot = (string) $input->getOption(CmdOption::TEST_SOURCE_ROOT_OPTION_NAME);
+        $testFileRoot = realpath($origTestFileRoot);
+        if ($testFileRoot===false) {
             $msg = sprintf(
                 'Invalid test file root directory (%s)',
-                $testFileRoot
+                $origTestFileRoot
             );
             throw new \RuntimeException($msg);
         }
