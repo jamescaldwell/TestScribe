@@ -33,7 +33,7 @@ Press a key to launch the tool.
 
 # Documentation
 
-Coming soon.
+Please see [the wiki pages](https://github.com/box/TestScribe/wiki).
 
 ## Support
 
