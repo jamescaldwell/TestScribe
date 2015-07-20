@@ -1,0 +1,14 @@
+{
+  "base-path": ".",
+  "chmod": "0755",
+  "directories": [
+    "src",
+    "vendor"
+  ],
+  "files": [
+    "LICENSE"
+  ],
+  "main": "bin/test_scribe.php",
+  "output": "bin/test_scribe.phar",
+  "stub": true
+}
