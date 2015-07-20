@@ -5,6 +5,8 @@
 # the intellij external tool configuration.
 
 cmd="php $*"
+
+# pbcopy is only available on mac.
 echo $cmd | pbcopy
 echo The following command is copied to the system clipboard:
 echo $cmd
