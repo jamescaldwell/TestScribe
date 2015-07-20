@@ -8,6 +8,6 @@
       "LICENSE"
     ],
     "main": "bin/test_scribe.php",
-    "output": "test_scribe.phar",
+    "output": "bin/test_scribe.phar",
     "stub": true
 }
