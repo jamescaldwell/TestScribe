@@ -33,7 +33,7 @@
     }
   },
   "bin": [
-    "bin/test-scribe.php"
+    "bin/test_scribe.php"
   ]
 }
 
