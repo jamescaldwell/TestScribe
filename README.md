@@ -1,4 +1,5 @@
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+[![Build Status](https://travis-ci.org/box/TestScribe.svg?branch=master)](https://travis-ci.org/box/TestScribe)
 
 `TestScribe` is a tool that automates testing a piece of PHP code in isolation.
 
