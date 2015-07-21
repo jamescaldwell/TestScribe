@@ -121,7 +121,6 @@ class UserInput
 
             // This will convert the input string into the variable
             // of the local variable $rc.
-            // TODO: @jamil Remove eval statement and use less hacky way to evaluate input
             eval($statement);
         } else {
             // case where we have a special string representing class and would crash eval
