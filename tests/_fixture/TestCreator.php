@@ -28,7 +28,7 @@ class TestCreator
 
          $cmd = "cat $inputDir/$answerFileName.txt | "
              . "php $projectRootDir/bin/test_scribe.php generate-test "
-             . " $methodName $inputDir/$className.php "
+             . " $inputDir/$className.php $methodName "
              . " --test-source-root=$testRootDir "
              . " --bootstrap=$fixtureDir/bootstrapForTest.php -o";
 

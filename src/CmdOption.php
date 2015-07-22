@@ -45,14 +45,14 @@ class CmdOption
         $cmd->setName('generate-test')
             ->setDescription('Generate a test class based on a class')
             ->addArgument(
-                self::METHOD_NAME_KEY,
-                InputArgument::REQUIRED,
-                'The name of the method to generate a test for'
-            )
-            ->addArgument(
                 self::SOURCE_FILE_NAME_KEY,
                 InputArgument::REQUIRED,
                 'The source file that declared the class to generate a test class for'
+            )
+            ->addArgument(
+                self::METHOD_NAME_KEY,
+                InputArgument::REQUIRED,
+                'The name of the method to generate a test for'
             )
             ->addOption(
                 self::SOURCE_CLASS_NAME_OPTION,
