@@ -6,7 +6,6 @@
     "phpunit",
     "testing"
   ],
-  "version": "0.3.1",
   "authors": [
     {
       "name": "Ray Yang",
