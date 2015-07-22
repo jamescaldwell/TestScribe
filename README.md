@@ -6,7 +6,7 @@
 ### Problem statement:
 
 Testing a piece of code in isolation is useful. But the traditional method of writing unit tests to do
-this kind of testing is tedious and time consuming to write.
+this kind of testing is tedious and time consuming.
 
 ### How does the tool help: 
 
