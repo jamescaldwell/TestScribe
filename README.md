@@ -38,7 +38,7 @@ Please see [the wiki pages](https://github.com/box/TestScribe/wiki).
 
 ## Support
 
-Need to contact us directly? Email oss@box.com and be sure to include the name of this project in the subject.
+Please see [the contact wiki page](https://github.com/box/TestScribe/wiki/Contact).
 
 ## Copyright and License
 
