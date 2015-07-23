@@ -28,6 +28,13 @@ class TestEarlyDemo
     }
 
     /**
+     * Return the result of a complex computation.
+     *
+     * If the input is less than 0, return a message that this input is not supported.
+     *
+     * Otherwise, run the complex computation with the given input.
+     * Return a message with the input value and integer result.
+     *
      * @param int $input
      *
      * @return string
