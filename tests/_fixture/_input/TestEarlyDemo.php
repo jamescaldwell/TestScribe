@@ -1,7 +1,4 @@
 <?php
-/**
- *
- */
 
 namespace Box\TestScribe\_fixture\_input;
 
