@@ -21,6 +21,8 @@ It will interactively ask you for the following inputs
 It will show the execution result and interactions with the mocked dependencies if any.
 It will generate a complete, functional unit test in the right location for you.
 
+[Here](https://github.com/box/TestScribe/wiki/Demo-Video-and-Presentation) is an example.
+
 Repeat this process to generate additional tests which will be added to the test file.
 
 It can generate a test in seconds instead of minutes.
