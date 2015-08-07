@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe\FunctionWrappers;
 
+use Box\TestScribe\GeneratorException;
+
 /**
  * File and directory global function wrappers
  *
@@ -13,6 +15,33 @@ namespace Box\TestScribe\FunctionWrappers;
  */
 class FileFunctionWrapper
 {
+    /**
+     * (PHP 4, PHP 5)<br/>
+     * Returns canonicalized absolute pathname
+     * @link http://php.net/manual/en/function.realpath.php
+     *
+     * @param string $path <p>
+     * The path being checked.
+     * </p>
+     *
+     * @return string the canonicalized absolute pathname on success. The resulting path
+     * will have no symbolic link, '/./' or '/../' components.
+     * </p>
+     * <p>
+     * realpath throw an exception on failure, e.g. if
+     * the file does not exist.
+     */
+    function realpath($path)
+    {
+        $result = realpath($path);
+        if ($result === false) {
+            $errMsg = "Called realpath with invalid path ( $path ).";
+            throw new GeneratorException($errMsg);
+        }
+
+        return $result;
+    }
+
     /**
      * (PHP 4, PHP 5)<br/>
      * Checks whether a file or directory exists
