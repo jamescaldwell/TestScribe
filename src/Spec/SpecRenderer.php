@@ -1,6 +1,6 @@
 <?php
 
-namespace Box\TestScribe\Specs;
+namespace Box\TestScribe\Spec;
 
 use Box\TestScribe\ExecutionResult;
 
@@ -9,7 +9,7 @@ use Box\TestScribe\ExecutionResult;
  * They describe at a higher level what the expected results
  * should be.
  */
-class SpecsRenderer 
+class SpecRenderer
 {
     /**
      * @param \Box\TestScribe\ExecutionResult $executionResult
