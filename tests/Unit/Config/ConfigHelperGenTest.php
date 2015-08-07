@@ -71,4 +71,75 @@ class ConfigHelperGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest->loadBootstrapFile($mockInputInterface3);
     }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getTestRootPath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function testGetTestRootPath()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface3 */
+        $mockInputInterface3 = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('test-source-root');
+                $mock->return_value('root_path');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper1 */
+        $mockFileFunctionWrapper1 = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->realpath('root_path');
+                $mock->return_value('real_root');
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper2 */
+        $mockFunctionWrapper2 = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper1, $mockFunctionWrapper2);
+
+        $executionResult = $objectUnderTest->getTestRootPath($mockInputInterface3);
+
+        // Validate the execution result.
+
+        $expected = 'real_root';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
 }

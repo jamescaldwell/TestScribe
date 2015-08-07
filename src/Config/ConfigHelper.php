@@ -51,4 +51,19 @@ class ConfigHelper
             $this->functionWrapper->includeFile($bootstrapFile);
         }
     }
+
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     *
+     * @return string
+     * @throws \Box\TestScribe\GeneratorException
+     */
+    public function getTestRootPath(InputInterface $input)
+    {
+        $origTestFileRoot = (string) $input->getOption(CmdOption::TEST_SOURCE_ROOT_OPTION_NAME);
+        $testFileRoot = $this->fileFunctionWrapper->realpath($origTestFileRoot);
+
+        return $testFileRoot;
+    }
+
 }
