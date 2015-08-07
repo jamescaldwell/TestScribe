@@ -129,4 +129,18 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::realpath
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
+     */
+    public function testRealpath_non_existing_path_throw_exception()
+    {
+        // Execute the method under test.
+
+        $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
+
+        $this->setExpectedException("Box\\TestScribe\\GeneratorException");
+        $objectUnderTest->realpath('foo');
+    }
 }
