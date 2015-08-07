@@ -12,7 +12,7 @@ class FileFunctionWrapperGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_exists
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
      */
-    public function testFile_exists()
+    public function testFile_exists_negative()
     {
         // Execute the method under test.
 
