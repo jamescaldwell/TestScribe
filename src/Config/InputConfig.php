@@ -31,7 +31,7 @@ class InputConfig
     /**
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
-     * @return \Box\TestScribe\Config\InputParams
+     * @return \Box\TestScribe\Config\ConfigParams
      * @throws \Box\TestScribe\GeneratorException
      */
     public function getInputParams(
@@ -47,7 +47,7 @@ class InputConfig
 
         $inClassName = ClassExtractor::getClassName($inSourceFile, $methodName);
 
-        $inputParams = new InputParams(
+        $inputParams = new ConfigParams(
             $inSourceFile,
             $inClassName,
             $methodName

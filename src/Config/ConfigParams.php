@@ -3,9 +3,9 @@
 namespace Box\TestScribe\Config;
 
 /**
- * Represents input parameters
+ * Represents input or output parameters
  */
-class InputParams
+class ConfigParams
 {
 
     /**
