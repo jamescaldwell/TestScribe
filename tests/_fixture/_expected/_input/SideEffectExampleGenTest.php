@@ -28,12 +28,12 @@ class SideEffectExampleGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->log('A message is logged.');
+                $shmock->log('LogAMessage logged : a test');
             }
         );
 
         $objectUnderTest = new \Box\TestScribe\_fixture\_input\SideEffectExample($mockLogger1);
 
-        $objectUnderTest->LogAMessage();
+        $objectUnderTest->LogAMessage('a test');
     }
 }

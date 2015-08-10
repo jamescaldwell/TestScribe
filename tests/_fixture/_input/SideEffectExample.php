@@ -12,11 +12,12 @@ namespace Box\TestScribe\_fixture\_input;
  */
 class SideEffectExample 
 {
-
     /** @var Logger */
     private $logger;
 
     /**
+     * logger is a dependency.
+     *
      * @param \Box\TestScribe\_fixture\_input\Logger $logger
      */
     function __construct(
@@ -27,10 +28,14 @@ class SideEffectExample
     }
 
     /**
+     * Log the given message prefixed with a fixed string.
+     *
+     * @param string $message
+     *
      * @return void
      */
-    public function LogAMessage()
+    public function LogAMessage($message)
     {
-        $this->logger->log('A message is logged.');
+        $this->logger->log("LogAMessage logged : $message");
     }
 }
