@@ -9,12 +9,14 @@ class SideEffectExampleGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\_fixture\_input\SideEffectExample::methodThatHasSideEffect
+     * @covers \Box\TestScribe\_fixture\_input\SideEffectExample::LogAMessage
      * @covers \Box\TestScribe\_fixture\_input\SideEffectExample
      */
-    public function testMethodThatHasSideEffect()
+    public function testLogAMessage()
     {
-        // Setup mocks for parameters to the method under test.
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
 
         /** @var \Box\TestScribe\_fixture\_input\Logger $mockLogger1 */
         $mockLogger1 = $this->shmock(
@@ -26,14 +28,12 @@ class SideEffectExampleGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->log('methodThatHasSideEffect is called.');
+                $shmock->log('A message is logged.');
             }
         );
 
-        // Execute the method under test.
+        $objectUnderTest = new \Box\TestScribe\_fixture\_input\SideEffectExample($mockLogger1);
 
-        $objectUnderTest = new \Box\TestScribe\_fixture\_input\SideEffectExample();
-
-        $objectUnderTest->methodThatHasSideEffect($mockLogger1);
+        $objectUnderTest->LogAMessage();
     }
 }
