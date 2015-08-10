@@ -11,26 +11,20 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Initialize input parameters
- * @var ConfigHelper| FileFunctionWrapper
+ * @var FileFunctionWrapper
  */
 class InputConfig
 {
-    /** @var ConfigHelper */
-    private $configHelper;
-
     /** @var FileFunctionWrapper */
     private $fileFunctionWrapper;
 
     /**
-     * @param \Box\TestScribe\Config\ConfigHelper                  $configHelper
      * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
      */
     function __construct(
-        ConfigHelper $configHelper,
         FileFunctionWrapper $fileFunctionWrapper
     )
     {
-        $this->configHelper = $configHelper;
         $this->fileFunctionWrapper = $fileFunctionWrapper;
     }
 
@@ -44,8 +38,6 @@ class InputConfig
         InputInterface $input
     )
     {
-        $this->configHelper->loadBootstrapFile($input);
-
         $originalInSourceFile = (string) $input->getArgument(CmdOption::SOURCE_FILE_NAME_KEY);
         // Always use the absolute path. This is needed when checking
         // if a call is from the class under test.
