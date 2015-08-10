@@ -11,7 +11,7 @@ namespace Box\TestScribe\_fixture\_input;
  * 
  * A generic logger class for testing only.
  */
-class Logger 
+class Logger implements ILog
 {
     /**
      * @param string $msg

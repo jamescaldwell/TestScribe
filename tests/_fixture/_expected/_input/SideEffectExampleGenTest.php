@@ -18,21 +18,22 @@ class SideEffectExampleGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\_fixture\_input\Logger $mockLogger1 */
-        $mockLogger1 = $this->shmock(
-            '\\Box\\TestScribe\\_fixture\\_input\\Logger',
+        /** @var \Box\TestScribe\_fixture\_input\ILog $mockILog1 */
+        $mockILog1 = $this->shmock(
+            '\\Box\\TestScribe\\_fixture\\_input\\ILog',
             function (
-                /** @var \Box\TestScribe\_fixture\_input\Logger|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\_fixture\_input\ILog|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
 
                 $shmock->log('LogAMessage logged : a test');
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\_fixture\_input\SideEffectExample($mockLogger1);
+        $objectUnderTest = new \Box\TestScribe\_fixture\_input\SideEffectExample($mockILog1);
 
         $objectUnderTest->LogAMessage('a test');
     }

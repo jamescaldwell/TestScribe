@@ -8,23 +8,21 @@ namespace Box\TestScribe\_fixture\_input;
  * This class is used to demonstrate how to test methods that have side effects.
  * See the generated test in tests/_fixture/_expected/_input directory.
  *
- * @var Logger
+ * @var ILog
  */
 class SideEffectExample 
 {
-    /** @var Logger */
-    private $logger;
+    /** @var ILog */
+    private $iLog;
 
     /**
-     * logger is a dependency.
-     *
-     * @param \Box\TestScribe\_fixture\_input\Logger $logger
+     * @param \Box\TestScribe\_fixture\_input\ILog $iLog
      */
     function __construct(
-        Logger $logger
+        ILog $iLog
     )
     {
-        $this->logger = $logger;
+        $this->iLog = $iLog;
     }
 
     /**
@@ -36,6 +34,6 @@ class SideEffectExample
      */
     public function LogAMessage($message)
     {
-        $this->logger->log("LogAMessage logged : $message");
+        $this->iLog->log("LogAMessage logged : $message");
     }
 }
