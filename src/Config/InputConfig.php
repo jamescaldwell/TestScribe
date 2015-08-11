@@ -6,6 +6,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\ClassExtractor;
 use Box\TestScribe\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
+use Box\TestScribe\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 
 
@@ -46,10 +47,11 @@ class InputConfig
         $methodName = (string) $input->getArgument(CmdOption::METHOD_NAME_KEY);
 
         $inClassName = ClassExtractor::getClassName($inSourceFile, $methodName);
+        $inPhpClassName = new PhpClassName($inClassName);
 
         $inputParams = new ConfigParams(
             $inSourceFile,
-            $inClassName,
+            $inPhpClassName,
             $methodName
         );
 

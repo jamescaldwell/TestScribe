@@ -26,14 +26,18 @@ class ConfigParams
     private $methodName;
 
     /**
-     * @param string $sourceFile
-     * @param string $className
-     * @param string $methodName
+     * @param string                       $sourceFile
+     * @param \Box\TestScribe\PhpClassName $phpClassName
+     * @param string                       $methodName
      */
-    function __construct($sourceFile, $className, $methodName)
+    function __construct(
+        $sourceFile,
+        PhpClassName $phpClassName,
+        $methodName
+    )
     {
         $this->sourceFile = $sourceFile;
-        $this->phpClassName = new PhpClassName($className);
+        $this->phpClassName = $phpClassName;
         $this->methodName = $methodName;
     }
 

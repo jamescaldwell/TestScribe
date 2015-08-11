@@ -88,7 +88,7 @@ class OutputConfig
 
         $outputParams = new ConfigParams(
             $outSourceFile,
-            $outFullClassName,
+            $outPhpClassName,
             $outTestMethodName
         );
 
