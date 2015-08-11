@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe\Config;
 
+use Box\TestScribe\PhpClassName;
+
 /**
  * Represents input or output parameters
  */
@@ -14,9 +16,9 @@ class ConfigParams
     private $sourceFile;
 
     /**
-     * @var string
+     * @var PhpClassName
      */
-    private $className;
+    private $phpClassName;
 
     /**
      * @var string
@@ -31,7 +33,7 @@ class ConfigParams
     function __construct($sourceFile, $className, $methodName)
     {
         $this->sourceFile = $sourceFile;
-        $this->className = $className;
+        $this->phpClassName = new PhpClassName($className);
         $this->methodName = $methodName;
     }
 
@@ -48,7 +50,19 @@ class ConfigParams
      */
     public function getClassName()
     {
-        return $this->className;
+        $simpleName = $this->phpClassName->getClassName();
+
+        return $simpleName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullClassName()
+    {
+        $fullName = $this->phpClassName->getFullyQualifiedClassName();
+
+        return $fullName;
     }
 
     /**
