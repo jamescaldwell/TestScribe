@@ -54,7 +54,7 @@ class OptionsConfig
             $inSourceFile
         );
 
-        $outSourceFileDir = $this->configHelper->getPathUnderRoot(
+        $outSourceFileDir = ConfigHelper::getPathUnderRoot(
             $testFileRoot,
             $sourceFilePathRelativeToSourceRoot
         );

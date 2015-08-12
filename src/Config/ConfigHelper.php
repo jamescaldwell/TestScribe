@@ -129,7 +129,7 @@ class ConfigHelper
      * @return string
      *   the path should not end with '/'.
      */
-    public function getPathUnderRoot(
+    public static function getPathUnderRoot(
         $rootDir,
         $sourceFilePathRelativeToSourceRoot
     )
