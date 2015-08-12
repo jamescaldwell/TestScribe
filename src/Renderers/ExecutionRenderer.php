@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 
 /**
  * Render method call statements.
@@ -21,7 +21,7 @@ class ExecutionRenderer
 
     /**
      * @param \Box\TestScribe\Renderers\NonPublicMethodExecutionRenderer $nonPublicMethodExecutionRenderer
-     * @param \Box\TestScribe\GlobalComputedConfig                       $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig                       $globalComputedConfig
      */
     function __construct(
         NonPublicMethodExecutionRenderer $nonPublicMethodExecutionRenderer,

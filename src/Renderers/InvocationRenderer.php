@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\ExecutionResult;
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\MockClass;
 use Box\TestScribe\Utils\ArrayUtil;
 
@@ -16,11 +16,11 @@ use Box\TestScribe\Utils\ArrayUtil;
  * Class InvocationRenderer
  * @package Box\TestScribe\Renderers
  *
- * @var GlobalComputedConfig|MockRenderer|ArgumentsRenderer|ExecutionAndVerificationRenderer
+ * @var \Box\TestScribe\Config\GlobalComputedConfig|MockRenderer|ArgumentsRenderer|ExecutionAndVerificationRenderer
  */
 class InvocationRenderer
 {
-    /** @var GlobalComputedConfig */
+    /** @var \Box\TestScribe\Config\GlobalComputedConfig */
     private $globalComputedConfig;
 
     /** @var MockRenderer */
@@ -33,7 +33,7 @@ class InvocationRenderer
     private $executionAndVerificationRenderer;
 
     /**
-     * @param \Box\TestScribe\GlobalComputedConfig                       $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig                       $globalComputedConfig
      * @param \Box\TestScribe\Renderers\MockRenderer                     $mockRenderer
      * @param \Box\TestScribe\Renderers\ArgumentsRenderer                $argumentsRenderer
      * @param \Box\TestScribe\Renderers\ExecutionAndVerificationRenderer $executionAndVerificationRenderer
@@ -67,8 +67,7 @@ class InvocationRenderer
         $inMethod = $config->getInMethod();
         $reflectionMethod = $inMethod->getReflectionMethod();
         $isStatic = $reflectionMethod->isStatic();
-        $inClass = $config->getInClass();
-        $fullyQualifiedClassName = $inClass->getReflectionClass()->getName();
+        $fullyQualifiedClassName = $config->getFullClassName();
 
         $constructorArguments = $executionResult->getConstructorArguments();
         $constructorArgumentsRenderedResult =
@@ -120,7 +119,7 @@ class InvocationRenderer
             } else {
                 $targetObjectName = 'objectUnderTest';
                 $createObjectStatement =
-                    "\$$targetObjectName = new \\$fullyQualifiedClassName($constructorArgumentsString);";
+                    "\$$targetObjectName = new $fullyQualifiedClassName($constructorArgumentsString);";
 
                 $createObjectWithMocksStatement =
                     ArrayUtil::joinNonEmptyStringsWithNewLine(

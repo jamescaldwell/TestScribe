@@ -10,8 +10,17 @@ use Box\TestScribe\RawInputWithPrompt;
 
 /**
  * @var RawInputWithPrompt|Output
+ *
+ * The Output dependency is not ready when this class
+ * is resolved.
+ * So this class has to be lazily resolved.
+ * @Injectable(lazy=true)
+ *
+ * Making Output class lazy doesn't help since the current php-di
+ * implementation doesn't seem to look up if an instance
+ * is registered when the proxy is resolved to a real one.
  */
-class OutputTestNameGetter 
+class OutputTestNameGetter
 {
     /** @var RawInputWithPrompt */
     private $rawInputWithPrompt;
@@ -33,48 +42,48 @@ class OutputTestNameGetter
     }
 
     /**
-      * Get the name of the test to create.
-      * Method has to begin with 'test'
-      *
-      * @param string $className
-      * @param string $methodName
-      * @param bool   $useDefaultTestMethodName
-      *
-      * @throws GeneratorException
-      * @return string
-      */
-     public function getTestName(
-         $className,
-         $methodName,
-         $useDefaultTestMethodName
-     )
-     {
-         // Convert the first letter of the method name to upper case
-         // to make the result a valid camel case.
-         $defaultTestMethodName = 'test' . ucfirst($methodName);
+     * Get the name of the test to create.
+     * Method has to begin with 'test'
+     *
+     * @param string $className
+     * @param string $methodName
+     * @param bool   $useDefaultTestMethodName
+     *
+     * @throws GeneratorException
+     * @return string
+     */
+    public function getTestName(
+        $className,
+        $methodName,
+        $useDefaultTestMethodName
+    )
+    {
+        // Convert the first letter of the method name to upper case
+        // to make the result a valid camel case.
+        $defaultTestMethodName = 'test' . ucfirst($methodName);
 
-         if ($useDefaultTestMethodName) {
-             return $defaultTestMethodName;
-         }
+        if ($useDefaultTestMethodName) {
+            return $defaultTestMethodName;
+        }
 
-         $message =
-             "Enter the name of the test for the method ( $methodName ) of the class ( $className ).\n"
-             . "Press enter to use the default test name ( $defaultTestMethodName ).";
+        $message =
+            "Enter the name of the test for the method ( $methodName ) of the class ( $className ).\n"
+            . "Press enter to use the default test name ( $defaultTestMethodName ).";
 
-         $this->output->writeln($message);
+        $this->output->writeln($message);
 
-         // rawInput is used instead of InputWithHelp so that
-         // users don't have to quote the name as instructed by the help.
-         $input = $this->rawInputWithPrompt->getString($message);
-         if ($input === '') {
-             return $defaultTestMethodName;
-         }
-         if (0 !== strpos($input, 'test')) {
-             $error =
-                 "Test method must begin with the string 'test'. Please try again.";
-             throw new GeneratorException($error);
-         }
+        // rawInput is used instead of InputWithHelp so that
+        // users don't have to quote the name as instructed by the help.
+        $input = $this->rawInputWithPrompt->getString($message);
+        if ($input === '') {
+            return $defaultTestMethodName;
+        }
+        if (0 !== strpos($input, 'test')) {
+            $error =
+                "Test method must begin with the string 'test'. Please try again.";
+            throw new GeneratorException($error);
+        }
 
-         return $input;
-     }
+        return $input;
+    }
 }

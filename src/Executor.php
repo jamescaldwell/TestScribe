@@ -1,6 +1,7 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ExceptionUtil;
 
 /**
@@ -25,7 +26,7 @@ class Executor
 
     /**
      * @param \Box\TestScribe\MockClassLoader        $mockClassLoader
-     * @param \Box\TestScribe\GlobalComputedConfig   $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig   $globalComputedConfig
      * @param \Box\TestScribe\StaticMethodExecutor   $staticMethodExecutor
      * @param \Box\TestScribe\InstanceMethodExecutor $instanceMethodExecutor
      */

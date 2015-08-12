@@ -1,6 +1,7 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ReflectionUtil;
 
 /**
@@ -21,7 +22,7 @@ class StaticMethodExecutor
 
     /**
      * @param \Box\TestScribe\Utils\ReflectionUtil $reflectionUtil
-     * @param \Box\TestScribe\GlobalComputedConfig $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
      * @param \Box\TestScribe\ArgumentsCollector   $argumentsCollector
      */
     function __construct(

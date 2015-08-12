@@ -16,10 +16,10 @@ class CallOriginatorCheckerGenTest extends \PHPUnit_Framework_TestCase
         // Setup mocks for parameters to the constructor.
 
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
                 $shmock
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
             ) {
                 // Keep track of the order of calls made on this mock.
                 $shmock->order_matters();
@@ -93,10 +93,10 @@ class CallOriginatorCheckerGenTest extends \PHPUnit_Framework_TestCase
         // Setup mocks for parameters to the constructor.
 
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
                 $shmock
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
             ) {
                 // Keep track of the order of calls made on this mock.
                 $shmock->order_matters();

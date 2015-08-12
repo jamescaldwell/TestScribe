@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\ExecutionResult;
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**
@@ -16,7 +16,7 @@ use Box\TestScribe\Utils\ArrayUtil;
  */
 class ExecutionAndVerificationRenderer
 {
-    /** @var GlobalComputedConfig */
+    /** @var \Box\TestScribe\Config\GlobalComputedConfig */
     private $globalComputedConfig;
 
     /** @var ExecutionRenderer */
@@ -29,7 +29,7 @@ class ExecutionAndVerificationRenderer
     private $resultValidationRenderer;
 
     /**
-     * @param \Box\TestScribe\GlobalComputedConfig               $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig               $globalComputedConfig
      * @param \Box\TestScribe\Renderers\ExecutionRenderer        $executionRenderer
      * @param \Box\TestScribe\Renderers\ArgumentsRenderer        $argumentsRenderer
      * @param \Box\TestScribe\Renderers\ResultValidationRenderer $resultValidationRenderer

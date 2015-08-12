@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\ExecutionResult;
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 
 /**
  * Class MethodRenderer
@@ -14,7 +14,7 @@ use Box\TestScribe\GlobalComputedConfig;
  *
  * Generate the test method body.
  *
- * @var GlobalComputedConfig|MethodBodyRenderer
+ * @var \Box\TestScribe\Config\GlobalComputedConfig|MethodBodyRenderer
  */
 class MethodRenderer
 {
@@ -25,7 +25,7 @@ class MethodRenderer
     private $methodBodyRenderer;
 
     /**
-     * @param \Box\TestScribe\GlobalComputedConfig         $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig         $globalComputedConfig
      * @param \Box\TestScribe\Renderers\MethodBodyRenderer $methodBodyRenderer
      */
     function __construct(

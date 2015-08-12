@@ -51,7 +51,7 @@ class ConfigFactory
     /**
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
-     * @return \Box\TestScribe\GlobalComputedConfig
+     * @return \Box\TestScribe\Config\GlobalComputedConfig
      */
     public function config(InputInterface $input)
     {

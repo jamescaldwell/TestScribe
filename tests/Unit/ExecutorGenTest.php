@@ -30,11 +30,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig2 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig2 */
         $mockGlobalComputedConfig2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -181,11 +181,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig2 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig2 */
         $mockGlobalComputedConfig2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

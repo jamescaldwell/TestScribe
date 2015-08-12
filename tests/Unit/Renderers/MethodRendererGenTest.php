@@ -32,11 +32,11 @@ class MethodRendererGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig1 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig1 */
         $mockGlobalComputedConfig1 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

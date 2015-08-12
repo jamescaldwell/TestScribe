@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 
 /**
  * Class CallOriginatorChecker
@@ -24,7 +24,7 @@ class CallOriginatorChecker
     private $callInformationCollector;
 
     /**
-     * @param \Box\TestScribe\GlobalComputedConfig           $globalComputedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig           $globalComputedConfig
      * @param \Box\TestScribe\Utils\CallInformationCollector $callInformationCollector
      */
     function __construct(

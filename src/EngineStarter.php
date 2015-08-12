@@ -6,7 +6,10 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\CLI\Application;
+use Box\TestScribe\Config\ConfigFactory;
 use DI\Container;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class EngineStarter
@@ -14,45 +17,39 @@ use DI\Container;
  * @package Box\TestScribe
  *
  * Configures and starts the engine.
+ *
+ * @var Container|Engine|ConfigFactory|AppInstance
  */
 class EngineStarter
 {
-    /**
-     * @var Container
-     */
-    private $diContainer;
+    /** @var Container */
+    private $container;
 
-    /**
-     * @var Engine
-     */
+    /** @var Engine */
     private $engine;
 
-    /**
-     * @var Configurator
-     */
-    private $configurator;
+    /** @var ConfigFactory */
+    private $configFactory;
 
-    /**
-     * @var AppInstance
-     */
+    /** @var AppInstance */
     private $appInstance;
 
     /**
-     * @param \DI\Container                          $diContainer
-     * @param \Box\TestScribe\Engine       $engine
-     * @param \Box\TestScribe\Configurator $configurator
-     * @param \Box\TestScribe\AppInstance  $appInstance
+     * @param \DI\Container                        $container
+     * @param \Box\TestScribe\Engine               $engine
+     * @param \Box\TestScribe\Config\ConfigFactory $configFactory
+     * @param \Box\TestScribe\AppInstance          $appInstance
      */
     function __construct(
-        \DI\Container $diContainer,
+        Container $container,
         Engine $engine,
-        Configurator $configurator,
+        ConfigFactory $configFactory,
         AppInstance $appInstance
     )
     {
-        $this->diContainer = $diContainer;
+        $this->container = $container;
         $this->engine = $engine;
-        $this->configurator = $configurator;
+        $this->configFactory = $configFactory;
         $this->appInstance = $appInstance;
     }
 
@@ -69,12 +66,14 @@ class EngineStarter
      * @return void
      */
     public function configAndStart(
-        \Symfony\Component\Console\Input\InputInterface $input,
-        \Symfony\Component\Console\Output\OutputInterface $output
+        InputInterface $input,
+        OutputInterface $output
     )
     {
+        // Output is used by the ConfigFactory.
+        // It needs to be initialized before the ConfigFactory.
         $out = new Output($output);
-        $this->diContainer->set('Box\TestScribe\Output', $out);
+        $this->container->set('Box\TestScribe\Output', $out);
 
         $startUpMsg =
             "\n"
@@ -82,8 +81,8 @@ class EngineStarter
             . "Type character h for help when prompted for an input value.";
         $out->writeln($startUpMsg);
 
-        $config = $this->configurator->config($input);
-        $this->diContainer->set('Box\\TestScribe\\GlobalComputedConfig', $config);
+        $config = $this->configFactory->config($input);
+        $this->container->set('Box\\TestScribe\\Config\\GlobalComputedConfig', $config);
 
         App::Init($this->appInstance);
 

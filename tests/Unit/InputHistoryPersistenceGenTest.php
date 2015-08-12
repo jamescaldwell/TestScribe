@@ -18,11 +18,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig0 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig0 */
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -92,11 +92,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig0 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig0 */
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -190,11 +190,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig0 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig0 */
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -285,11 +285,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\GlobalComputedConfig $mockGlobalComputedConfig0 */
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig0 */
         $mockGlobalComputedConfig0 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalComputedConfig',
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
-                /** @var \Box\TestScribe\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

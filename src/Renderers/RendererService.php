@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\ExecutionResult;
-use Box\TestScribe\GlobalComputedConfig;
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Output;
 use Box\TestScribe\Utils\DirectoryUtil;
 
@@ -24,7 +24,7 @@ class RendererService
     private $out;
 
     /**
-     * @var GlobalComputedConfig
+     * @var \Box\TestScribe\Config\GlobalComputedConfig
      */
     private $computedConfig;
 
@@ -43,7 +43,7 @@ class RendererService
 
     /**
      * @param \Box\TestScribe\Output                   $out
-     * @param \Box\TestScribe\GlobalComputedConfig     $computedConfig
+     * @param \Box\TestScribe\Config\GlobalComputedConfig     $computedConfig
      * @param \Box\TestScribe\Renderers\MethodRenderer $methodRenderer
      * @param \Box\TestScribe\Renderers\HeaderRenderer $headerRenderer
      * @param \Box\TestScribe\Utils\DirectoryUtil      $directoryUtil
