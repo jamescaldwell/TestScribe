@@ -64,6 +64,12 @@ class GlobalComputedConfig
      */
     private $overwriteExistingDestinationFile;
 
+    /** @var  string */
+    private $testFileRoot;
+
+    /** @var  string */
+    private $sourceFilePathRelativeToSourceRoot;
+
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
      * @param \Box\TestScribe\Method              $inMethod
@@ -84,6 +90,8 @@ class GlobalComputedConfig
         $this->outSourceFile = $outputParams->getSourceFile();
         $this->outMethodName = $outputParams->getMethodName();
         $this->overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
+        $this->testFileRoot = $options->getTestRootPath();
+        $this->sourceFilePathRelativeToSourceRoot = $options->getSourceFilePathRelativeToSourceRoot();
     }
 
     /**
@@ -225,4 +233,25 @@ class GlobalComputedConfig
 
         return $name;
     }
+
+    /**
+     * Get the history file path.
+     *
+     * @return string
+     */
+    public function getHistoryFile()
+    {
+        $historyFilePathRoot = $this->testFileRoot . DIRECTORY_SEPARATOR . 'test_generator' .
+            DIRECTORY_SEPARATOR . 'history';
+        $historyFilePath = ConfigHelper::getPathUnderRoot(
+            $historyFilePathRoot,
+            $this->sourceFilePathRelativeToSourceRoot
+        );
+        $inClassName = $this->inPhpClassName->getClassName();
+        $historyFilePath .=
+            DIRECTORY_SEPARATOR . $inClassName . '.yaml';
+
+        return $historyFilePath;
+    }
+
 }
