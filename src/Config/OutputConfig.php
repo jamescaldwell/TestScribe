@@ -3,16 +3,29 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\GeneratedTestFile;
 use Box\TestScribe\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 
 
 /**
  * Initialize output parameters
+ * @var OutputTestNameGetter
  */
 class OutputConfig
 {
+    /** @var OutputTestNameGetter */
+    private $outputTestNameGetter;
+
+    /**
+     * @param \Box\TestScribe\Config\OutputTestNameGetter $outputTestNameGetter
+     */
+    function __construct(
+        OutputTestNameGetter $outputTestNameGetter
+    )
+    {
+        $this->outputTestNameGetter = $outputTestNameGetter;
+    }
+
     /**
      * @param \Box\TestScribe\Config\Options                  $options
      * @param \Box\TestScribe\Config\ConfigParams             $inputParams
@@ -38,7 +51,7 @@ class OutputConfig
 
         $inClassName = $inputParams->getClassName();
         $methodName = $inputParams->getMethodName();
-        $outTestMethodName = GeneratedTestFile::getTestName(
+        $outTestMethodName = $this->outputTestNameGetter->getTestName(
             $inClassName,
             $methodName,
             $overwriteExistingDestinationFile
