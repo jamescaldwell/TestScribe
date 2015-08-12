@@ -36,6 +36,8 @@ class OptionsConfig
         $inSourceFile
     )
     {
+        $this->configHelper->loadBootstrapFile($input);
+
         $overwriteExistingDestinationFile =
             $input->getOption(CmdOption::OVERWRITE_EXISTING_DESTINATION_FILE_OPTION);
 
