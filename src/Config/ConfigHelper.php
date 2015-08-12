@@ -169,61 +169,6 @@ class ConfigHelper
 
     /**
      * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param string                                          $outSimpleClassName
-     * @param string                                          $inSourceFile
-     *
-     * @return string
-     */
-    public function getOutputFilePath(
-        InputInterface $input,
-        $outSimpleClassName,
-        $inSourceFile
-    )
-    {
-        $outSourceFileDir = $this->getOutputSourceFileDir(
-            $input,
-            $inSourceFile
-        );
-        $outSourceFile =
-            $outSourceFileDir . DIRECTORY_SEPARATOR . $outSimpleClassName . '.php';
-
-        return $outSourceFile;
-    }
-
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param string                                          $inSourceFile
-     *
-     * @return string
-     */
-    public function getOutputSourceFileDir(
-        InputInterface $input,
-        $inSourceFile
-    )
-    {
-        $testFileRoot = $this->getTestRootPath($input);
-
-        $sourceFileRoot = $this->getSourceFileRoot(
-            $input,
-            $testFileRoot,
-            $inSourceFile
-        );
-
-        $sourceFilePathRelativeToSourceRoot = $this->getSourceFilePathRelativeToSourceRoot(
-            $sourceFileRoot,
-            $inSourceFile
-        );
-
-        $outSourceFileDir = $this->getPathUnderRoot(
-            $testFileRoot,
-            $sourceFilePathRelativeToSourceRoot
-        );
-
-        return $outSourceFileDir;
-    }
-
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param string                                          $testFileRoot
      * @param string                                          $inSourceFile
      *

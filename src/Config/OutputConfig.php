@@ -17,7 +17,7 @@ class OutputConfig
     private $configHelper;
 
     /**
-     * @param \Box\TestScribe\Config\ConfigHelper                  $configHelper
+     * @param \Box\TestScribe\Config\ConfigHelper $configHelper
      */
     function __construct(
         ConfigHelper $configHelper
@@ -27,17 +27,13 @@ class OutputConfig
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     *
-     * @param bool                                            $overwriteExistingDestinationFile
+     * @param \Box\TestScribe\Config\Options                  $options
      * @param \Box\TestScribe\Config\ConfigParams             $inputParams
      *
      * @return \Box\TestScribe\Config\ConfigParams
-     * @throws \Box\TestScribe\GeneratorException
      */
     public function getOutputParams(
-        InputInterface $input,
-        $overwriteExistingDestinationFile,
+        Options $options,
         ConfigParams $inputParams
     )
     {
@@ -46,21 +42,19 @@ class OutputConfig
         $outPhpClassName = new PhpClassName($outFullClassName);
         $outSimpleClassName = $outPhpClassName->getClassName();
 
-        $inSourceFile = $inputParams->getSourceFile();
+        $outSourceFileDir = $options->getOutSourceFileDir();
 
-        $outFilePath = $this->configHelper->getOutputFilePath(
-            $input,
-            $outSimpleClassName,
-            $inSourceFile
-        );
+        $outSourceFilePath =
+            $outSourceFileDir . DIRECTORY_SEPARATOR . $outSimpleClassName . '.php';
 
+        $overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
         $outTestMethodName = $this->configHelper->getOutputTestMethodName(
             $inputParams,
             $overwriteExistingDestinationFile
         );
 
         $outputParams = new ConfigParams(
-            $outFilePath,
+            $outSourceFilePath,
             $outPhpClassName,
             $outTestMethodName
         );
