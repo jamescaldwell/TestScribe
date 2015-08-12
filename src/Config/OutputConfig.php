@@ -3,29 +3,16 @@
 
 namespace Box\TestScribe\Config;
 
+use Box\TestScribe\GeneratedTestFile;
 use Box\TestScribe\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 
 
 /**
  * Initialize output parameters
- * @var ConfigHelper
  */
 class OutputConfig
 {
-    /** @var ConfigHelper */
-    private $configHelper;
-
-    /**
-     * @param \Box\TestScribe\Config\ConfigHelper $configHelper
-     */
-    function __construct(
-        ConfigHelper $configHelper
-    )
-    {
-        $this->configHelper = $configHelper;
-    }
-
     /**
      * @param \Box\TestScribe\Config\Options                  $options
      * @param \Box\TestScribe\Config\ConfigParams             $inputParams
@@ -48,8 +35,12 @@ class OutputConfig
             $outSourceFileDir . DIRECTORY_SEPARATOR . $outSimpleClassName . '.php';
 
         $overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
-        $outTestMethodName = $this->configHelper->getOutputTestMethodName(
-            $inputParams,
+
+        $inClassName = $inputParams->getClassName();
+        $methodName = $inputParams->getMethodName();
+        $outTestMethodName = GeneratedTestFile::getTestName(
+            $inClassName,
+            $methodName,
             $overwriteExistingDestinationFile
         );
 

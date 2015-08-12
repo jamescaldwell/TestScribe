@@ -5,7 +5,6 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\FunctionWrappers\FunctionWrapper;
-use Box\TestScribe\GeneratedTestFile;
 use Box\TestScribe\GeneratorException;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -143,28 +142,6 @@ class ConfigHelper
         }
 
         return $outPath;
-    }
-
-    /**
-     * @param \Box\TestScribe\Config\ConfigParams $inputParams
-     * @param bool                                $overwriteExistingDestinationFile
-     *
-     * @return string
-     */
-    public function getOutputTestMethodName(
-        ConfigParams $inputParams,
-        $overwriteExistingDestinationFile
-    )
-    {
-        $inClassName = $inputParams->getClassName();
-        $methodName = $inputParams->getMethodName();
-        $outTestMethodName = GeneratedTestFile::getTestName(
-            $inClassName,
-            $methodName,
-            $overwriteExistingDestinationFile
-        );
-
-        return $outTestMethodName;
     }
 
     /**
