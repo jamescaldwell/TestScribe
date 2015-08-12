@@ -3,7 +3,6 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\ClassExtractor;
 use Box\TestScribe\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\PhpClassName;
