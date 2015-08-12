@@ -76,4 +76,13 @@ class ConfigParams
     {
         return $this->methodName;
     }
+
+    /**
+     * @return PhpClassName
+     */
+    public function getPhpClassName()
+    {
+        return $this->phpClassName;
+    }
+
 }
