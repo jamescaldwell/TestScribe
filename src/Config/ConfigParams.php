@@ -78,7 +78,7 @@ class ConfigParams
     }
 
     /**
-     * @return PhpClassName
+     * @return \Box\TestScribe\PhpClassName
      */
     public function getPhpClassName()
     {
