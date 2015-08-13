@@ -49,10 +49,8 @@ class OutputConfig
 
         $overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
 
-        $inClassName = $inputParams->getClassName();
         $methodName = $inputParams->getMethodName();
         $outTestMethodName = $this->outputTestNameGetter->getTestName(
-            $inClassName,
             $methodName,
             $overwriteExistingDestinationFile
         );

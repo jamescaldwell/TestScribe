@@ -45,7 +45,6 @@ class OutputTestNameGetter
      * Get the name of the test to create.
      * Method has to begin with 'test'
      *
-     * @param string $className
      * @param string $methodName
      * @param bool   $useDefaultTestMethodName
      *
@@ -53,7 +52,6 @@ class OutputTestNameGetter
      * @return string
      */
     public function getTestName(
-        $className,
         $methodName,
         $useDefaultTestMethodName
     )
@@ -67,8 +65,7 @@ class OutputTestNameGetter
         }
 
         $message =
-            "Enter the name of the test for the method ( $methodName ) of the class ( $className ).\n"
-            . "Press enter to use the default test name ( $defaultTestMethodName ).";
+            "Enter the name of the test. Press enter to use the default test name ( $defaultTestMethodName ).";
 
         $this->output->writeln($message);
 
