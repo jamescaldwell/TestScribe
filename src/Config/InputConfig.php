@@ -7,6 +7,7 @@ use Box\TestScribe\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 
 /**
@@ -35,13 +36,15 @@ class InputConfig
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Input\InputInterface   $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Box\TestScribe\Config\ConfigParams
      * @throws \Box\TestScribe\GeneratorException
      */
     public function getInputParams(
-        InputInterface $input
+        InputInterface $input,
+        OutputInterface $output
     )
     {
         $originalInSourceFile = (string) $input->getArgument(CmdOption::SOURCE_FILE_NAME_KEY);
@@ -53,6 +56,9 @@ class InputConfig
 
         $inClassName = $this->classExtractor->getClassName($inSourceFile, $methodName);
         $inPhpClassName = new PhpClassName($inClassName);
+
+        $msg = "Testing the method ( $methodName ) of the class ( $inClassName ).";
+        $output->writeln($msg);
 
         $inputParams = new ConfigParams(
             $inSourceFile,

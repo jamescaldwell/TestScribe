@@ -8,6 +8,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\MethodHelper;
 use Box\TestScribe\PhpClass;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ConfigFactory
@@ -48,14 +49,22 @@ class ConfigFactory
         $this->outputConfig = $outputConfig;
         $this->methodHelper = $methodHelper;
     }
+
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Input\InputInterface   $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Box\TestScribe\Config\GlobalComputedConfig
      */
-    public function config(InputInterface $input)
+    public function config(
+        InputInterface $input,
+        OutputInterface $output
+    )
     {
-        $inputParams = $this->inputConfig->getInputParams($input);
+        $inputParams = $this->inputConfig->getInputParams(
+            $input,
+            $output
+        );
 
         $inSourceFile = $inputParams->getSourceFile();
         $options = $this->optionsConfig->getOptions($input, $inSourceFile);

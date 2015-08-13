@@ -81,7 +81,7 @@ class EngineStarter
             . "Type character h for help when prompted for an input value.\n";
         $out->writeln($startUpMsg);
 
-        $config = $this->configFactory->config($input);
+        $config = $this->configFactory->config($input, $output);
         $this->container->set('Box\\TestScribe\\Config\\GlobalComputedConfig', $config);
 
         App::Init($this->appInstance);
