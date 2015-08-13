@@ -3,11 +3,12 @@
 namespace Box\TestScribe\Config;
 
 use Box\TestScribe\PhpClassName;
+use JsonSerializable;
 
 /**
  * Represents input or output parameters
  */
-class ConfigParams
+class ConfigParams implements JsonSerializable
 {
 
     /**
@@ -85,4 +86,21 @@ class ConfigParams
         return $this->phpClassName;
     }
 
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     */
+    function jsonSerialize()
+    {
+        $data = [
+            'file path' => $this->sourceFile,
+            'class name' => $this->phpClassName->getFullyQualifiedClassName(),
+            'method name' => $this->methodName
+        ];
+
+        return $data;
+    }
 }
