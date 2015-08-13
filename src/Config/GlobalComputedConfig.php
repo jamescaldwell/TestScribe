@@ -243,7 +243,7 @@ class GlobalComputedConfig
     {
         $historyFilePathRoot = $this->testFileRoot . DIRECTORY_SEPARATOR . 'test_generator' .
             DIRECTORY_SEPARATOR . 'history';
-        $historyFilePath = ConfigHelper::getPathUnderRoot(
+        $historyFilePath = PathUtil::getPathUnderRoot(
             $historyFilePathRoot,
             $this->sourceFilePathRelativeToSourceRoot
         );
