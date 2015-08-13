@@ -12,7 +12,7 @@ class TestEarlyDemoGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\TestEarlyDemo::computeAndGetResultMsg
      * @covers \Box\TestScribe\_fixture\_input\TestEarlyDemo
      */
-    public function testComputeAndGetResultMsg()
+    public function test_computeAndGetResultMsg()
     {
         // Execute the method under test.
 

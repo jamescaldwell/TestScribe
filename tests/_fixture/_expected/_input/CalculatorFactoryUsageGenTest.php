@@ -12,7 +12,7 @@ class CalculatorFactoryUsageGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\CalculatorFactoryUsage::calculateWithACalculator
      * @covers \Box\TestScribe\_fixture\_input\CalculatorFactoryUsage
      */
-    public function testCalculateWithACalculator()
+    public function test_calculateWithACalculator()
     {
         // Setup mocks for parameters to the method under test.
 

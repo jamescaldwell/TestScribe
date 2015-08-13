@@ -12,7 +12,7 @@ class ExceptionInstanceGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\ExceptionInstance::throwException
      * @covers \Box\TestScribe\_fixture\_input\ExceptionInstance
      */
-    public function testThrowException()
+    public function test_throwException()
     {
         $this->setExpectedException('InvalidArgumentException');
 

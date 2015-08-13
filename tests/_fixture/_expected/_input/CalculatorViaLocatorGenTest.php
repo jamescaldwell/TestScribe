@@ -12,7 +12,7 @@ class CalculatorViaLocatorGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\CalculatorViaLocator::calculateWithACalculator
      * @covers \Box\TestScribe\_fixture\_input\CalculatorViaLocator
      */
-    public function testCalculateWithACalculator()
+    public function test_calculateWithACalculator()
     {
         // Setup mocks injected by the dependency management system.
 

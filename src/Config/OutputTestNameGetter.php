@@ -56,9 +56,7 @@ class OutputTestNameGetter
         $useDefaultTestMethodName
     )
     {
-        // Convert the first letter of the method name to upper case
-        // to make the result a valid camel case.
-        $defaultTestMethodName = 'test' . ucfirst($methodName);
+        $defaultTestMethodName = "test_$methodName";
 
         if ($useDefaultTestMethodName) {
             return $defaultTestMethodName;

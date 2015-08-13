@@ -12,7 +12,7 @@ class StaticCalculatorGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\StaticCalculator::add
      * @covers \Box\TestScribe\_fixture\_input\StaticCalculator
      */
-    public function testAdd()
+    public function test_add()
     {
         // Execute the method under test.
 

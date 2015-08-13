@@ -12,7 +12,7 @@ class SideEffectExampleGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\SideEffectExample::LogAMessage
      * @covers \Box\TestScribe\_fixture\_input\SideEffectExample
      */
-    public function testLogAMessage()
+    public function test_logAMessage()
     {
         // Execute the method under test.
 

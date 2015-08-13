@@ -12,7 +12,7 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\_fixture\_input\PartialMockingExample::calc
      * @covers \Box\TestScribe\_fixture\_input\PartialMockingExample
      */
-    public function testCalc()
+    public function test_calc()
     {
         // Setup mocks injected by the dependency management system.
 
