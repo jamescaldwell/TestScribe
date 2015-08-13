@@ -22,6 +22,7 @@ class PathUtil
      {
          if ($sourceFilePathRelativeToSourceRoot) {
              // In this case the relative path should start with a DIRECTORY_SEPARATOR.
+             assert($sourceFilePathRelativeToSourceRoot[0] === DIRECTORY_SEPARATOR);
              $outPath = $rootDir . $sourceFilePathRelativeToSourceRoot;
          } else {
              $outPath = $rootDir;
