@@ -11,21 +11,27 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Initialize input parameters
- * @var FileFunctionWrapper
+ * @var FileFunctionWrapper|ClassExtractor
  */
 class InputConfig
 {
     /** @var FileFunctionWrapper */
     private $fileFunctionWrapper;
 
+    /** @var ClassExtractor */
+    private $classExtractor;
+
     /**
      * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
+     * @param \Box\TestScribe\Config\ClassExtractor                $classExtractor
      */
-    function __construct(
-        FileFunctionWrapper $fileFunctionWrapper
+    public function __construct(
+        FileFunctionWrapper $fileFunctionWrapper,
+        ClassExtractor $classExtractor
     )
     {
         $this->fileFunctionWrapper = $fileFunctionWrapper;
+        $this->classExtractor = $classExtractor;
     }
 
     /**
@@ -45,7 +51,7 @@ class InputConfig
 
         $methodName = (string) $input->getArgument(CmdOption::METHOD_NAME_KEY);
 
-        $inClassName = ClassExtractor::getClassName($inSourceFile, $methodName);
+        $inClassName = $this->classExtractor->getClassName($inSourceFile, $methodName);
         $inPhpClassName = new PhpClassName($inClassName);
 
         $inputParams = new ConfigParams(
