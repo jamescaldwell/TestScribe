@@ -23,7 +23,6 @@ class CmdOption
 
     // This option is mainly designed to make testing easier.
     const OVERWRITE_EXISTING_DESTINATION_FILE_OPTION = 'overwrite-dest-file';
-    const DESTINATION_CLASS_NAME_OPTION = 'test-class';
     const BOOT_STRAP_FILE_PATH_OPTION = 'bootstrap';
 
     /**
@@ -48,12 +47,6 @@ class CmdOption
                 self::METHOD_NAME_KEY,
                 InputArgument::REQUIRED,
                 'The name of the method to generate a test for'
-            )
-            ->addOption(
-                self::DESTINATION_CLASS_NAME_OPTION,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'The name of the test class that is to be generated'
             )
             ->addOption(
                 self::TEST_SOURCE_ROOT_OPTION_NAME,
