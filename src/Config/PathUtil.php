@@ -28,6 +28,8 @@ class PathUtil
              $outPath = $rootDir;
          }
 
+         $lastChar = substr($outPath, -1);
+         assert($lastChar !== DIRECTORY_SEPARATOR);
          return $outPath;
      }
 }
