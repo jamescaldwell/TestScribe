@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\CmdOption;
+use Box\TestScribe\CLI\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\FunctionWrappers\FunctionWrapper;
 use Box\TestScribe\GeneratorException;

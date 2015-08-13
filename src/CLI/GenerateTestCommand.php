@@ -3,7 +3,6 @@
 namespace Box\TestScribe\CLI;
 
 use Box\TestScribe\App;
-use Box\TestScribe\CmdOption;
 use Box\TestScribe\EngineStarter;
 use DI\ContainerBuilder;
 use Symfony\Component\Console\Command\Command;

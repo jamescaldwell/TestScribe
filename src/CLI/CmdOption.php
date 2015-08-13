@@ -3,17 +3,13 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\CLI;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Command line options
- *
- * Class CmdOption
- *
- * @package Box\TestScribe
  */
 class CmdOption
 {
