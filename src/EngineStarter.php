@@ -78,7 +78,7 @@ class EngineStarter
         $startUpMsg =
             "\n"
             . "Starting the test run. Version ( " . Application::APP_VERSION . " )\n"
-            . "Type character h for help when prompted for an input value.";
+            . "Type character h for help when prompted for an input value.\n";
         $out->writeln($startUpMsg);
 
         $config = $this->configFactory->config($input);

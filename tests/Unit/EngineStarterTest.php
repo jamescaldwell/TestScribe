@@ -48,7 +48,7 @@ class EngineStarterTest extends \PHPUnit_Framework_TestCase
 
                 $shmock->writeln('' . "\n" .
                 'Starting the test run. Version ( '. Application::APP_VERSION . ' )' . "\n" .
-                'Type character h for help when prompted for an input value.');
+                'Type character h for help when prompted for an input value.'. "\n");
             }
         );
 
