@@ -5,8 +5,6 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\MethodHelper;
-use Box\TestScribe\PhpClass;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -15,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * Calculate global configurations.
  *
- * @var InputConfig|OptionsConfig|OutputConfig|MethodHelper
+ * @var InputConfig|OptionsConfig|OutputConfig|ParamHelper
  */
 class ConfigFactory
 {
@@ -28,26 +26,26 @@ class ConfigFactory
     /** @var OutputConfig */
     private $outputConfig;
 
-    /** @var MethodHelper */
-    private $methodHelper;
+    /** @var ParamHelper */
+    private $paramHelper;
 
     /**
      * @param \Box\TestScribe\Config\InputConfig   $inputConfig
      * @param \Box\TestScribe\Config\OptionsConfig $optionsConfig
      * @param \Box\TestScribe\Config\OutputConfig  $outputConfig
-     * @param \Box\TestScribe\MethodHelper         $methodHelper
+     * @param \Box\TestScribe\Config\ParamHelper   $paramHelper
      */
     function __construct(
         InputConfig $inputConfig,
         OptionsConfig $optionsConfig,
         OutputConfig $outputConfig,
-        MethodHelper $methodHelper
+        ParamHelper $paramHelper
     )
     {
         $this->inputConfig = $inputConfig;
         $this->optionsConfig = $optionsConfig;
         $this->outputConfig = $outputConfig;
-        $this->methodHelper = $methodHelper;
+        $this->paramHelper = $paramHelper;
     }
 
     /**
@@ -71,10 +69,7 @@ class ConfigFactory
             $inputParams
         );
 
-        $inPhpClassName = $inputParams->getPhpClassName();
-        $inPhpClass = new PhpClass($inPhpClassName);
-        $methodName = $inputParams->getMethodName();
-        $inMethodObj = $this->methodHelper->createFromMethodName($inPhpClass, $methodName);
+        $inMethodObj = $this->paramHelper->getMethodObjFromParamObj($inputParams);
 
         $config = new GlobalComputedConfig(
             $inputParams,
