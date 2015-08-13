@@ -69,7 +69,7 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getClassName('real file path', 'method_name');
-                $mock->return_value('/full/ClassName');
+                $mock->return_value('full_class_name');
             }
         );
 
@@ -83,7 +83,7 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->writeln('Testing the method ( method_name ) of the class ( /full/ClassName ).');
+                $shmock->writeln('Testing the method ( method_name ) of the class ( full_class_name ).');
             }
         );
 
@@ -100,7 +100,7 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(
-            '{"file path":"real file path","class name":"\\/full\\/ClassName","method name":"method_name"}',
+            '{"file path":"real file path","class name":"full_class_name","method name":"method_name"}',
             json_encode($executionResult),
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
