@@ -13,19 +13,11 @@ class PhpClass
     private $phpClassName;
 
     /**
-     * @var \ReflectionClass
-     */
-    private $reflectionClass;
-
-    /**
      * @param \Box\TestScribe\PhpClassName $phpClassName
      */
     public function __construct(PhpClassName $phpClassName)
     {
         $this->phpClassName = $phpClassName;
-        $this->reflectionClass = new \ReflectionClass(
-            $phpClassName->getFullyQualifiedClassName()
-        );
     }
 
     /**
@@ -41,7 +33,11 @@ class PhpClass
      */
     public function getReflectionClass()
     {
-        return $this->reflectionClass;
+        $reflectionClass = new \ReflectionClass(
+            $this->phpClassName->getFullyQualifiedClassName()
+        );
+
+        return $reflectionClass;
     }
 
     /**
@@ -51,7 +47,8 @@ class PhpClass
      */
     public function isConstructorParameterless()
     {
-        $constructor = $this->reflectionClass->getConstructor();
+        $reflectionClass = $this->getReflectionClass();
+        $constructor = $reflectionClass->getConstructor();
         if (!$constructor) {
             // No constructor.
             return true;
