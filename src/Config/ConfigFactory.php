@@ -52,18 +52,15 @@ class ConfigFactory
 
     /**
      * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Box\TestScribe\Config\GlobalComputedConfig
      */
     public function config(
-        InputInterface $input,
-        OutputInterface $output
+        InputInterface $input
     )
     {
         $inputParams = $this->inputConfig->getInputParams(
-            $input,
-            $output
+            $input
         );
 
         $inSourceFile = $inputParams->getSourceFile();

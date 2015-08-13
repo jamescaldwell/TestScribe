@@ -5,6 +5,7 @@ namespace Box\TestScribe\Config;
 
 use Box\TestScribe\CLI\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
+use Box\TestScribe\Output;
 use Box\TestScribe\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Initialize input parameters
- * @var FileFunctionWrapper|ClassExtractor
+ * @var FileFunctionWrapper|ClassExtractor|Output
  */
 class InputConfig
 {
@@ -22,29 +23,33 @@ class InputConfig
     /** @var ClassExtractor */
     private $classExtractor;
 
+    /** @var Output */
+    private $output;
+
     /**
      * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
      * @param \Box\TestScribe\Config\ClassExtractor                $classExtractor
+     * @param \Box\TestScribe\Output                               $output
      */
-    public function __construct(
+    function __construct(
         FileFunctionWrapper $fileFunctionWrapper,
-        ClassExtractor $classExtractor
+        ClassExtractor $classExtractor,
+        Output $output
     )
     {
         $this->fileFunctionWrapper = $fileFunctionWrapper;
         $this->classExtractor = $classExtractor;
+        $this->output = $output;
     }
 
     /**
      * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return \Box\TestScribe\Config\ConfigParams
      * @throws \Box\TestScribe\GeneratorException
      */
     public function getInputParams(
-        InputInterface $input,
-        OutputInterface $output
+        InputInterface $input
     )
     {
         $originalInSourceFile = (string) $input->getArgument(CmdOption::SOURCE_FILE_NAME_KEY);
@@ -58,7 +63,7 @@ class InputConfig
         $inPhpClassName = new PhpClassName($inClassName);
 
         $msg = "Testing the method ( $methodName ) of the class ( $inClassName ).";
-        $output->writeln($msg);
+        $this->output->writeln($msg);
 
         $inputParams = new ConfigParams(
             $inSourceFile,
