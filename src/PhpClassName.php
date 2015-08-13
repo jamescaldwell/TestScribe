@@ -5,7 +5,7 @@ namespace Box\TestScribe;
 /**
  * Represent a PHP class name.
  *
- * Supports parsing fully qualifited class name.
+ * Supports parsing fully qualified class name.
  */
 class PhpClassName
 {
