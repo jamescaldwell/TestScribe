@@ -35,6 +35,8 @@ class GenerateTestCommand extends Command
         $builder = new ContainerBuilder();
         $container = $builder->build();
 
+        $container->set('Symfony\Component\Console\Output\OutputInterface', $output);
+
         // Make sure App class is initialized before calling the bootstrap script.
         // The presence of this class sends a signal to the code executing later
         // that this execution is for generating tests.

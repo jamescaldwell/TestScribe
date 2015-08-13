@@ -67,8 +67,6 @@ class EngineStarterTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
 
                 $shmock->set();
-
-                $shmock->set();
             }
         );
 

@@ -70,16 +70,11 @@ class EngineStarter
         OutputInterface $output
     )
     {
-        // Output is used by the ConfigFactory.
-        // It needs to be initialized before the ConfigFactory.
-        $out = new Output($output);
-        $this->container->set('Box\TestScribe\Output', $out);
-
         $startUpMsg =
             "\n"
             . "Starting the test run. Version ( " . Application::APP_VERSION . " )\n"
             . "Type character h for help when prompted for an input value.\n";
-        $out->writeln($startUpMsg);
+        $output->writeln($startUpMsg);
 
         $config = $this->configFactory->config($input, $output);
         $this->container->set('Box\\TestScribe\\Config\\GlobalComputedConfig', $config);
