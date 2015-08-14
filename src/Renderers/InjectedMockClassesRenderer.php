@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Mock\InjectedMockClassMgr;
 
@@ -44,7 +44,7 @@ class InjectedMockClassesRenderer
      * Static methods are expected to be invoked on these mocks.
      *
      * @return string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function genMockedClassesStatements()
     {
@@ -56,7 +56,7 @@ class InjectedMockClassesRenderer
         $injectMockedClassMethodName =
             $this->globalComputedConfig->getInjectMockedClassMethodName();
         if (!$injectMockedClassMethodName) {
-            throw new GeneratorException(
+            throw new TestScribeException(
                 'Method name to generate statements for setting up mocked classes is not set.'
             );
         }

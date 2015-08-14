@@ -5,7 +5,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\CLI\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\FunctionWrappers\FunctionWrapper;
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 use Symfony\Component\Console\Input\InputInterface;
 
 
@@ -37,7 +37,7 @@ class ConfigHelper
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
      * @return void
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function loadBootstrapFile(InputInterface $input)
     {
@@ -45,7 +45,7 @@ class ConfigHelper
         if ($bootstrapFile) {
             if (!$this->fileFunctionWrapper->file_exists($bootstrapFile)) {
                 $errMsg = "Bootstrap file ( $bootstrapFile ) doesn't exist.";
-                throw new GeneratorException($errMsg);
+                throw new TestScribeException($errMsg);
             }
 
             $this->functionWrapper->includeFile($bootstrapFile);
@@ -56,7 +56,7 @@ class ConfigHelper
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
      * @return string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function getTestRootPath(InputInterface $input)
     {
@@ -95,7 +95,7 @@ class ConfigHelper
             $dir = $parentDir;
         }
 
-        throw new GeneratorException('Failed to determine source root directory name.');
+        throw new TestScribeException('Failed to determine source root directory name.');
     }
 
     /**
@@ -126,7 +126,7 @@ class ConfigHelper
      * @param string                                          $inSourceFile
      *
      * @return string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function getSourceFileRoot(
         InputInterface $input,

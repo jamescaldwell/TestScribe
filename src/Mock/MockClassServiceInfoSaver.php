@@ -39,7 +39,7 @@ class MockClassServiceInfoSaver
      * @param array                               $arguments
      *
      * @return mixed|void
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      * @throw \RuntimeException
      */
     public function gatherAndSaveCallInfo(

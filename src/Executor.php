@@ -47,7 +47,7 @@ class Executor
     /**
      * @return \Box\TestScribe\ExecutionResult
      * @throws \Box\TestScribe\AbortException
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function runMethod()
     {
@@ -99,8 +99,8 @@ class Executor
             }
         } catch (AbortException $abortException) {
             throw $abortException;
-        } catch (GeneratorException $generatorException) {
-            // @TODO (ryang 6/4/15) : Do not rethrow GeneratorException
+        } catch (TestScribeException $generatorException) {
+            // @TODO (ryang 6/4/15) : Do not rethrow TestScribeException
             // when the test run is against the tool itself.
             // Chain the original exception to provide details on the original exception.
             ExceptionUtil::rethrowSameException($generatorException);

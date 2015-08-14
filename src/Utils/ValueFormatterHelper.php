@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 
 /**
  */
@@ -15,7 +15,7 @@ class ValueFormatterHelper
      * @param mixed $value can't contain objects or resources
      *
      * @return mixed|string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function getReadableFormatFromSimpleValue($value)
     {
@@ -54,14 +54,14 @@ class ValueFormatterHelper
 
         $type = gettype($value);
         $exceptionMsg = "Formatting the variable of the type ( $type ) is not supported.";
-        throw new GeneratorException($exceptionMsg);
+        throw new TestScribeException($exceptionMsg);
     }
 
     /**
      * @param array $value
      *
      * @return string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     private function formatArrayValue(
         array $value
@@ -82,7 +82,7 @@ class ValueFormatterHelper
      * @param array $value
      *
      * @return array
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     private function getReadableElementsForSequentialArray(
         array $value
@@ -102,7 +102,7 @@ class ValueFormatterHelper
      * @param array $value
      *
      * @return array
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     private function getReadableElementsForAssociativeArray(
         array $value

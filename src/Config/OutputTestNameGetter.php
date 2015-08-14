@@ -3,7 +3,7 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 use Box\TestScribe\Output;
 use Box\TestScribe\Input\RawInputWithPrompt;
 
@@ -43,7 +43,7 @@ class OutputTestNameGetter
      * @param string $methodName
      * @param bool   $useDefaultTestMethodName
      *
-     * @throws GeneratorException
+     * @throws TestScribeException
      * @return string
      */
     public function getTestName(
@@ -71,7 +71,7 @@ class OutputTestNameGetter
         if (0 !== strpos($input, 'test')) {
             $error =
                 "Test method must begin with the string 'test'. Please try again.";
-            throw new GeneratorException($error);
+            throw new TestScribeException($error);
         }
 
         return $input;

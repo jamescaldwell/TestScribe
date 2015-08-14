@@ -3,7 +3,7 @@
 namespace Box\TestScribe\Input;
 
 use Box\TestScribe\App;
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 use Box\TestScribe\PHPDoc\PHPDocType;
 
 /**
@@ -57,7 +57,7 @@ class UserInput
      * @param bool  $valueTypeAllowed
      *  true if at least one type is a value type.
      *
-     * @throws GeneratorException
+     * @throws TestScribeException
      * @return array
      *  [className, value] one of them is null.
      */
@@ -89,7 +89,7 @@ class UserInput
                 return [$selectedClass, null];
             } else {
                 $errMsg = "Your selection of $selectionNumber doesn't exist. Please try again.";
-                throw new GeneratorException($errMsg);
+                throw new TestScribeException($errMsg);
             }
         } elseif ($valueTypeAllowed) {
             // @TODO (ryang 9/11/14) : handle errors
@@ -98,7 +98,7 @@ class UserInput
             return [null, $value];
         } else {
             $errMsg = "Please use #<number> format to select a class type. Please try again.";
-            throw new GeneratorException($errMsg);
+            throw new TestScribeException($errMsg);
         }
     }
 

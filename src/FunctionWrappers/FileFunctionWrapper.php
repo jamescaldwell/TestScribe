@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\FunctionWrappers;
 
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 
 /**
  * File and directory global function wrappers
@@ -36,7 +36,7 @@ class FileFunctionWrapper
         $result = realpath($path);
         if ($result === false) {
             $errMsg = "Called realpath with invalid path ( $path ).";
-            throw new GeneratorException($errMsg);
+            throw new TestScribeException($errMsg);
         }
 
         return $result;

@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\FunctionWrappers\StackTraceFunctionWrapper;
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 
 /**
  * Return information about where the current call
@@ -37,7 +37,7 @@ class CallInformationCollector
      *   To get information about bar, specify 2. 
      *
      * @return \Box\TestScribe\Utils\CallInfo
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function getCallerInfoAt($distanceFromThisCall)
     {
@@ -54,7 +54,7 @@ class CallInformationCollector
         if ($totalFrames <= $frameIndex) {
             $exceptionMsg = "Requested frame ( $frameIndex ) is out of range." .
                 " Total frames ( $totalFrames )";
-            throw new GeneratorException($exceptionMsg);
+            throw new TestScribeException($exceptionMsg);
         }
 
         $targetFrame = $stackFrames[$frameIndex];

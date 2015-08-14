@@ -46,7 +46,7 @@ class InputConfig
      * @param \Symfony\Component\Console\Input\InputInterface   $input
      *
      * @return \Box\TestScribe\Config\ConfigParams
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function getInputParams(
         InputInterface $input

@@ -144,7 +144,7 @@ class InjectedMockObjectsRendererGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenMockedObjectStatements_throw_exception_when_injection_method_is_not_provided()
     {
-        $this->setExpectedException('Box\TestScribe\GeneratorException');
+        $this->setExpectedException('Box\\TestScribe\\TestScribeException');
 
         // Execute the method under test.
 

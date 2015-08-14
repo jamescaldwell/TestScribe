@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\GeneratorException;
+use Box\TestScribe\TestScribeException;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Mock\InjectedMockMgr;
 
@@ -43,7 +43,7 @@ class InjectedMockObjectsRenderer
      * Instance methods are expected to be invoked on these mocks.
      *
      * @return string
-     * @throws \Box\TestScribe\GeneratorException
+     * @throws \Box\TestScribe\TestScribeException
      */
     public function genMockedObjectStatements()
     {
@@ -55,7 +55,7 @@ class InjectedMockObjectsRenderer
         $injectMockedObjectMethodName =
             $this->globalComputedConfig->getInjectMockedObjectMethodName();
         if (!$injectMockedObjectMethodName) {
-            throw new GeneratorException(
+            throw new TestScribeException(
                 'Method name to generate statements for setting up mocked objects is not set.'
             );
         }
