@@ -3,9 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\InputValue;
+use Box\TestScribe\ExpressionWithMocks;
 
 /**
  * Class InputValueFactory
