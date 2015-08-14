@@ -13,7 +13,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsonSerialize()
     {
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $objectUnderTest->setInputStringToHistory('s', 'i', 'a');
         $executionResult = $objectUnderTest->jsonSerialize();
 
@@ -27,7 +27,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetData()
     {
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $objectUnderTest->setInputStringToHistory('s', 'i', 'a');
         $executionResult = $objectUnderTest->getData();
 
@@ -45,7 +45,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $objectUnderTest->setInputStringToHistory('s', 'i', 'a');
 
         // Validate the execution result.
@@ -68,7 +68,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $expected = ['a' => 'foo'];
         $objectUnderTest->setData($expected);
 

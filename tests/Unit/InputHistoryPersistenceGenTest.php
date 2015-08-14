@@ -71,7 +71,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\InputHistoryData',
+            'Box\\TestScribe\\InputHistory\\InputHistoryData',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -150,7 +150,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\InputHistoryData',
+            'Box\\TestScribe\\InputHistory\\InputHistoryData',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -169,11 +169,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\InputHistoryData $mockInputHistoryData3 */
+        /** @var \Box\TestScribe\InputHistory\InputHistoryData $mockInputHistoryData3 */
         $mockInputHistoryData3 = $this->shmock(
-            '\\Box\\TestScribe\\InputHistoryData',
+            '\\Box\\TestScribe\\InputHistory\\InputHistoryData',
             function (
-                /** @var \Box\TestScribe\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\InputHistory\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -264,11 +264,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\InputHistoryData $mockInputHistoryData3 */
+        /** @var \Box\TestScribe\InputHistory\InputHistoryData $mockInputHistoryData3 */
         $mockInputHistoryData3 = $this->shmock(
-            '\\Box\\TestScribe\\InputHistoryData',
+            '\\Box\\TestScribe\\InputHistory\\InputHistoryData',
             function (
-                /** @var \Box\TestScribe\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\InputHistory\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

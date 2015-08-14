@@ -31,11 +31,11 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputHistoryData $mockInputHistoryData2 */
+                /** @var \Box\TestScribe\InputHistory\InputHistoryData $mockInputHistoryData2 */
                 $mockInputHistoryData2 = $this->shmock(
-                    '\\Box\\TestScribe\\InputHistoryData',
+                    '\\Box\\TestScribe\\InputHistory\\InputHistoryData',
                     function (
-                        /** @var \Box\TestScribe\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\InputHistory\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         // Keep track of the order of calls made on this mock.
@@ -77,11 +77,11 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputHistoryData $mockInputHistoryData2 */
+                /** @var \Box\TestScribe\InputHistory\InputHistoryData $mockInputHistoryData2 */
                 $mockInputHistoryData2 = $this->shmock(
-                    '\\Box\\TestScribe\\InputHistoryData',
+                    '\\Box\\TestScribe\\InputHistory\\InputHistoryData',
                     function (
-                        /** @var \Box\TestScribe\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\InputHistory\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         // Keep track of the order of calls made on this mock.
@@ -136,11 +136,11 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputHistoryData $mockInputHistoryData2 */
+                /** @var \Box\TestScribe\InputHistory\InputHistoryData $mockInputHistoryData2 */
                 $mockInputHistoryData2 = $this->shmock(
-                    '\\Box\\TestScribe\\InputHistoryData',
+                    '\\Box\\TestScribe\\InputHistory\\InputHistoryData',
                     function (
-                        /** @var \Box\TestScribe\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\InputHistory\InputHistoryData|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         // Keep track of the order of calls made on this mock.

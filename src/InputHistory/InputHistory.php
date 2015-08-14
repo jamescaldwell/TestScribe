@@ -6,7 +6,7 @@
 namespace Box\TestScribe\InputHistory;
 
 use Box\TestScribe\InputHistoryPersistence;
-use Box\TestScribe\InputHistoryData;
+use Box\TestScribe\InputHistory\InputHistoryData;
 
 /**
  * Delay instantiation of this class until it is actually needed.

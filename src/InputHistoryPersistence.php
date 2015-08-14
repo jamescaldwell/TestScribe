@@ -7,6 +7,7 @@ namespace Box\TestScribe;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\FunctionWrappers\GlobalFunction;
+use Box\TestScribe\InputHistory\InputHistoryData;
 use Box\TestScribe\Utils\DirectoryUtil;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
@@ -45,7 +46,7 @@ class InputHistoryPersistence
     }
 
     /**
-     * @return \Box\TestScribe\InputHistoryData
+     * @return \Box\TestScribe\InputHistory\InputHistoryData
      */
     public function loadHistory()
     {
@@ -63,7 +64,7 @@ class InputHistoryPersistence
     }
 
     /**
-     * @param \Box\TestScribe\InputHistoryData $historyData
+     * @param \Box\TestScribe\InputHistory\InputHistoryData $historyData
      *
      * @return void
      */
@@ -76,7 +77,7 @@ class InputHistoryPersistence
     }
 
     /**
-     * @param \Box\TestScribe\InputHistoryData $historyData
+     * @param \Box\TestScribe\InputHistory\InputHistoryData $historyData
      *
      * @return string
      */

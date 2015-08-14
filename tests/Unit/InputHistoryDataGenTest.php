@@ -16,7 +16,7 @@ class InputHistoryDataGenTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $executionResult = $objectUnderTest->jsonSerialize();
 
         // Validate the execution result.
@@ -33,7 +33,7 @@ class InputHistoryDataGenTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\InputHistoryData();
+        $objectUnderTest = new InputHistory\InputHistoryData();
         $executionResult = $objectUnderTest->getInputStringFromHistory('section', 'item');
 
         // Validate the execution result.

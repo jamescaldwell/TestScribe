@@ -2,7 +2,7 @@
 namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\_fixture\MockObjectFactoryForTest;
-use Box\TestScribe\InputHistoryData;
+use Box\TestScribe\InputHistory\InputHistoryData;
 
 /**
  */
@@ -49,7 +49,7 @@ class ValueTransformerTest extends \PHPUnit_Framework_TestCase
 
         // Validate the execution result.
 
-        $expected = '( Box\TestScribe\InputHistoryData ) object value ( {"key":"value"} )';
+        $expected = '( Box\TestScribe\InputHistory\InputHistoryData ) object value ( {"key":"value"} )';
         $this->assertSame(
             $expected,
             $executionResult,

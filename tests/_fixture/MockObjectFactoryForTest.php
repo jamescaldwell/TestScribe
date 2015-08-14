@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\_fixture;
 
-use Box\TestScribe\InputHistoryData;
+use Box\TestScribe\InputHistory\InputHistoryData;
 use Box\TestScribe\MockClass;
 
 /**
@@ -42,7 +42,7 @@ class MockObjectFactoryForTest
     public static function getInputHistoryDataMockClass()
     {
         if (self::$inputHistoryDataMockClass === null) {
-            self::$inputHistoryDataMockClass = self::getMockClass('Box\TestScribe\InputHistoryData');
+            self::$inputHistoryDataMockClass = self::getMockClass('Box\TestScribe\InputHistory\InputHistoryData');
         }
 
         return self::$inputHistoryDataMockClass;

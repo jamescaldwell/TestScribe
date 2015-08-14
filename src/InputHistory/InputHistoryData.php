@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\InputHistory;
 
 use Box\TestScribe\Utils\ArrayUtil;
 use JsonSerializable;
