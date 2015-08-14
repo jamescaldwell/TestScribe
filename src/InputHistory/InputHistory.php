@@ -3,7 +3,10 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\InputHistory;
+
+use Box\TestScribe\InputHistoryPersistence;
+use Box\TestScribe\InputHistoryData;
 
 /**
  * Delay instantiation of this class until it is actually needed.

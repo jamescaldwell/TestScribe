@@ -50,7 +50,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->saveHistory($mockInputHistoryData2);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistory($mockInputHistoryPersistence0);
+        $objectUnderTest = new InputHistory\InputHistory($mockInputHistoryPersistence0);
         $objectUnderTest->saveHistoryToFile();
     }
 
@@ -99,7 +99,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputHistoryData2);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistory($mockInputHistoryPersistence0);
+        $objectUnderTest = new InputHistory\InputHistory($mockInputHistoryPersistence0);
         $executionResult = $objectUnderTest->getInputStringFromHistory('s', 'i');
 
         // Validate the execution result.
@@ -156,7 +156,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputHistoryData2);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistory($mockInputHistoryPersistence0);
+        $objectUnderTest = new InputHistory\InputHistory($mockInputHistoryPersistence0);
         $objectUnderTest->setInputStringToHistory('s', 'i', 'a');
     }
 

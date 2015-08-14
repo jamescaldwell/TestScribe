@@ -34,11 +34,11 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('rawInput');
             }
         );
-        /** @var \Box\TestScribe\InputHistory $mockInputHistory1 */
+        /** @var \Box\TestScribe\InputHistory\InputHistory $mockInputHistory1 */
         $mockInputHistory1 = $this->shmock(
-            '\\Box\\TestScribe\\InputHistory',
+            '\\Box\\TestScribe\\InputHistory\\InputHistory',
             function (
-                /** @var \Box\TestScribe\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\InputHistory\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -91,11 +91,11 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('rawInput');
             }
         );
-        /** @var \Box\TestScribe\InputHistory $mockInputHistory1 */
+        /** @var \Box\TestScribe\InputHistory\InputHistory $mockInputHistory1 */
         $mockInputHistory1 = $this->shmock(
-            '\\Box\\TestScribe\\InputHistory',
+            '\\Box\\TestScribe\\InputHistory\\InputHistory',
             function (
-                /** @var \Box\TestScribe\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\InputHistory\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

@@ -62,11 +62,11 @@ class EngineGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\InputHistory $mockInputHistory3 */
+        /** @var \Box\TestScribe\InputHistory\InputHistory $mockInputHistory3 */
         $mockInputHistory3 = $this->shmock(
-            '\\Box\\TestScribe\\InputHistory',
+            '\\Box\\TestScribe\\InputHistory\\InputHistory',
             function (
-                /** @var \Box\TestScribe\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\InputHistory\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\InputHistory\InputHistory;
 use Box\TestScribe\Renderers\RendererService;
 
 /**
@@ -37,7 +38,7 @@ class Engine
     /**
      * @param \Box\TestScribe\Runner                    $runner
      * @param \Box\TestScribe\Renderers\RendererService $rendererService
-     * @param \Box\TestScribe\InputHistory              $inputHistory
+     * @param \Box\TestScribe\InputHistory\InputHistory              $inputHistory
      */
     function __construct(
         Runner $runner,
