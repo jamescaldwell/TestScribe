@@ -3,7 +3,7 @@
 namespace Box\TestScribe\Input;
 
 use Box\TestScribe\App;
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 use Box\TestScribe\PHPDoc\PHPDocType;
 
 /**
@@ -57,7 +57,7 @@ class UserInput
      * @param bool  $valueTypeAllowed
      *  true if at least one type is a value type.
      *
-     * @throws TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      * @return array
      *  [className, value] one of them is null.
      */

@@ -10,7 +10,7 @@ class ExceptionUtilTest extends \PHPUnit_Framework_TestCase
     {
         $objectUnderTest = new ExceptionUtil();
         $ex = new \Exception('test');
-        $this->setExpectedException('Box\\TestScribe\\TestScribeException', 'test');
+        $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException', 'test');
         $objectUnderTest->rethrowSameException($ex);
     }
 }

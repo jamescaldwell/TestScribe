@@ -5,7 +5,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\CLI\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\FunctionWrappers\FunctionWrapper;
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 use Symfony\Component\Console\Input\InputInterface;
 
 
@@ -37,7 +37,7 @@ class ConfigHelper
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
      * @return void
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function loadBootstrapFile(InputInterface $input)
     {
@@ -56,7 +56,7 @@ class ConfigHelper
      * @param \Symfony\Component\Console\Input\InputInterface $input
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function getTestRootPath(InputInterface $input)
     {
@@ -126,7 +126,7 @@ class ConfigHelper
      * @param string                                          $inSourceFile
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function getSourceFileRoot(
         InputInterface $input,

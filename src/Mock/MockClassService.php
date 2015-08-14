@@ -53,7 +53,7 @@ class MockClassService
      * @param array                               $arguments
      *
      * @return mixed|void
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      * @throw \RuntimeException
      */
     public function invokeInterceptedCall(

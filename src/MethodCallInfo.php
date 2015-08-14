@@ -34,7 +34,7 @@ class MethodCallInfo
      * @param array                            $arguments
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function getCallParamInfo(
         Method $method,
@@ -60,7 +60,7 @@ class MethodCallInfo
      * @param array                            $arguments
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     private function getDetail(
         Method $method,

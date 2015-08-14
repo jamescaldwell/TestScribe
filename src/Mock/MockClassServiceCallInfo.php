@@ -66,7 +66,7 @@ class MockClassServiceCallInfo
 
     /**
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     private function getCallerInfoString()
     {

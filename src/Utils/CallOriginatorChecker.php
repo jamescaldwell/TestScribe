@@ -46,7 +46,7 @@ class CallOriginatorChecker
      *   To check about bar, specify 2.
      *
      * @return bool
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function isCallFromTheClassBeingTested($distanceFromThisCall)
     {

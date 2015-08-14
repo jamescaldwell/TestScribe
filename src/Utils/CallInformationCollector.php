@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\FunctionWrappers\StackTraceFunctionWrapper;
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 
 /**
  * Return information about where the current call
@@ -37,7 +37,7 @@ class CallInformationCollector
      *   To get information about bar, specify 2. 
      *
      * @return \Box\TestScribe\Utils\CallInfo
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function getCallerInfoAt($distanceFromThisCall)
     {

@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Mock\InjectedMockMgr;
 
@@ -43,7 +43,7 @@ class InjectedMockObjectsRenderer
      * Instance methods are expected to be invoked on these mocks.
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function genMockedObjectStatements()
     {

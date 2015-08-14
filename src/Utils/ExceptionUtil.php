@@ -3,7 +3,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 
 /**
  */
@@ -13,7 +13,7 @@ class ExceptionUtil
      * @param \Exception $ex
      *
      * @return void
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     static public function rethrowSameException(\Exception $ex)
     {

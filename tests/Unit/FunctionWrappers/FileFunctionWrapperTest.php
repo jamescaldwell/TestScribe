@@ -140,7 +140,7 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
 
-        $this->setExpectedException("Box\\TestScribe\\TestScribeException");
+        $this->setExpectedException("Box\\TestScribe\\Exception\\TestScribeException");
         $objectUnderTest->realpath('foo');
     }
 }

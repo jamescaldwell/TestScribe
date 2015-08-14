@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 
 /**
  */
@@ -15,7 +15,7 @@ class ValueFormatterHelper
      * @param mixed $value can't contain objects or resources
      *
      * @return mixed|string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     public function getReadableFormatFromSimpleValue($value)
     {
@@ -61,7 +61,7 @@ class ValueFormatterHelper
      * @param array $value
      *
      * @return string
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     private function formatArrayValue(
         array $value
@@ -82,7 +82,7 @@ class ValueFormatterHelper
      * @param array $value
      *
      * @return array
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     private function getReadableElementsForSequentialArray(
         array $value
@@ -102,7 +102,7 @@ class ValueFormatterHelper
      * @param array $value
      *
      * @return array
-     * @throws \Box\TestScribe\TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
     private function getReadableElementsForAssociativeArray(
         array $value

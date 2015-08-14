@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\FunctionWrappers;
 
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 
 /**
  * File and directory global function wrappers

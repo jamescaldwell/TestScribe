@@ -3,7 +3,7 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\TestScribeException;
+use Box\TestScribe\Exception\TestScribeException;
 use Box\TestScribe\Output;
 use Box\TestScribe\Input\RawInputWithPrompt;
 
@@ -43,7 +43,7 @@ class OutputTestNameGetter
      * @param string $methodName
      * @param bool   $useDefaultTestMethodName
      *
-     * @throws TestScribeException
+     * @throws \Box\TestScribe\Exception\TestScribeException
      * @return string
      */
     public function getTestName(
