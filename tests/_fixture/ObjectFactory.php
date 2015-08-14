@@ -31,7 +31,7 @@ class ObjectFactory
         $container = $builder->build();
         $nullOutput = new NullOutput();
         $output = new Output($nullOutput);
-        $container->set('Box\TestScribe\Output', $output);
+        $container->set('Box\\TestScribe\\Output', $output);
 
         $this->container = $container;
     }
@@ -55,7 +55,7 @@ class ObjectFactory
     public function getReflectionUtil()
     {
         /** @var ReflectionUtil $obj */
-        $obj = $this->getClassInstance('\Box\TestScribe\Utils\ReflectionUtil');
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\Utils\\ReflectionUtil');
 
         return $obj;
     }
@@ -65,8 +65,8 @@ class ObjectFactory
      */
     public function getStringToInputValueConverter()
     {
-        /** @var StringToInputValueConverter $obj */
-        $obj = $this->getClassInstance('\Box\TestScribe\StringToInputValueConverter');
+        /** @var \Box\TestScribe\Input\StringToInputValueConverter $obj */
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\StringToInputValueConverter');
 
         return $obj;
     }
@@ -77,7 +77,7 @@ class ObjectFactory
     public function getMockClassLoader()
     {
         /** @var MockClassLoader $obj */
-        $obj = $this->getClassInstance('\Box\TestScribe\MockClassLoader');
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\MockClassLoader');
 
         return $obj;
     }
@@ -88,7 +88,7 @@ class ObjectFactory
     public function getMockObjectFactory()
     {
         /** @var MockObjectFactory $obj */
-        $obj = $this->getClassInstance('\Box\TestScribe\MockObjectFactory');
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\MockObjectFactory');
 
         return $obj;
     }
@@ -99,7 +99,7 @@ class ObjectFactory
     public function getFullMockObjectFactory()
     {
         /** @var FullMockObjectFactory $obj */
-        $obj = $this->getClassInstance('\Box\TestScribe\FullMockObjectFactory');
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\FullMockObjectFactory');
 
         return $obj;
     }
