@@ -1,6 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
+
+use Box\TestScribe\MockClass;
 
 /**
  * The trait to be used by the dynamically generated mock classes.
