@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\GlobalFunction;
+use Box\TestScribe\FunctionWrappers\GlobalFunction;
 
 /**
  * Class DirectoryUtil
@@ -13,11 +13,11 @@ use Box\TestScribe\GlobalFunction;
  */
 class DirectoryUtil
 {
-    /** @var  GlobalFunction */
+    /** @var  \Box\TestScribe\FunctionWrappers\GlobalFunction */
     private $globalFunction;
 
     /**
-     * @param \Box\TestScribe\GlobalFunction $globalFunction
+     * @param \Box\TestScribe\FunctionWrappers\GlobalFunction $globalFunction
      */
     function __construct(
         GlobalFunction $globalFunction

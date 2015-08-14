@@ -47,11 +47,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        /** @var \Box\TestScribe\GlobalFunction $mockGlobalFunction2 */
+        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction2 */
         $mockGlobalFunction2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalFunction',
+            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
             function (
-                /** @var \Box\TestScribe\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -121,11 +121,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        /** @var \Box\TestScribe\GlobalFunction $mockGlobalFunction2 */
+        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction2 */
         $mockGlobalFunction2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalFunction',
+            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
             function (
-                /** @var \Box\TestScribe\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -219,11 +219,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        /** @var \Box\TestScribe\GlobalFunction $mockGlobalFunction2 */
+        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction2 */
         $mockGlobalFunction2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalFunction',
+            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
             function (
-                /** @var \Box\TestScribe\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -317,11 +317,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(true);
             }
         );
-        /** @var \Box\TestScribe\GlobalFunction $mockGlobalFunction2 */
+        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction2 */
         $mockGlobalFunction2 = $this->shmock(
-            '\\Box\\TestScribe\\GlobalFunction',
+            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
             function (
-                /** @var \Box\TestScribe\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

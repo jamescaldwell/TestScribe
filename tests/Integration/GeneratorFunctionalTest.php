@@ -4,7 +4,7 @@ namespace Box\TestScribe\Integration;
 use Box\TestScribe\_fixture\_input\TestMethodsProvider;
 use Box\TestScribe\_fixture\Directory;
 use Box\TestScribe\_fixture\TestCreator;
-use Box\TestScribe\GlobalFunction;
+use Box\TestScribe\FunctionWrappers\GlobalFunction;
 use Box\TestScribe\Utils\DirectoryUtil;
 
 /**

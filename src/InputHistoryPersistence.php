@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
+use Box\TestScribe\FunctionWrappers\GlobalFunction;
 use Box\TestScribe\Utils\DirectoryUtil;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
@@ -30,7 +31,7 @@ class InputHistoryPersistence
     /**
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
      * @param \Box\TestScribe\Utils\DirectoryUtil  $directoryUtil
-     * @param \Box\TestScribe\GlobalFunction       $globalFunction
+     * @param \Box\TestScribe\FunctionWrappers\GlobalFunction       $globalFunction
      */
     function __construct(
         GlobalComputedConfig $globalComputedConfig,

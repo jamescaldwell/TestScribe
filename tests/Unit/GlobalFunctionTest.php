@@ -16,7 +16,7 @@ class GlobalFunctionTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\GlobalFunction();
+        $objectUnderTest = new FunctionWrappers\GlobalFunction();
         $executionResult = $objectUnderTest->__call('file_exists', [__FILE__]);
 
         // Validate the execution result.

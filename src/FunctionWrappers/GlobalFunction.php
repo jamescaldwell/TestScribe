@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\FunctionWrappers;
 
 /**
  * Wrapper for global functions
