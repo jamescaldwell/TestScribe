@@ -12,7 +12,7 @@ use Box\TestScribe\Mock\InjectedMockMgr;
  * Global singleton app instance
  * Delay instantiation of this class until it is actually needed.
  * This is necessary because it indirectly depends on the 
- * output to be initialized.
+ * GlobalComputedConfig to be initialized.
  * 
  * @Injectable(lazy=true)
  *
