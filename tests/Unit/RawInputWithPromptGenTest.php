@@ -50,7 +50,7 @@ class RawInputWithPromptGenTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\RawInputWithPrompt($mockRawInput0, $mockOutput1);
+        $objectUnderTest = new Input\RawInputWithPrompt($mockRawInput0, $mockOutput1);
         $executionResult = $objectUnderTest->getString('sub');
 
         // Validate the execution result.

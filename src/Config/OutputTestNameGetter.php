@@ -5,7 +5,7 @@ namespace Box\TestScribe\Config;
 
 use Box\TestScribe\GeneratorException;
 use Box\TestScribe\Output;
-use Box\TestScribe\RawInputWithPrompt;
+use Box\TestScribe\Input\RawInputWithPrompt;
 
 
 /**
@@ -24,7 +24,7 @@ class OutputTestNameGetter
     private $output;
 
     /**
-     * @param \Box\TestScribe\RawInputWithPrompt $rawInputWithPrompt
+     * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
      * @param \Box\TestScribe\Output             $output
      */
     function __construct(

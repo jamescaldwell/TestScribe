@@ -18,11 +18,11 @@ class RawInputWithHelpGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\RawInputWithPrompt $mockRawInputWithPrompt0 */
+        /** @var \Box\TestScribe\Input\RawInputWithPrompt $mockRawInputWithPrompt0 */
         $mockRawInputWithPrompt0 = $this->shmock(
-            '\\Box\\TestScribe\\RawInputWithPrompt',
+            '\\Box\\TestScribe\\Input\\RawInputWithPrompt',
             function (
-                /** @var \Box\TestScribe\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -71,11 +71,11 @@ class RawInputWithHelpGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\RawInputWithPrompt $mockRawInputWithPrompt1 */
+        /** @var \Box\TestScribe\Input\RawInputWithPrompt $mockRawInputWithPrompt1 */
         $mockRawInputWithPrompt1 = $this->shmock(
-            '\\Box\\TestScribe\\RawInputWithPrompt',
+            '\\Box\\TestScribe\\Input\\RawInputWithPrompt',
             function (
-                /** @var \Box\TestScribe\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

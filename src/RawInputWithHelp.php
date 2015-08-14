@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\RawInputWithPrompt;
+
 /**
  * Display a help message and handle the help command.
  */
@@ -18,7 +20,7 @@ class RawInputWithHelp
     private $output;
 
     /**
-     * @param \Box\TestScribe\RawInputWithPrompt $rawInputWithPrompt
+     * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
      * @param \Box\TestScribe\Output             $output
      */
     function __construct(

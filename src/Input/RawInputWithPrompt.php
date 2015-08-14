@@ -3,9 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\RawInput;
+use Box\TestScribe\Output;
 
 /**
  * Display a prompt and get raw string from an input source
