@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Exception\AbortException;
+use Box\TestScribe\Execution\Runner;
 use Box\TestScribe\InputHistory\InputHistory;
 use Box\TestScribe\Renderers\RendererService;
 
@@ -37,7 +38,7 @@ class Engine
     private $inputHistory;
 
     /**
-     * @param \Box\TestScribe\Runner                    $runner
+     * @param \Box\TestScribe\Execution\Runner                    $runner
      * @param \Box\TestScribe\Renderers\RendererService $rendererService
      * @param \Box\TestScribe\InputHistory\InputHistory              $inputHistory
      */

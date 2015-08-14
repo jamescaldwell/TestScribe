@@ -3,9 +3,10 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Execution\Executor;
+use Box\TestScribe\App;
+use Box\TestScribe\ResultDisplay;
 
 
 /**

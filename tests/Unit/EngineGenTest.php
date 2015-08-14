@@ -18,11 +18,11 @@ class EngineGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Runner $mockRunner1 */
+        /** @var \Box\TestScribe\Execution\Runner $mockRunner1 */
         $mockRunner1 = $this->shmock(
-            '\\Box\\TestScribe\\Runner',
+            '\\Box\\TestScribe\\Execution\\Runner',
             function (
-                /** @var \Box\TestScribe\Runner|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Execution\Runner|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
