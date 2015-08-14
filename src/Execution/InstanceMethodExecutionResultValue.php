@@ -1,7 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Execution;
 
+use Box\TestScribe\Arguments;
 use Prophecy\Argument;
 
 /**

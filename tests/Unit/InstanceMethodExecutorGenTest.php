@@ -149,7 +149,7 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\InstanceMethodExecutionResultValue',
+            'Box\\TestScribe\\Execution\\InstanceMethodExecutionResultValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

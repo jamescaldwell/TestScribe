@@ -247,11 +247,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InstanceMethodExecutionResultValue $mockInstanceMethodExecutionResultValue7 */
+                /** @var \Box\TestScribe\Execution\InstanceMethodExecutionResultValue $mockInstanceMethodExecutionResultValue7 */
                 $mockInstanceMethodExecutionResultValue7 = $this->shmock(
-                    '\\Box\\TestScribe\\InstanceMethodExecutionResultValue',
+                    '\\Box\\TestScribe\\Execution\\InstanceMethodExecutionResultValue',
                     function (
-                        /** @var \Box\TestScribe\InstanceMethodExecutionResultValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Execution\InstanceMethodExecutionResultValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

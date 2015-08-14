@@ -2,7 +2,6 @@
 namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\ArgumentsCollector;
-use Box\TestScribe\InstanceMethodExecutionResultValue;
 use Box\TestScribe\Method;
 use Box\TestScribe\Mock\ClassUnderTestMockCreator;
 use Box\TestScribe\Mock\MockClass;
@@ -44,7 +43,7 @@ class InstanceMethodExecutor
      * @param \Box\TestScribe\Mock\MockClass $mockClassUnderTest
      * @param \Box\TestScribe\Method    $method
      *
-     * @return \Box\TestScribe\InstanceMethodExecutionResultValue
+     * @return \Box\TestScribe\Execution\InstanceMethodExecutionResultValue
      */
     public function runInstanceMethod(
         MockClass $mockClassUnderTest,
