@@ -1,7 +1,10 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
+use Box\TestScribe\Method;
+use Box\TestScribe\MethodCallInfo;
+use Box\TestScribe\Output;
 use Box\TestScribe\Utils\CallInformationCollector;
 use Box\TestScribe\Utils\Util;
 
@@ -72,8 +75,8 @@ class MockClassServiceCallInfo
         //  #2  mockClassInstance->__routeAllCallsToTestGeneratorMockObjects()
         //  #3  Box\TestScribe\Mock\MockClass->invokeInterceptedCall()
         //  #4  Box\TestScribe\MockClassService->invokeInterceptedCall()
-        //  #5  Box\TestScribe\MockClassServiceCallInfo::showCallInfo()
-        //  #6  Box\TestScribe\MockClassServiceCallInfo->getCallerInfoString()
+        //  #5  Box\TestScribe\Mock\MockClassServiceCallInfo::showCallInfo()
+        //  #6  Box\TestScribe\Mock\MockClassServiceCallInfo->getCallerInfoString()
 
         // @TODO (ryang 5/28/15) : find a better way to maintain this logic and add a test
         // for it.

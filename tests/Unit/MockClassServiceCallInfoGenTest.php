@@ -144,7 +144,7 @@ class MockClassServiceCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MockClassServiceCallInfo($mockOutput1, $mockCallInformationCollector2, $mockMethodCallInfo3);
+        $objectUnderTest = new Mock\MockClassServiceCallInfo($mockOutput1, $mockCallInformationCollector2, $mockMethodCallInfo3);
 
         $objectUnderTest->showCallInfo($mockMethod4, ['arg']);
     }

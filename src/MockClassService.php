@@ -3,6 +3,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Mock\MockClassServiceCallInfo;
 
 /**
  * Responsible for operations to the MockClass instance.
@@ -26,7 +27,7 @@ class MockClassService
     private $output;
 
     /**
-     * @param \Box\TestScribe\MockClassServiceCallInfo  $mockClassServiceCallInfo
+     * @param \Box\TestScribe\Mock\MockClassServiceCallInfo  $mockClassServiceCallInfo
      * @param \Box\TestScribe\MockClassServiceInfoSaver $mockClassServiceInfoSaver
      * @param \Box\TestScribe\MethodHelper              $methodHelper
      * @param \Box\TestScribe\Output                    $output

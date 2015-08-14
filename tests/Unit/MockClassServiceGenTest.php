@@ -50,11 +50,11 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassServiceCallInfo $mockMockClassServiceCallInfo1 */
+        /** @var \Box\TestScribe\Mock\MockClassServiceCallInfo $mockMockClassServiceCallInfo1 */
         $mockMockClassServiceCallInfo1 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassServiceCallInfo',
+            '\\Box\\TestScribe\\Mock\\MockClassServiceCallInfo',
             function (
-                /** @var \Box\TestScribe\MockClassServiceCallInfo|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassServiceCallInfo|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
