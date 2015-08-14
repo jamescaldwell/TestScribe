@@ -5,7 +5,6 @@ use Box\TestScribe\Arguments;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Exception\TestScribeException;
-use Box\TestScribe\InstanceMethodExecutor;
 use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Utils\ExceptionUtil;
 
@@ -33,7 +32,7 @@ class Executor
      * @param \Box\TestScribe\Mock\MockClassLoader        $mockClassLoader
      * @param \Box\TestScribe\Config\GlobalComputedConfig   $globalComputedConfig
      * @param \Box\TestScribe\Execution\StaticMethodExecutor   $staticMethodExecutor
-     * @param \Box\TestScribe\InstanceMethodExecutor $instanceMethodExecutor
+     * @param \Box\TestScribe\Execution\InstanceMethodExecutor $instanceMethodExecutor
      */
     function __construct(
         MockClassLoader $mockClassLoader,

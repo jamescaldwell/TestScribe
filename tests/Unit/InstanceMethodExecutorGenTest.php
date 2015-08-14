@@ -142,7 +142,7 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\InstanceMethodExecutor($mockReflectionUtil1, $mockArgumentsCollector2, $mockClassUnderTestMockCreator3);
+        $objectUnderTest = new Execution\InstanceMethodExecutor($mockReflectionUtil1, $mockArgumentsCollector2, $mockClassUnderTestMockCreator3);
 
         $executionResult = $objectUnderTest->runInstanceMethod($mockMockClass4, $mockMethod5);
 

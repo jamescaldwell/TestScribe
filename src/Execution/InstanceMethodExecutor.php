@@ -1,6 +1,9 @@
 <?php
-namespace Box\TestScribe;
+namespace Box\TestScribe\Execution;
 
+use Box\TestScribe\ArgumentsCollector;
+use Box\TestScribe\InstanceMethodExecutionResultValue;
+use Box\TestScribe\Method;
 use Box\TestScribe\Mock\ClassUnderTestMockCreator;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ReflectionUtil;

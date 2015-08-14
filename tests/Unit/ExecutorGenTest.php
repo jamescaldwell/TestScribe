@@ -106,11 +106,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\InstanceMethodExecutor $mockInstanceMethodExecutor4 */
+        /** @var \Box\TestScribe\Execution\InstanceMethodExecutor $mockInstanceMethodExecutor4 */
         $mockInstanceMethodExecutor4 = $this->shmock(
-            '\\Box\\TestScribe\\InstanceMethodExecutor',
+            '\\Box\\TestScribe\\Execution\\InstanceMethodExecutor',
             function (
-                /** @var \Box\TestScribe\InstanceMethodExecutor|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Execution\InstanceMethodExecutor|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -235,11 +235,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\InstanceMethodExecutor $mockInstanceMethodExecutor4 */
+        /** @var \Box\TestScribe\Execution\InstanceMethodExecutor $mockInstanceMethodExecutor4 */
         $mockInstanceMethodExecutor4 = $this->shmock(
-            '\\Box\\TestScribe\\InstanceMethodExecutor',
+            '\\Box\\TestScribe\\Execution\\InstanceMethodExecutor',
             function (
-                /** @var \Box\TestScribe\InstanceMethodExecutor|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Execution\InstanceMethodExecutor|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
