@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\RawInput;
+
 /**
  * Display a prompt and get raw string from an input source
  */
@@ -21,7 +23,7 @@ class RawInputWithPrompt
     private $output;
 
     /**
-     * @param \Box\TestScribe\RawInput $rawInput
+     * @param \Box\TestScribe\Input\RawInput $rawInput
      * @param \Box\TestScribe\Output   $output
      */
     function __construct(

@@ -16,10 +16,10 @@ class RawInputWithPromptGenTest extends \PHPUnit_Framework_TestCase
         // Setup mocks for parameters to the constructor.
 
         $mockRawInput0 = $this->shmock(
-            '\\Box\\TestScribe\\RawInput',
+            '\\Box\\TestScribe\\Input\\RawInput',
             function (
                 $shmock
-                /** @var \Box\TestScribe\RawInput|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\RawInput|\Shmock\PHPUnitMockInstance $shmock */
             ) {
                 // Keep track of the order of calls made on this mock.
                 $shmock->order_matters();
