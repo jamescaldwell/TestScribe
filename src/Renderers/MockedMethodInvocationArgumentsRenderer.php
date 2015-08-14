@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\Utils\Util;
-use Box\TestScribe\VarExporter;
+use Box\TestScribe\Utils\VarExporter;
 
 /**
  * Generate the string for setting up the mocked method
@@ -29,7 +29,7 @@ class MockedMethodInvocationArgumentsRenderer
 
     /**
      * @param \Box\TestScribe\Utils\Util        $util
-     * @param \Box\TestScribe\VarExporter $varExporter
+     * @param \Box\TestScribe\Utils\VarExporter $varExporter
      */
     function __construct(
         Util $util,

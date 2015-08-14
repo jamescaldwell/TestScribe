@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\VarExporter;
+use Box\TestScribe\Utils\VarExporter;
 
 /**
  */
@@ -17,7 +17,7 @@ class ScalarOrNullValueAssertionRenderer
     private $varExporter;
 
     /**
-     * @param \Box\TestScribe\VarExporter         $varExporter
+     * @param \Box\TestScribe\Utils\VarExporter         $varExporter
      */
     function __construct(
         VarExporter $varExporter

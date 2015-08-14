@@ -13,7 +13,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testExportVariableStringWithoutReturnChar()
     {
-        $objectUnderTest = new \Box\TestScribe\VarExporter();
+        $objectUnderTest = new Utils\VarExporter();
         $executionResult = $objectUnderTest->exportVariable('ab');
         $this->assertSame(
             '\'ab\'',
@@ -27,7 +27,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testExportVariableBoolean()
     {
-        $objectUnderTest = new \Box\TestScribe\VarExporter();
+        $objectUnderTest = new Utils\VarExporter();
         $executionResult = $objectUnderTest->exportVariable(false);
         $this->assertSame(
             'false',
@@ -42,7 +42,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
      */
     public function testExportVariableInt()
     {
-        $objectUnderTest = new \Box\TestScribe\VarExporter();
+        $objectUnderTest = new Utils\VarExporter();
         $executionResult = $objectUnderTest->exportVariable(21);
         $this->assertSame(
             '21',
@@ -61,7 +61,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\VarExporter();
+        $objectUnderTest = new Utils\VarExporter();
         $executionResult = $objectUnderTest->exportVariable("a\nb");
 
         // Validate the execution result.

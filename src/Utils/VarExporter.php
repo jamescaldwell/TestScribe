@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Utils;
 
 /**
  * Custom var_export wrapper.
