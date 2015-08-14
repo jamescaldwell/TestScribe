@@ -63,10 +63,10 @@ class StringToInputValueConverter
      * ['foo', 'bar']
      * ['a' => 1]
      * ['a' => [ 1, 2] ]
-     * \Box\TestScribe\InputValue
-     * ['a' => \Box\TestScribe\InputValue]
+     * \Box\TestScribe\Input\InputValue
+     * ['a' => \Box\TestScribe\Input\InputValue]
      *
-     * @return \Box\TestScribe\InputValue
+     * @return \Box\TestScribe\Input\InputValue
      */
     public function getValue($expression)
     {

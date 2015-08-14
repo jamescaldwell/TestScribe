@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\InputValue;
+
 /**
  * Class Arguments
  * @package Box\TestScribe

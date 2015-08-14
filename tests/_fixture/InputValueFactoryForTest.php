@@ -16,7 +16,7 @@ class InputValueFactoryForTest
      *   e.g. '1' is integeter value 1
      *   '"1"' is string '1'
      *
-     * @return \Box\TestScribe\InputValue
+     * @return \Box\TestScribe\Input\InputValue
      */
     static public function createValue($stringExpression)
     {

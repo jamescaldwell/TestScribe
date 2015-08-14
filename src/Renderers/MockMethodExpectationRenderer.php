@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\InputValue;
+use Box\TestScribe\Input\InputValue;
 use Box\TestScribe\Method;
 
 /**

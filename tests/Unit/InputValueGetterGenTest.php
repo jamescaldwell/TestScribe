@@ -53,11 +53,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputValue $mockInputValue4 */
+                /** @var \Box\TestScribe\Input\InputValue $mockInputValue4 */
                 $mockInputValue4 = $this->shmock(
-                    '\\Box\\TestScribe\\InputValue',
+                    '\\Box\\TestScribe\\Input\\InputValue',
                     function (
-                        /** @var \Box\TestScribe\InputValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Input\InputValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         // Keep track of the order of calls made on this mock.
@@ -91,7 +91,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\TestScribe\InputValue',
+            'Box\TestScribe\Input\InputValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -145,11 +145,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputValue $mockInputValue4 */
+                /** @var \Box\TestScribe\Input\InputValue $mockInputValue4 */
                 $mockInputValue4 = $this->shmock(
-                    '\\Box\\TestScribe\\InputValue',
+                    '\\Box\\TestScribe\\Input\\InputValue',
                     function (
-                        /** @var \Box\TestScribe\InputValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Input\InputValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         // Keep track of the order of calls made on this mock.
@@ -186,7 +186,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\InputValue',
+            'Box\\TestScribe\\Input\\InputValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -235,11 +235,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputValue $mockInputValue4 */
+                /** @var \Box\TestScribe\Input\InputValue $mockInputValue4 */
                 $mockInputValue4 = $this->shmock(
-                    '\\Box\\TestScribe\\InputValue',
+                    '\\Box\\TestScribe\\Input\\InputValue',
                     function (
-                        /** @var \Box\TestScribe\InputValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Input\InputValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -271,7 +271,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\InputValue',
+            'Box\\TestScribe\\Input\\InputValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

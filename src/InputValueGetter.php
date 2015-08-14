@@ -54,7 +54,7 @@ class InputValueGetter
      * @param string                                   $methodName
      * @param string                                   $paramName
      *
-     * @return \Box\TestScribe\InputValue
+     * @return \Box\TestScribe\Input\InputValue
      */
     public function get(
         IPhpDoc $typeInfo,

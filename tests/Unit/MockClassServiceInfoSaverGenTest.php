@@ -67,11 +67,11 @@ class MockClassServiceInfoSaverGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\InputValue $mockInputValue7 */
+                /** @var \Box\TestScribe\Input\InputValue $mockInputValue7 */
                 $mockInputValue7 = $this->shmock(
-                    '\\Box\\TestScribe\\InputValue',
+                    '\\Box\\TestScribe\\Input\\InputValue',
                     function (
-                        /** @var \Box\TestScribe\InputValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Input\InputValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\InputValue;
+
 /**
  * Class InputValueFactory
  * @package Box\TestScribe
@@ -14,7 +16,7 @@ class InputValueFactory
     /**
      * Create an instance of a void input value.
      *
-     * @return \Box\TestScribe\InputValue
+     * @return \Box\TestScribe\Input\InputValue
      */
     function createVoid()
     {
@@ -30,7 +32,7 @@ class InputValueFactory
      * @param string                                        $value
      * @param \Box\TestScribe\ExpressionWithMocks $expressionWithMocks
      *
-     * @return \Box\TestScribe\InputValue
+     * @return \Box\TestScribe\Input\InputValue
      */
     function createValue($value, ExpressionWithMocks $expressionWithMocks)
     {

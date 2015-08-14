@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\InputValue;
+
 /**
  * Represent a class being mocked
  *
@@ -221,7 +223,7 @@ class MockClass implements \JsonSerializable
     /**
      * @param \Box\TestScribe\Method     $methodObj
      * @param array                                $arguments
-     * @param \Box\TestScribe\InputValue $value
+     * @param \Box\TestScribe\Input\InputValue $value
      *
      * @return void
      */
