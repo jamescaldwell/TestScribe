@@ -1,6 +1,7 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\ClassUnderTestMockCreator;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ReflectionUtil;
 
@@ -23,7 +24,7 @@ class InstanceMethodExecutor
     /**
      * @param \Box\TestScribe\Utils\ReflectionUtil      $reflectionUtil
      * @param \Box\TestScribe\ArgumentsCollector        $argumentsCollector
-     * @param \Box\TestScribe\ClassUnderTestMockCreator $classUnderTestMockCreator
+     * @param \Box\TestScribe\Mock\ClassUnderTestMockCreator $classUnderTestMockCreator
      */
     function __construct(
         ReflectionUtil $reflectionUtil,

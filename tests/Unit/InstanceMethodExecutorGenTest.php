@@ -90,11 +90,11 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\ClassUnderTestMockCreator $mockClassUnderTestMockCreator3 */
+        /** @var \Box\TestScribe\Mock\ClassUnderTestMockCreator $mockClassUnderTestMockCreator3 */
         $mockClassUnderTestMockCreator3 = $this->shmock(
-            '\\Box\\TestScribe\\ClassUnderTestMockCreator',
+            '\\Box\\TestScribe\\Mock\\ClassUnderTestMockCreator',
             function (
-                /** @var \Box\TestScribe\ClassUnderTestMockCreator|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\ClassUnderTestMockCreator|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
