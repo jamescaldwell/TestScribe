@@ -74,7 +74,7 @@ class MockClassServiceCallInfo
         //  #1  mockClassInstance->add()
         //  #2  mockClassInstance->__routeAllCallsToTestGeneratorMockObjects()
         //  #3  Box\TestScribe\Mock\MockClass->invokeInterceptedCall()
-        //  #4  Box\TestScribe\MockClassService->invokeInterceptedCall()
+        //  #4  Box\TestScribe\Mock\MockClassService->invokeInterceptedCall()
         //  #5  Box\TestScribe\Mock\MockClassServiceCallInfo::showCallInfo()
         //  #6  Box\TestScribe\Mock\MockClassServiceCallInfo->getCallerInfoString()
 

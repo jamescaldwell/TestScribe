@@ -126,7 +126,7 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MockClassService($mockMockClassServiceCallInfo1, $mockMockClassServiceInfoSaver2, $mockMethodHelper3, $mockOutput4);
+        $objectUnderTest = new Mock\MockClassService($mockMockClassServiceCallInfo1, $mockMockClassServiceInfoSaver2, $mockMethodHelper3, $mockOutput4);
 
         $executionResult = $objectUnderTest->invokeInterceptedCall($mockMockClass5, 'methodName', ['args']);
 

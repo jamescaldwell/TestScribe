@@ -1,10 +1,9 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\MockClass;
-use Box\TestScribe\Mock\MockClassServiceCallInfo;
-use Box\TestScribe\Mock\MockClassServiceInfoSaver;
+use Box\TestScribe\MethodHelper;
+use Box\TestScribe\Output;
 
 /**
  * Responsible for operations to the MockClass instance.

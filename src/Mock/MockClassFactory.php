@@ -2,7 +2,6 @@
 namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\GlobalCounter;
-use Box\TestScribe\MockClassService;
 use Box\TestScribe\PhpClass;
 use Box\TestScribe\PhpClassName;
 
@@ -21,7 +20,7 @@ class MockClassFactory
     private $globalCounter;
 
     /**
-     * @param \Box\TestScribe\MockClassService $mockClassService
+     * @param \Box\TestScribe\Mock\MockClassService $mockClassService
      * @param \Box\TestScribe\GlobalCounter    $globalCounter
      */
     function __construct(

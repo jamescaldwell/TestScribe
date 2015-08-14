@@ -21,11 +21,11 @@ class MockClassTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassService $mockMockClassService0 */
+        /** @var \Box\TestScribe\Mock\MockClassService $mockMockClassService0 */
         $mockMockClassService0 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassService',
+            '\\Box\\TestScribe\\Mock\\MockClassService',
             function (
-                /** @var \Box\TestScribe\MockClassService|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassService|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
