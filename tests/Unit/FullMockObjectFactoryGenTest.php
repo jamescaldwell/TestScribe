@@ -19,11 +19,11 @@ class FullMockObjectFactoryGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassLoader $mockMockClassLoader0 */
+        /** @var \Box\TestScribe\Mock\MockClassLoader $mockMockClassLoader0 */
         $mockMockClassLoader0 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassLoader',
+            '\\Box\\TestScribe\\Mock\\MockClassLoader',
             function (
-                /** @var \Box\TestScribe\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

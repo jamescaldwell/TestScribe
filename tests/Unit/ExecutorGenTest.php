@@ -18,11 +18,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassLoader $mockMockClassLoader1 */
+        /** @var \Box\TestScribe\Mock\MockClassLoader $mockMockClassLoader1 */
         $mockMockClassLoader1 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassLoader',
+            '\\Box\\TestScribe\\Mock\\MockClassLoader',
             function (
-                /** @var \Box\TestScribe\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -147,11 +147,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassLoader $mockMockClassLoader1 */
+        /** @var \Box\TestScribe\Mock\MockClassLoader $mockMockClassLoader1 */
         $mockMockClassLoader1 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassLoader',
+            '\\Box\\TestScribe\\Mock\\MockClassLoader',
             function (
-                /** @var \Box\TestScribe\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassLoader|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

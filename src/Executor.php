@@ -2,6 +2,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
+use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Utils\ExceptionUtil;
 
 /**
@@ -25,7 +26,7 @@ class Executor
     private $instanceMethodExecutor;
 
     /**
-     * @param \Box\TestScribe\MockClassLoader        $mockClassLoader
+     * @param \Box\TestScribe\Mock\MockClassLoader        $mockClassLoader
      * @param \Box\TestScribe\Config\GlobalComputedConfig   $globalComputedConfig
      * @param \Box\TestScribe\StaticMethodExecutor   $staticMethodExecutor
      * @param \Box\TestScribe\InstanceMethodExecutor $instanceMethodExecutor

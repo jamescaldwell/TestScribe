@@ -68,7 +68,7 @@ class MockClassLoaderGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('mock class name');
             }
         );
-        $objectUnderTest = new \Box\TestScribe\MockClassLoader($mockMockClassFactory0, $mockClassBuilder1);
+        $objectUnderTest = new Mock\MockClassLoader($mockMockClassFactory0, $mockClassBuilder1);
         $executionResult = $objectUnderTest->createAndLoadMockClass('className', 'method_to_pass_through');
 
         // Validate the execution result.

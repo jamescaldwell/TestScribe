@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Mock\MockObjectFactory;
 
 /**
@@ -27,7 +28,7 @@ class FullMockObjectFactory
     private $output;
 
     /**
-     * @param \Box\TestScribe\MockClassLoader   $mockClassLoader
+     * @param \Box\TestScribe\Mock\MockClassLoader   $mockClassLoader
      * @param \Box\TestScribe\Mock\MockObjectFactory $mockObjectFactory
      * @param \Box\TestScribe\Output            $output
      */

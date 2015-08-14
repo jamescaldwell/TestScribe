@@ -5,8 +5,6 @@
 
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\MockClassLoader;
-
 /**
  * Class MockObjectFactory
  * @package Box\TestScribe
