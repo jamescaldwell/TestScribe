@@ -25,9 +25,13 @@ class ExceptionRenderer
         $exception = $executionResult->getException();
         if ($exception !== null) {
             $exceptionType = get_class($exception);
+
+            // Since the class name should not contain "\n" character
+            // the regular var_export should be sufficient.
+            $exceptionTypeAsStringInCode = var_export($exceptionType, true);
             // @TODO (ryang 6/3/15) : set more strict exception expectations e.g.
             // exception message
-            $exceptionStatement = "\$this->setExpectedException('$exceptionType');";
+            $exceptionStatement = "\$this->setExpectedException($exceptionTypeAsStringInCode);";
         } else {
             $exceptionStatement = '';
         }
