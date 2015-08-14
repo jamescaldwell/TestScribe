@@ -6,7 +6,6 @@ use Box\TestScribe\Input\InputValueGetter;
 use Box\TestScribe\Mock\MockClass;
 
 /**
- * Responsible for
  * This is the only class which should modify the MockClass's state
  * after that instance is created.
  *
