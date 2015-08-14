@@ -44,7 +44,7 @@ class ClassBuilderStatic
         $classDef = <<<EOF
 class $uniqueClassName
 {
-    use \Box\TestScribe\MockTraitStatic;
+    use \\Box\\TestScribe\\MockTraitStatic;
 }
 EOF;
         eval($classDef);
