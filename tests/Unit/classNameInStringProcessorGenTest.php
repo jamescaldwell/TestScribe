@@ -31,7 +31,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        $objectUnderTest = new \Box\TestScribe\classNameInStringProcessor($mockFullMockObjectFactory0);
+        $objectUnderTest = new Input\classNameInStringProcessor($mockFullMockObjectFactory0);
         $executionResult = $objectUnderTest->process('simple string');
 
         // Validate the execution result.
@@ -96,7 +96,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockMockClass2);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\classNameInStringProcessor($mockFullMockObjectFactory0);
+        $objectUnderTest = new Input\classNameInStringProcessor($mockFullMockObjectFactory0);
         $executionResult = $objectUnderTest->process('\Foo');
 
         // Validate the execution result.
@@ -160,7 +160,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockMockClass2);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\classNameInStringProcessor($mockFullMockObjectFactory0);
+        $objectUnderTest = new Input\classNameInStringProcessor($mockFullMockObjectFactory0);
         $executionResult = $objectUnderTest->process('[\Foo]');
 
         // Validate the execution result.

@@ -5,8 +5,6 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\classNameInStringProcessor;
-
 /**
  * Handle converting an expression to an value and associated mock object information.
  *
@@ -31,7 +29,7 @@ class StringToInputValueConverter
 
     /**
      * @param \Box\TestScribe\Input\StringToValueConverter     $converter
-     * @param \Box\TestScribe\classNameInStringProcessor $classNameInStringProcessorService
+     * @param \Box\TestScribe\Input\classNameInStringProcessor $classNameInStringProcessorService
      * @param \Box\TestScribe\Input\InputValueFactory          $inputValueFactory
      */
     function __construct(

@@ -1,7 +1,6 @@
 <?php
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\ExpressionWithMocks;
 use Box\TestScribe\Mock\FullMockObjectFactory;
 
 /**
