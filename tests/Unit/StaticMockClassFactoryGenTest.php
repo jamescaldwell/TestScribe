@@ -19,11 +19,11 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockClassFactory $mockMockClassFactory0 */
+        /** @var \Box\TestScribe\Mock\MockClassFactory $mockMockClassFactory0 */
         $mockMockClassFactory0 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassFactory',
+            '\\Box\\TestScribe\\Mock\\MockClassFactory',
             function (
-                /** @var \Box\TestScribe\MockClassFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

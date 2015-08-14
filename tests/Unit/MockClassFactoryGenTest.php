@@ -46,7 +46,7 @@ class MockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(0);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\MockClassFactory($mockMockClassService0, $mockGlobalCounter1);
+        $objectUnderTest = new Mock\MockClassFactory($mockMockClassService0, $mockGlobalCounter1);
         $executionResult = $objectUnderTest->create('\Box\TestScribe\Output', false, 'methodToPassThrough');
 
         // Validate the execution result.

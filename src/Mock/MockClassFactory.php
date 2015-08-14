@@ -1,7 +1,10 @@
 <?php
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\GlobalCounter;
+use Box\TestScribe\MockClassService;
+use Box\TestScribe\PhpClass;
+use Box\TestScribe\PhpClassName;
 
 /**
  * Class MockClassFactory

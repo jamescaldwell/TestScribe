@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClassFactory;
+
 /**
  * Create and load mock classes for static invocations.
  *
@@ -22,7 +24,7 @@ class StaticMockClassFactory
     private $classBuilderStatic;
 
     /**
-     * @param \Box\TestScribe\MockClassFactory   $mockClassFactory
+     * @param \Box\TestScribe\Mock\MockClassFactory   $mockClassFactory
      * @param \Box\TestScribe\Output             $output
      * @param \Box\TestScribe\ClassBuilderStatic $classBuilderStatic
      */

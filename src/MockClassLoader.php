@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClassFactory;
+
 /**
  * Create and load mock classes for instance method invocations only.
  *
@@ -19,7 +21,7 @@ class MockClassLoader
     private $classBuilder;
 
     /**
-     * @param \Box\TestScribe\MockClassFactory $mockClassFactory
+     * @param \Box\TestScribe\Mock\MockClassFactory $mockClassFactory
      * @param \Box\TestScribe\ClassBuilder     $classBuilder
      */
     function __construct(
