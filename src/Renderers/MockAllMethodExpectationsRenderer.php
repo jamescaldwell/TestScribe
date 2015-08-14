@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**

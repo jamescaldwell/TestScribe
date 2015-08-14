@@ -1,6 +1,7 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ReflectionUtil;
 
 /**
@@ -36,7 +37,7 @@ class InstanceMethodExecutor
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mockClassUnderTest
+     * @param \Box\TestScribe\Mock\MockClass $mockClassUnderTest
      * @param \Box\TestScribe\Method    $method
      *
      * @return \Box\TestScribe\InstanceMethodExecutionResultValue

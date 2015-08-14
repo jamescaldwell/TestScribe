@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * Class MockObjectFactory
  * @package Box\TestScribe
@@ -16,7 +18,7 @@ class MockObjectFactory
     /**
      * Create an instance of the mock object of the given mock class.
      *
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      * @param array                               $arguments
      *  Arguments to the constructor
      *

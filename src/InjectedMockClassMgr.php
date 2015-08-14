@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\CallOriginatorChecker;
 
 /**

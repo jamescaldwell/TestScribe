@@ -53,7 +53,7 @@ class InputValue implements \JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\MockClass[]
+     * @return \Box\TestScribe\Mock\MockClass[]
      */
     public function getMocks()
     {

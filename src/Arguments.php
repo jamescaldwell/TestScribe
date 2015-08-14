@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Input\InputValue;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  * Class Arguments

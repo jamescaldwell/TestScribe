@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**
@@ -33,7 +33,7 @@ class MultipleInjectedMocksRenderer
     public function genInjectionStatements($mocks, $injectMethodName)
     {
         $statementArray = [];
-        /* @var $mock MockClass */
+        /* @var $mock \Box\TestScribe\Mock\MockClass */
         foreach ($mocks as $mock) {
             $statement = $this->oneInjectedMockRenderer->genInjectedMockStatement(
                 $mock,

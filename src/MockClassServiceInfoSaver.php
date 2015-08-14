@@ -3,6 +3,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Input\InputValueGetter;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  * Responsible for
@@ -34,7 +35,7 @@ class MockClassServiceInfoSaver
     /**
      * Handle intercepted calls made to the mock class instance.
      *
-     * @param \Box\TestScribe\MockClass $mockClass
+     * @param \Box\TestScribe\Mock\MockClass $mockClass
      * @param string                              $methodName
      * @param array                               $arguments
      *

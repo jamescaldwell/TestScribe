@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * Responsible for operations to the MockClass instance.
  * This is the only class which should modify the MockClass's state
@@ -45,7 +47,7 @@ class MockClassService
     /**
      * Handle intercepted calls made to the mock class instance.
      *
-     * @param \Box\TestScribe\MockClass $mockClass
+     * @param \Box\TestScribe\Mock\MockClass $mockClass
      * @param string                              $methodName
      * @param array                               $arguments
      *

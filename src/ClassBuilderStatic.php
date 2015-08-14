@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * Build classes dynamically for static invocation only.
  */

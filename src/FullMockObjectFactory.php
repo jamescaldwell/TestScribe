@@ -43,7 +43,7 @@ class FullMockObjectFactory
     /**
      * @param string $className
      *
-     * @return \Box\TestScribe\MockClass
+     * @return \Box\TestScribe\Mock\MockClass
      */
     public function createMockObject(
         $className

@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ArrayUtil;
 use ReflectionClass;
 
@@ -33,7 +33,7 @@ class MockRenderer
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      * @param string                              $constructorArgumentAsStringInCode
      * @param string                              $constructorArgumentMockingStatement
      *   mocking statements for objects in the constructor.
@@ -57,7 +57,7 @@ class MockRenderer
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class MockRenderer
 
     /**
      * @param bool                                $isPartialMock
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      *
      * @param string                              $constructorArgumentAsStringInCode
      *   if the string is not empty it means partial mocking is requested.
@@ -189,7 +189,7 @@ TAG;
     /**
      * Generate mock object expectations statements.
      *
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      *
      * @return string
      */
@@ -211,7 +211,7 @@ TAG;
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mock
+     * @param \Box\TestScribe\Mock\MockClass $mock
      *
      * @return string
      *

@@ -72,11 +72,11 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\MockClass $mockMockClass2 */
+                /** @var \Box\TestScribe\Mock\MockClass $mockMockClass2 */
                 $mockMockClass2 = $this->shmock(
-                    '\\Box\\TestScribe\\MockClass',
+                    '\\Box\\TestScribe\\Mock\\MockClass',
                     function (
-                        /** @var \Box\TestScribe\MockClass|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Mock\MockClass|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -136,11 +136,11 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\MockClass $mockMockClass2 */
+                /** @var \Box\TestScribe\Mock\MockClass $mockMockClass2 */
                 $mockMockClass2 = $this->shmock(
-                    '\\Box\\TestScribe\\MockClass',
+                    '\\Box\\TestScribe\\Mock\\MockClass',
                     function (
-                        /** @var \Box\TestScribe\MockClass|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Mock\MockClass|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

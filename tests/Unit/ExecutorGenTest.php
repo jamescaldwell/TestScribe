@@ -159,11 +159,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\MockClass $mockMockClass5 */
+                /** @var \Box\TestScribe\Mock\MockClass $mockMockClass5 */
                 $mockMockClass5 = $this->shmock(
-                    '\\Box\\TestScribe\\MockClass',
+                    '\\Box\\TestScribe\\Mock\\MockClass',
                     function (
-                        /** @var \Box\TestScribe\MockClass|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Mock\MockClass|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

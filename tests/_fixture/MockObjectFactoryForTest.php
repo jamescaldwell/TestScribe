@@ -3,7 +3,7 @@
 namespace Box\TestScribe\_fixture;
 
 use Box\TestScribe\InputHistory\InputHistoryData;
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  */

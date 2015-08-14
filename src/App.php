@@ -2,6 +2,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**

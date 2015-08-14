@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  * Class ExpressionWithMocks
@@ -32,7 +32,7 @@ class ExpressionWithMocks implements \JsonSerializable
 
     /**
      * @param string                                $str
-     * @param \Box\TestScribe\MockClass[] $mocks
+     * @param \Box\TestScribe\Mock\MockClass[] $mocks
      */
     public function __construct($str, array $mocks)
     {
@@ -49,7 +49,7 @@ class ExpressionWithMocks implements \JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\MockClass[]
+     * @return \Box\TestScribe\Mock\MockClass[]
      */
     public function getMocks()
     {

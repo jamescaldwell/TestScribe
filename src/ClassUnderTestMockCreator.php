@@ -1,6 +1,8 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * @var MockObjectFactory| ArgumentsCollector |Output
  */
@@ -32,7 +34,7 @@ class ClassUnderTestMockCreator
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mockClassUnderTest
+     * @param \Box\TestScribe\Mock\MockClass $mockClassUnderTest
      *
      * @return \Box\TestScribe\ClassUnderTestMockCreationResultValue
      */

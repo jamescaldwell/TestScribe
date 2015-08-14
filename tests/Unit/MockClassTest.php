@@ -43,7 +43,7 @@ class MockClassTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
             }
         );
-        $objectUnderTest = new \Box\TestScribe\MockClass(
+        $objectUnderTest = new Mock\MockClass(
             $mockMockClassService0, $mockPhpClass1, false, 'passThroughMethod', 'mockObjName'
         );
         $expected = 'mock object ( mockObjName )';

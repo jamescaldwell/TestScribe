@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  * The trait to be used by the dynamically generated mock classes.

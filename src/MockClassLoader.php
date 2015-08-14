@@ -42,7 +42,7 @@ class MockClassLoader
      *   and continue to mock other methods.
      *   If it is empty, it tells this instance to mock all methods.
      *
-     * @return \Box\TestScribe\MockClass
+     * @return \Box\TestScribe\Mock\MockClass
      * @throws \DI\NotFoundException
      */
     public function createAndLoadMockClass(

@@ -31,11 +31,11 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\MockClass $mockMockClass4 */
+                /** @var \Box\TestScribe\Mock\MockClass $mockMockClass4 */
                 $mockMockClass4 = $this->shmock(
-                    '\\Box\\TestScribe\\MockClass',
+                    '\\Box\\TestScribe\\Mock\\MockClass',
                     function (
-                        /** @var \Box\TestScribe\MockClass|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Mock\MockClass|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -84,7 +84,7 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\MockClass',
+            'Box\\TestScribe\\Mock\\MockClass',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

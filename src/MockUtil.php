@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * Utility class related to mocking.
  */

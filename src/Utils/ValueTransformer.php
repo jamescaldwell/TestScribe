@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 
 /**
  * Class ValueTransformer

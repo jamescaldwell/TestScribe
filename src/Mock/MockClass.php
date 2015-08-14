@@ -1,8 +1,12 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\Input\InputValue;
+use Box\TestScribe\Method;
+use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MockClassService;
+use Box\TestScribe\PhpClass;
 
 /**
  * Represent a class being mocked

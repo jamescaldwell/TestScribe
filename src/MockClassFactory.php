@@ -1,6 +1,8 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * Class MockClassFactory
  * @package Box\TestScribe
@@ -37,7 +39,7 @@ class MockClassFactory
      *   and continue to mock other methods.
      *   If it is empty, it tells this instance to mock all methods.
      *
-     * @return \Box\TestScribe\MockClass
+     * @return \Box\TestScribe\Mock\MockClass
      * @throws \DI\NotFoundException
      */
     public function create(

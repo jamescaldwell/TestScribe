@@ -70,7 +70,7 @@ class MockClassServiceCallInfo
         //  #0  Box\TestScribe\_fixture\_input\CalculatorUtil->calc()
         //  #1  mockClassInstance->add()
         //  #2  mockClassInstance->__routeAllCallsToTestGeneratorMockObjects()
-        //  #3  Box\TestScribe\MockClass->invokeInterceptedCall()
+        //  #3  Box\TestScribe\Mock\MockClass->invokeInterceptedCall()
         //  #4  Box\TestScribe\MockClassService->invokeInterceptedCall()
         //  #5  Box\TestScribe\MockClassServiceCallInfo::showCallInfo()
         //  #6  Box\TestScribe\MockClassServiceCallInfo->getCallerInfoString()

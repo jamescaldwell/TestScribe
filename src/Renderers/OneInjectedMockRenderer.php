@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\MockClass;
+use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**
@@ -25,7 +25,7 @@ class OneInjectedMockRenderer
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mockClass
+     * @param \Box\TestScribe\Mock\MockClass $mockClass
      * @param string                              $injectMethodName
      *
      * @return string
@@ -50,7 +50,7 @@ class OneInjectedMockRenderer
     }
 
     /**
-     * @param \Box\TestScribe\MockClass $mockClass
+     * @param \Box\TestScribe\Mock\MockClass $mockClass
      * @param string                              $injectMockedObjectMethodName
      *
      * @return string

@@ -42,7 +42,7 @@ class StaticMockClassFactory
      *
      * @param string $className
      *
-     * @return \Box\TestScribe\MockClass
+     * @return \Box\TestScribe\Mock\MockClass
      * @throws \DI\NotFoundException
      */
     public function createAndLoadStaticMockClass(

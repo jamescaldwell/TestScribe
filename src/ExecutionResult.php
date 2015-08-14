@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockClass;
+
 /**
  * All information captured during execution phase
  * needed for generating the test file.
@@ -40,7 +42,7 @@ class ExecutionResult implements \JsonSerializable
     private $exception;
 
     /**
-     * @param \Box\TestScribe\MockClass|null $mockClassUnderTest
+     * @param \Box\TestScribe\Mock\MockClass|null $mockClassUnderTest
      * @param \Box\TestScribe\Arguments      $methodArguments
      * @param \Box\TestScribe\Arguments      $constructorArguments
      * @param mixed                                    $resultValue

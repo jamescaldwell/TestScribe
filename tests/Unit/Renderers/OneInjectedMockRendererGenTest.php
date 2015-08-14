@@ -16,11 +16,11 @@ class OneInjectedMockRendererGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\MockClass $mockMockClass1 */
+        /** @var \Box\TestScribe\Mock\MockClass $mockMockClass1 */
         $mockMockClass1 = $this->shmock(
-            '\\Box\\TestScribe\\MockClass',
+            '\\Box\\TestScribe\\Mock\\MockClass',
             function (
-                /** @var \Box\TestScribe\MockClass|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClass|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

@@ -52,7 +52,7 @@ class MockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\MockClass',
+            'Box\\TestScribe\\Mock\\MockClass',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
