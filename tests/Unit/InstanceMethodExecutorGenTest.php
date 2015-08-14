@@ -102,11 +102,11 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\ClassUnderTestMockCreationResultValue $mockClassUnderTestMockCreationResultValue6 */
+                /** @var \Box\TestScribe\Execution\ClassUnderTestMockCreationResultValue $mockClassUnderTestMockCreationResultValue6 */
                 $mockClassUnderTestMockCreationResultValue6 = $this->shmock(
-                    '\\Box\\TestScribe\\ClassUnderTestMockCreationResultValue',
+                    '\\Box\\TestScribe\\Execution\\ClassUnderTestMockCreationResultValue',
                     function (
-                        /** @var \Box\TestScribe\ClassUnderTestMockCreationResultValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Execution\ClassUnderTestMockCreationResultValue|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

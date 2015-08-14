@@ -3,7 +3,6 @@ namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\Arguments;
 use Box\TestScribe\ArgumentsCollector;
-use Box\TestScribe\ClassUnderTestMockCreationResultValue;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
@@ -41,7 +40,7 @@ class ClassUnderTestMockCreator
     /**
      * @param \Box\TestScribe\Mock\MockClass $mockClassUnderTest
      *
-     * @return \Box\TestScribe\ClassUnderTestMockCreationResultValue
+     * @return \Box\TestScribe\Execution\ClassUnderTestMockCreationResultValue
      */
     public function createMockObjectForTheClassUnderTest(
         MockClass $mockClassUnderTest

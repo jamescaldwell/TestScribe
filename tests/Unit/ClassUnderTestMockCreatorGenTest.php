@@ -83,7 +83,7 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ClassUnderTestMockCreationResultValue',
+            'Box\\TestScribe\\Execution\\ClassUnderTestMockCreationResultValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -215,7 +215,7 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ClassUnderTestMockCreationResultValue',
+            'Box\\TestScribe\\Execution\\ClassUnderTestMockCreationResultValue',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
