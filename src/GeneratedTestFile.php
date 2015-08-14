@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\UserInput;
+
 /**
  * Representation of the test file to generate unit test in
  * Class GeneratedTestFile

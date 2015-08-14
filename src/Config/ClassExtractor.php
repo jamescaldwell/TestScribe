@@ -4,7 +4,7 @@ namespace Box\TestScribe\Config;
 
 use Box\TestScribe\App;
 use Box\TestScribe\PHPClassTokenizer;
-use Box\TestScribe\UserInput;
+use Box\TestScribe\Input\UserInput;
 
 /**
  * Class ClassExtractor - Utility class to extract class information from php file

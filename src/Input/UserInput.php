@@ -1,7 +1,9 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
+use Box\TestScribe\App;
+use Box\TestScribe\GeneratorException;
 use Box\TestScribe\PHPDoc\PHPDocType;
 
 /**
