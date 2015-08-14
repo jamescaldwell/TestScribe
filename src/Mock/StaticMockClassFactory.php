@@ -5,7 +5,6 @@
 
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\ClassBuilderStatic;
 use Box\TestScribe\Output;
 
 /**
@@ -27,7 +26,7 @@ class StaticMockClassFactory
     /**
      * @param \Box\TestScribe\Mock\MockClassFactory   $mockClassFactory
      * @param \Box\TestScribe\Output             $output
-     * @param \Box\TestScribe\ClassBuilderStatic $classBuilderStatic
+     * @param \Box\TestScribe\Mock\ClassBuilderStatic $classBuilderStatic
      */
     function __construct(
         MockClassFactory $mockClassFactory,

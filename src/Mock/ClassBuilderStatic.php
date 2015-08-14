@@ -1,8 +1,6 @@
 <?php
 
-namespace Box\TestScribe;
-
-use Box\TestScribe\Mock\MockClass;
+namespace Box\TestScribe\Mock;
 
 /**
  * Build classes dynamically for static invocation only.

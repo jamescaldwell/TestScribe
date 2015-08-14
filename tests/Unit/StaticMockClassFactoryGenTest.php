@@ -65,11 +65,11 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->writeln('Mocked ( class name ) id ( mock object name ) for static methods invocation.' . "\n" . '');
             }
         );
-        /** @var \Box\TestScribe\ClassBuilderStatic $mockClassBuilderStatic2 */
+        /** @var \Box\TestScribe\Mock\ClassBuilderStatic $mockClassBuilderStatic2 */
         $mockClassBuilderStatic2 = $this->shmock(
-            '\\Box\\TestScribe\\ClassBuilderStatic',
+            '\\Box\\TestScribe\\Mock\\ClassBuilderStatic',
             function (
-                /** @var \Box\TestScribe\ClassBuilderStatic|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\ClassBuilderStatic|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
