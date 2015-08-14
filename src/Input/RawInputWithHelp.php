@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\AbortException;
+use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Output;
 
 /**
@@ -42,7 +42,7 @@ class RawInputWithHelp
      * @param  string $default
      *
      * @return string
-     * @throws \Box\TestScribe\AbortException
+     * @throws \Box\TestScribe\Exception\AbortException
      */
     public function getString($subject, $default)
     {

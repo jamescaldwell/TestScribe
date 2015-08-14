@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\InputHistory\InputHistory;
 use Box\TestScribe\Renderers\RendererService;
 

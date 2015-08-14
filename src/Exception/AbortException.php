@@ -1,6 +1,6 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Exception;
 
 /**
  * User initiated abortion of the test run.

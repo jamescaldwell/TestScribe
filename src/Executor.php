@@ -2,6 +2,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
+use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Utils\ExceptionUtil;
 
@@ -46,7 +47,7 @@ class Executor
 
     /**
      * @return \Box\TestScribe\ExecutionResult
-     * @throws \Box\TestScribe\AbortException
+     * @throws \Box\TestScribe\Exception\AbortException
      * @throws \Box\TestScribe\TestScribeException
      */
     public function runMethod()
