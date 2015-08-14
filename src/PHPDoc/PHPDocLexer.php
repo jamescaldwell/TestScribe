@@ -4,6 +4,10 @@ namespace Box\TestScribe\PHPDoc;
 
 use Box\TestScribe;
 
+/**
+ * Class PHPDocLexer
+ * @package Box\TestScribe\PHPDoc
+ */
 class PHPDocLexer {
     const DELIMITERS = '/([\[\]\|\(\)\*\?])/';
 
@@ -24,7 +28,7 @@ class PHPDocLexer {
      * @return void
      */
     public function pushback() {
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDoc_Lexer_Exception')->are_not_equal(0, $this->token_index, "nothing to push back");
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDoc_Lexer_Exception')->are_not_equal(0, $this->token_index, "nothing to push back");
         $this->token_index--;
     }
 
@@ -68,6 +72,10 @@ class PHPDocLexer {
     }
 }
 
+/**
+ * Class PHPDoc_Lexer_Exception
+ * @package Box\TestScribe\PHPDoc
+ */
 class PHPDoc_Lexer_Exception extends \Exception
 {
 

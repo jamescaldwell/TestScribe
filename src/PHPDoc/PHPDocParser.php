@@ -46,7 +46,7 @@ class PHPDocParser
      */
     public function parse()
     {
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_true($this->lexer->has_more(), "The PHPDocType '$this->string_representation' is invalid or is not supported");
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_true($this->lexer->has_more(), "The PHPDocType '$this->string_representation' is invalid or is not supported");
 
         $type = $this->parse_variadic();
         if ($type !== null) {
@@ -55,9 +55,9 @@ class PHPDocParser
             $type = $this->parse_type();
         }
 
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_false($this->lexer->has_more(),
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_false($this->lexer->has_more(),
                                                         "The PHPDocType '$this->string_representation' is invalid or is not supported: unexpected trailing input '{$this->lexer->get_remaining_input()}'");
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$this->string_representation' is invalid or is not supported");
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$this->string_representation' is invalid or is not supported");
         return $type;
     }
 
@@ -81,7 +81,7 @@ class PHPDocParser
         $type = $this->parse_type();
         $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
 
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$string_rep' is invalid or is not supported");
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$string_rep' is invalid or is not supported");
         $res_type = new PHPDocVariadicType($type);
         $res_type->setRepresentation($string_rep);
         return $res_type;
@@ -135,7 +135,7 @@ class PHPDocParser
 
         $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
 
-        TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($second_type, "The PHPDocType '$string_rep' is invalid or is not supported");
+        TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($second_type, "The PHPDocType '$string_rep' is invalid or is not supported");
 
         $res_type = new PHPDocCompositeType([$first_type, $second_type]);
         $res_type->setRepresentation($string_rep);
@@ -170,7 +170,7 @@ class PHPDocParser
             // is it an optional?
             if ($tok === "?") {
                 $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
-                TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_false($is_optional, "The PHPDocType '$string_rep' is invalid or is not supported: '?' followed by another '?'");
+                TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_false($is_optional, "The PHPDocType '$string_rep' is invalid or is not supported: '?' followed by another '?'");
                 $is_optional = true;
                 $type = new PHPDocOptionalType($type);
                 $type->setRepresentation($string_rep);
@@ -184,7 +184,7 @@ class PHPDocParser
             }
             $tok = $this->lexer->next_token();
             $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
-            TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->are_equal("]", $tok, "The PHPDocType '$string_rep' is invalid or is not supported");
+            TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->are_equal("]", $tok, "The PHPDocType '$string_rep' is invalid or is not supported");
 
             $type = new PHPDocArrayOfType($type);
             $type->setRepresentation($string_rep);
@@ -211,10 +211,10 @@ class PHPDocParser
         if ($tok === "(") {
             $type = $this->parse_type();
             $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
-            TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$string_rep' is invalid or is not supported");
+            TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->is_not_null($type, "The PHPDocType '$string_rep' is invalid or is not supported");
             $tok = $this->lexer->next_token();
             $string_rep = $this->lexer->get_tokens_from_index_to_current_index($start_index);
-            TestScribe\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->are_equal(")", $tok, "The PHPDocType '$string_rep' is invalid or is not supported");
+            TestScribe\Utils\Assert::with('Box\TestScribe\PHPDoc\PHPDocTypeException')->are_equal(")", $tok, "The PHPDocType '$string_rep' is invalid or is not supported");
             return $type;
         } else {
             $this->lexer->pushback();

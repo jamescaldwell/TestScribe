@@ -1,9 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\PHPDoc;
-use Box\TestScribe\Utils\Util;
 use InvalidArgumentException;
 
 /**
