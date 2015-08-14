@@ -118,7 +118,7 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Executor($mockMockClassLoader1, $mockGlobalComputedConfig2, $mockStaticMethodExecutor3, $mockInstanceMethodExecutor4);
+        $objectUnderTest = new Execution\Executor($mockMockClassLoader1, $mockGlobalComputedConfig2, $mockStaticMethodExecutor3, $mockInstanceMethodExecutor4);
         $executionResult = $objectUnderTest->runMethod();
 
         // Validate the execution result.
@@ -311,7 +311,7 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Executor($mockMockClassLoader1, $mockGlobalComputedConfig2, $mockStaticMethodExecutor3, $mockInstanceMethodExecutor4);
+        $objectUnderTest = new Execution\Executor($mockMockClassLoader1, $mockGlobalComputedConfig2, $mockStaticMethodExecutor3, $mockInstanceMethodExecutor4);
         $executionResult = $objectUnderTest->runMethod();
 
         // Validate the execution result.

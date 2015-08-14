@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Execution\Executor;
+
 
 /**
  * Class Runner
@@ -23,7 +25,7 @@ class Runner
     private $resultDisplay;
 
     /**
-     * @param \Box\TestScribe\Executor             $executor
+     * @param \Box\TestScribe\Execution\Executor             $executor
      * @param \Box\TestScribe\ResultDisplay        $resultDisplay
      */
     function __construct(
