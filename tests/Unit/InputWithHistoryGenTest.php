@@ -18,11 +18,11 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\RawInputWithHelp $mockRawInputWithHelp0 */
+        /** @var \Box\TestScribe\Input\RawInputWithHelp $mockRawInputWithHelp0 */
         $mockRawInputWithHelp0 = $this->shmock(
-            '\\Box\\TestScribe\\RawInputWithHelp',
+            '\\Box\\TestScribe\\Input\\RawInputWithHelp',
             function (
-                /** @var \Box\TestScribe\RawInputWithHelp|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\RawInputWithHelp|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -75,11 +75,11 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\RawInputWithHelp $mockRawInputWithHelp0 */
+        /** @var \Box\TestScribe\Input\RawInputWithHelp $mockRawInputWithHelp0 */
         $mockRawInputWithHelp0 = $this->shmock(
-            '\\Box\\TestScribe\\RawInputWithHelp',
+            '\\Box\\TestScribe\\Input\\RawInputWithHelp',
             function (
-                /** @var \Box\TestScribe\RawInputWithHelp|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\RawInputWithHelp|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

@@ -48,7 +48,7 @@ class RawInputWithHelpGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->writeln('Provide the s.' . "\n" . 'Type return for the default value ( d ).');
             }
         );
-        $objectUnderTest = new \Box\TestScribe\RawInputWithHelp($mockRawInputWithPrompt0, $mockOutput1);
+        $objectUnderTest = new Input\RawInputWithHelp($mockRawInputWithPrompt0, $mockOutput1);
         $executionResult = $objectUnderTest->getString('s', 'd');
 
         // Validate the execution result.
@@ -137,7 +137,7 @@ class RawInputWithHelpGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\RawInputWithHelp($mockRawInputWithPrompt1, $mockOutput2);
+        $objectUnderTest = new Input\RawInputWithHelp($mockRawInputWithPrompt1, $mockOutput2);
 
         $executionResult = $objectUnderTest->getString('subject', 'default value');
 

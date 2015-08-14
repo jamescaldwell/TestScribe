@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\RawInputWithHelp;
+
 /**
  * Class InputValueGetter
  * @package Box\TestScribe
@@ -24,7 +26,7 @@ class InputWithHistory
     private $inputHistory;
 
     /**
-     * @param \Box\TestScribe\RawInputWithHelp $rawInputWithHelp
+     * @param \Box\TestScribe\Input\RawInputWithHelp $rawInputWithHelp
      * @param \Box\TestScribe\InputHistory     $inputHistory
      */
     function __construct(

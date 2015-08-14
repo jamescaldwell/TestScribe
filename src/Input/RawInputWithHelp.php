@@ -1,8 +1,9 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\RawInputWithPrompt;
+use Box\TestScribe\AbortException;
+use Box\TestScribe\Output;
 
 /**
  * Display a help message and handle the help command.
