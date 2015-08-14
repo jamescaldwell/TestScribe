@@ -3,11 +3,10 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\InputHistory;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\FunctionWrappers\GlobalFunction;
-use Box\TestScribe\InputHistory\InputHistoryData;
 use Box\TestScribe\Utils\DirectoryUtil;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;

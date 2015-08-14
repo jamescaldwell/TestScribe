@@ -5,9 +5,6 @@
 
 namespace Box\TestScribe\InputHistory;
 
-use Box\TestScribe\InputHistoryPersistence;
-use Box\TestScribe\InputHistory\InputHistoryData;
-
 /**
  * Delay instantiation of this class until it is actually needed.
  * This is necessary because the engine depends @see GlobalComputedConfig
@@ -27,7 +24,7 @@ class InputHistory
     private $inputHistoryPersistence;
 
     /**
-     * @param \Box\TestScribe\InputHistoryPersistence $inputHistoryPersistence
+     * @param \Box\TestScribe\InputHistory\InputHistoryPersistence $inputHistoryPersistence
      */
     function __construct(
         InputHistoryPersistence $inputHistoryPersistence

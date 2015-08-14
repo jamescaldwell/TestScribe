@@ -65,7 +65,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(false);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
+        $objectUnderTest = new InputHistory\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
         $executionResult = $objectUnderTest->loadHistory();
 
         // Validate the execution result.
@@ -144,7 +144,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value("name: value");
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
+        $objectUnderTest = new InputHistory\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
         $executionResult = $objectUnderTest->loadHistory();
 
         // Validate the execution result.
@@ -243,7 +243,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(true);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
+        $objectUnderTest = new InputHistory\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
         $executionResult = $objectUnderTest->saveHistory($mockInputHistoryData3);
 
         // Validate the execution result.
@@ -341,7 +341,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(true);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
+        $objectUnderTest = new InputHistory\InputHistoryPersistence($mockGlobalComputedConfig0, $mockDirectoryUtil1, $mockGlobalFunction2);
         $executionResult = $objectUnderTest->saveHistory($mockInputHistoryData3);
 
         // Validate the execution result.
