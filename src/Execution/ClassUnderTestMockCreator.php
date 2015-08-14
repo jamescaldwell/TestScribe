@@ -1,9 +1,11 @@
 <?php
-namespace Box\TestScribe\Mock;
+namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\Arguments;
 use Box\TestScribe\ArgumentsCollector;
 use Box\TestScribe\ClassUnderTestMockCreationResultValue;
+use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
 
 /**

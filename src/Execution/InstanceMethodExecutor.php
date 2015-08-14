@@ -3,7 +3,7 @@ namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\ArgumentsCollector;
 use Box\TestScribe\Method;
-use Box\TestScribe\Mock\ClassUnderTestMockCreator;
+use Box\TestScribe\Execution\ClassUnderTestMockCreator;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ReflectionUtil;
 
@@ -26,7 +26,7 @@ class InstanceMethodExecutor
     /**
      * @param \Box\TestScribe\Utils\ReflectionUtil      $reflectionUtil
      * @param \Box\TestScribe\ArgumentsCollector        $argumentsCollector
-     * @param \Box\TestScribe\Mock\ClassUnderTestMockCreator $classUnderTestMockCreator
+     * @param \Box\TestScribe\Execution\ClassUnderTestMockCreator $classUnderTestMockCreator
      */
     function __construct(
         ReflectionUtil $reflectionUtil,

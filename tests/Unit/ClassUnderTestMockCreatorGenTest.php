@@ -76,7 +76,7 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new Mock\ClassUnderTestMockCreator($mockMockObjectFactory1, $mockArgumentsCollector2, $mockOutput3);
+        $objectUnderTest = new Execution\ClassUnderTestMockCreator($mockMockObjectFactory1, $mockArgumentsCollector2, $mockOutput3);
 
         $executionResult = $objectUnderTest->createMockObjectForTheClassUnderTest($mockMockClass4);
 
@@ -208,7 +208,7 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new Mock\ClassUnderTestMockCreator($mockMockObjectFactory1, $mockArgumentsCollector2, $mockOutput3);
+        $objectUnderTest = new Execution\ClassUnderTestMockCreator($mockMockObjectFactory1, $mockArgumentsCollector2, $mockOutput3);
 
         $executionResult = $objectUnderTest->createMockObjectForTheClassUnderTest($mockMockClass4);
 
