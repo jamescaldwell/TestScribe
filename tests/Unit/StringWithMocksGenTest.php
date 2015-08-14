@@ -20,7 +20,7 @@ class StringWithMocksGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\ExpressionWithMocks(
+        $objectUnderTest = new Input\ExpressionWithMocks(
             'testInput', array(
             0 => 'mock',
             1 => 'mock2',
@@ -51,7 +51,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // @TODO (ryang 12/8/14) : After the generator is updated to support inputting an array of objects,
         // update this unit test to input array of the correct type.
-        $objectUnderTest = new \Box\TestScribe\ExpressionWithMocks(
+        $objectUnderTest = new Input\ExpressionWithMocks(
             'testInputStr', array(
             0 => 'mock1',
             1 => 'mock2',

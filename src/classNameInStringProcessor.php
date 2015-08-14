@@ -1,6 +1,8 @@
 <?php
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\ExpressionWithMocks;
+
 /**
  * Class classNameInStringProcessor
  *
@@ -32,7 +34,7 @@ class classNameInStringProcessor
     /**
      * @param string $str a PHP variable definition string with PHP syntax.
      *
-     * @return \Box\TestScribe\ExpressionWithMocks
+     * @return \Box\TestScribe\Input\ExpressionWithMocks
      */
     public function process($str)
     {

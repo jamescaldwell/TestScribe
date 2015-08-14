@@ -3,7 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
+
+use Box\TestScribe\MockClass;
 
 /**
  * Class ExpressionWithMocks

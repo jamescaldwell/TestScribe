@@ -5,8 +5,6 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\ExpressionWithMocks;
-
 /**
  * Class InputValueFactory
  * @package Box\TestScribe
@@ -30,7 +28,7 @@ class InputValueFactory
      * Create an instance of an input value which holds a real value.
      *
      * @param string                                        $value
-     * @param \Box\TestScribe\ExpressionWithMocks $expressionWithMocks
+     * @param \Box\TestScribe\Input\ExpressionWithMocks $expressionWithMocks
      *
      * @return \Box\TestScribe\Input\InputValue
      */

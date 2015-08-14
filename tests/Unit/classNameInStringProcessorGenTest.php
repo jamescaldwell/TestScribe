@@ -37,7 +37,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ExpressionWithMocks',
+            'Box\\TestScribe\\Input\\ExpressionWithMocks',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -102,7 +102,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ExpressionWithMocks',
+            'Box\\TestScribe\\Input\\ExpressionWithMocks',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -166,7 +166,7 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ExpressionWithMocks',
+            'Box\\TestScribe\\Input\\ExpressionWithMocks',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

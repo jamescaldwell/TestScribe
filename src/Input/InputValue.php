@@ -5,8 +5,6 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\ExpressionWithMocks;
-
 /**
  * Class InputValue
  * @package Box\TestScribe
@@ -37,7 +35,7 @@ class InputValue implements \JsonSerializable
      * Use factory methods @see InputValueFactory instead.
      * 
      * @param                                               $value
-     * @param \Box\TestScribe\ExpressionWithMocks $expressionWithMocks
+     * @param \Box\TestScribe\Input\ExpressionWithMocks $expressionWithMocks
      */
     function __construct($isVoid, $value, ExpressionWithMocks $expressionWithMocks)
     {
