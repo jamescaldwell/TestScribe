@@ -3,9 +3,8 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\RawInputWithHelp;
 use Box\TestScribe\InputHistory\InputHistory;
 
 /**

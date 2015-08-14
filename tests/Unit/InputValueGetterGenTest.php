@@ -72,11 +72,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputValue4);
             }
         );
-        /** @var \Box\TestScribe\InputWithHistory $mockInputWithHistory1 */
+        /** @var \Box\TestScribe\Input\InputWithHistory $mockInputWithHistory1 */
         $mockInputWithHistory1 = $this->shmock(
-            '\\Box\\TestScribe\\InputWithHistory',
+            '\\Box\\TestScribe\\Input\\InputWithHistory',
             function (
-                /** @var \Box\TestScribe\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -164,11 +164,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputValue4);
             }
         );
-        /** @var \Box\TestScribe\InputWithHistory $mockInputWithHistory1 */
+        /** @var \Box\TestScribe\Input\InputWithHistory $mockInputWithHistory1 */
         $mockInputWithHistory1 = $this->shmock(
-            '\\Box\\TestScribe\\InputWithHistory',
+            '\\Box\\TestScribe\\Input\\InputWithHistory',
             function (
-                /** @var \Box\TestScribe\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -253,11 +253,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputValue4);
             }
         );
-        /** @var \Box\TestScribe\InputWithHistory $mockInputWithHistory1 */
+        /** @var \Box\TestScribe\Input\InputWithHistory $mockInputWithHistory1 */
         $mockInputWithHistory1 = $this->shmock(
-            '\\Box\\TestScribe\\InputWithHistory',
+            '\\Box\\TestScribe\\Input\\InputWithHistory',
             function (
-                /** @var \Box\TestScribe\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\InputWithHistory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

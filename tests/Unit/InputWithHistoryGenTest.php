@@ -52,7 +52,7 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->saveHistoryToFile();
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputWithHistory($mockRawInputWithHelp0, $mockInputHistory1);
+        $objectUnderTest = new Input\InputWithHistory($mockRawInputWithHelp0, $mockInputHistory1);
         $executionResult = $objectUnderTest->getInputValue('subject', 'className', 'methodName', 'paramName');
 
         // Validate the execution result.
@@ -109,7 +109,7 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->saveHistoryToFile();
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputWithHistory($mockRawInputWithHelp0, $mockInputHistory1);
+        $objectUnderTest = new Input\InputWithHistory($mockRawInputWithHelp0, $mockInputHistory1);
         $executionResult = $objectUnderTest->getInputValue('subject', '', 'methodName', 'paramName');
 
         // Validate the execution result.
