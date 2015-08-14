@@ -3,9 +3,10 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\StringToValueConverter;
+use Box\TestScribe\classNameInStringProcessor;
+use Box\TestScribe\InputValueFactory;
 
 /**
  * Handle converting an expression to an value and associated mock object information.

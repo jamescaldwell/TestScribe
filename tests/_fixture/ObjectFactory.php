@@ -7,7 +7,7 @@ use Box\TestScribe\FullMockObjectFactory;
 use Box\TestScribe\MockClassLoader;
 use Box\TestScribe\MockObjectFactory;
 use Box\TestScribe\Output;
-use Box\TestScribe\StringToInputValueConverter;
+use Box\TestScribe\Input\StringToInputValueConverter;
 use Box\TestScribe\Utils\ReflectionUtil;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -61,12 +61,12 @@ class ObjectFactory
     }
 
     /**
-     * @return \Box\TestScribe\StringToInputValueConverter
+     * @return \Box\TestScribe\Input\StringToInputValueConverter
      */
     public function getStringToInputValueConverter()
     {
-        /** @var \Box\TestScribe\Input\StringToInputValueConverter $obj */
-        $obj = $this->getClassInstance('\\Box\\TestScribe\\StringToInputValueConverter');
+        /** @var \Box\TestScribe\Input\\Box\TestScribe\Input\StringToInputValueConverter $obj */
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\Input\\StringToInputValueConverter');
 
         return $obj;
     }

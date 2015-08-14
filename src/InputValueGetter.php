@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\StringToInputValueConverter;
 use Box\TestScribe\PHPDoc\IPhpDoc;
 use Box\TestScribe\Utils\ClassNameUtil;
 
@@ -32,7 +33,7 @@ class InputValueGetter
     private $inputWithHistory;
 
     /**
-     * @param \Box\TestScribe\StringToInputValueConverter $stringToInputValueConverter
+     * @param \Box\TestScribe\Input\StringToInputValueConverter $stringToInputValueConverter
      * @param \Box\TestScribe\InputWithHistory            $inputWithHistory
      */
     function __construct(

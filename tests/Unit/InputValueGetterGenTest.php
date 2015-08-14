@@ -40,11 +40,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\StringToInputValueConverter $mockStringToInputValueConverter0 */
+        /** @var \Box\TestScribe\Input\StringToInputValueConverter $mockStringToInputValueConverter0 */
         $mockStringToInputValueConverter0 = $this->shmock(
-            '\\Box\\TestScribe\\StringToInputValueConverter',
+            '\\Box\\TestScribe\\Input\\StringToInputValueConverter',
             function (
-                /** @var \Box\TestScribe\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -132,11 +132,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\StringToInputValueConverter $mockStringToInputValueConverter0 */
+        /** @var \Box\TestScribe\Input\StringToInputValueConverter $mockStringToInputValueConverter0 */
         $mockStringToInputValueConverter0 = $this->shmock(
-            '\\Box\\TestScribe\\StringToInputValueConverter',
+            '\\Box\\TestScribe\\Input\\StringToInputValueConverter',
             function (
-                /** @var \Box\TestScribe\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -223,11 +223,11 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\StringToInputValueConverter $mockStringToInputValueConverter0 */
+        /** @var \Box\TestScribe\Input\StringToInputValueConverter $mockStringToInputValueConverter0 */
         $mockStringToInputValueConverter0 = $this->shmock(
-            '\\Box\\TestScribe\\StringToInputValueConverter',
+            '\\Box\\TestScribe\\Input\\StringToInputValueConverter',
             function (
-                /** @var \Box\TestScribe\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\StringToInputValueConverter|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
