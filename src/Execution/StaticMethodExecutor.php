@@ -3,7 +3,6 @@ namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\ArgumentsCollector;
 use Box\TestScribe\Config\GlobalComputedConfig;
-use Box\TestScribe\StaticExecutionResultValue;
 use Box\TestScribe\Utils\ReflectionUtil;
 
 /**
@@ -39,7 +38,7 @@ class StaticMethodExecutor
     }
 
     /**
-     * @return \Box\TestScribe\StaticExecutionResultValue
+     * @return \Box\TestScribe\Execution\StaticExecutionResultValue
      */
     public function runStaticMethod()
     {
