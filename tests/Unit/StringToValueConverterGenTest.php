@@ -20,7 +20,7 @@ class StringToValueConverterGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('true', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -45,7 +45,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('1', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -69,7 +69,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('["a", "b"]', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -97,7 +97,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('null', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -122,7 +122,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('["a" => 2]', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -149,7 +149,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('["a" => ["b" => [ 1, 2]]]', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -182,7 +182,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('"ab"', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -207,7 +207,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('\'ab\'', []);
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'

@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
 /**
  * Class StringToValueConverter

@@ -15,7 +15,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function testConvertFloat()
     {
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert('1.1', []);
         $this->assertSame(
             1.1,
@@ -33,7 +33,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
     {
         $user0 = new User('Bob');
         $statementStr = '$user0';
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert($statementStr, ['user0' => $user0]);
         $this->assertEquals(
             $user0,
@@ -51,7 +51,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
     {
         $mockUser0 = new User('Bob');
         $statementStr = '["user" => $mockUser0]';
-        $objectUnderTest = new \Box\TestScribe\StringToValueConverter();
+        $objectUnderTest = new Input\StringToValueConverter();
         $executionResult = $objectUnderTest->convert($statementStr, ['mockUser0' => $mockUser0]);
         $this->assertEquals(
             $mockUser0,
