@@ -137,7 +137,7 @@ class MockClassServiceInfoSaverGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockMethod5);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\MockClassServiceInfoSaver($mockInputValueGetter0, $mockMethodHelper1);
+        $objectUnderTest = new Mock\MockClassServiceInfoSaver($mockInputValueGetter0, $mockMethodHelper1);
         $executionResult = $objectUnderTest->gatherAndSaveCallInfo($mockMockClass2, 'methodName', ['args']);
 
         // Validate the execution result.

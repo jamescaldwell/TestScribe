@@ -1,9 +1,9 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\Input\InputValueGetter;
-use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\MethodHelper;
 
 /**
  * This is the only class which should modify the MockClass's state

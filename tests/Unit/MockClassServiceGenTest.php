@@ -64,11 +64,11 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\MockClassServiceInfoSaver $mockMockClassServiceInfoSaver2 */
+        /** @var \Box\TestScribe\Mock\MockClassServiceInfoSaver $mockMockClassServiceInfoSaver2 */
         $mockMockClassServiceInfoSaver2 = $this->shmock(
-            '\\Box\\TestScribe\\MockClassServiceInfoSaver',
+            '\\Box\\TestScribe\\Mock\\MockClassServiceInfoSaver',
             function (
-                /** @var \Box\TestScribe\MockClassServiceInfoSaver|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockClassServiceInfoSaver|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
