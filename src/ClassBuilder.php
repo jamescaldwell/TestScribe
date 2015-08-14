@@ -104,7 +104,7 @@ class ClassBuilder
         $classDef = <<<EOF
 class $uniqueClassName $implementOrExtend $baseClassName
 {
-    use \Box\TestScribe\MockTrait;
+    use \\Box\\TestScribe\\MockTrait;
     $originalClassMethodOverwriteStatements
 }
 
