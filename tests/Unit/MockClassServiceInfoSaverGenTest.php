@@ -55,11 +55,11 @@ class MockClassServiceInfoSaverGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\InputValueGetter $mockInputValueGetter0 */
+        /** @var \Box\TestScribe\Input\InputValueGetter $mockInputValueGetter0 */
         $mockInputValueGetter0 = $this->shmock(
-            '\\Box\\TestScribe\\InputValueGetter',
+            '\\Box\\TestScribe\\Input\\InputValueGetter',
             function (
-                /** @var \Box\TestScribe\InputValueGetter|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\InputValueGetter|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Input\InputValueGetter;
+
 /**
  * Collect arguments to a method.
  */
@@ -22,7 +24,7 @@ class ArgumentsCollector
 
     /**
      * @param \Box\TestScribe\Output           $out
-     * @param \Box\TestScribe\InputValueGetter $inputValueGetterService
+     * @param \Box\TestScribe\Input\InputValueGetter $inputValueGetterService
      */
     function __construct(
         Output $out,

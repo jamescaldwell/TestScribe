@@ -85,7 +85,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
+        $objectUnderTest = new Input\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
         $executionResult = $objectUnderTest->get($mockIPhpDoc2, 'subject', 'className', 'methodName', 'paramName');
 
         // Validate the execution result.
@@ -180,7 +180,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('user_input_string');
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
+        $objectUnderTest = new Input\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
         $executionResult = $objectUnderTest->get($mockIPhpDoc2, 'subject', 'className', 'methodName', 'paramName');
 
         // Validate the execution result.
@@ -265,7 +265,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
 
             }
         );
-        $objectUnderTest = new \Box\TestScribe\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
+        $objectUnderTest = new Input\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
         $executionResult = $objectUnderTest->get($mockIPhpDoc2, 'subject', 'className', 'methodName', 'paramName');
 
         // Validate the execution result.

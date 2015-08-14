@@ -3,9 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Input\StringToInputValueConverter;
+use Box\TestScribe\InputWithHistory;
 use Box\TestScribe\PHPDoc\IPhpDoc;
 use Box\TestScribe\Utils\ClassNameUtil;
 
