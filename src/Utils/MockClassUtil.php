@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\ClassBuilder;
+use Box\TestScribe\Mock\ClassBuilder;
 
 /**
  * Class MockClassUtil

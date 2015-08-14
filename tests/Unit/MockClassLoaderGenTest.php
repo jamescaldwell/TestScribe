@@ -53,11 +53,11 @@ class MockClassLoaderGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockMockClass3);
             }
         );
-        /** @var \Box\TestScribe\ClassBuilder $mockClassBuilder1 */
+        /** @var \Box\TestScribe\Mock\ClassBuilder $mockClassBuilder1 */
         $mockClassBuilder1 = $this->shmock(
-            '\\Box\\TestScribe\\ClassBuilder',
+            '\\Box\\TestScribe\\Mock\\ClassBuilder',
             function (
-                /** @var \Box\TestScribe\ClassBuilder|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\ClassBuilder|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

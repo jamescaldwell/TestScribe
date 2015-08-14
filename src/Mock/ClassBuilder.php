@@ -1,7 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
+use Box\TestScribe\Output;
 use ReflectionClass;
 use ReflectionMethod;
 
