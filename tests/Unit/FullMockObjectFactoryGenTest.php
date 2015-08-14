@@ -84,7 +84,7 @@ class FullMockObjectFactoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->writeln('Mocked ( class being mocked ) id ( mock object name ).' . "\n" . '');
             }
         );
-        $objectUnderTest = new \Box\TestScribe\FullMockObjectFactory($mockMockClassLoader0, $mockMockObjectFactory1, $mockOutput2);
+        $objectUnderTest = new Mock\FullMockObjectFactory($mockMockClassLoader0, $mockMockObjectFactory1, $mockOutput2);
         $executionResult = $objectUnderTest->createMockObject('class name');
 
         // Validate the execution result.

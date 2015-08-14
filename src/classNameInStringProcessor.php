@@ -2,6 +2,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Input\ExpressionWithMocks;
+use Box\TestScribe\Mock\FullMockObjectFactory;
 
 /**
  * Class classNameInStringProcessor
@@ -22,7 +23,7 @@ class classNameInStringProcessor
     private $fullMockObjectFactory;
 
     /**
-     * @param \Box\TestScribe\FullMockObjectFactory $fullMockObjectFactory
+     * @param \Box\TestScribe\Mock\FullMockObjectFactory $fullMockObjectFactory
      */
     function __construct(
         FullMockObjectFactory $fullMockObjectFactory

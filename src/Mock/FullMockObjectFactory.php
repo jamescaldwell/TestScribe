@@ -3,10 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\MockClassLoader;
-use Box\TestScribe\Mock\MockObjectFactory;
+use Box\TestScribe\Output;
 
 /**
  * Create a mock object instance that is fully mocked.

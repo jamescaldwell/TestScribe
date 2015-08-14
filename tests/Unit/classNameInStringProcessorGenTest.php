@@ -19,11 +19,11 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\FullMockObjectFactory $mockFullMockObjectFactory0 */
+        /** @var \Box\TestScribe\Mock\FullMockObjectFactory $mockFullMockObjectFactory0 */
         $mockFullMockObjectFactory0 = $this->shmock(
-            '\\Box\\TestScribe\\FullMockObjectFactory',
+            '\\Box\\TestScribe\\Mock\\FullMockObjectFactory',
             function (
-                /** @var \Box\TestScribe\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -60,11 +60,11 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\FullMockObjectFactory $mockFullMockObjectFactory0 */
+        /** @var \Box\TestScribe\Mock\FullMockObjectFactory $mockFullMockObjectFactory0 */
         $mockFullMockObjectFactory0 = $this->shmock(
-            '\\Box\\TestScribe\\FullMockObjectFactory',
+            '\\Box\\TestScribe\\Mock\\FullMockObjectFactory',
             function (
-                /** @var \Box\TestScribe\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -124,11 +124,11 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\FullMockObjectFactory $mockFullMockObjectFactory0 */
+        /** @var \Box\TestScribe\Mock\FullMockObjectFactory $mockFullMockObjectFactory0 */
         $mockFullMockObjectFactory0 = $this->shmock(
-            '\\Box\\TestScribe\\FullMockObjectFactory',
+            '\\Box\\TestScribe\\Mock\\FullMockObjectFactory',
             function (
-                /** @var \Box\TestScribe\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\FullMockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
