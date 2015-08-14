@@ -3,10 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\FullMockObjectFactory;
-use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Output;
 use Box\TestScribe\Utils\CallOriginatorChecker;
 
 /**
@@ -75,7 +74,7 @@ class InjectedMockMgr
     {
         // Make sure to update the index if the caller hierarchy changes.
          
-        // #1  Box\TestScribe\InjectedMockMgr->createMockInstance()
+        // #1  Box\TestScribe\Mock\InjectedMockMgr->createMockInstance()
         // #2  Box\TestScribe\App::createMockedInstance()
         // #3  Box\TestScribe\_fixture\ServiceLocator::resolve_internal()
         // #4  Box\TestScribe\_fixture\ServiceLocator::resolve()

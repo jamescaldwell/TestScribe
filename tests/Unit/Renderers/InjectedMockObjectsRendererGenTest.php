@@ -28,11 +28,11 @@ class InjectedMockObjectsRendererGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
             }
-        );/** @var \Box\TestScribe\InjectedMockMgr $mockInjectedMockMgr1 */
+        );/** @var \Box\TestScribe\Mock\InjectedMockMgr $mockInjectedMockMgr1 */
         $mockInjectedMockMgr1 = $this->shmock(
-            '\\Box\\TestScribe\\InjectedMockMgr',
+            '\\Box\\TestScribe\\Mock\\InjectedMockMgr',
             function (
-                /** @var \Box\TestScribe\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -93,11 +93,11 @@ class InjectedMockObjectsRendererGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\InjectedMockMgr $mockInjectedMockMgr1 */
+        /** @var \Box\TestScribe\Mock\InjectedMockMgr $mockInjectedMockMgr1 */
         $mockInjectedMockMgr1 = $this->shmock(
-            '\\Box\\TestScribe\\InjectedMockMgr',
+            '\\Box\\TestScribe\\Mock\\InjectedMockMgr',
             function (
-                /** @var \Box\TestScribe\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -162,11 +162,11 @@ class InjectedMockObjectsRendererGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\InjectedMockMgr $mockInjectedMockMgr1 */
+        /** @var \Box\TestScribe\Mock\InjectedMockMgr $mockInjectedMockMgr1 */
         $mockInjectedMockMgr1 = $this->shmock(
-            '\\Box\\TestScribe\\InjectedMockMgr',
+            '\\Box\\TestScribe\\Mock\\InjectedMockMgr',
             function (
-                /** @var \Box\TestScribe\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\InjectedMockMgr|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

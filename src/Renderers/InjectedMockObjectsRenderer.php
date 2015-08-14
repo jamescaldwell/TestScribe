@@ -3,12 +3,12 @@ namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\GeneratorException;
 use Box\TestScribe\Config\GlobalComputedConfig;
-use Box\TestScribe\InjectedMockMgr;
+use Box\TestScribe\Mock\InjectedMockMgr;
 
 /**
  * Generate mock statements for the injected mocked objects.
  *
- * @var MultipleInjectedMocksRenderer|InjectedMockMgr|\Box\TestScribe\Config\GlobalComputedConfig
+ * @var MultipleInjectedMocksRenderer|\Box\TestScribe\Mock\InjectedMockMgr|\Box\TestScribe\Config\GlobalComputedConfig
  */
 class InjectedMockObjectsRenderer
 {
@@ -23,7 +23,7 @@ class InjectedMockObjectsRenderer
 
     /**
      * @param \Box\TestScribe\Renderers\MultipleInjectedMocksRenderer $multipleInjectedMocksRenderer
-     * @param \Box\TestScribe\InjectedMockMgr                         $injectedMockMgr
+     * @param \Box\TestScribe\Mock\InjectedMockMgr                         $injectedMockMgr
      * @param \Box\TestScribe\Config\GlobalComputedConfig                    $globalComputedConfig
      */
     function __construct(

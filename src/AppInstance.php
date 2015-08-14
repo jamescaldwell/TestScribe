@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Mock\InjectedMockClassMgr;
+use Box\TestScribe\Mock\InjectedMockMgr;
 
 /**
  * Global singleton app instance
@@ -31,7 +32,7 @@ class AppInstance
     private $injectedMockClassMgr;
 
     /**
-     * @param \Box\TestScribe\InjectedMockMgr      $injectedMockMgr
+     * @param \Box\TestScribe\Mock\InjectedMockMgr      $injectedMockMgr
      * @param \Box\TestScribe\Mock\InjectedMockClassMgr $injectedMockClassMgr
      */
     function __construct(
