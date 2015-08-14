@@ -40,7 +40,7 @@ class Runner
     /**
      * Execute the method under test and return the execution result.
      *
-     * @return \Box\TestScribe\ExecutionResult
+     * @return \Box\TestScribe\Execution\ExecutionResult
      */
     public function run()
     {

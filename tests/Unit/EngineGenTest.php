@@ -30,11 +30,11 @@ class EngineGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\ExecutionResult $mockExecutionResult4 */
+                /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult4 */
                 $mockExecutionResult4 = $this->shmock(
-                    '\\Box\\TestScribe\\ExecutionResult',
+                    '\\Box\\TestScribe\\Execution\\ExecutionResult',
                     function (
-                        /** @var \Box\TestScribe\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

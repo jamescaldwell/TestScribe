@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 
 /**
  * @var ValueAssertionRenderer
@@ -26,7 +26,7 @@ class ResultValidationRenderer
      *
      * @param bool                                      $shouldVerifyResult
      *
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @return string
      */

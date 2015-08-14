@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Spec;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 
 /**
  * Create the intermediate test expectation called specs.
@@ -12,7 +12,7 @@ use Box\TestScribe\ExecutionResult;
 class SpecRenderer
 {
     /**
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @return void
      */

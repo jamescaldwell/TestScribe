@@ -124,7 +124,7 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ExecutionResult',
+            'Box\\TestScribe\\Execution\\ExecutionResult',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );
@@ -317,7 +317,7 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\ExecutionResult',
+            'Box\\TestScribe\\Execution\\ExecutionResult',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

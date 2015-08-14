@@ -10,7 +10,7 @@ class NonPublicMethodExecutionRenderer
     /**
      * Return statements for invoking the test.
      *
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @return string
      */

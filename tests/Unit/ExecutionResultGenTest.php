@@ -50,7 +50,7 @@ class ExecutionResultGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\ExecutionResult($mockArguments1, $mockArguments2, null, 1, null);
+        $objectUnderTest = new Execution\ExecutionResult($mockArguments1, $mockArguments2, null, 1, null);
         $executionResult = $objectUnderTest->jsonSerialize();
 
         // Validate the execution result.

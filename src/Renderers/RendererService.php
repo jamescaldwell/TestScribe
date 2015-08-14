@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Output;
 use Box\TestScribe\Utils\DirectoryUtil;

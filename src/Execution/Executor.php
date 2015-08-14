@@ -5,7 +5,7 @@ use Box\TestScribe\Arguments;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Exception\TestScribeException;
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\InstanceMethodExecutor;
 use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\StaticMethodExecutor;
@@ -51,7 +51,7 @@ class Executor
     }
 
     /**
-     * @return \Box\TestScribe\ExecutionResult
+     * @return \Box\TestScribe\Execution\ExecutionResult
      * @throws \Box\TestScribe\Exception\AbortException
      * @throws \Box\TestScribe\Exception\TestScribeException
      */

@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 
 /**
  * Generate expected exception statement if an exception is thrown.
@@ -14,7 +14,7 @@ class ExceptionRenderer
      * Generate expected exception statement if an exception is thrown.
      * Otherwise return ''.
      *
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @return string
      */

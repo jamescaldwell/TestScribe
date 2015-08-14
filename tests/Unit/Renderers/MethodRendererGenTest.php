@@ -16,11 +16,11 @@ class MethodRendererGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\ExecutionResult $mockExecutionResult3 */
+        /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult3 */
         $mockExecutionResult3 = $this->shmock(
-            '\\Box\\TestScribe\\ExecutionResult',
+            '\\Box\\TestScribe\\Execution\\ExecutionResult',
             function (
-                /** @var \Box\TestScribe\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

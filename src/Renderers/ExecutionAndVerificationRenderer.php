@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ArrayUtil;
 
@@ -50,7 +50,7 @@ class ExecutionAndVerificationRenderer
     /**
      * Return statements for invoking the test and verifying the result.
      *
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @param string                                    $targetObjectName
      *

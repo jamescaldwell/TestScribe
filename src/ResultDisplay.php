@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Utils\ValueFormatter;
 
 /**
@@ -32,7 +33,7 @@ class ResultDisplay
     }
 
     /**
-     * @param \Box\TestScribe\ExecutionResult $result
+     * @param \Box\TestScribe\Execution\ExecutionResult $result
      *
      * @return void
      */

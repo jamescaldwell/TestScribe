@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\ExecutionResult;
+use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Config\GlobalComputedConfig;
 
 /**
@@ -40,7 +40,7 @@ class MethodRenderer
     /**
      * Generate the test method as a string.
      *
-     * @param \Box\TestScribe\ExecutionResult $executionResult
+     * @param \Box\TestScribe\Execution\ExecutionResult $executionResult
      *
      * @return string
      */

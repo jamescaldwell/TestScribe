@@ -3,8 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Execution;
 
+use Box\TestScribe\Arguments;
 use Box\TestScribe\Mock\MockClass;
 
 /**
