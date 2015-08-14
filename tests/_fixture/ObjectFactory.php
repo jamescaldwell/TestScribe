@@ -5,9 +5,8 @@ namespace Box\TestScribe\_fixture;
 
 use Box\TestScribe\FullMockObjectFactory;
 use Box\TestScribe\MockClassLoader;
-use Box\TestScribe\MockObjectFactory;
+use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
-use Box\TestScribe\Input\StringToInputValueConverter;
 use Box\TestScribe\Utils\ReflectionUtil;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -83,12 +82,12 @@ class ObjectFactory
     }
 
     /**
-     * @return \Box\TestScribe\MockObjectFactory
+     * @return \Box\TestScribe\Mock\MockObjectFactory
      */
     public function getMockObjectFactory()
     {
-        /** @var MockObjectFactory $obj */
-        $obj = $this->getClassInstance('\\Box\\TestScribe\\MockObjectFactory');
+        /** @var \Box\TestScribe\Mock\MockObjectFactory $obj */
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\Mock\\MockObjectFactory');
 
         return $obj;
     }

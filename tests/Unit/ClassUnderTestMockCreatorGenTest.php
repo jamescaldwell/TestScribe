@@ -36,11 +36,11 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockObjectFactory $mockMockObjectFactory1 */
+        /** @var \Box\TestScribe\Mock\MockObjectFactory $mockMockObjectFactory1 */
         $mockMockObjectFactory1 = $this->shmock(
-            '\\Box\\TestScribe\\MockObjectFactory',
+            '\\Box\\TestScribe\\Mock\\MockObjectFactory',
             function (
-                /** @var \Box\TestScribe\MockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -138,11 +138,11 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\MockObjectFactory $mockMockObjectFactory1 */
+        /** @var \Box\TestScribe\Mock\MockObjectFactory $mockMockObjectFactory1 */
         $mockMockObjectFactory1 = $this->shmock(
-            '\\Box\\TestScribe\\MockObjectFactory',
+            '\\Box\\TestScribe\\Mock\\MockObjectFactory',
             function (
-                /** @var \Box\TestScribe\MockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Mock\MockObjectFactory|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

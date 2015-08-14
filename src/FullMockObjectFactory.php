@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\MockObjectFactory;
+
 /**
  * Create a mock object instance that is fully mocked.
  *
@@ -26,7 +28,7 @@ class FullMockObjectFactory
 
     /**
      * @param \Box\TestScribe\MockClassLoader   $mockClassLoader
-     * @param \Box\TestScribe\MockObjectFactory $mockObjectFactory
+     * @param \Box\TestScribe\Mock\MockObjectFactory $mockObjectFactory
      * @param \Box\TestScribe\Output            $output
      */
     function __construct(

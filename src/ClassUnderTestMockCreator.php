@@ -2,6 +2,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Mock\MockObjectFactory;
 
 /**
  * @var MockObjectFactory| ArgumentsCollector |Output
@@ -18,7 +19,7 @@ class ClassUnderTestMockCreator
     private $output;
 
     /**
-     * @param \Box\TestScribe\MockObjectFactory  $mockObjectFactory
+     * @param \Box\TestScribe\Mock\MockObjectFactory  $mockObjectFactory
      * @param \Box\TestScribe\ArgumentsCollector $argumentsCollector
      * @param \Box\TestScribe\Output             $output
      */

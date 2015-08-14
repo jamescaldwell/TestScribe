@@ -3,9 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\MockClassLoader;
 
 /**
  * Class MockObjectFactory
