@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Mock\InjectedMockClassMgr;
+
 /**
  * Global singleton app instance
  * Delay instantiation of this class until it is actually needed.
@@ -30,7 +32,7 @@ class AppInstance
 
     /**
      * @param \Box\TestScribe\InjectedMockMgr      $injectedMockMgr
-     * @param \Box\TestScribe\InjectedMockClassMgr $injectedMockClassMgr
+     * @param \Box\TestScribe\Mock\InjectedMockClassMgr $injectedMockClassMgr
      */
     function __construct(
         InjectedMockMgr $injectedMockMgr,
