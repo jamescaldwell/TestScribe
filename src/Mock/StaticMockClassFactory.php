@@ -3,9 +3,10 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Mock\MockClassFactory;
+use Box\TestScribe\ClassBuilderStatic;
+use Box\TestScribe\Output;
 
 /**
  * Create and load mock classes for static invocations.

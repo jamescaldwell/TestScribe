@@ -78,7 +78,7 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->create();
             }
         );
-        $objectUnderTest = new \Box\TestScribe\StaticMockClassFactory($mockMockClassFactory0, $mockOutput1, $mockClassBuilderStatic2);
+        $objectUnderTest = new Mock\StaticMockClassFactory($mockMockClassFactory0, $mockOutput1, $mockClassBuilderStatic2);
         $executionResult = $objectUnderTest->createAndLoadStaticMockClass('class name');
 
         // Validate the execution result.

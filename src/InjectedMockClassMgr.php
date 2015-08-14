@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Mock\StaticMockClassFactory;
 use Box\TestScribe\Utils\CallOriginatorChecker;
 
 /**
@@ -36,7 +37,7 @@ class InjectedMockClassMgr
 
     /**
      * @param \Box\TestScribe\Output                      $output
-     * @param \Box\TestScribe\StaticMockClassFactory      $staticMockClassFactory
+     * @param \Box\TestScribe\Mock\StaticMockClassFactory      $staticMockClassFactory
      * @param \Box\TestScribe\Utils\CallOriginatorChecker $callOriginatorChecker
      */
     function __construct(
