@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\ArgumentInfo;
 
 use Box\TestScribe\Input\InputValue;
 use Box\TestScribe\Mock\MockClass;

@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\Output;
 
@@ -35,7 +35,7 @@ class ReflectionUtil
      *
      * @param object|null                         $targetObject null if the method is static
      * @param \Box\TestScribe\MethodInfo\Method    $method
-     * @param \Box\TestScribe\Arguments $arguments
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $arguments
      *
      * @return mixed
      */

@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Mock\MockClass;
 
 /**
@@ -44,8 +44,8 @@ class ExecutionResult implements \JsonSerializable
 
     /**
      * @param \Box\TestScribe\Mock\MockClass|null $mockClassUnderTest
-     * @param \Box\TestScribe\Arguments      $methodArguments
-     * @param \Box\TestScribe\Arguments      $constructorArguments
+     * @param \Box\TestScribe\ArgumentInfo\Arguments      $methodArguments
+     * @param \Box\TestScribe\ArgumentInfo\Arguments      $constructorArguments
      * @param mixed                                    $resultValue
      * @param \Exception|null                          $exception
      */
@@ -90,7 +90,7 @@ class ExecutionResult implements \JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getMethodArguments()
     {
@@ -98,7 +98,7 @@ class ExecutionResult implements \JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getConstructorArguments()
     {

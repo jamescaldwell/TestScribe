@@ -5,7 +5,7 @@
 
 namespace Box\TestScribe\Renderers;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**
@@ -35,7 +35,7 @@ class ArgumentsRenderer
      * Generate the argument list as a string and
      * its referenced mock statements.
      *
-     * @param \Box\TestScribe\Arguments $argsObj
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $argsObj
      *
      * @return \Box\TestScribe\Renderers\ArgumentsRenderResult
      */
@@ -64,7 +64,7 @@ class ArgumentsRenderer
     /**
      * Generate the argument list string to be used in the method invocation statement.
      *
-     * @param \Box\TestScribe\Arguments $argsObj
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $argsObj
      *
      * @return string
      */

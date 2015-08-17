@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Input\InputValueGetter;
 use Box\TestScribe\MethodInfo\Method;
 
@@ -41,7 +42,7 @@ class ArgumentsCollector
      *
      * @param \Box\TestScribe\MethodInfo\Method $method
      *
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function collect(Method $method)
     {

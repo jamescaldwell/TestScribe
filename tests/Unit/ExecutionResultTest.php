@@ -3,6 +3,7 @@ namespace Box\TestScribe;
 
 use Box\TestScribe\_fixture\InputValueFactoryForTest;
 use Box\TestScribe\_fixture\MockObjectFactoryForTest;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Execution\ExecutionResult;
 
 /**

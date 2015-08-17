@@ -3,21 +3,21 @@
 
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 
 
 /**
  */
 class ClassUnderTestMockCreationResultValue 
 {
-    /** @var  Arguments */
+    /** @var  \Box\TestScribe\ArgumentInfo\Arguments */
     private $constructorArgs;
 
     /** @var  object */
     private $mockObj;
 
     /**
-     * @param \Box\TestScribe\Arguments $constructorArgs
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $constructorArgs
      * @param object    $mockObj
      */
     function __construct(
@@ -29,7 +29,7 @@ class ClassUnderTestMockCreationResultValue
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getConstructorArgs()
     {

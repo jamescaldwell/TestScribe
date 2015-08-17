@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\ArgumentsCollector;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Mock\MockObjectFactory;

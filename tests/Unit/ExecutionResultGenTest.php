@@ -18,11 +18,11 @@ class ExecutionResultGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Arguments $mockArguments1 */
+        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments1 */
         $mockArguments1 = $this->shmock(
-            '\\Box\\TestScribe\\Arguments',
+            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
             function (
-                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -34,11 +34,11 @@ class ExecutionResultGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Arguments $mockArguments2 */
+        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments2 */
         $mockArguments2 = $this->shmock(
-            '\\Box\\TestScribe\\Arguments',
+            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
             function (
-                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 
 /**
  */
@@ -33,7 +33,7 @@ class StaticExecutionResultValue
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getArguments()
     {

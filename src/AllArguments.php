@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\ArgumentInfo\Arguments;
+
 /**
  * Class AllArguments
  * @package Box\TestScribe
@@ -25,8 +27,8 @@ class AllArguments
     private $argumentsToTheMethod;
 
     /**
-     * @param \Box\TestScribe\Arguments $argumentsToTheConstructor
-     * @param \Box\TestScribe\Arguments $argumentsToTheMethod
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $argumentsToTheConstructor
+     * @param \Box\TestScribe\ArgumentInfo\Arguments $argumentsToTheMethod
      */
     function __construct(Arguments $argumentsToTheConstructor, Arguments $argumentsToTheMethod)
     {
@@ -35,7 +37,7 @@ class AllArguments
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getArgumentsToTheConstructor()
     {
@@ -43,7 +45,7 @@ class AllArguments
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getArgumentsToTheMethod()
     {

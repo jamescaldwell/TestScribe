@@ -74,11 +74,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                         // Set up mocks of return values.
 
-                        /** @var \Box\TestScribe\Arguments $mockArguments6 */
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments6 */
                         $mockArguments6 = $this->shmock(
-                            '\\Box\\TestScribe\\Arguments',
+                            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
                             function (
-                                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                                 $shmock
                             ) {
                                 $shmock->order_matters();
@@ -259,11 +259,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                         // Set up mocks of return values.
 
-                        /** @var \Box\TestScribe\Arguments $mockArguments8 */
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments8 */
                         $mockArguments8 = $this->shmock(
-                            '\\Box\\TestScribe\\Arguments',
+                            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
                             function (
-                                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                                 $shmock
                             ) {
                                 $shmock->order_matters();
@@ -275,11 +275,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
                             }
                         );
 
-                        /** @var \Box\TestScribe\Arguments $mockArguments9 */
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments9 */
                         $mockArguments9 = $this->shmock(
-                            '\\Box\\TestScribe\\Arguments',
+                            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
                             function (
-                                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                                 $shmock
                             ) {
                                 $shmock->order_matters();

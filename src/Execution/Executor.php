@@ -1,7 +1,7 @@
 <?php
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Exception\TestScribeException;

@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Arguments;
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Prophecy\Argument;
 
 /**
@@ -39,7 +39,7 @@ class InstanceMethodExecutionResultValue
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getMethodArguments()
     {
@@ -47,7 +47,7 @@ class InstanceMethodExecutionResultValue
     }
 
     /**
-     * @return \Box\TestScribe\Arguments
+     * @return \Box\TestScribe\ArgumentInfo\Arguments
      */
     public function getConstructorArguments()
     {

@@ -72,11 +72,11 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Arguments $mockArguments8 */
+                /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments8 */
                 $mockArguments8 = $this->shmock(
-                    '\\Box\\TestScribe\\Arguments',
+                    '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
                     function (
-                        /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -114,11 +114,11 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                         // Set up mocks of return values.
 
-                        /** @var \Box\TestScribe\Arguments $mockArguments7 */
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments7 */
                         $mockArguments7 = $this->shmock(
-                            '\\Box\\TestScribe\\Arguments',
+                            '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
                             function (
-                                /** @var \Box\TestScribe\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                                /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
                                 $shmock
                             ) {
                                 $shmock->order_matters();
