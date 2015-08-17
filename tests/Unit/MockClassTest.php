@@ -9,10 +9,7 @@ class MockClassTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\MockClass::jsonSerialize
-     * @covers Box\TestScribe\MockClass::__toString
-     * @covers Box\TestScribe\MockClass::isStaticMock
-     * @covers Box\TestScribe\MockClass::getPhpClass
+     * @covers Box\TestScribe\Mock\MockClass
      */
     public function testJsonSerialize()
     {
