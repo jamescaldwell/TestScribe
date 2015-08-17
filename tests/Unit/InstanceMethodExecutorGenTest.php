@@ -9,8 +9,8 @@ class InstanceMethodExecutorGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\InstanceMethodExecutor::runInstanceMethod
-     * @covers \Box\TestScribe\InstanceMethodExecutor
+     * @covers \Box\TestScribe\Execution\InstanceMethodExecutor::runInstanceMethod
+     * @covers \Box\TestScribe\Execution\InstanceMethodExecutor
      */
     public function testRunInstanceMethod()
     {
