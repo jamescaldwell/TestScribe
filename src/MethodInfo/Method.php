@@ -4,7 +4,7 @@ namespace Box\TestScribe\MethodInfo;
 
 use Box\TestScribe\App;
 use Box\TestScribe\ClassInfo\PhpClass;
-use Box\TestScribe\Parameter;
+use Box\TestScribe\ArgumentInfo\Parameter;
 use Box\TestScribe\PHPDoc;
 use Box\TestScribe\PHPDoc\PHPDocMixedType;
 use Box\TestScribe\PHPDoc\PHPDocTypeException;
@@ -152,7 +152,7 @@ class Method
     }
 
     /**
-     * @return \Box\TestScribe\Parameter[]
+     * @return \Box\TestScribe\ArgumentInfo\Parameter[]
      */
     public function getParameters()
     {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\ArgumentInfo;
 
 /**
  * Wrapper over ReflectionParameter
