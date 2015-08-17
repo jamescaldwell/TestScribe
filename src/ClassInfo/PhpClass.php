@@ -1,6 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\ClassInfo;
+
+use Box\TestScribe\PhpClassName;
 
 /**
  * Represent a PHP class.

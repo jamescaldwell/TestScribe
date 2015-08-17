@@ -2,7 +2,7 @@
 namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\GlobalCounter;
-use Box\TestScribe\PhpClass;
+use Box\TestScribe\ClassInfo\PhpClass;
 use Box\TestScribe\PhpClassName;
 
 /**

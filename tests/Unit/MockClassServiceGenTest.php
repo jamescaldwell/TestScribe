@@ -28,11 +28,11 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\PhpClass $mockPhpClass6 */
+                /** @var \Box\TestScribe\ClassInfo\PhpClass $mockPhpClass6 */
                 $mockPhpClass6 = $this->shmock(
-                    '\\Box\\TestScribe\\PhpClass',
+                    '\\Box\\TestScribe\\ClassInfo\\PhpClass',
                     function (
-                        /** @var \Box\TestScribe\PhpClass|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\ClassInfo\PhpClass|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

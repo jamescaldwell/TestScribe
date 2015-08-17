@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\ClassInfo\PhpClass;
+
 /**
  * Helper methods for Method class
  */

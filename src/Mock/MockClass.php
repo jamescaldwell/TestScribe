@@ -5,7 +5,7 @@ namespace Box\TestScribe\Mock;
 use Box\TestScribe\Input\InputValue;
 use Box\TestScribe\Method;
 use Box\TestScribe\MethodHelper;
-use Box\TestScribe\PhpClass;
+use Box\TestScribe\ClassInfo\PhpClass;
 
 /**
  * Represent a class being mocked
@@ -45,7 +45,7 @@ class MockClass implements \JsonSerializable
     private $mockClassName;
 
     /**
-     * @var PhpClass
+     * @var \Box\TestScribe\ClassInfo\PhpClass
      */
     private $phpClass;
 
@@ -71,7 +71,7 @@ class MockClass implements \JsonSerializable
 
     /**
      * @param \Box\TestScribe\Mock\MockClassService $mockClassService
-     * @param \Box\TestScribe\PhpClass         $phpClass
+     * @param \Box\TestScribe\ClassInfo\PhpClass         $phpClass
      *   The class being mocked
      * @param bool                                       $isStaticMock
      * @param string                                     $nameOfTheMethodToPassThrough
@@ -164,7 +164,7 @@ class MockClass implements \JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\PhpClass
+     * @return \Box\TestScribe\ClassInfo\PhpClass
      *
      * Information about the class being mocked.
      */

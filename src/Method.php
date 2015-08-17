@@ -2,6 +2,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\ClassInfo\PhpClass;
 use Box\TestScribe\PHPDoc\PHPDocMixedType;
 use Box\TestScribe\PHPDoc\PHPDocTypeException;
 use Box\TestScribe\PHPDoc\PHPDocVoidType;
@@ -60,7 +61,7 @@ class Method
     /**
      * Return the class associated with the method
      *
-     * @return \Box\TestScribe\PhpClass
+     * @return \Box\TestScribe\ClassInfo\PhpClass
      */
     public function getClass()
     {
@@ -83,7 +84,7 @@ class Method
     /**
      * Return the full class name associated with the method
      *
-     * @return \Box\TestScribe\PhpClass
+     * @return \Box\TestScribe\ClassInfo\PhpClass
      */
     public function getFullClassName()
     {

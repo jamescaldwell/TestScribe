@@ -32,11 +32,11 @@ class MockClassTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
             }
         );
-        /** @var \Box\TestScribe\PhpClass $mockPhpClass1 */
+        /** @var \Box\TestScribe\ClassInfo\PhpClass $mockPhpClass1 */
         $mockPhpClass1 = $this->shmock(
-            '\\Box\\TestScribe\\PhpClass',
+            '\\Box\\TestScribe\\ClassInfo\\PhpClass',
             function (
-                /** @var \Box\TestScribe\PhpClass|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ClassInfo\PhpClass|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
