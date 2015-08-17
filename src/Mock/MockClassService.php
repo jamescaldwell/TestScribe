@@ -70,7 +70,9 @@ class MockClassService
             $methodName
         );
 
+        $mockObjName = $mockClass->getMockObjectName();
         $this->mockClassServiceCallInfo->showCallInfo(
+            $mockObjName,
             $methodObj,
             $arguments
         );

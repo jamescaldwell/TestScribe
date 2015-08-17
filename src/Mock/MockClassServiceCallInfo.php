@@ -25,7 +25,7 @@ class MockClassServiceCallInfo
     /**
      * @param \Box\TestScribe\Output                         $output
      * @param \Box\TestScribe\Utils\CallInformationCollector $callInformationCollector
-     * @param \Box\TestScribe\ArgumentInfo\MethodCallInfo                 $methodCallInfo
+     * @param \Box\TestScribe\ArgumentInfo\MethodCallInfo    $methodCallInfo
      */
     function __construct(
         Output $output,
@@ -41,23 +41,23 @@ class MockClassServiceCallInfo
     /**
      * Handle intercepted calls made to the mock class instance.
      *
+     * @param string                            $mockObjName
      * @param \Box\TestScribe\MethodInfo\Method $method
-     * @param array                            $arguments
+     * @param array                             $arguments
      *
      * @return void
      */
     public function showCallInfo(
+        $mockObjName,
         Method $method,
         array $arguments
     )
     {
-        $phpClassInfo = $method->getClass();
-        $className = $phpClassInfo->getPhpClassName()->getFullyQualifiedClassName();
         $methodName = $method->getName();
 
         $callerInfoString = $this->getCallerInfoString();
 
-        $msg = "\n$callerInfoString Calling $className::$methodName( ";
+        $msg = "\n$callerInfoString Calling $mockObjName->$methodName( ";
         $this->output->write($msg);
 
         $msg = $this->methodCallInfo->getCallParamInfo($method, $arguments);
