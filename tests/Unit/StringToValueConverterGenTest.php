@@ -10,7 +10,7 @@ class StringToValueConverterGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertBoolean()
     {
@@ -35,7 +35,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertInteger()
     {
@@ -59,7 +59,7 @@ MY_LONG_END_OF_TEXT_a1b9;
     }
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertArray()
     {
@@ -87,7 +87,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertNull()
     {
@@ -112,7 +112,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertArrayWithIntegerAsAValue()
     {
@@ -139,7 +139,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertArrayInArray()
     {
@@ -172,7 +172,7 @@ MY_LONG_END_OF_TEXT_a1b9;
     }
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertString()
     {
@@ -197,7 +197,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertStringWithSingleQuote()
     {

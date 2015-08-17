@@ -11,7 +11,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      */
     public function testConvertFloat()
     {
@@ -25,7 +25,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      * 
      * Convert statements that reference existing objects.
      */
@@ -43,7 +43,7 @@ class StringToValueConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers \Box\TestScribe\StringToValueConverter::convert
+     * @covers \Box\TestScribe\Input\StringToValueConverter::convert
      * 
      * Convert statements that reference existing objects.
      */
