@@ -2,65 +2,26 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Exception\AbortException;
-use Box\TestScribe\Output;
-
 /**
- * Display a help message and handle the help command.
+ * Higher level user input methods.
+ *
+ * This class is designed to be used by classes outside of this namespace.
+ *
+ * @var InputHelper
  */
 class RawInputWithHelp
 {
-    /**
-     * @var RawInputWithPrompt
-     */
-    private $rawInputWithPrompt;
+    /** @var InputHelper */
+    private $inputHelper;
 
     /**
-     * @var Output
-     */
-    private $output;
-
-    /**
-     * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
-     * @param \Box\TestScribe\Output                   $output
+     * @param \Box\TestScribe\Input\InputHelper $inputHelper
      */
     function __construct(
-        RawInputWithPrompt $rawInputWithPrompt,
-        Output $output
+        InputHelper $inputHelper
     )
     {
-        $this->rawInputWithPrompt = $rawInputWithPrompt;
-        $this->output = $output;
-    }
-
-    /**
-     * Get an input string.
-     *
-     * Handles interactive help and abort commands.
-     *
-     * @param string $msg
-     *
-     * @return string
-     * @throws \Box\TestScribe\Exception\AbortException
-     */
-    private function getInputString($msg)
-    {
-        $this->output->writeln($msg);
-
-        $str = '';
-        while (true) {
-            $str = $this->rawInputWithPrompt->getString();
-
-            if ($str === 'h') {
-                $this->showHelp();
-            } else if ($str === 'a') {
-                throw new AbortException('Abort upon a user request');
-            } else {
-                break;
-            }
-        }
-
-        return $str;
+        $this->inputHelper = $inputHelper;
     }
 
     /**
@@ -81,7 +42,7 @@ class RawInputWithHelp
             $promptMsg .= "\nType return for the default value ( $default ).";
         }
 
-        $str = $this->getInputString($promptMsg);
+        $str = $this->inputHelper->getInputString($promptMsg);
         if ($str === '') {
             $str = $default;
         }
@@ -95,43 +56,6 @@ class RawInputWithHelp
      */
     public function pause()
     {
-        $this->getInputString('Press enter to continue...');
-    }
-
-    private function showHelp()
-    {
-        $helpMsg = <<<'TAG'
--------------------------------------------------------------
-Input help:
-
-+++ Value input:
-
-Specify the input in PHP format.
-
-Use fully qualified class names in place of object variables. 
-They will be mocked automatically.
-
-Use the word void to select the default value for a parameter,
-or a void return value.
-
-e.g. 
-
-"ab", 'a', "a\n" 
-true, false, 1, null, 
-["a", "b"], ["a" => 2], ["a" => ["b" => [ 1, 2]]] 
-\ClassFoo , \Namespace1\ClassBar
-[\ClassFoo, \ClassBar]
-['key' => \ClassFoo]
-void
-
-
-+++ Other commands:
-
-a : abort this test generation run.
-
-End of help
-=============================================================
-TAG;
-        $this->output->writeln($helpMsg);
+        $this->inputHelper->getInputString('Press enter to continue...');
     }
 }
