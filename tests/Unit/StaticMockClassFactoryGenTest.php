@@ -9,8 +9,8 @@ class StaticMockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\StaticMockClassFactory::createAndLoadStaticMockClass
-     * @covers Box\TestScribe\StaticMockClassFactory
+     * @covers Box\TestScribe\Mock\StaticMockClassFactory::createAndLoadStaticMockClass
+     * @covers Box\TestScribe\Mock\StaticMockClassFactory
      */
     public function testCreateAndLoadStaticMockClass()
     {
