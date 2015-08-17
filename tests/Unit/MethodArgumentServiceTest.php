@@ -5,6 +5,8 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\MethodInfo\MethodArgumentService;
+
 
 /**
  * Class MethodArgumentServiceTest

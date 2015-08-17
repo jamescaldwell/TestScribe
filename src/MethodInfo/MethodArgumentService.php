@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\MethodInfo;
 
 /**
  * Class MethodArgumentService
