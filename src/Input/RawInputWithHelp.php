@@ -89,6 +89,15 @@ class RawInputWithHelp
         return $str;
     }
 
+    /**
+     * @return void
+     * @throws \Box\TestScribe\Exception\AbortException
+     */
+    public function pause()
+    {
+        $this->getInputString('Press enter to continue...');
+    }
+
     private function showHelp()
     {
         $helpMsg = <<<'TAG'
