@@ -22,7 +22,7 @@ class RawInputWithHelp
 
     /**
      * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
-     * @param \Box\TestScribe\Output             $output
+     * @param \Box\TestScribe\Output                   $output
      */
     function __construct(
         RawInputWithPrompt $rawInputWithPrompt,
@@ -31,6 +31,36 @@ class RawInputWithHelp
     {
         $this->rawInputWithPrompt = $rawInputWithPrompt;
         $this->output = $output;
+    }
+
+    /**
+     * Get an input string.
+     *
+     * Handles interactive help and abort commands.
+     *
+     * @param string $msg
+     *
+     * @return string
+     * @throws \Box\TestScribe\Exception\AbortException
+     */
+    private function getInputString($msg)
+    {
+        $this->output->writeln($msg);
+
+        $str = '';
+        while (true) {
+            $str = $this->rawInputWithPrompt->getString();
+
+            if ($str === 'h') {
+                $this->showHelp();
+            } else if ($str === 'a') {
+                throw new AbortException('Abort upon a user request');
+            } else {
+                break;
+            }
+        }
+
+        return $str;
     }
 
     /**
@@ -50,22 +80,10 @@ class RawInputWithHelp
         if ($default !== '') {
             $promptMsg .= "\nType return for the default value ( $default ).";
         }
-        $this->output->writeln($promptMsg);
 
-        $str = '';
-        while (true) {
-            $str = $this->rawInputWithPrompt->getString();
-
-            if ($str === 'h') {
-                $this->showHelp();
-            } else if ($str === 'a') {
-                throw new AbortException('Abort upon a user request');
-            } else if ($str === '') {
-                $str = $default;
-                break;
-            } else {
-                break;
-            }
+        $str = $this->getInputString($promptMsg);
+        if ($str === '') {
+            $str = $default;
         }
 
         return $str;
