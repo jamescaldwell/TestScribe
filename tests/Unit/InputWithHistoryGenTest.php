@@ -9,7 +9,7 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputWithHistory::getInputValue
+     * @covers Box\TestScribe\Input\InputWithHistory::getInputValue
      */
     public function testGetInputValueForReturnValue()
     {
@@ -66,7 +66,7 @@ class InputWithHistoryGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputWithHistory::getInputValue
+     * @covers Box\TestScribe\Input\InputWithHistory::getInputValue
      */
     public function testGetInputValueForParameters()
     {
