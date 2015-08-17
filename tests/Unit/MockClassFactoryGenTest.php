@@ -9,8 +9,8 @@ class MockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\MockClassFactory::create
-     * @covers Box\TestScribe\MockClassFactory
+     * @covers Box\TestScribe\Mock\MockClassFactory::create
+     * @covers Box\TestScribe\Mock\MockClassFactory
      */
     public function testCreate()
     {
