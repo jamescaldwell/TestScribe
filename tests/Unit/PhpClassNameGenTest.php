@@ -10,7 +10,7 @@ class PhpClassNameGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getNameSpace
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getNameSpace
      */
     public function testGetNameSpaceOneLevel()
     {
@@ -34,7 +34,7 @@ MY_LONG_END_OF_TEXT_a1b9;
     }
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getNameSpace
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getNameSpace
      */
     public function testGetNameSpaceTwoLevels()
     {
@@ -59,7 +59,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getNameSpace
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getNameSpace
      */
     public function testGetNameSpaceNoNameSpace()
     {
@@ -84,7 +84,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getClassName
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getClassName
      */
     public function testGetClassName()
     {
@@ -109,7 +109,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getFullyQualifiedClassName
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getFullyQualifiedClassName
      */
     public function testGetFullyQualifiedClassName()
     {
@@ -134,7 +134,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
 
     /**
-     * @covers \Box\TestScribe\PhpClassName::getNameSpace
+     * @covers \Box\TestScribe\ClassInfo\PhpClassName::getNameSpace
      */
     public function testGetEmptyNamespaceForFullyQualifiedToplevelClass()
     {
