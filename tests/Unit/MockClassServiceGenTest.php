@@ -9,8 +9,8 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\MockClassService::invokeInterceptedCall
-     * @covers \Box\TestScribe\MockClassService
+     * @covers \Box\TestScribe\Mock\MockClassService::invokeInterceptedCall
+     * @covers \Box\TestScribe\Mock\MockClassService
      */
     public function testInvokeInterceptedCall()
     {
