@@ -9,7 +9,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputValueGetter::get
+     * @covers Box\TestScribe\Input\InputValueGetter::get
      */
     public function testGetClassWithSimpleClassName()
     {
@@ -99,7 +99,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Box\TestScribe\InputValueGetter::get
+     * @covers Box\TestScribe\Input\InputValueGetter::get
      */
     public function testGetNonClass()
     {
@@ -194,7 +194,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputValueGetter::get
+     * @covers Box\TestScribe\Input\InputValueGetter::get
      */
     public function testGetVoidType()
     {
