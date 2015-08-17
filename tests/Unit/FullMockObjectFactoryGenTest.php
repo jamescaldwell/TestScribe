@@ -9,8 +9,8 @@ class FullMockObjectFactoryGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\FullMockObjectFactory::createMockObject
-     * @covers Box\TestScribe\FullMockObjectFactory
+     * @covers Box\TestScribe\Mock\FullMockObjectFactory::createMockObject
+     * @covers Box\TestScribe\Mock\FullMockObjectFactory
      */
     public function testCreateMockObject()
     {
