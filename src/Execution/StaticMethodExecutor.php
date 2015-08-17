@@ -1,14 +1,14 @@
 <?php
 namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\ArgumentsCollector;
+use Box\TestScribe\ArgumentInfo\ArgumentsCollector;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ReflectionUtil;
 
 /**
  * Execute the static method under test.
  *
- * @var  ReflectionUtil| GlobalComputedConfig| ArgumentsCollector
+ * @var  ReflectionUtil| GlobalComputedConfig| \Box\TestScribe\ArgumentInfo\ArgumentsCollector
  */
 class StaticMethodExecutor
 {
@@ -18,13 +18,13 @@ class StaticMethodExecutor
     /** @var GlobalComputedConfig */
     private $globalComputedConfig;
 
-    /** @var ArgumentsCollector */
+    /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector */
     private $argumentsCollector;
 
     /**
      * @param \Box\TestScribe\Utils\ReflectionUtil $reflectionUtil
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
-     * @param \Box\TestScribe\ArgumentsCollector   $argumentsCollector
+     * @param \Box\TestScribe\ArgumentInfo\ArgumentsCollector   $argumentsCollector
      */
     function __construct(
         ReflectionUtil $reflectionUtil,

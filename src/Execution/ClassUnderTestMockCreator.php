@@ -2,7 +2,7 @@
 namespace Box\TestScribe\Execution;
 
 use Box\TestScribe\ArgumentInfo\Arguments;
-use Box\TestScribe\ArgumentsCollector;
+use Box\TestScribe\ArgumentInfo\ArgumentsCollector;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
@@ -23,7 +23,7 @@ class ClassUnderTestMockCreator
 
     /**
      * @param \Box\TestScribe\Mock\MockObjectFactory  $mockObjectFactory
-     * @param \Box\TestScribe\ArgumentsCollector $argumentsCollector
+     * @param \Box\TestScribe\ArgumentInfo\ArgumentsCollector $argumentsCollector
      * @param \Box\TestScribe\Output             $output
      */
     function __construct(

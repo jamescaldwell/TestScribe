@@ -52,11 +52,11 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\ArgumentsCollector $mockArgumentsCollector2 */
+        /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector $mockArgumentsCollector2 */
         $mockArgumentsCollector2 = $this->shmock(
-            '\\Box\\TestScribe\\ArgumentsCollector',
+            '\\Box\\TestScribe\\ArgumentInfo\\ArgumentsCollector',
             function (
-                /** @var \Box\TestScribe\ArgumentsCollector|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -154,11 +154,11 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\ArgumentsCollector $mockArgumentsCollector2 */
+        /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector $mockArgumentsCollector2 */
         $mockArgumentsCollector2 = $this->shmock(
-            '\\Box\\TestScribe\\ArgumentsCollector',
+            '\\Box\\TestScribe\\ArgumentInfo\\ArgumentsCollector',
             function (
-                /** @var \Box\TestScribe\ArgumentsCollector|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

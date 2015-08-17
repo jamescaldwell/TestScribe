@@ -3,11 +3,11 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\ArgumentInfo;
 
-use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\Input\InputValueGetter;
 use Box\TestScribe\MethodInfo\Method;
+use Box\TestScribe\Output;
 
 /**
  * Collect arguments to a method.
