@@ -16,11 +16,11 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Method $mockMethod2 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
         $mockMethod2 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -94,11 +94,11 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Method $mockMethod2 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
         $mockMethod2 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -193,11 +193,11 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Method $mockMethod2 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
         $mockMethod2 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -276,11 +276,11 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Method $mockMethod2 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
         $mockMethod2 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

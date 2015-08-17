@@ -3,7 +3,7 @@
 namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\Input\InputValue;
-use Box\TestScribe\Method;
+use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\MethodHelper;
 use Box\TestScribe\ClassInfo\PhpClass;
 
@@ -224,7 +224,7 @@ class MockClass implements \JsonSerializable
     }
 
     /**
-     * @param \Box\TestScribe\Method     $methodObj
+     * @param \Box\TestScribe\MethodInfo\Method     $methodObj
      * @param array                                $arguments
      * @param \Box\TestScribe\Input\InputValue $value
      *
@@ -272,7 +272,7 @@ class MockClass implements \JsonSerializable
     /**
      * Return the constructor associated with the class being mocked.
      *
-     * @return \Box\TestScribe\Method|null
+     * @return \Box\TestScribe\MethodInfo\Method|null
      */
     public function getConstructorOfTheMockedClass()
     {

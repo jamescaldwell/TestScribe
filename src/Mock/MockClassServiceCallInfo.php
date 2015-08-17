@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\Method;
+use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\MethodCallInfo;
 use Box\TestScribe\Output;
 use Box\TestScribe\Utils\CallInformationCollector;
@@ -41,7 +41,7 @@ class MockClassServiceCallInfo
     /**
      * Handle intercepted calls made to the mock class instance.
      *
-     * @param \Box\TestScribe\Method $method
+     * @param \Box\TestScribe\MethodInfo\Method $method
      * @param array                            $arguments
      *
      * @return void

@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\Input\InputValue;
-use Box\TestScribe\Method;
+use Box\TestScribe\MethodInfo\Method;
 
 /**
  * Class MockMethodExpectationRenderer

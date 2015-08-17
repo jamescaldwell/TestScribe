@@ -1,8 +1,13 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\MethodInfo;
 
+use Box\TestScribe\App;
 use Box\TestScribe\ClassInfo\PhpClass;
+use Box\TestScribe\MethodArgumentService;
+use Box\TestScribe\MethodHelper;
+use Box\TestScribe\Parameter;
+use Box\TestScribe\PHPDoc;
 use Box\TestScribe\PHPDoc\PHPDocMixedType;
 use Box\TestScribe\PHPDoc\PHPDocTypeException;
 use Box\TestScribe\PHPDoc\PHPDocVoidType;

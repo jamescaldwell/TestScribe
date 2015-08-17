@@ -56,11 +56,11 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Method $mockMethod2 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
         $mockMethod2 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

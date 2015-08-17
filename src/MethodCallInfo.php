@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\Utils\ValueFormatter;
 
 /**
@@ -30,7 +31,7 @@ class MethodCallInfo
     }
 
     /**
-     * @param \Box\TestScribe\Method $method
+     * @param \Box\TestScribe\MethodInfo\Method $method
      * @param array                            $arguments
      *
      * @return string
@@ -56,7 +57,7 @@ class MethodCallInfo
     }
 
     /**
-     * @param \Box\TestScribe\Method $method
+     * @param \Box\TestScribe\MethodInfo\Method $method
      * @param array                            $arguments
      *
      * @return string

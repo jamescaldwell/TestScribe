@@ -3,6 +3,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\ClassInfo\PhpClass;
+use Box\TestScribe\MethodInfo\Method;
 
 /**
  * Helper methods for Method class
@@ -13,7 +14,7 @@ class MethodHelper
      * @param PhpClass $class
      * @param string   $methodName
      *
-     * @return \Box\TestScribe\Method
+     * @return \Box\TestScribe\MethodInfo\Method
      */
     public function createFromMethodName(PhpClass $class, $methodName)
     {

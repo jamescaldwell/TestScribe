@@ -17,11 +17,11 @@ class MockClassServiceCallInfoGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Method $mockMethod4 */
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod4 */
         $mockMethod4 = $this->shmock(
-            '\\Box\\TestScribe\\Method',
+            '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
-                /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

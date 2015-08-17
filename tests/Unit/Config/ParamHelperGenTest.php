@@ -66,11 +66,11 @@ class ParamHelperGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Method $mockMethod4 */
+                /** @var \Box\TestScribe\MethodInfo\Method $mockMethod4 */
                 $mockMethod4 = $this->shmock(
-                    '\\Box\\TestScribe\\Method',
+                    '\\Box\\TestScribe\\MethodInfo\\Method',
                     function (
-                        /** @var \Box\TestScribe\Method|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -91,7 +91,7 @@ class ParamHelperGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\Method',
+            'Box\\TestScribe\\MethodInfo\\Method',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

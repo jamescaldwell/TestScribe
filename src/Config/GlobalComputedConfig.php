@@ -3,7 +3,7 @@
 namespace Box\TestScribe\Config;
 
 use Box\TestScribe\App;
-use Box\TestScribe\Method;
+use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\ClassInfo\PhpClassName;
 
 /**
@@ -25,7 +25,7 @@ class GlobalComputedConfig
     /**
      * The method under test.
      *
-     * @var Method
+     * @var \Box\TestScribe\MethodInfo\Method
      */
     private $inMethod;
 
@@ -72,7 +72,7 @@ class GlobalComputedConfig
 
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
-     * @param \Box\TestScribe\Method              $inMethod
+     * @param \Box\TestScribe\MethodInfo\Method              $inMethod
      * @param \Box\TestScribe\Config\Options      $options
      * @param \Box\TestScribe\Config\ConfigParams $outputParams
      */
@@ -131,7 +131,7 @@ class GlobalComputedConfig
     }
 
     /**
-     * @return \Box\TestScribe\Method
+     * @return \Box\TestScribe\MethodInfo\Method
      */
     public function getInMethod()
     {

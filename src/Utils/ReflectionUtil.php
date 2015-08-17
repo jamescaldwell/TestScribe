@@ -6,7 +6,7 @@
 namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\Arguments;
-use Box\TestScribe\Method;
+use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\Output;
 
 /**
@@ -34,7 +34,7 @@ class ReflectionUtil
      * Invoke a method on the target object regardless if the method is private, protected or public.
      *
      * @param object|null                         $targetObject null if the method is static
-     * @param \Box\TestScribe\Method    $method
+     * @param \Box\TestScribe\MethodInfo\Method    $method
      * @param \Box\TestScribe\Arguments $arguments
      *
      * @return mixed

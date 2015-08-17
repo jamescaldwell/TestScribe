@@ -25,7 +25,7 @@ class ParamHelper
     /**
      * @param \Box\TestScribe\Config\ConfigParams $params
      *
-     * @return \Box\TestScribe\Method
+     * @return \Box\TestScribe\MethodInfo\Method
      */
     public function getMethodObjFromParamObj(
         ConfigParams $params

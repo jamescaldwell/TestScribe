@@ -6,6 +6,7 @@
 namespace Box\TestScribe;
 
 use Box\TestScribe\Input\InputValueGetter;
+use Box\TestScribe\MethodInfo\Method;
 
 /**
  * Collect arguments to a method.
@@ -38,7 +39,7 @@ class ArgumentsCollector
     /**
      * Collect values of the arguments to the given method.
      *
-     * @param \Box\TestScribe\Method $method
+     * @param \Box\TestScribe\MethodInfo\Method $method
      *
      * @return \Box\TestScribe\Arguments
      */
