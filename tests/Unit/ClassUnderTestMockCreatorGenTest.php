@@ -9,8 +9,8 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\ClassUnderTestMockCreator::createMockObjectForTheClassUnderTest
-     * @covers \Box\TestScribe\ClassUnderTestMockCreator
+     * @covers \Box\TestScribe\Execution\ClassUnderTestMockCreator::createMockObjectForTheClassUnderTest
+     * @covers \Box\TestScribe\Execution\ClassUnderTestMockCreator
      */
     public function testCreateMockObjectForTheClassUnderTest_no_constructor()
     {
@@ -97,8 +97,8 @@ class ClassUnderTestMockCreatorGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Box\TestScribe\ClassUnderTestMockCreator::createMockObjectForTheClassUnderTest
-     * @covers \Box\TestScribe\ClassUnderTestMockCreator
+     * @covers \Box\TestScribe\Execution\ClassUnderTestMockCreator::createMockObjectForTheClassUnderTest
+     * @covers \Box\TestScribe\Execution\ClassUnderTestMockCreator
      */
     public function testCreateMockObjectForTheClassUnderTest_with_constructor()
     {
