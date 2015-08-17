@@ -9,7 +9,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\VarExporter::exportVariable
+     * @covers Box\TestScribe\Utils\VarExporter::exportVariable
      */
     public function testExportVariableStringWithoutReturnChar()
     {
@@ -23,7 +23,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\VarExporter::exportVariable
+     * @covers Box\TestScribe\Utils\VarExporter::exportVariable
      */
     public function testExportVariableBoolean()
     {
@@ -38,7 +38,7 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\VarExporter::exportVariable
+     * @covers Box\TestScribe\Utils\VarExporter::exportVariable
      */
     public function testExportVariableInt()
     {
@@ -53,8 +53,8 @@ class VarExporterGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers \Box\TestScribe\VarExporter::exportVariable
-     * @covers \Box\TestScribe\VarExporter
+     * @covers \Box\TestScribe\Utils\VarExporter::exportVariable
+     * @covers \Box\TestScribe\Utils\VarExporter
      */
     public function testExportVariable_multi_line_string()
     {
