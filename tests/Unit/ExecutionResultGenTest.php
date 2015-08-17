@@ -9,8 +9,8 @@ class ExecutionResultGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\ExecutionResult::jsonSerialize
-     * @covers \Box\TestScribe\ExecutionResult
+     * @covers \Box\TestScribe\Execution\ExecutionResult::jsonSerialize
+     * @covers \Box\TestScribe\Execution\ExecutionResult
      */
     public function testJsonSerialize_no_mocks_no_exception()
     {

@@ -11,8 +11,8 @@ use Box\TestScribe\Execution\ExecutionResult;
 class ExecutionResultTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers Box\TestScribe\ExecutionResult::jsonSerialize
-     * @covers Box\TestScribe\ExecutionResult
+     * @covers Box\TestScribe\Execution\ExecutionResult::jsonSerialize
+     * @covers Box\TestScribe\Execution\ExecutionResult
      */
     public function testJsonSerialize_mockclass_exception()
     {
