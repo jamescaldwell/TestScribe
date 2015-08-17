@@ -10,7 +10,7 @@ class MockClassServiceInfoSaverGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\MockClassServiceInfoSaver::gatherAndSaveCallInfo
+     * @covers Box\TestScribe\Mock\MockClassServiceInfoSaver::gatherAndSaveCallInfo
      */
     public function testGatherAndSaveCallInfo()
     {
