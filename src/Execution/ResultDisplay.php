@@ -3,9 +3,9 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Execution;
 
-use Box\TestScribe\Execution\ExecutionResult;
+use Box\TestScribe\Output;
 use Box\TestScribe\Utils\ValueFormatter;
 
 /**

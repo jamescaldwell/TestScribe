@@ -66,7 +66,7 @@ class ResultDisplayTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\ResultDisplay($mockOutput0, $mockValueFormatter1);
+        $objectUnderTest = new Execution\ResultDisplay($mockOutput0, $mockValueFormatter1);
         $objectUnderTest->showExecutionResult($mockExecutionResult2);
     }
 }
