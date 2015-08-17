@@ -9,8 +9,8 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\Executor::runMethod
-     * @covers \Box\TestScribe\Executor
+     * @covers \Box\TestScribe\Execution\Executor::runMethod
+     * @covers \Box\TestScribe\Execution\Executor
      */
     public function testRunMethod_static()
     {
@@ -138,8 +138,8 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Box\TestScribe\Executor::runMethod
-     * @covers \Box\TestScribe\Executor
+     * @covers \Box\TestScribe\Execution\Executor::runMethod
+     * @covers \Box\TestScribe\Execution\Executor
      */
     public function testRunMethod_instance()
     {
