@@ -9,8 +9,8 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\MethodCallInfo::getCallParamInfo
-     * @covers \Box\TestScribe\MethodCallInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo::getCallParamInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo
      */
     public function testGetCallParamInfo_one_argument()
     {
@@ -87,8 +87,8 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Box\TestScribe\MethodCallInfo::getCallParamInfo
-     * @covers \Box\TestScribe\MethodCallInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo::getCallParamInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo
      */
     public function testGetCallParamInfo_two_arguments()
     {
@@ -186,8 +186,8 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Box\TestScribe\MethodCallInfo::getCallParamInfo
-     * @covers \Box\TestScribe\MethodCallInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo::getCallParamInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo
      */
     public function testGetCallParamInfo_more_arguments_than_expected()
     {
@@ -269,8 +269,8 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Box\TestScribe\MethodCallInfo::getCallParamInfo
-     * @covers \Box\TestScribe\MethodCallInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo::getCallParamInfo
+     * @covers \Box\TestScribe\ArgumentInfo\MethodCallInfo
      */
     public function testGetCallParamInfo_no_argument()
     {
