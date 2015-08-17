@@ -9,7 +9,7 @@ class RawInputWithPromptGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\RawInputWithPrompt::getString
+     * @covers Box\TestScribe\Input\RawInputWithPrompt::getString
      */
     public function testGetString()
     {
