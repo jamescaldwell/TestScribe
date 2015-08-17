@@ -6,7 +6,7 @@ use Box\TestScribe\_fixture\ObjectFactory;
 use Box\TestScribe\Arguments;
 use Box\TestScribe\MethodHelper;
 use Box\TestScribe\ClassInfo\PhpClass;
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 
 /**
  */

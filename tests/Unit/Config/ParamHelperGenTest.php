@@ -28,11 +28,11 @@ class ParamHelperGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\PhpClassName $mockPhpClassName3 */
+                /** @var \Box\TestScribe\ClassInfo\PhpClassName $mockPhpClassName3 */
                 $mockPhpClassName3 = $this->shmock(
-                    '\\Box\\TestScribe\\PhpClassName',
+                    '\\Box\\TestScribe\\ClassInfo\\PhpClassName',
                     function (
-                        /** @var \Box\TestScribe\PhpClassName|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\ClassInfo\PhpClassName|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();

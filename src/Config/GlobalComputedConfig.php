@@ -4,7 +4,7 @@ namespace Box\TestScribe\Config;
 
 use Box\TestScribe\App;
 use Box\TestScribe\Method;
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 
 /**
  * Class GlobalComputedConfig
@@ -183,7 +183,7 @@ class GlobalComputedConfig
     }
 
     /**
-     * @return \Box\TestScribe\PhpClassName
+     * @return \Box\TestScribe\ClassInfo\PhpClassName
      */
     public function getOutPhpClassName()
     {

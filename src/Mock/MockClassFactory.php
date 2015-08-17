@@ -3,7 +3,7 @@ namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\GlobalCounter;
 use Box\TestScribe\ClassInfo\PhpClass;
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 
 /**
  * Class MockClassFactory
@@ -69,7 +69,7 @@ class MockClassFactory
      * Return an unique name for the mock object.
      * This name is NOT prefixed with '$'.
      *
-     * @param \Box\TestScribe\PhpClassName $phpClassName
+     * @param \Box\TestScribe\ClassInfo\PhpClassName $phpClassName
      *
      * @return string
      */

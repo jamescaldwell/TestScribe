@@ -6,7 +6,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\CLI\CmdOption;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 use Box\TestScribe\Output;
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 use JsonSerializable;
 
 /**
@@ -17,7 +17,7 @@ class ConfigParams implements JsonSerializable
     private $sourceFile;
 
     /**
-     * @var PhpClassName
+     * @var \Box\TestScribe\ClassInfo\PhpClassName
      */
     private $phpClassName;
 
@@ -28,7 +28,7 @@ class ConfigParams implements JsonSerializable
 
     /**
      * @param string                       $sourceFile
-     * @param \Box\TestScribe\PhpClassName $phpClassName
+     * @param \Box\TestScribe\ClassInfo\PhpClassName $phpClassName
      * @param string                       $methodName
      */
     function __construct(
@@ -79,7 +79,7 @@ class ConfigParams implements JsonSerializable
     }
 
     /**
-     * @return \Box\TestScribe\PhpClassName
+     * @return \Box\TestScribe\ClassInfo\PhpClassName
      */
     public function getPhpClassName()
     {

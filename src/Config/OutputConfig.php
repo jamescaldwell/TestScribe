@@ -3,7 +3,7 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\PhpClassName;
+use Box\TestScribe\ClassInfo\PhpClassName;
 use Symfony\Component\Console\Input\InputInterface;
 
 

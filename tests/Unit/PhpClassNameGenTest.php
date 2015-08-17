@@ -20,7 +20,7 @@ class PhpClassNameGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('\\foo\\Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('\\foo\\Hello');
         $executionResult = $objectUnderTest->getNameSpace();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -44,7 +44,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('\\foo\\bar\\Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('\\foo\\bar\\Hello');
         $executionResult = $objectUnderTest->getNameSpace();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -69,7 +69,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('Hello');
         $executionResult = $objectUnderTest->getNameSpace();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -94,7 +94,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('\\foo\\Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('\\foo\\Hello');
         $executionResult = $objectUnderTest->getClassName();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -119,7 +119,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('\\foo\\bar\\Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('\\foo\\bar\\Hello');
         $executionResult = $objectUnderTest->getFullyQualifiedClassName();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'
@@ -144,7 +144,7 @@ MY_LONG_END_OF_TEXT_a1b9;
 
         // Setup mocks for the constructor of the class under test when required.
 
-        $objectUnderTest = new \Box\TestScribe\PhpClassName('\\Hello');
+        $objectUnderTest = new ClassInfo\PhpClassName('\\Hello');
         $executionResult = $objectUnderTest->getNameSpace();
         $executionResultAsString = var_export($executionResult, true);
         $expectedString = <<<'MY_LONG_END_OF_TEXT_a1b9'

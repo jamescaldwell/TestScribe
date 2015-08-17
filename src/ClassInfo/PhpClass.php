@@ -2,8 +2,6 @@
 
 namespace Box\TestScribe\ClassInfo;
 
-use Box\TestScribe\PhpClassName;
-
 /**
  * Represent a PHP class.
  */
@@ -15,7 +13,7 @@ class PhpClass
     private $phpClassName;
 
     /**
-     * @param \Box\TestScribe\PhpClassName $phpClassName
+     * @param \Box\TestScribe\ClassInfo\PhpClassName $phpClassName
      */
     public function __construct(PhpClassName $phpClassName)
     {
@@ -23,7 +21,7 @@ class PhpClass
     }
 
     /**
-     * @return \Box\TestScribe\PhpClassName
+     * @return \Box\TestScribe\ClassInfo\PhpClassName
      */
     public function getPhpClassName()
     {
