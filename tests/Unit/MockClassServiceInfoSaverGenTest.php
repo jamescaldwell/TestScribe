@@ -88,11 +88,11 @@ class MockClassServiceInfoSaverGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value($mockInputValue7);
             }
         );
-        /** @var \Box\TestScribe\MethodHelper $mockMethodHelper1 */
+        /** @var \Box\TestScribe\MethodInfo\MethodHelper $mockMethodHelper1 */
         $mockMethodHelper1 = $this->shmock(
-            '\\Box\\TestScribe\\MethodHelper',
+            '\\Box\\TestScribe\\MethodInfo\\MethodHelper',
             function (
-                /** @var \Box\TestScribe\MethodHelper|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\MethodHelper|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

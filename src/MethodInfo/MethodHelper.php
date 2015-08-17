@@ -1,9 +1,8 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\MethodInfo;
 
 use Box\TestScribe\ClassInfo\PhpClass;
-use Box\TestScribe\MethodInfo\Method;
 
 /**
  * Helper methods for Method class

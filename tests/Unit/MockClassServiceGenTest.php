@@ -80,11 +80,11 @@ class MockClassServiceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\MethodHelper $mockMethodHelper3 */
+        /** @var \Box\TestScribe\MethodInfo\MethodHelper $mockMethodHelper3 */
         $mockMethodHelper3 = $this->shmock(
-            '\\Box\\TestScribe\\MethodHelper',
+            '\\Box\\TestScribe\\MethodInfo\\MethodHelper',
             function (
-                /** @var \Box\TestScribe\MethodHelper|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\MethodInfo\MethodHelper|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

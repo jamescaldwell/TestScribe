@@ -3,16 +3,16 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MethodInfo\MethodHelper;
 use Box\TestScribe\ClassInfo\PhpClass;
 
 
 /**
- * @var MethodHelper
+ * @var \Box\TestScribe\MethodInfo\MethodHelper
  */
 class ParamHelper
 {
-    /** @var MethodHelper */
+    /** @var \Box\TestScribe\MethodInfo\MethodHelper */
     private $methodHelper;
 
     function __construct(

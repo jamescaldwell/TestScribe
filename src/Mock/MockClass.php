@@ -4,7 +4,7 @@ namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\Input\InputValue;
 use Box\TestScribe\MethodInfo\Method;
-use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MethodInfo\MethodHelper;
 use Box\TestScribe\ClassInfo\PhpClass;
 
 /**

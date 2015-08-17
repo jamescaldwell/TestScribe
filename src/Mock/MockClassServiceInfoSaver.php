@@ -3,7 +3,7 @@
 namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\Input\InputValueGetter;
-use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MethodInfo\MethodHelper;
 
 /**
  * This is the only class which should modify the MockClass's state
@@ -21,7 +21,7 @@ class MockClassServiceInfoSaver
 
     /**
      * @param \Box\TestScribe\Input\InputValueGetter $inputValueGetter
-     * @param \Box\TestScribe\MethodHelper     $methodHelper
+     * @param \Box\TestScribe\MethodInfo\MethodHelper     $methodHelper
      */
     function __construct(
         InputValueGetter $inputValueGetter,

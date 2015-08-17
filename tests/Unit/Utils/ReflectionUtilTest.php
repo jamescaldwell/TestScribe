@@ -4,7 +4,7 @@ namespace Box\TestScribe\Utils;
 use Box\TestScribe\_fixture\_input\Calculator;
 use Box\TestScribe\_fixture\ObjectFactory;
 use Box\TestScribe\Arguments;
-use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MethodInfo\MethodHelper;
 use Box\TestScribe\ClassInfo\PhpClass;
 use Box\TestScribe\ClassInfo\PhpClassName;
 

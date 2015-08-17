@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\MethodHelper;
+use Box\TestScribe\MethodInfo\MethodHelper;
 use Box\TestScribe\Output;
 
 /**
@@ -10,7 +10,7 @@ use Box\TestScribe\Output;
  * This is the only class which should modify the MockClass's state
  * after that instance is created.
  *
- * @var MockClassServiceCallInfo | MockClassServiceInfoSaver | MethodHelper|Output
+ * @var MockClassServiceCallInfo | MockClassServiceInfoSaver | \Box\TestScribe\MethodInfo\MethodHelper|Output
  */
 class MockClassService
 {
@@ -20,7 +20,7 @@ class MockClassService
     /** @var MockClassServiceInfoSaver */
     private $mockClassServiceInfoSaver;
 
-    /** @var MethodHelper */
+    /** @var \Box\TestScribe\MethodInfo\MethodHelper */
     private $methodHelper;
 
     /** @var Output */
@@ -29,7 +29,7 @@ class MockClassService
     /**
      * @param \Box\TestScribe\Mock\MockClassServiceCallInfo  $mockClassServiceCallInfo
      * @param \Box\TestScribe\Mock\MockClassServiceInfoSaver $mockClassServiceInfoSaver
-     * @param \Box\TestScribe\MethodHelper              $methodHelper
+     * @param \Box\TestScribe\MethodInfo\MethodHelper              $methodHelper
      * @param \Box\TestScribe\Output                    $output
      */
     function __construct(
