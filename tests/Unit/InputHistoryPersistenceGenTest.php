@@ -9,7 +9,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputHistoryPersistence::loadHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryPersistence::loadHistory
      */
     public function testLoadHistoryHistoryFileDoesNotExist()
     {
@@ -83,7 +83,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputHistoryPersistence::loadHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryPersistence::loadHistory
      */
     public function testLoadHistory()
     {
@@ -163,7 +163,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\InputHistoryPersistence::saveHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryPersistence::saveHistory
      */
     public function testSaveHistory()
     {
@@ -258,7 +258,7 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\InputHistoryPersistence::saveHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryPersistence::saveHistory
      */
     public function testSaveHistoryWhenHistoryFileDoesNotExist()
     {

@@ -9,7 +9,7 @@ class InputHistoryDataGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputHistoryData::jsonSerialize
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::jsonSerialize
      */
     public function testJsonSerialize()
     {
@@ -26,7 +26,7 @@ class InputHistoryDataGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputHistoryData::getInputStringFromHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::getInputStringFromHistory
      */
     public function testGetInputStringFromHistoryNonExistingItem()
     {

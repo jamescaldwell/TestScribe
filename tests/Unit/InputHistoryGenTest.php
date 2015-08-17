@@ -9,7 +9,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputHistory::saveHistoryToFile
+     * @covers Box\TestScribe\InputHistory\InputHistory::saveHistoryToFile
      */
     public function testSaveHistoryToFile()
     {
@@ -55,7 +55,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputHistory::getInputStringFromHistory
+     * @covers Box\TestScribe\InputHistory\InputHistory::getInputStringFromHistory
      */
     public function testGetInputStringFromHistory()
     {
@@ -114,7 +114,7 @@ class InputHistoryGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\InputHistory::setInputStringToHistory
+     * @covers Box\TestScribe\InputHistory\InputHistory::setInputStringToHistory
      */
     public function testSetInputStringToHistory()
     {

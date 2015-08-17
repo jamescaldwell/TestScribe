@@ -9,7 +9,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\InputHistoryData::jsonSerialize
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::jsonSerialize
      */
     public function testJsonSerialize()
     {
@@ -23,7 +23,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\InputHistoryData::getData
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::getData
      */
     public function testGetData()
     {
@@ -37,8 +37,8 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Box\TestScribe\InputHistoryData::setInputStringToHistory
-     * @covers Box\TestScribe\InputHistoryData::getInputStringFromHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::setInputStringToHistory
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::getInputStringFromHistory
      */
     public function testGetInputStringFromHistory()
     {
@@ -61,7 +61,7 @@ class InputHistoryDataTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Box\TestScribe\InputHistoryData::setData
+     * @covers Box\TestScribe\InputHistory\InputHistoryData::setData
      */
     public function testSetData()
     {
