@@ -9,7 +9,7 @@ class GlobalFunctionTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\GlobalFunction::__call
+     * @covers Box\TestScribe\FunctionWrappers\GlobalFunction::__call
      */
     public function testCallGlobalFunctions()
     {
