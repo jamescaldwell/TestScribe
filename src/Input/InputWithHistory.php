@@ -140,4 +140,12 @@ class InputWithHistory
         // after we catch generator exceptions and save history before existing.
         $inputHistory->saveHistoryToFile();
     }
+
+    /**
+     * @return void
+     */
+    public function pause()
+    {
+        $this->rawInputWithHelp->pause();
+    }
 }

@@ -18,6 +18,8 @@ use Box\TestScribe\Utils\ClassNameUtil;
  * @Injectable(lazy=true)
  *
  * Gather user input for a value.
+ *
+ * @var StringToInputValueConverter|InputWithHistory
  */
 class InputValueGetter
 {
@@ -63,6 +65,9 @@ class InputValueGetter
         $paramName
     )
     {
+        // Should this method pause the output?
+        $shouldPause = true;
+
         $isClass = $typeInfo->isClass();
         if ($isClass) {
             $className = $typeInfo->getRepresentation();
@@ -76,6 +81,9 @@ class InputValueGetter
         } else if ($typeInfo->isVoid()) {
             $expression = 'void';
         } else {
+            // The output is paused already prompting users for input.
+            $shouldPause = false;
+
             // @TODO (ryang 1/9/15) : allow users to retry when they make a typo.
             // @TODO (ryang 1/9/15) : validate against the type
             $typeString = $typeInfo->getRepresentation();
@@ -91,6 +99,9 @@ class InputValueGetter
 
         $inputValue = $this->stringToInputValueConverter->getValue($expression);
 
+        if ($shouldPause) {
+            $this->inputWithHistory->pause();
+        }
         return $inputValue;
     }
 }

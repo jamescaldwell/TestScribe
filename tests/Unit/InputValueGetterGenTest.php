@@ -83,6 +83,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
+                $shmock->pause();
             }
         );
         $objectUnderTest = new Input\InputValueGetter($mockStringToInputValueConverter0, $mockInputWithHistory1);
@@ -262,6 +263,8 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+
+                $shmock->pause();
 
             }
         );
