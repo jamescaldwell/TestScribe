@@ -9,8 +9,8 @@ class MockClassLoaderGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\MockClassLoader::createAndLoadMockClass
-     * @covers Box\TestScribe\MockClassLoader
+     * @covers Box\TestScribe\Mock\MockClassLoader::createAndLoadMockClass
+     * @covers Box\TestScribe\Mock\MockClassLoader
      */
     public function testCreateAndLoadMockClass()
     {
