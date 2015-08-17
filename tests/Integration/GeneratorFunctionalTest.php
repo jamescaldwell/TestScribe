@@ -5,6 +5,7 @@ use Box\TestScribe\_fixture\_input\TestMethodsProvider;
 use Box\TestScribe\_fixture\Directory;
 use Box\TestScribe\_fixture\TestCreator;
 use Box\TestScribe\FunctionWrappers\GlobalFunction;
+use Box\TestScribe\_fixture\DirectoryUtil as DirUtilForTest;
 use Box\TestScribe\Utils\DirectoryUtil;
 
 /**
@@ -43,7 +44,7 @@ class GeneratorFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     private function cleanUpFunctionalTestTempDir()
     {
-        array_map('unlink', glob("{$this->tempDir}/*.php"));
+        DirUtilForTest::deleteFileOrDirectory($this->tempDir);
     }
 
     /**
@@ -84,10 +85,6 @@ class GeneratorFunctionalTest extends \PHPUnit_Framework_TestCase
         $tempDir = $this->tempDir;
         $historyDir = "$tempDir/test_generator/history/";
         $historyFile = "$historyDir/StaticCalculator.yaml";
-        if (is_dir($historyDir)) {
-            // Clean up previously generated history file.
-            unlink($historyFile);
-        }
         $this->verifyCorrectTestFileIsGenerated(
             'StaticCalculator',
             'add',
