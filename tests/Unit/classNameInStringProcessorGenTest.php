@@ -9,8 +9,8 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\classNameInStringProcessor::process
-     * @covers Box\TestScribe\classNameInStringProcessor
+     * @covers Box\TestScribe\Input\classNameInStringProcessor::process
+     * @covers Box\TestScribe\Input\classNameInStringProcessor
      */
     public function testProcess_simple_string()
     {
@@ -50,8 +50,8 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @covers Box\TestScribe\classNameInStringProcessor::process
-     * @covers Box\TestScribe\classNameInStringProcessor
+     * @covers Box\TestScribe\Input\classNameInStringProcessor::process
+     * @covers Box\TestScribe\Input\classNameInStringProcessor
      */
     public function testProcess_simple_class()
     {
@@ -114,8 +114,8 @@ class classNameInStringProcessorGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\classNameInStringProcessor::process
-     * @covers Box\TestScribe\classNameInStringProcessor
+     * @covers Box\TestScribe\Input\classNameInStringProcessor::process
+     * @covers Box\TestScribe\Input\classNameInStringProcessor
      */
     public function testProcess_class_in_array()
     {
