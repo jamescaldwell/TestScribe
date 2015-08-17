@@ -3,7 +3,7 @@
  *
  */
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\ArgumentInfo;
 
 use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\Utils\ValueFormatter;

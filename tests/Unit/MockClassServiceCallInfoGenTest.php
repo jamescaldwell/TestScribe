@@ -128,11 +128,11 @@ class MockClassServiceCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\MethodCallInfo $mockMethodCallInfo3 */
+        /** @var \Box\TestScribe\ArgumentInfo\MethodCallInfo $mockMethodCallInfo3 */
         $mockMethodCallInfo3 = $this->shmock(
-            '\\Box\\TestScribe\\MethodCallInfo',
+            '\\Box\\TestScribe\\ArgumentInfo\\MethodCallInfo',
             function (
-                /** @var \Box\TestScribe\MethodCallInfo|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\ArgumentInfo\MethodCallInfo|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();

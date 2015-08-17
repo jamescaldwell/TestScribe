@@ -70,7 +70,7 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MethodCallInfo($mockValueFormatter1);
+        $objectUnderTest = new ArgumentInfo\MethodCallInfo($mockValueFormatter1);
 
         $executionResult = $objectUnderTest->getCallParamInfo($mockMethod2, ['arg']);
 
@@ -168,7 +168,7 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MethodCallInfo($mockValueFormatter1);
+        $objectUnderTest = new ArgumentInfo\MethodCallInfo($mockValueFormatter1);
 
         $executionResult = $objectUnderTest->getCallParamInfo($mockMethod2, ['arg1', 'arg2']);
 
@@ -251,7 +251,7 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MethodCallInfo($mockValueFormatter1);
+        $objectUnderTest = new ArgumentInfo\MethodCallInfo($mockValueFormatter1);
 
         $executionResult = $objectUnderTest->getCallParamInfo($mockMethod2, ['arg1', 'arg2']);
 
@@ -304,7 +304,7 @@ class MethodCallInfoGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\MethodCallInfo($mockValueFormatter1);
+        $objectUnderTest = new ArgumentInfo\MethodCallInfo($mockValueFormatter1);
 
         $executionResult = $objectUnderTest->getCallParamInfo($mockMethod2, []);
 

@@ -3,13 +3,13 @@
 namespace Box\TestScribe\Mock;
 
 use Box\TestScribe\MethodInfo\Method;
-use Box\TestScribe\MethodCallInfo;
+use Box\TestScribe\ArgumentInfo\MethodCallInfo;
 use Box\TestScribe\Output;
 use Box\TestScribe\Utils\CallInformationCollector;
 use Box\TestScribe\Utils\Util;
 
 /**
- * @var Output | CallInformationCollector | Util | MethodCallInfo
+ * @var Output | CallInformationCollector | Util | \Box\TestScribe\ArgumentInfo\MethodCallInfo
  */
 class MockClassServiceCallInfo
 {
@@ -25,7 +25,7 @@ class MockClassServiceCallInfo
     /**
      * @param \Box\TestScribe\Output                         $output
      * @param \Box\TestScribe\Utils\CallInformationCollector $callInformationCollector
-     * @param \Box\TestScribe\MethodCallInfo                 $methodCallInfo
+     * @param \Box\TestScribe\ArgumentInfo\MethodCallInfo                 $methodCallInfo
      */
     function __construct(
         Output $output,
