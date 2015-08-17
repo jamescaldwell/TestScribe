@@ -9,8 +9,8 @@ class ResultDisplayGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\ResultDisplay::showExecutionResult
-     * @covers \Box\TestScribe\ResultDisplay
+     * @covers \Box\TestScribe\Execution\ResultDisplay::showExecutionResult
+     * @covers \Box\TestScribe\Execution\ResultDisplay
      */
     public function testShowExecutionResult_no_exception()
     {
