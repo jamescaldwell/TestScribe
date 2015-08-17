@@ -10,7 +10,7 @@ class StringWithMocksGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\ExpressionWithMocks::getExpression
+     * @covers \Box\TestScribe\Input\ExpressionWithMocks::getExpression
      */
     public function testGetStr()
     {
@@ -39,7 +39,7 @@ MY_LONG_END_OF_TEXT_a1b9;
     }
 
     /**
-     * @covers \Box\TestScribe\ExpressionWithMocks::getMocks
+     * @covers \Box\TestScribe\Input\ExpressionWithMocks::getMocks
      */
     public function testGetMocks()
     {
