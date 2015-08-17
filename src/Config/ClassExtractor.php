@@ -3,7 +3,6 @@
 namespace Box\TestScribe\Config;
 
 use Box\TestScribe\App;
-use Box\TestScribe\PHPClassTokenizer;
 use Box\TestScribe\Input\UserInput;
 
 /**

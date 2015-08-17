@@ -1,6 +1,6 @@
 <?php
 
-namespace Box\TestScribe;
+namespace Box\TestScribe\Config;
 
 /**
  * Class PHPClassTokenizer

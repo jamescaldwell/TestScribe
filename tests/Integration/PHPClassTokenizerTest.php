@@ -2,7 +2,7 @@
 
 namespace Box\TestScribe\Integration;
 
-use Box\TestScribe\PHPClassTokenizer;
+use Box\TestScribe\Config\PHPClassTokenizer;
 use PHPUnit_Framework_TestCase;
 
 /**
