@@ -6,6 +6,36 @@ namespace Box\TestScribe\FunctionWrappers;
 class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_put_contents
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
+     */
+    public function test_file_put_contents()
+    {
+        $tempFilePath = tempnam(sys_get_temp_dir(), 'testScribeTest_');
+
+        file_put_contents($tempFilePath, 'b');
+
+        // Execute the method under test.
+
+        $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
+
+        $executionResult = $objectUnderTest->file_put_contents($tempFilePath, 'a');
+
+        // Validate the execution result.
+
+        $expected = 1;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+
+        // Should overwrite the existing file content.
+        $fileContent = file_get_contents($tempFilePath);
+        $this->assertSame('a', $fileContent);
+    }
+
+    /**
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_exists
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
      */

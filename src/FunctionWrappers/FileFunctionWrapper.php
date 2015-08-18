@@ -16,6 +16,38 @@ use Box\TestScribe\Exception\TestScribeException;
 class FileFunctionWrapper
 {
     /**
+     * (PHP 5)<br/>
+     * Write a string to a file.
+     *
+     * Overwrite the existing content if it exists.
+     *
+     * @link http://php.net/manual/en/function.file-put-contents.php
+     * @param string $filename <p>
+     * Path to the file where to write the data.
+     * </p>
+     * @param string $data <p>
+     * The data to write.
+     * </p>
+     * data is written in text mode. If unicode
+     * semantics are enabled, the default encoding is UTF-8.
+     * </td>
+     * </tr>
+     * </p>
+     * @return int The function returns the number of bytes that were written to the file
+     * @exception TestScribeException
+     */
+    function file_put_contents ($filename, $data)
+    {
+        $rc = file_put_contents($filename, $data);
+
+        if ($rc === false) {
+            $msg = "Failed to write to the file ( $filename ).";
+            throw new TestScribeException($msg);
+        }
+
+        return $rc;
+    }
+    /**
      * (PHP 4, PHP 5)<br/>
      * Returns canonicalized absolute pathname
      * @link http://php.net/manual/en/function.realpath.php
