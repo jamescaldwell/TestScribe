@@ -19,11 +19,12 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
 
-        $executionResult = $objectUnderTest->file_put_contents($tempFilePath, 'a');
+        $content = 'foo';
+        $executionResult = $objectUnderTest->file_put_contents($tempFilePath, $content);
 
         // Validate the execution result.
 
-        $expected = 1;
+        $expected = strlen($content);
         $this->assertSame(
             $expected,
             $executionResult,
@@ -32,7 +33,9 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 
         // Should overwrite the existing file content.
         $fileContent = file_get_contents($tempFilePath);
-        $this->assertSame('a', $fileContent);
+        $this->assertSame($content, $fileContent);
+
+        unlink($tempFilePath);
     }
 
     /**
