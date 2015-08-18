@@ -70,9 +70,12 @@ class GlobalComputedConfig
     /** @var  string */
     private $sourceFilePathRelativeToSourceRoot;
 
+    /** @var  string */
+    private $outSourcePath;
+
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
-     * @param \Box\TestScribe\MethodInfo\Method              $inMethod
+     * @param \Box\TestScribe\MethodInfo\Method   $inMethod
      * @param \Box\TestScribe\Config\Options      $options
      * @param \Box\TestScribe\Config\ConfigParams $outputParams
      */
@@ -92,6 +95,10 @@ class GlobalComputedConfig
         $this->overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
         $this->testFileRoot = $options->getTestRootPath();
         $this->sourceFilePathRelativeToSourceRoot = $options->getSourceFilePathRelativeToSourceRoot();
+        $this->outSourcePath = PathUtil::getPathUnderRoot(
+            $this->testFileRoot,
+            $this->sourceFilePathRelativeToSourceRoot
+        );
     }
 
     /**
@@ -254,4 +261,14 @@ class GlobalComputedConfig
         return $historyFilePath;
     }
 
+    /**
+     * @return string
+     */
+    public function getSpecFilePath()
+    {
+        $inClassName = $this->inPhpClassName->getClassName();
+        $specFilePath = $this->outSourcePath . DIRECTORY_SEPARATOR . $inClassName . '.yaml';
+
+        return $specFilePath;
+    }
 }
