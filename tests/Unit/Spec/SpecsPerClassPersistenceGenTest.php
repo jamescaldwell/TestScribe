@@ -190,7 +190,7 @@ class SpecsPerClassPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\Spec\SpecsPerClassPersistence($mockSpecsPerMethodPersistence1);
 
-        $executionResult = $objectUnderTest->loadSpecsPerClass(['full class name' => 'class_name', 'methods' =>  [['m1'], ['m2']]]);
+        $executionResult = $objectUnderTest->loadSpecsPerClass(['full_class_name' => 'class_name', 'methods' =>  [['m1'], ['m2']]]);
 
         // Validate the execution result.
 
