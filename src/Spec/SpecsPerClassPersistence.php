@@ -30,7 +30,7 @@ class SpecsPerClassPersistence
      *
      * @return \Box\TestScribe\Spec\SpecsPerClass
      */
-    public function loadSpecsPerClass(array $data)
+    public function loadSpecsPerClass($data)
     {
         // @TODO (ryang 8/19/15) : return a default value when the key doesn't exist.
         $fullClassName = $data[self::CLASS_NAME_KEY];

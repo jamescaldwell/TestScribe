@@ -29,7 +29,7 @@ class SpecsPerMethodPersistence
      *
      * @return \Box\TestScribe\Spec\SpecsPerMethod
      */
-    public function loadSpecsPerMethod(array $data)
+    public function loadSpecsPerMethod($data)
     {
         // @TODO (ryang 8/19/15) : return a default value when the key doesn't exist.
         $methodName = $data[self::METHOD_NAME_KEY];

@@ -14,7 +14,7 @@ class OneSpecPersistence
      *
      * @return \Box\TestScribe\Spec\OneSpec
      */
-    public function loadOneSpec(array $data)
+    public function loadOneSpec($data)
     {
         $testName = $data[self::TEST_NAME];
         $result = $data[self::RESULT_KEY];
