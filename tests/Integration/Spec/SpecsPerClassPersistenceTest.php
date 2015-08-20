@@ -38,7 +38,7 @@ class SpecsPerClassPersistenceTest extends \PHPUnit_Framework_TestCase
 
         $expected =
             [
-                'full class name' => 'full_class_name',
+                'full_class_name' => 'full_class_name',
                 'methods' => [
                     [
                         'name' => 'method1',

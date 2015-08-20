@@ -97,7 +97,7 @@ class SpecsPerClassPersistenceGenTest extends \PHPUnit_Framework_TestCase
         $expected = 'class_name';
         $this->assertSame(
             $expected,
-            $executionResult['full class name'],
+            $executionResult['full_class_name'],
             'Variable ( executionResult[\'full class name\'] ) doesn\'t have the expected value.'
         );
         $this->assertInternalType('array', $executionResult['methods']);

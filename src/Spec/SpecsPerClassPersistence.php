@@ -10,7 +10,7 @@ namespace Box\TestScribe\Spec;
 class SpecsPerClassPersistence
 {
     const METHODS_KEY = 'methods';
-    const CLASS_NAME_KEY = 'full class name';
+    const CLASS_NAME_KEY = 'full_class_name';
 
     /** @var SpecsPerMethodPersistence */
     private $specsPerMethodPersistence;
