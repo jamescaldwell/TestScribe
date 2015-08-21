@@ -25,11 +25,11 @@ class SpecsPerClassService
      * Update/add a spec for a given specsPerClass object.
      * It returns a new instance.
      *
-     * @param SpecsPerClass $specsPerClass
+     * @param \Box\TestScribe\Spec\SpecsPerClass $specsPerClass
      * @param string $methodName
      * @param OneSpec $oneSpec
      *
-     * @return SpecsPerClass
+     * @return \Box\TestScribe\Spec\SpecsPerClass
      */
     public function addOneSpec(
         SpecsPerClass $specsPerClass,
@@ -42,7 +42,11 @@ class SpecsPerClassService
             $specsPerMethod,
             $oneSpec
         );
+        $specs = $specsPerClass->getSpecs();
+        $fullClassName = $specsPerClass->getFullClassName();
+        $specs[$methodName] = $newSpecsPerMethod;
+        $newSpecsPerClass = new SpecsPerClass($fullClassName, $specs);
 
-        return $newSpecsPerMethod;
+        return $newSpecsPerClass;
     }
 }
