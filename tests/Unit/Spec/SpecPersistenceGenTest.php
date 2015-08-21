@@ -234,7 +234,7 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->file_get_all_contents('spec_file');
-                $mock->return_value('yaml');
+                $mock->return_value("class: c\nmethods: rest");
             }
         );
 
@@ -263,7 +263,7 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 );
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->loadSpecsPerClass('yaml');
+                $mock = $shmock->loadSpecsPerClass(['class' => 'c', 'methods' => 'rest']);
                 $mock->return_value($mockSpecsPerClass4);
             }
         );
