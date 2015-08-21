@@ -39,6 +39,34 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
+     */
+    public function test_file_get_all_contents()
+    {
+        $tempFilePath = tempnam(sys_get_temp_dir(), 'testScribeTest_');
+
+        $content = "some \n content";
+        file_put_contents($tempFilePath, $content);
+
+        // Execute the method under test.
+
+        $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
+
+        $executionResult = $objectUnderTest->file_get_all_contents($tempFilePath);
+
+        // Validate the execution result.
+
+        $expected = $content;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+
+        unlink($tempFilePath);
+    }
+
+    /**
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_exists
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
      */

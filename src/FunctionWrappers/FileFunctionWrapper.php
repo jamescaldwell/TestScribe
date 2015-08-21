@@ -16,6 +16,19 @@ use Box\TestScribe\Exception\TestScribeException;
 class FileFunctionWrapper
 {
     /**
+     * Read the entire file content
+     *
+     * @param string $filename
+     * @return string
+     */
+    public function file_get_all_contents($filename)
+    {
+        $content = file_get_contents($filename);
+
+        return $content;
+    }
+
+    /**
      * (PHP 5)<br/>
      * Write a string to a file.
      *
@@ -36,7 +49,7 @@ class FileFunctionWrapper
      * @return int The function returns the number of bytes that were written to the file
      * @exception TestScribeException
      */
-    function file_put_contents ($filename, $data)
+    function file_put_contents($filename, $data)
     {
         $rc = file_put_contents($filename, $data);
 
@@ -47,6 +60,7 @@ class FileFunctionWrapper
 
         return $rc;
     }
+
     /**
      * (PHP 4, PHP 5)<br/>
      * Returns canonicalized absolute pathname
@@ -135,10 +149,10 @@ class FileFunctionWrapper
      * Attempts to create the directory specified by pathname.
      * @link http://php.net/manual/en/function.mkdir.php
      *
-     * @param string   $pathname <p>
+     * @param string $pathname <p>
      * The directory path.
      * </p>
-     * @param int      $mode [optional] <p>
+     * @param int $mode [optional] <p>
      * The mode is 0777 by default, which means the widest possible
      * access. For more information on modes, read the details
      * on the chmod page.
@@ -152,7 +166,7 @@ class FileFunctionWrapper
      * by the current umask, which you can change using
      * umask().
      * </p>
-     * @param bool     $recursive [optional] <p>
+     * @param bool $recursive [optional] <p>
      * Allows the creation of nested directories specified in the pathname. Default to false.
      * </p>
      * @param resource $context [optional] &note.context-support;
