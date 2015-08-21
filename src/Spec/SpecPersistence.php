@@ -60,7 +60,7 @@ class SpecPersistence
     }
 
     /**
-     * @return SpecsPerClass
+     * @return \Box\TestScribe\Spec\SpecsPerClass
      */
     public function loadSpec()
     {
