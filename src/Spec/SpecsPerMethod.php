@@ -3,7 +3,6 @@
 
 namespace Box\TestScribe\Spec;
 
-
 /**
  * All the specs associated with a method.
  */
@@ -38,6 +37,11 @@ class SpecsPerMethod
 
     /**
      * @return array
+     *
+     * Since a copy of the array is returned and the OneSpec
+     * objects are themselves immutable, the client
+     * can't use the return value to modify the instance's
+     * internal state.
      */
     public function getSpecs()
     {
