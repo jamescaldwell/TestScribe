@@ -16,8 +16,8 @@ class CalculatorFactoryUsageGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory $mockCalculatorFactory1 */
-        $mockCalculatorFactory1 = $this->shmock(
+        /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory $mockCalculatorFactory */
+        $mockCalculatorFactory = $this->shmock(
             '\\Box\\TestScribe\\_fixture\\_input\\CalculatorFactory',
             function (
                 /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory|\Shmock\PHPUnitMockInstance $shmock */
@@ -28,8 +28,8 @@ class CalculatorFactoryUsageGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState $mockCalculatorWithState2 */
-                $mockCalculatorWithState2 = $this->shmock(
+                /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState $mockCalculatorWithState */
+                $mockCalculatorWithState = $this->shmock(
                     '\\Box\\TestScribe\\_fixture\\_input\\CalculatorWithState',
                     function (
                         /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState|\Shmock\PHPUnitMockInstance $shmock */
@@ -46,7 +46,7 @@ class CalculatorFactoryUsageGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getCalculator(2);
-                $mock->return_value($mockCalculatorWithState2);
+                $mock->return_value($mockCalculatorWithState);
             }
         );
 
@@ -54,7 +54,7 @@ class CalculatorFactoryUsageGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\_fixture\_input\CalculatorFactoryUsage();
 
-        $executionResult = $objectUnderTest->calculateWithACalculator($mockCalculatorFactory1, 2, 3);
+        $executionResult = $objectUnderTest->calculateWithACalculator($mockCalculatorFactory, 2, 3);
 
         // Validate the execution result.
 

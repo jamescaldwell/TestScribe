@@ -16,8 +16,8 @@ class CalculatorViaLocatorGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks injected by the dependency management system.
 
-        /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState $mockCalculatorWithState1 */
-        $mockCalculatorWithState1 = $this->shmock(
+        /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState $mockCalculatorWithState */
+        $mockCalculatorWithState = $this->shmock(
             '\\Box\\TestScribe\\_fixture\\_input\\CalculatorWithState',
             function (
                 /** @var \Box\TestScribe\_fixture\_input\CalculatorWithState|\Shmock\PHPUnitMockInstance $shmock */
@@ -31,7 +31,7 @@ class CalculatorViaLocatorGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(3);
             }
         );
-        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\CalculatorWithState', $mockCalculatorWithState1);
+        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\CalculatorWithState', $mockCalculatorWithState);
 
         // Execute the method under test.
 

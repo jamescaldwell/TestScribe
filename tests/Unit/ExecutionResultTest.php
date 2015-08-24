@@ -40,7 +40,7 @@ class ExecutionResultTest extends \PHPUnit_Framework_TestCase
         $expected = [
             'constructorArguments' => "[]",
             'methodArguments' => '["2"]',
-            'mockClassUnderTest' => '"mock object ( mockInputHistoryData0 )"',
+            'mockClassUnderTest' => '"mock object ( mockInputHistoryData )"',
             'resultValue' => 1,
             'exception' => "Exception (Exception) Msg ( test exception )"
         ];

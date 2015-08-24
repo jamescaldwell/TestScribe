@@ -1,7 +1,6 @@
 <?php
 namespace Box\TestScribe\Mock;
 
-use Box\TestScribe\GlobalCounter;
 use Box\TestScribe\ClassInfo\PhpClass;
 use Box\TestScribe\ClassInfo\PhpClassName;
 
@@ -9,27 +8,27 @@ use Box\TestScribe\ClassInfo\PhpClassName;
  * Class MockClassFactory
  * @package Box\TestScribe
  *
- * @var MockClassService | GlobalCounter
+ * @var MockClassService | MockObjectNameMgr
  */
 class MockClassFactory
 {
     /** @var MockClassService */
     private $mockClassService;
 
-    /** @var GlobalCounter */
-    private $globalCounter;
+    /** @var MockObjectNameMgr */
+    private $mockObjectNameMgr;
 
     /**
      * @param \Box\TestScribe\Mock\MockClassService $mockClassService
-     * @param \Box\TestScribe\GlobalCounter    $globalCounter
+     * @param \Box\TestScribe\Mock\MockObjectNameMgr $mockObjectNameMgr
      */
     function __construct(
         MockClassService $mockClassService,
-        GlobalCounter $globalCounter
+        MockObjectNameMgr $mockObjectNameMgr
     )
     {
         $this->mockClassService = $mockClassService;
-        $this->globalCounter = $globalCounter;
+        $this->mockObjectNameMgr = $mockObjectNameMgr;
     }
 
     /**
@@ -51,8 +50,10 @@ class MockClassFactory
     )
     {
         $phpClassName = new PhpClassName($className);
+        $simpleClassName = $phpClassName->getClassName();
+        $mockObjectName = $this->mockObjectNameMgr->getMockObjectName($simpleClassName);
+
         $phpClass = new PhpClass($phpClassName);
-        $mockObjectName = $this->createMockObjectName($phpClassName);
 
         $mock = new MockClass(
             $this->mockClassService,
@@ -63,29 +64,5 @@ class MockClassFactory
         );
 
         return $mock;
-    }
-
-    /**
-     * Return an unique name for the mock object.
-     * This name is NOT prefixed with '$'.
-     *
-     * @param \Box\TestScribe\ClassInfo\PhpClassName $phpClassName
-     *
-     * @return string
-     */
-    private function createMockObjectName(
-        PhpClassName $phpClassName
-    )
-    {
-        // We want a global unique number to avoid naming collision when
-        // the same class is mocked for static invocation and instance invocation.
-
-        $counter = $this->globalCounter->getNextCounter();
-
-        $simpleClassName = $phpClassName->getClassName();
-
-        $name = 'mock' . $simpleClassName . $counter;
-
-        return $name;
     }
 }

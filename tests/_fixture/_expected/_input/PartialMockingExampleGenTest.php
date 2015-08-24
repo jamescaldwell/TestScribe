@@ -16,8 +16,8 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks injected by the dependency management system.
 
-        /** @var \Box\TestScribe\_fixture\_input\Logger $mockLogger2 */
-        $mockLogger2 = $this->shmock(
+        /** @var \Box\TestScribe\_fixture\_input\Logger $mockLogger */
+        $mockLogger = $this->shmock(
             '\\Box\\TestScribe\\_fixture\\_input\\Logger',
             function (
                 /** @var \Box\TestScribe\_fixture\_input\Logger|\Shmock\PHPUnitMockInstance $shmock */
@@ -29,12 +29,12 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->log('internal calc called');
             }
         );
-        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\Logger', $mockLogger2);
+        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\Logger', $mockLogger);
 
         // Execute the method under test.
 
-        /** @var \Box\TestScribe\_fixture\_input\PartialMockingExample $mockPartialMockingExample0 */
-        $mockPartialMockingExample0 = $this->shmock(
+        /** @var \Box\TestScribe\_fixture\_input\PartialMockingExample $mockPartialMockingExample */
+        $mockPartialMockingExample = $this->shmock(
             '\\Box\\TestScribe\\_fixture\\_input\\PartialMockingExample',
             function (
                 /** @var \Box\TestScribe\_fixture\_input\PartialMockingExample|\Shmock\PHPUnitMockInstance $shmock */
@@ -44,8 +44,8 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
 
                 // Setup mocks for parameters to the constructor.
 
-                /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory $mockCalculatorFactory1 */
-                $mockCalculatorFactory1 = $this->shmock(
+                /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory $mockCalculatorFactory */
+                $mockCalculatorFactory = $this->shmock(
                     '\\Box\\TestScribe\\_fixture\\_input\\CalculatorFactory',
                     function (
                         /** @var \Box\TestScribe\_fixture\_input\CalculatorFactory|\Shmock\PHPUnitMockInstance $shmock */
@@ -56,7 +56,7 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
                     }
                 );
 
-                $shmock->set_constructor_arguments($mockCalculatorFactory1);
+                $shmock->set_constructor_arguments($mockCalculatorFactory);
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->internalCalc();
@@ -64,7 +64,7 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $executionResult = $mockPartialMockingExample0->calc();
+        $executionResult = $mockPartialMockingExample->calc();
 
         // Validate the execution result.
 

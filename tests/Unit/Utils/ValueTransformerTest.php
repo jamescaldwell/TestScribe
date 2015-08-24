@@ -117,7 +117,7 @@ class ValueTransformerTest extends \PHPUnit_Framework_TestCase
 
         // Validate the execution result.
 
-        $expected = 'mock object ( mockInputHistoryData0 )';
+        $expected = 'mock object ( mockInputHistoryData )';
         $this->assertSame(
             $expected,
             $executionResult,
