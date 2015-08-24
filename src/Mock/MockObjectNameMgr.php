@@ -18,6 +18,7 @@ class MockObjectNameMgr
 
     /**
      * Return an unique mock object name for the given simple class name.
+     * This name is NOT prefixed with '$'.
      *
      * This method will save the information about this call
      * so that it will return a different name
