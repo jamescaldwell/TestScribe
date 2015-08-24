@@ -7,6 +7,7 @@ use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Exception\TestScribeException;
 use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Utils\ExceptionUtil;
+use Box\TestScribe\Utils\StringUtil;
 
 /**
  * Execute the method under test.
@@ -29,9 +30,9 @@ class Executor
     private $instanceMethodExecutor;
 
     /**
-     * @param \Box\TestScribe\Mock\MockClassLoader        $mockClassLoader
-     * @param \Box\TestScribe\Config\GlobalComputedConfig   $globalComputedConfig
-     * @param \Box\TestScribe\Execution\StaticMethodExecutor   $staticMethodExecutor
+     * @param \Box\TestScribe\Mock\MockClassLoader $mockClassLoader
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
+     * @param \Box\TestScribe\Execution\StaticMethodExecutor $staticMethodExecutor
      * @param \Box\TestScribe\Execution\InstanceMethodExecutor $instanceMethodExecutor
      */
     function __construct(
@@ -103,10 +104,12 @@ class Executor
         } catch (AbortException $abortException) {
             throw $abortException;
         } catch (TestScribeException $generatorException) {
-            // @TODO (ryang 6/4/15) : Do not rethrow TestScribeException
-            // when the test run is against the tool itself.
-            // Chain the original exception to provide details on the original exception.
-            ExceptionUtil::rethrowSameException($generatorException);
+            if ($this->isTheTestRunAgainstTheToolItself()) {
+                $exceptionFromExecution = $generatorException;
+            } else {
+                // Chain the original exception to provide details on the original exception.
+                ExceptionUtil::rethrowSameException($generatorException);
+            }
         } catch (\Exception $exception) {
             $exceptionFromExecution = $exception;
         }
@@ -120,5 +123,16 @@ class Executor
         );
 
         return $result;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isTheTestRunAgainstTheToolItself()
+    {
+        $fullClassName = $this->globalComputedConfig->getFullClassName();
+        $isTheTestRunAgainstTheToolItself = StringUtil::isStringStartWith($fullClassName, '\\Box\\TestScribe');
+
+        return $isTheTestRunAgainstTheToolItself;
     }
 }
