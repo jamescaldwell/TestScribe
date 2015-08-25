@@ -12,7 +12,7 @@ use ReflectionMethod;
 class ClassBuilder
 {
     const MOCK_CLASS_NAME_PREFIX = '_GEN_MOCK_';
-    
+
     // The method names used by the generator itself.
     // If the class being mocked defines methods with the same names
     // except the magic methods such as __construct method,
@@ -43,9 +43,9 @@ class ClassBuilder
      * Create and load a mock class dynamically.
      * Used for instance invocation only.
      *
-     * @param string    $uniqueName
-     * @param string    $classNameBeingMocked
-     * @param string    $nameOfTheMethodToPassThrough
+     * @param string $uniqueName
+     * @param string $classNameBeingMocked
+     * @param string $nameOfTheMethodToPassThrough
      *   It tells this instance to pass calls to
      *   this method to the real object of the class being mocked
      *   and continue to mock other methods.
@@ -59,7 +59,7 @@ class ClassBuilder
     )
     {
         $mockClassName = self::MOCK_CLASS_NAME_PREFIX . $uniqueName;
-        
+
         // The class name should be unique.
         // @TODO (ryang 8/28/14) : Optimize. There is no need to
         // create multiple mock classes for a given mocked class.
@@ -116,24 +116,24 @@ EOF;
 
     /**
      * Create the constructor statement for the mocked object.
-     * 
+     *
      * Only invoke real constructor when partial mocking is requested.
-     * 
+     *
      * The constructor always sets the private unitTestGeneratorMockObj
      * field to point to the MockClass instance which is passed in
      * as the first parameter.
      *
-     * When partial mocking is requested and the original constructor is defined, 
+     * When partial mocking is requested and the original constructor is defined,
      * the constructor will strip out
      * the first parameter and pass the rest to the original constructor.
      *
      * This field needs to be set in the constructor because it is needed
      * when the class under test's real constructor calls its own protected
-     * or public method which are mocked out.    
-     * 
+     * or public method which are mocked out.
+     *
      * @param \ReflectionClass $classBeingMocked
      *
-     * @param string           $nameOfTheMethodToPassThrough
+     * @param string $nameOfTheMethodToPassThrough
      *
      * @return string
      */
@@ -153,7 +153,7 @@ EOF;
             if ($originalConstructor !== null) {
                 $originalArgumentString = $this->genArgumentString($originalConstructor);
                 if ($originalArgumentString) {
-                    $argumentsString .= ', ' . $originalArgumentString;    
+                    $argumentsString .= ', ' . $originalArgumentString;
                 }
                 $callOriginalConstructorStatement = <<<EOD
 \$arguments = func_get_args();
@@ -301,12 +301,12 @@ EOD;
             $typeClass = $arg->getClass();
             if ($typeClass) {
                 $typeHintString = $typeClass->getName();
+            } elseif ($arg->isArray()) {
+                $typeHintString = 'array';
+            } elseif ($arg->isCallable()) {
+                $typeHintString = 'callable';
             } else {
-                if ($arg->isArray()) {
-                    $typeHintString = 'array';
-                } else {
-                    $typeHintString = '';
-                }
+                $typeHintString = '';
             }
             try {
                 $defaultValue = $arg->getDefaultValue();
