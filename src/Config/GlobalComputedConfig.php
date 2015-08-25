@@ -5,6 +5,7 @@ namespace Box\TestScribe\Config;
 use Box\TestScribe\App;
 use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\ClassInfo\PhpClassName;
+use Box\TestScribe\Utils\StringUtil;
 
 /**
  * Class GlobalComputedConfig
@@ -271,4 +272,16 @@ class GlobalComputedConfig
 
         return $specFilePath;
     }
+
+    /**
+     * @return bool
+     */
+    public function isTheTestRunAgainstTheToolItself()
+    {
+        $fullClassName = $this->inPhpClassName->getFullyQualifiedClassName();
+        $isTheTestRunAgainstTheToolItself = StringUtil::isStringStartWith($fullClassName, '\\Box\\TestScribe');
+
+        return $isTheTestRunAgainstTheToolItself;
+    }
+
 }
