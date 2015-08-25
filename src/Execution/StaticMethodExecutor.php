@@ -1,6 +1,7 @@
 <?php
 namespace Box\TestScribe\Execution;
 
+use Box\TestScribe\ArgumentInfo\Arguments;
 use Box\TestScribe\ArgumentInfo\ArgumentsCollector;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Utils\ReflectionUtil;
@@ -8,7 +9,7 @@ use Box\TestScribe\Utils\ReflectionUtil;
 /**
  * Execute the static method under test.
  *
- * @var  ReflectionUtil| GlobalComputedConfig| \Box\TestScribe\ArgumentInfo\ArgumentsCollector
+ * @var  ReflectionUtil| GlobalComputedConfig| ArgumentsCollector | ExpectedExceptionCatcher
  */
 class StaticMethodExecutor
 {
@@ -18,23 +19,29 @@ class StaticMethodExecutor
     /** @var GlobalComputedConfig */
     private $globalComputedConfig;
 
-    /** @var \Box\TestScribe\ArgumentInfo\ArgumentsCollector */
+    /** @var ArgumentsCollector */
     private $argumentsCollector;
+
+    /** @var ExpectedExceptionCatcher */
+    private $expectedExceptionCatcher;
 
     /**
      * @param \Box\TestScribe\Utils\ReflectionUtil $reflectionUtil
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
-     * @param \Box\TestScribe\ArgumentInfo\ArgumentsCollector   $argumentsCollector
+     * @param \Box\TestScribe\ArgumentInfo\ArgumentsCollector $argumentsCollector
+     * @param \Box\TestScribe\Execution\ExpectedExceptionCatcher $expectedExceptionCatcher
      */
     function __construct(
         ReflectionUtil $reflectionUtil,
         GlobalComputedConfig $globalComputedConfig,
-        ArgumentsCollector $argumentsCollector
+        ArgumentsCollector $argumentsCollector,
+        ExpectedExceptionCatcher $expectedExceptionCatcher
     )
     {
         $this->reflectionUtil = $reflectionUtil;
         $this->globalComputedConfig = $globalComputedConfig;
         $this->argumentsCollector = $argumentsCollector;
+        $this->expectedExceptionCatcher = $expectedExceptionCatcher;
     }
 
     /**
@@ -44,17 +51,36 @@ class StaticMethodExecutor
     {
         $config = $this->globalComputedConfig;
         $methodObj = $config->getInMethod();
-        $arguments = $this->argumentsCollector->collect($methodObj);
+        $methodArgs = $this->argumentsCollector->collect($methodObj);
 
-        // Note partial mocking of static methods is not supported.
-        $returnValue = $this->reflectionUtil->invokeMethodRegardlessOfProtectionLevel(
-            null,
-            $methodObj,
-            $arguments
+        $result = $this->expectedExceptionCatcher->execute(
+            [
+                $this->reflectionUtil,
+                'invokeMethodRegardlessOfProtectionLevel'
+            ],
+            [
+                null,
+                $methodObj,
+                $methodArgs
+            ]
         );
 
-        $result = new StaticExecutionResultValue($returnValue, $arguments);
+        $exceptionFromExecution = $result->getException();
+        $executionResult = $result->getResult();
 
-        return $result;
+        // No constructor arguments needed for static methods invocation.
+        $constructorArgs = new Arguments([]);
+        // Partial mocking of static methods is not supported.
+        $mockClassUnderTest = null;
+
+        $returnValue = new ExecutionResult(
+            $constructorArgs,
+            $methodArgs,
+            $mockClassUnderTest,
+            $executionResult,
+            $exceptionFromExecution
+        );
+
+        return $returnValue;
     }
 }

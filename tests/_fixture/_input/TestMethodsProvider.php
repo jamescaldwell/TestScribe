@@ -21,7 +21,7 @@ class TestMethodsProvider
             ['CalculatorViaLocator', 'calculateWithACalculator', 'CalculatorViaLocator'],
             ['StaticCalculatorViaLocator', 'calculateWithACalculator', 'StaticCalculatorViaLocator'],
             ['PartialMockingExample', 'calc', 'PartialMockingExample'],
-            ['ExceptionInstance', 'throwException', 'ExceptionInstance']
+            ['ExceptionInstance', 'throwExceptionWhenTheInputIsNotPositive', 'ExceptionInstance']
         ];
     }
 }

@@ -8,7 +8,7 @@ use Box\TestScribe\ArgumentInfo\Arguments;
 
 /**
  */
-class ClassUnderTestMockCreationResultValue 
+class ClassUnderTestMockCreationResultValue
 {
     /** @var  \Box\TestScribe\ArgumentInfo\Arguments */
     private $constructorArgs;
@@ -16,16 +16,23 @@ class ClassUnderTestMockCreationResultValue
     /** @var  object */
     private $mockObj;
 
+    /** @var  \Exception|null */
+    private $exception;
+
     /**
      * @param \Box\TestScribe\ArgumentInfo\Arguments $constructorArgs
-     * @param object    $mockObj
+     * @param object $mockObj
+     * @param \Exception|null $exception
      */
     function __construct(
         Arguments $constructorArgs,
-        $mockObj)
+        $mockObj,
+        $exception
+    )
     {
         $this->constructorArgs = $constructorArgs;
         $this->mockObj = $mockObj;
+        $this->exception = $exception;
     }
 
     /**
@@ -44,4 +51,11 @@ class ClassUnderTestMockCreationResultValue
         return $this->mockObj;
     }
 
+    /**
+     * @return \Exception|null
+     */
+    public function getException()
+    {
+        return $this->exception;
+    }
 }

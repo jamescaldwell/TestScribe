@@ -9,10 +9,10 @@ class ExceptionInstanceGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers \Box\TestScribe\_fixture\_input\ExceptionInstance::throwException
+     * @covers \Box\TestScribe\_fixture\_input\ExceptionInstance::throwExceptionWhenTheInputIsNotPositive
      * @covers \Box\TestScribe\_fixture\_input\ExceptionInstance
      */
-    public function test_throwException()
+    public function test_throwExceptionWhenTheInputIsNotPositive()
     {
         $this->setExpectedException('InvalidArgumentException');
 
@@ -20,6 +20,6 @@ class ExceptionInstanceGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\_fixture\_input\ExceptionInstance();
 
-        $objectUnderTest->throwException();
+        $objectUnderTest->throwExceptionWhenTheInputIsNotPositive(-1);
     }
 }

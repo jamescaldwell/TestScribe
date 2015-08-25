@@ -7,10 +7,16 @@ namespace Box\TestScribe\_fixture\_input;
 class ExceptionInstance
 {
     /**
-     * @return void
+     * @param int $arg
+     *
+     * @return int
      */
-    public function throwException()
+    public function throwExceptionWhenTheInputIsNotPositive($arg)
     {
-        throw new \InvalidArgumentException("should not get here");
+        if ($arg <= 0) {
+            throw new \InvalidArgumentException("Input should be a positive number");
+        } else {
+            return $arg;
+        }
     }
 }

@@ -8,7 +8,7 @@ use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
 
 /**
- * @var MockObjectFactory| ArgumentsCollector |Output
+ * @var MockObjectFactory| ArgumentsCollector |Output|ExpectedExceptionCatcher
  */
 class ClassUnderTestMockCreator
 {
@@ -21,20 +21,26 @@ class ClassUnderTestMockCreator
     /** @var Output */
     private $output;
 
+    /** @var ExpectedExceptionCatcher */
+    private $expectedExceptionCatcher;
+
     /**
-     * @param \Box\TestScribe\Mock\MockObjectFactory  $mockObjectFactory
+     * @param \Box\TestScribe\Mock\MockObjectFactory $mockObjectFactory
      * @param \Box\TestScribe\ArgumentInfo\ArgumentsCollector $argumentsCollector
-     * @param \Box\TestScribe\Output             $output
+     * @param \Box\TestScribe\Output $output
+     * @param \Box\TestScribe\Execution\ExpectedExceptionCatcher $expectedExceptionCatcher
      */
     function __construct(
         MockObjectFactory $mockObjectFactory,
         ArgumentsCollector $argumentsCollector,
-        Output $output
+        Output $output,
+        ExpectedExceptionCatcher $expectedExceptionCatcher
     )
     {
         $this->mockObjectFactory = $mockObjectFactory;
         $this->argumentsCollector = $argumentsCollector;
         $this->output = $output;
+        $this->expectedExceptionCatcher = $expectedExceptionCatcher;
     }
 
     /**
@@ -55,19 +61,32 @@ class ClassUnderTestMockCreator
             // When the class under test doesn't have a constructor defined
             // don't display the constructor execution message.
             $constructorArgs = new Arguments([]);
-            $constructorArgValues=[];
+            $constructorArgValues = [];
         }
 
-        $mockObj = $this->mockObjectFactory->createMockObjectFromMockClass(
-            $mockClassUnderTest,
-            $constructorArgValues
+        $result = $this->expectedExceptionCatcher->execute(
+            [
+                $this->mockObjectFactory,
+                'createMockObjectFromMockClass'
+            ],
+            [
+                $mockClassUnderTest,
+                $constructorArgValues
+            ]
         );
 
-        if ($constructorMethodObj){
+        $mockObj = $result->getResult();
+        $exception = $result->getException();
+
+        if ($constructorMethodObj) {
             $this->output->writeln("\nFinish executing the constructor.\n");
         }
 
-        $result = new ClassUnderTestMockCreationResultValue($constructorArgs, $mockObj);
+        $result = new ClassUnderTestMockCreationResultValue(
+            $constructorArgs,
+            $mockObj,
+            $exception
+        );
 
         return $result;
     }
