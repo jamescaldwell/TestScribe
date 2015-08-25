@@ -10,10 +10,6 @@ use Box\TestScribe\Input\RawInputWithPrompt;
 
 /**
  * @var RawInputWithPrompt|Output
- *
- * The Output dependency is not ready when this class
- * is resolved.
- * So this class has to be lazily resolved.
  */
 class OutputTestNameGetter
 {
