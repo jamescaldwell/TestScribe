@@ -9,6 +9,23 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_put_contents
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
      */
+    public function test_file_put_contents_raise_exception_on_error()
+    {
+        // Suppress the PHP warning about the wrong file path to allow the test to pass.
+        error_reporting(E_ERROR);
+        $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException');
+
+        // Execute the method under test.
+
+        $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
+
+        $objectUnderTest->file_put_contents('badpath/badfile', 'a');
+    }
+
+    /**
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_put_contents
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
+     */
     public function test_file_put_contents()
     {
         $tempFilePath = tempnam(sys_get_temp_dir(), 'testScribeTest_');
