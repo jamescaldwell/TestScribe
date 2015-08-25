@@ -3,7 +3,6 @@
 
 namespace Box\TestScribe\Config;
 
-use Box\TestScribe\Exception\TestScribeException;
 use Box\TestScribe\Output;
 use Box\TestScribe\Input\RawInputWithPrompt;
 
@@ -47,29 +46,25 @@ class OutputTestNameGetter
         $useDefaultTestMethodName
     )
     {
-        $defaultTestMethodName = "test_$methodName";
+        $testMethodNamePart = $methodName;
 
-        if ($useDefaultTestMethodName) {
-            return $defaultTestMethodName;
+        if (!$useDefaultTestMethodName) {
+            $message =
+                "\nEnter the name of the test. It will be prefixed with 'test_'\n"
+                ."Press enter to use the method name ( $methodName ) as the default.";
+
+            $this->output->writeln($message);
+
+            // rawInput is used instead of InputWithHelp so that
+            // users don't have to quote the name as instructed by the help.
+            $input = $this->rawInputWithPrompt->getString();
+            if ($input !== '') {
+                $testMethodNamePart = $input;
+            }
         }
 
-        $message =
-            "Enter the name of the test. Press enter to use the default test name ( $defaultTestMethodName ).";
+        $testMethodName = "test_$testMethodNamePart";
 
-        $this->output->writeln($message);
-
-        // rawInput is used instead of InputWithHelp so that
-        // users don't have to quote the name as instructed by the help.
-        $input = $this->rawInputWithPrompt->getString();
-        if ($input === '') {
-            return $defaultTestMethodName;
-        }
-        if (0 !== strpos($input, 'test')) {
-            $error =
-                "Test method must begin with the string 'test'. Please try again.";
-            throw new TestScribeException($error);
-        }
-
-        return $input;
+        return $testMethodName;
     }
 }
