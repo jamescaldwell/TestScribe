@@ -46,11 +46,11 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Execution\StaticExecutionResultValue $mockStaticExecutionResultValue */
+                /** @var \Box\TestScribe\Execution\ExecutionResult $mockStaticExecutionResultValue */
                 $mockStaticExecutionResultValue = $this->shmock(
-                    '\\Box\\TestScribe\\Execution\\StaticExecutionResultValue',
+                    '\\Box\\TestScribe\\Execution\\ExecutionResult',
                     function (
-                        /** @var \Box\TestScribe\Execution\StaticExecutionResultValue|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
                         $shmock->order_matters();
@@ -83,7 +83,7 @@ class ExecutorGenTest extends \PHPUnit_Framework_TestCase
         // Validate the execution result.
 
         $this->assertInstanceOf(
-            'Box\\TestScribe\\Execution\\StaticExecutionResultValue',
+            'Box\\TestScribe\\Execution\\ExecutionResult',
             $executionResult,
             'Variable ( executionResult ) doesn\'t have the expected type.'
         );

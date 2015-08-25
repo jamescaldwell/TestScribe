@@ -45,7 +45,10 @@ class StaticMethodExecutor
     }
 
     /**
-     * @return \Box\TestScribe\Execution\StaticExecutionResultValue
+     * @return \Box\TestScribe\Execution\ExecutionResult
+     *
+     * @throws \Box\TestScribe\Exception\AbortException
+     * @throws \Exception
      */
     public function runStaticMethod()
     {
