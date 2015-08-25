@@ -59,7 +59,10 @@ class InstanceMethodExecutor
     }
 
     /**
-     * @return \Box\TestScribe\Execution\InstanceMethodExecutionResultValue
+     * @return \Box\TestScribe\Execution\ExecutionResult
+     *
+     * @throws \Box\TestScribe\Exception\AbortException
+     * @throws \Exception
      */
     public function runInstanceMethod()
     {
