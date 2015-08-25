@@ -60,7 +60,7 @@ class OutputTestNameGetter
 
         // rawInput is used instead of InputWithHelp so that
         // users don't have to quote the name as instructed by the help.
-        $input = $this->rawInputWithPrompt->getString($message);
+        $input = $this->rawInputWithPrompt->getString();
         if ($input === '') {
             return $defaultTestMethodName;
         }
