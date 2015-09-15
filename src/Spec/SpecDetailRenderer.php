@@ -3,14 +3,28 @@
 
 namespace Box\TestScribe\Spec;
 
-use Box\TestScribe\Exception\TestScribeException;
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Execution\ExecutionResult;
 
 /**
  * Create one spec object for a test run.
+ * @var GlobalComputedConfig
  */
 class SpecDetailRenderer
 {
+    /** @var GlobalComputedConfig */
+    private $globalComputedConfig;
+
+    /**
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
+     */
+    function __construct(
+        GlobalComputedConfig $globalComputedConfig
+    )
+    {
+        $this->globalComputedConfig = $globalComputedConfig;
+    }
+
     /**
      * Generate an OneSpec instance from the execution result.
      *
@@ -20,6 +34,10 @@ class SpecDetailRenderer
      */
     public function genSpecDetail(ExecutionResult $executionResult)
     {
-        throw new TestScribeException('not implemented');
+        $testName = $this->globalComputedConfig->getTestMethodName();
+        $result = $executionResult->getResultValue();
+        $oneSpec = new OneSpec($testName, $result);
+
+        return $oneSpec;
     }
 }
