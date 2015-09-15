@@ -20,6 +20,7 @@ class CmdOption
     // Options
     const TEST_SOURCE_ROOT_OPTION_NAME = 'test-source-root';
     const SOURCE_ROOT_OPTION_NAME = 'source-root';
+    const CONFIG_FILE_PATH = 'config-file-path';
 
     // This option is mainly designed to make testing easier.
     const OVERWRITE_EXISTING_DESTINATION_FILE_OPTION = 'overwrite-dest-file';
@@ -70,6 +71,11 @@ class CmdOption
                 'o',
                 InputOption::VALUE_NONE,
                 'Overwrite destination test file if it exists. Use default test method name.'
+            )->addOption(
+                self::CONFIG_FILE_PATH,
+                null,
+                InputOption::VALUE_REQUIRED,
+                'The configuration file path.'
             );
     }
 }
