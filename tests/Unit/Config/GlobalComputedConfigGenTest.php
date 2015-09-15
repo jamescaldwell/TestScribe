@@ -272,7 +272,7 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
         // Validate the execution result.
 
-        $expected = 'test_root_path/relative/to/root/inClass.yaml';
+        $expected = 'test_root_path/relative/to/root/inClass_ts.yaml';
         $this->assertSame(
             $expected,
             $executionResult,

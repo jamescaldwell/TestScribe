@@ -268,7 +268,7 @@ class GlobalComputedConfig
     public function getSpecFilePath()
     {
         $inClassName = $this->inPhpClassName->getClassName();
-        $specFilePath = $this->outSourcePath . DIRECTORY_SEPARATOR . $inClassName . '.yaml';
+        $specFilePath = $this->outSourcePath . DIRECTORY_SEPARATOR . $inClassName . '_ts.yaml';
 
         return $specFilePath;
     }
