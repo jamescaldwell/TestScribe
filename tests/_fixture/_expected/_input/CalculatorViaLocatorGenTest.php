@@ -31,7 +31,7 @@ class CalculatorViaLocatorGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value(3);
             }
         );
-        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\CalculatorWithState', $mockCalculatorWithState);
+        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\\Box\\TestScribe\\_fixture\\_input\\CalculatorWithState', $mockCalculatorWithState);
 
         // Execute the method under test.
 

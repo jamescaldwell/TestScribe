@@ -29,7 +29,7 @@ class PartialMockingExampleGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->log('internal calc called');
             }
         );
-        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\Box\TestScribe\_fixture\_input\Logger', $mockLogger);
+        \Box\TestScribe\_fixture\ServiceLocator::overwrite('\\Box\\TestScribe\\_fixture\\_input\\Logger', $mockLogger);
 
         // Execute the method under test.
 

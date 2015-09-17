@@ -61,14 +61,15 @@ class OneInjectedMockRenderer
     )
     {
         $className = $mockClass->getClassNameBeingMocked();
+        $classNameInCode = var_export($className, true);
         $mockObjectName = $mockClass->getMockObjectName();
 
         // The $mockVariableName value doesn't include '$'
         // add '$' in the front to make it a valid statement.
         $statement = sprintf(
-            "%s('%s', $%s);",
+            "%s(%s, $%s);",
             $injectMockedObjectMethodName,
-            $className,
+            $classNameInCode,
             $mockObjectName
         );
 
