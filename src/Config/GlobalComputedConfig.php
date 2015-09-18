@@ -74,6 +74,9 @@ class GlobalComputedConfig
     /** @var  string */
     private $outSourcePath;
 
+    /** @var  bool */
+    private $generateSpec;
+
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
      * @param \Box\TestScribe\MethodInfo\Method   $inMethod
@@ -96,6 +99,7 @@ class GlobalComputedConfig
         $this->overwriteExistingDestinationFile = $options->isOverwriteExistingDestinationFile();
         $this->testFileRoot = $options->getTestRootPath();
         $this->sourceFilePathRelativeToSourceRoot = $options->getSourceFilePathRelativeToSourceRoot();
+        $this->generateSpec = $options->isGenerateSpec();
         $this->outSourcePath = PathUtil::getPathUnderRoot(
             $this->testFileRoot,
             $this->sourceFilePathRelativeToSourceRoot
@@ -284,4 +288,11 @@ class GlobalComputedConfig
         return $isTheTestRunAgainstTheToolItself;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isGenerateSpec()
+    {
+        return $this->generateSpec;
+    }
 }
