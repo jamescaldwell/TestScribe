@@ -93,4 +93,77 @@ class ArrayUtilGenTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue
+     * @covers \Box\TestScribe\Utils\ArrayUtil
+     */
+    public function test_lookupBoolValue()
+    {
+        // Execute the method under test.
+
+        $executionResult = \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue('k', ['k' => true], false);
+
+        // Validate the execution result.
+
+        $expected = true;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue
+     * @covers \Box\TestScribe\Utils\ArrayUtil
+     */
+    public function test_value_is_wrong_type()
+    {
+        // Execute the method under test.
+
+        $executionResult = \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue('k', ['k' => 'foo'], true);
+
+        // Validate the execution result.
+
+        $expected = true;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue
+     * @covers \Box\TestScribe\Utils\ArrayUtil
+     */
+    public function test_key_does_not_exist()
+    {
+        // Execute the method under test.
+
+        $executionResult = \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue('k', ['another' => false], true);
+
+        // Validate the execution result.
+
+        $expected = true;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue
+     * @covers \Box\TestScribe\Utils\ArrayUtil
+     */
+    public function test_wrong_default_value_type_raise_exception()
+    {
+        $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException');
+
+        // Execute the method under test.
+
+        \Box\TestScribe\Utils\ArrayUtil::lookupBoolValue('k', ['another' => true], 'a');
+    }
 }
