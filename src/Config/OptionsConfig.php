@@ -4,6 +4,7 @@
 namespace Box\TestScribe\Config;
 
 use Box\TestScribe\CLI\CmdOption;
+use Box\TestScribe\Utils\ArrayUtil;
 use Box\TestScribe\Utils\YamlUtil;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -55,9 +56,7 @@ class OptionsConfig
         $generateSpec = false;
         if ($configFilePath) {
             $data = $this->yamlUtil->loadYamlFile($configFilePath);
-            if (array_key_exists(self::GENERATE_SPEC_KEY, $data)) {
-                $generateSpec = $data[self::GENERATE_SPEC_KEY];
-            }
+            $generateSpec = ArrayUtil::lookupBoolValue(self::GENERATE_SPEC_KEY, $data, false);
         }
 
         $this->configHelper->loadBootstrapFile($input);
