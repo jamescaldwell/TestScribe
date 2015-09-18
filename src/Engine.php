@@ -5,6 +5,7 @@
 
 namespace Box\TestScribe;
 
+use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Exception\AbortException;
 use Box\TestScribe\Execution\Runner;
 use Box\TestScribe\InputHistory\InputHistory;
@@ -19,7 +20,7 @@ use Box\TestScribe\Spec\SpecRenderer;
  * class to be instantiated first.
  * @Injectable(lazy=true)
  *
- * @var Runner|RendererService|InputHistory|SpecRenderer
+ * @var Runner|RendererService|InputHistory|SpecRenderer|GlobalComputedConfig
  */
 class Engine
 {
@@ -35,23 +36,29 @@ class Engine
     /** @var SpecRenderer */
     private $specRenderer;
 
+    /** @var GlobalComputedConfig */
+    private $globalComputedConfig;
+
     /**
      * @param \Box\TestScribe\Execution\Runner $runner
      * @param \Box\TestScribe\Renderers\RendererService $rendererService
      * @param \Box\TestScribe\InputHistory\InputHistory $inputHistory
      * @param \Box\TestScribe\Spec\SpecRenderer $specRenderer
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
      */
     function __construct(
         Runner $runner,
         RendererService $rendererService,
         InputHistory $inputHistory,
-        SpecRenderer $specRenderer
+        SpecRenderer $specRenderer,
+        GlobalComputedConfig $globalComputedConfig
     )
     {
         $this->runner = $runner;
         $this->rendererService = $rendererService;
         $this->inputHistory = $inputHistory;
         $this->specRenderer = $specRenderer;
+        $this->globalComputedConfig = $globalComputedConfig;
     }
 
     /**
@@ -69,7 +76,13 @@ class Engine
         }
 
         $this->inputHistory->saveHistoryToFile();
-        //$this->specRenderer->genSpec($executionResult);
         $this->rendererService->render($executionResult);
+
+        // @TODO (Ray Yang 9/18/15) : the output directory structure is created
+        // in renderService. Remove this dependency.
+        if ($this->globalComputedConfig->isGenerateSpec()){
+            $this->specRenderer->genSpec($executionResult);
+        }
+
     }
 } 

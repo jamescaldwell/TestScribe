@@ -85,10 +85,129 @@ class EngineGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+
+                $shmock->genSpec();
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Engine($mockRunner, $mockRendererService, $mockInputHistory, $mockSpecRenderer);
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
+        $mockGlobalComputedConfig = $this->shmock(
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
+            function (
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->isGenerateSpec();
+                $mock->return_value(true);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Engine($mockRunner, $mockRendererService, $mockInputHistory, $mockSpecRenderer, $mockGlobalComputedConfig);
+
+        $objectUnderTest->start();
+    }
+
+    /**
+     * @covers \Box\TestScribe\Engine::start
+     * @covers \Box\TestScribe\Engine
+     */
+    public function test_do_not_generate_spec()
+    {
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\Execution\Runner $mockRunner */
+        $mockRunner = $this->shmock(
+            '\\Box\\TestScribe\\Execution\\Runner',
+            function (
+                /** @var \Box\TestScribe\Execution\Runner|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                // Set up mocks of return values.
+
+                /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult */
+                $mockExecutionResult = $this->shmock(
+                    '\\Box\\TestScribe\\Execution\\ExecutionResult',
+                    function (
+                        /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
+                        $shmock
+                    ) {
+                        $shmock->order_matters();
+                        $shmock->disable_original_constructor();
+                    }
+                );
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->run();
+                $mock->return_value($mockExecutionResult);
+            }
+        );
+
+        /** @var \Box\TestScribe\Renderers\RendererService $mockRendererService */
+        $mockRendererService = $this->shmock(
+            '\\Box\\TestScribe\\Renderers\\RendererService',
+            function (
+                /** @var \Box\TestScribe\Renderers\RendererService|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                $shmock->render();
+            }
+        );
+
+        /** @var \Box\TestScribe\InputHistory\InputHistory $mockInputHistory */
+        $mockInputHistory = $this->shmock(
+            '\\Box\\TestScribe\\InputHistory\\InputHistory',
+            function (
+                /** @var \Box\TestScribe\InputHistory\InputHistory|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                $shmock->saveHistoryToFile();
+            }
+        );
+
+        /** @var \Box\TestScribe\Spec\SpecRenderer $mockSpecRenderer */
+        $mockSpecRenderer = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\SpecRenderer',
+            function (
+                /** @var \Box\TestScribe\Spec\SpecRenderer|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
+        $mockGlobalComputedConfig = $this->shmock(
+            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
+            function (
+                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->isGenerateSpec();
+                $mock->return_value(false);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Engine($mockRunner, $mockRendererService, $mockInputHistory, $mockSpecRenderer, $mockGlobalComputedConfig);
 
         $objectUnderTest->start();
     }
