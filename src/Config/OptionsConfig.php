@@ -4,25 +4,35 @@
 namespace Box\TestScribe\Config;
 
 use Box\TestScribe\CLI\CmdOption;
+use Box\TestScribe\Utils\YamlUtil;
 use Symfony\Component\Console\Input\InputInterface;
 
 
 /**
  * Get other input options and calculate some additional options.
+ * @var ConfigHelper|YamlUtil
  */
 class OptionsConfig
 {
+    const GENERATE_SPEC_KEY = 'generate_spec';
+
     /** @var ConfigHelper */
     private $configHelper;
 
+    /** @var YamlUtil */
+    private $yamlUtil;
+
     /**
      * @param \Box\TestScribe\Config\ConfigHelper $configHelper
+     * @param \Box\TestScribe\Utils\YamlUtil $yamlUtil
      */
     function __construct(
-        ConfigHelper $configHelper
+        ConfigHelper $configHelper,
+        YamlUtil $yamlUtil
     )
     {
         $this->configHelper = $configHelper;
+        $this->yamlUtil = $yamlUtil;
     }
 
     /**
@@ -36,6 +46,20 @@ class OptionsConfig
         $inSourceFile
     )
     {
+        if ($input->hasOption(CmdOption::CONFIG_FILE_PATH)) {
+            $configFilePath = $input->getOption(CmdOption::CONFIG_FILE_PATH);
+        } else {
+            $configFilePath = '';
+        }
+
+        $generateSpec = false;
+        if ($configFilePath) {
+            $data = $this->yamlUtil->loadYamlFile($configFilePath);
+            if (array_key_exists(self::GENERATE_SPEC_KEY, $data)) {
+                $generateSpec = $data[self::GENERATE_SPEC_KEY];
+            }
+        }
+
         $this->configHelper->loadBootstrapFile($input);
 
         $overwriteExistingDestinationFile =
@@ -64,7 +88,8 @@ class OptionsConfig
             $testFileRoot,
             $sourceFileRoot,
             $outSourceFileDir,
-            $sourceFilePathRelativeToSourceRoot
+            $sourceFilePathRelativeToSourceRoot,
+            $generateSpec
         );
 
         return $inputOptions;

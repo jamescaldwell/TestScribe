@@ -16,8 +16,8 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface2 */
-        $mockInputInterface2 = $this->shmock(
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
             '\\Symfony\\Component\\Console\\Input\\InputInterface',
             function (
                 /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
@@ -26,6 +26,10 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
                 $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->hasOption('config-file-path');
+                $mock->return_value(false);
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getOption('overwrite-dest-file');
@@ -37,8 +41,8 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Config\ConfigHelper $mockConfigHelper1 */
-        $mockConfigHelper1 = $this->shmock(
+        /** @var \Box\TestScribe\Config\ConfigHelper $mockConfigHelper */
+        $mockConfigHelper = $this->shmock(
             '\\Box\\TestScribe\\Config\\ConfigHelper',
             function (
                 /** @var \Box\TestScribe\Config\ConfigHelper|\Shmock\PHPUnitMockInstance $shmock */
@@ -55,17 +59,128 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getSourceFileRoot();
-                $mock->return_value('source_root');
+                $mock->return_value('soure_root');
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getSourceFilePathRelativeToSourceRoot('source_root', 'input_source_file');
+                $mock = $shmock->getSourceFilePathRelativeToSourceRoot('soure_root', 'input_source_file');
                 $mock->return_value('/source_relative_path');
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Config\OptionsConfig($mockConfigHelper1);
+        /** @var \Box\TestScribe\Utils\YamlUtil $mockYamlUtil */
+        $mockYamlUtil = $this->shmock(
+            '\\Box\\TestScribe\\Utils\\YamlUtil',
+            function (
+                /** @var \Box\TestScribe\Utils\YamlUtil|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
 
-        $executionResult = $objectUnderTest->getOptions($mockInputInterface2, 'input_source_file');
+        $objectUnderTest = new \Box\TestScribe\Config\OptionsConfig($mockConfigHelper, $mockYamlUtil);
+
+        $executionResult = $objectUnderTest->getOptions($mockInputInterface, 'input_source_file');
+
+        // Validate the execution result.
+
+        $this->assertInstanceOf(
+            'Box\\TestScribe\\Config\\Options',
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected type.'
+        );
+
+        $this->assertSame(
+            '{}',
+            json_encode($executionResult),
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+
+    }
+
+    /**
+     * @covers \Box\TestScribe\Config\OptionsConfig::getOptions
+     * @covers \Box\TestScribe\Config\OptionsConfig
+     */
+    public function test_with_config_path()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->hasOption('config-file-path');
+                $mock->return_value(true);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('config_file_path');
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('overwrite-dest-file');
+                $mock->return_value('config_file_path');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\Config\ConfigHelper $mockConfigHelper */
+        $mockConfigHelper = $this->shmock(
+            '\\Box\\TestScribe\\Config\\ConfigHelper',
+            function (
+                /** @var \Box\TestScribe\Config\ConfigHelper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                $shmock->loadBootstrapFile();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getTestRootPath();
+                $mock->return_value('test_root');
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getSourceFileRoot();
+                $mock->return_value('soure_root');
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getSourceFilePathRelativeToSourceRoot('soure_root', 'input_source_file');
+                $mock->return_value('/source_relative_path');
+            }
+        );
+
+        /** @var \Box\TestScribe\Utils\YamlUtil $mockYamlUtil */
+        $mockYamlUtil = $this->shmock(
+            '\\Box\\TestScribe\\Utils\\YamlUtil',
+            function (
+                /** @var \Box\TestScribe\Utils\YamlUtil|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->loadYamlFile('config_file_path');
+                $mock->return_value(['generate_spec' => true]);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\OptionsConfig($mockConfigHelper, $mockYamlUtil);
+
+        $executionResult = $objectUnderTest->getOptions($mockInputInterface, 'input_source_file');
 
         // Validate the execution result.
 

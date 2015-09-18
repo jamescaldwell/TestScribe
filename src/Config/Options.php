@@ -33,18 +33,25 @@ class Options
     private $sourceFilePathRelativeToSourceRoot;
 
     /**
+     * @var bool
+     */
+    private $generateSpec;
+
+    /**
      * @param string $overwriteExistingDestinationFile
      * @param string $testRootPath
      * @param string $sourceRootPath
      * @param string $outSourceFileDir
      * @param string $sourceFilePathRelativeToSourceRoot
+     * @param bool $generateSpec
      */
     function __construct(
         $overwriteExistingDestinationFile,
         $testRootPath,
         $sourceRootPath,
         $outSourceFileDir,
-        $sourceFilePathRelativeToSourceRoot
+        $sourceFilePathRelativeToSourceRoot,
+        $generateSpec
     )
     {
         $this->overwriteExistingDestinationFile = $overwriteExistingDestinationFile;
@@ -52,6 +59,7 @@ class Options
         $this->sourceRootPath = $sourceRootPath;
         $this->outSourceFileDir = $outSourceFileDir;
         $this->sourceFilePathRelativeToSourceRoot = $sourceFilePathRelativeToSourceRoot;
+        $this->generateSpec = $generateSpec;
     }
 
     /**
@@ -93,4 +101,13 @@ class Options
     {
         return $this->sourceFilePathRelativeToSourceRoot;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isGenerateSpec()
+    {
+        return $this->generateSpec;
+    }
+
 }
