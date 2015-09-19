@@ -11,15 +11,14 @@ class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
      */
     public function test_file_put_contents_raise_exception_on_error()
     {
-        // Suppress the PHP warning about the wrong file path to allow the test to pass.
-        error_reporting(E_ERROR);
         $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException');
 
         // Execute the method under test.
 
         $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
 
-        $objectUnderTest->file_put_contents('badpath/badfile', 'a');
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        @$objectUnderTest->file_put_contents('badpath/goodfile', 'a');
     }
 
     /**

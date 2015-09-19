@@ -55,8 +55,7 @@ class FileFunctionWrapper
     {
         // Suppress the PHP warning since we
         // handle the failure explicitly.
-        /** @noinspection PhpUsageOfSilenceOperatorInspection */
-        $rc = @file_put_contents($filename, $data);
+        $rc = file_put_contents($filename, $data);
 
         if ($rc === false) {
             $msg = "Failed to write to the file ( $filename ).";
