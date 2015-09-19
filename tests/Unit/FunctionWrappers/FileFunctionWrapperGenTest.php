@@ -29,4 +29,19 @@ class FileFunctionWrapperGenTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_put_contents
+     * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
+     */
+    public function test_non_existing_directory_throw_exception()
+    {
+        $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException');
+
+        // Execute the method under test.
+
+        $objectUnderTest = new \Box\TestScribe\FunctionWrappers\FileFunctionWrapper();
+
+        $objectUnderTest->file_put_contents('newDir/goodFileName', 'a');
+    }
 }

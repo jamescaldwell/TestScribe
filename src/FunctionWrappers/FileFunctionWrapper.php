@@ -33,6 +33,8 @@ class FileFunctionWrapper
      * Write a string to a file.
      *
      * Overwrite the existing content if it exists.
+     * This method does NOT create directories if
+     * they don't exist. It will throw an exception in that case.
      *
      * @link http://php.net/manual/en/function.file-put-contents.php
      * @param string $filename <p>
@@ -51,7 +53,10 @@ class FileFunctionWrapper
      */
     function file_put_contents($filename, $data)
     {
-        $rc = file_put_contents($filename, $data);
+        // Suppress the PHP warning since we
+        // handle the failure explicitly.
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        $rc = @file_put_contents($filename, $data);
 
         if ($rc === false) {
             $msg = "Failed to write to the file ( $filename ).";
