@@ -11,8 +11,6 @@ namespace Box\TestScribe\FunctionWrappers;
  * Makes it possible to mock out global function calls.
  * 
  * @method bool file_exists($filename)
- * @method bool is_dir($filename)
- * @method bool mkdir($pathname, $mode = 0777, $recursive = false, $context = null)
  * @method string file_get_contents ($filename, $flags = null, $context = null, $offset = null, $maxlen = null)
  * @method int|false file_put_contents ($filename, $data, $flags = null, $context = null)
  */
