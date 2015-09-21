@@ -123,8 +123,7 @@ TAG;
     private function insertIntoFile($file, $marker, $text)
     {
         if (!file_exists($file)) {
-            $this->fileUtil->createDirectoriesWhenNeededForFile($file);
-            file_put_contents($file, $text);
+            $this->fileUtil->putContent($file, $text);
         } else {
             // Pull the file contents, get the last occurrence of $marker.
             $contents = file_get_contents($file);
@@ -139,7 +138,7 @@ TAG;
                 strlen($text) + strlen($contents)
             );
 
-            file_put_contents($file, $new_contents);
+            $this->fileUtil->putContent($file, $new_contents);
         }
     }
 }
