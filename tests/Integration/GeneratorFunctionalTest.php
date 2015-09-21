@@ -3,10 +3,9 @@ namespace Box\TestScribe\Integration;
 
 use Box\TestScribe\_fixture\_input\TestMethodsProvider;
 use Box\TestScribe\_fixture\Directory;
+use Box\TestScribe\_fixture\ObjectFactory;
 use Box\TestScribe\_fixture\TestCreator;
-use Box\TestScribe\FunctionWrappers\GlobalFunction;
 use Box\TestScribe\_fixture\DirectoryUtil as DirUtilForTest;
-use Box\TestScribe\Utils\DirectoryUtil;
 
 /**
  * Generic functional tests
@@ -26,7 +25,8 @@ class GeneratorFunctionalTest extends \PHPUnit_Framework_TestCase
         $inputDir = Directory::getInputDataDir();
         $this->tempDir =
             $inputDir . DIRECTORY_SEPARATOR . self::FUNCTIONAL_TEST_TEMP_DIR;
-        $dirUtil = new DirectoryUtil(new GlobalFunction());
+        $objFactory = new ObjectFactory();
+        $dirUtil = $objFactory->getDirectoryUtil();
         $dirUtil->createDirectoriesWhenNeeded($this->tempDir);
         $this->cleanUpFunctionalTestTempDir();
     }

@@ -3,10 +3,9 @@
 
 namespace Box\TestScribe\_fixture;
 
-use Box\TestScribe\Mock\FullMockObjectFactory;
 use Box\TestScribe\Mock\MockClassLoader;
-use Box\TestScribe\Mock\MockObjectFactory;
 use Box\TestScribe\Output;
+use Box\TestScribe\Utils\DirectoryUtil;
 use Box\TestScribe\Utils\ReflectionUtil;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -99,6 +98,17 @@ class ObjectFactory
     {
         /** @var \Box\TestScribe\Mock\FullMockObjectFactory $obj */
         $obj = $this->getClassInstance('\\Box\\TestScribe\\Mock\\FullMockObjectFactory');
+
+        return $obj;
+    }
+
+    /**
+     * @return \Box\TestScribe\Utils\DirectoryUtil
+     */
+    public function getDirectoryUtil()
+    {
+        /** @var DirectoryUtil $obj */
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\Utils\\DirectoryUtil');
 
         return $obj;
     }

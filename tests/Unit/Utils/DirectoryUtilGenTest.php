@@ -9,84 +9,36 @@ class DirectoryUtilGenTest extends \PHPUnit_Framework_TestCase
     use \Shmock\Shmockers;
 
     /**
-     * @covers Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeeded
+     * @covers \Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeeded
+     * @covers \Box\TestScribe\Utils\DirectoryUtil
      */
-    public function testCreateDirectoriesWhenNeededDirAlreadyExists()
+    public function test_create_dir()
     {
-
         // Execute the method under test.
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction0 */
-        $mockGlobalFunction0 = $this->shmock(
-            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
             function (
-                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
-                // Keep track of the order of calls made on this mock.
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->__call('is_dir', array (
-                  0 => 'foo_dir',
-                ));
-                $mock->return_value(true);
-            }
-        );
-        $objectUnderTest = new \Box\TestScribe\Utils\DirectoryUtil($mockGlobalFunction0);
-        $executionResult = $objectUnderTest->createDirectoriesWhenNeeded('foo_dir');
-
-        // Validate the execution result.
-
-        $expected = false;
-        $this->assertSame(
-            $expected,
-            $executionResult,
-            'Variable ( executionResult ) doesn\'t have the expected value.'
-        );
-    }
-
-
-    /**
-     * @covers Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeeded
-     */
-    public function testCreateDirectoriesWhenNeeded()
-    {
-
-        // Execute the method under test.
-
-        // Setup mocks for parameters to the constructor.
-
-        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction0 */
-        $mockGlobalFunction0 = $this->shmock(
-            '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
-            function (
-                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                // Keep track of the order of calls made on this mock.
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->__call('is_dir', array (
-                  0 => 'foo_dir',
-                ));
+                $mock = $shmock->is_dir('path/to/dir');
                 $mock->return_value(false);
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->__call('mkdir', array (
-                  0 => 'foo_dir',
-                  1 => 493,
-                  2 => true,
-                ));
-                $mock->return_value(true);
+
+                $shmock->mkdirRecursive('path/to/dir', 493);
             }
         );
-        $objectUnderTest = new \Box\TestScribe\Utils\DirectoryUtil($mockGlobalFunction0);
-        $executionResult = $objectUnderTest->createDirectoriesWhenNeeded('foo_dir');
+
+        $objectUnderTest = new \Box\TestScribe\Utils\DirectoryUtil($mockFileFunctionWrapper);
+
+        $executionResult = $objectUnderTest->createDirectoriesWhenNeeded('path/to/dir');
 
         // Validate the execution result.
 
@@ -99,46 +51,85 @@ class DirectoryUtilGenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeededForFile
+     * @covers \Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeeded
+     * @covers \Box\TestScribe\Utils\DirectoryUtil
      */
-    public function testCreateDirectoriesWhenNeededForFile()
+    public function test_dir_already_exist()
     {
-
         // Execute the method under test.
 
-        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil1 */
-        $mockDirectoryUtil1 = $this->shmock(
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->is_dir('path/to/dir');
+                $mock->return_value(true);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Utils\DirectoryUtil($mockFileFunctionWrapper);
+
+        $executionResult = $objectUnderTest->createDirectoriesWhenNeeded('path/to/dir');
+
+        // Validate the execution result.
+
+        $expected = false;
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Utils\DirectoryUtil::createDirectoriesWhenNeededForFile
+     * @covers \Box\TestScribe\Utils\DirectoryUtil
+     */
+    public function test_createDirectoriesWhenNeededForFile()
+    {
+        // Execute the method under test.
+
+        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil */
+        $mockDirectoryUtil = $this->shmock(
             '\\Box\\TestScribe\\Utils\\DirectoryUtil',
             function (
                 /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
-                // Keep track of the order of calls made on this mock.
                 $shmock->order_matters();
 
                 // Setup mocks for parameters to the constructor.
 
-                /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction $mockGlobalFunction0 */
-                $mockGlobalFunction0 = $this->shmock(
-                    '\\Box\\TestScribe\\FunctionWrappers\\GlobalFunction',
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+                $mockFileFunctionWrapper = $this->shmock(
+                    '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
                     function (
-                        /** @var \Box\TestScribe\FunctionWrappers\GlobalFunction|\Shmock\PHPUnitMockInstance $shmock */
+                        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
                         $shmock
                     ) {
-                        // Keep track of the order of calls made on this mock.
                         $shmock->order_matters();
                         $shmock->disable_original_constructor();
-
                     }
                 );
-                $shmock->set_constructor_arguments($mockGlobalFunction0);
+
+                $shmock->set_constructor_arguments($mockFileFunctionWrapper);
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->createDirectoriesWhenNeeded('/foo/bar');
+                $mock = $shmock->createDirectoriesWhenNeeded('path/to');
                 $mock->return_value(true);
             }
         );
-        $executionResult = $mockDirectoryUtil1->createDirectoriesWhenNeededForFile('/foo/bar/file.txt');
+
+        $executionResult = $mockDirectoryUtil->createDirectoriesWhenNeededForFile('path/to/file');
 
         // Validate the execution result.
 

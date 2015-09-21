@@ -5,46 +5,47 @@
 
 namespace Box\TestScribe\Utils;
 
-use Box\TestScribe\FunctionWrappers\GlobalFunction;
+use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 
 /**
  * Class DirectoryUtil
  * @package Box\TestScribe\Utils
+ *
+ * @var FileFunctionWrapper
  */
 class DirectoryUtil
 {
-    /** @var  \Box\TestScribe\FunctionWrappers\GlobalFunction */
-    private $globalFunction;
+    /** @var FileFunctionWrapper */
+    private $fileFunctionWrapper;
 
     /**
-     * @param \Box\TestScribe\FunctionWrappers\GlobalFunction $globalFunction
+     * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
      */
     function __construct(
-        GlobalFunction $globalFunction
+        FileFunctionWrapper $fileFunctionWrapper
     )
     {
-        $this->globalFunction = $globalFunction;
+        $this->fileFunctionWrapper = $fileFunctionWrapper;
     }
 
     /**
      * Given a directory path, check if the directory exists.
-     * If not, create the directory.
+     * If not, create the directory recursively.
      *
      * @param string $directoryPath
      *
-     * @return bool true if the directory is created
+     * @return bool true if the directory doesn't exist and is created
      */
     public function createDirectoriesWhenNeeded($directoryPath)
     {
         $isCreated = false;
 
-        if (!$this->globalFunction->is_dir($directoryPath)) {
+        if (!$this->fileFunctionWrapper->is_dir($directoryPath)) {
             // Recursively create the directory.
             // Set the mode to drwxr-xr-x
-            $this->globalFunction->mkdir(
+            $this->fileFunctionWrapper->mkdirRecursive(
                 $directoryPath,
-                0755,
-                true
+                0755
             );
             $isCreated = true;
         }
