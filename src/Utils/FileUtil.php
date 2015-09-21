@@ -8,12 +8,12 @@ namespace Box\TestScribe\Utils;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
 
 /**
- * Class DirectoryUtil
+ * Class FileUtil
  * @package Box\TestScribe\Utils
  *
  * @var FileFunctionWrapper
  */
-class DirectoryUtil
+class FileUtil
 {
     /** @var FileFunctionWrapper */
     private $fileFunctionWrapper;

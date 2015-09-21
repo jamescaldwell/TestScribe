@@ -8,59 +8,53 @@ namespace Box\TestScribe\Renderers;
 use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Output;
-use Box\TestScribe\Utils\DirectoryUtil;
+use Box\TestScribe\Utils\FileUtil;
 
 
 /**
  * Class RendererService
  *
  * Generate the test code.
+ *
+ * @var Output|GlobalComputedConfig|MethodRenderer|HeaderRenderer|FileUtil
  */
 class RendererService
 {
-    /**
-     * @var Output
-     */
-    private $out;
+    /** @var Output */
+    private $output;
 
-    /**
-     * @var \Box\TestScribe\Config\GlobalComputedConfig
-     */
-    private $computedConfig;
+    /** @var GlobalComputedConfig */
+    private $globalComputedConfig;
 
-    /**
-     * @var MethodRenderer
-     */
+    /** @var MethodRenderer */
     private $methodRenderer;
 
-    /**
-     * @var HeaderRenderer
-     */
+    /** @var HeaderRenderer */
     private $headerRenderer;
-    
-    /** @var  DirectoryUtil */
-    private $directoryUtil;
+
+    /** @var FileUtil */
+    private $fileUtil;
 
     /**
-     * @param \Box\TestScribe\Output                   $out
-     * @param \Box\TestScribe\Config\GlobalComputedConfig     $computedConfig
+     * @param \Box\TestScribe\Output $output
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
      * @param \Box\TestScribe\Renderers\MethodRenderer $methodRenderer
      * @param \Box\TestScribe\Renderers\HeaderRenderer $headerRenderer
-     * @param \Box\TestScribe\Utils\DirectoryUtil      $directoryUtil
+     * @param \Box\TestScribe\Utils\FileUtil $fileUtil
      */
     function __construct(
-        Output $out,
-        GlobalComputedConfig $computedConfig,
+        Output $output,
+        GlobalComputedConfig $globalComputedConfig,
         MethodRenderer $methodRenderer,
         HeaderRenderer $headerRenderer,
-        DirectoryUtil $directoryUtil
+        FileUtil $fileUtil
     )
     {
-        $this->out = $out;
-        $this->computedConfig = $computedConfig;
+        $this->output = $output;
+        $this->globalComputedConfig = $globalComputedConfig;
         $this->methodRenderer = $methodRenderer;
         $this->headerRenderer = $headerRenderer;
-        $this->directoryUtil = $directoryUtil;
+        $this->fileUtil = $fileUtil;
     }
 
     /**
@@ -74,14 +68,14 @@ class RendererService
         ExecutionResult $executionResult
     )
     {
-        $file = $this->computedConfig->getOutSourceFile();
+        $file = $this->globalComputedConfig->getOutSourceFile();
 
         $this->deleteExistingDestinationFileWhenNeeded($file);
 
         $result = $this->methodRenderer->renderMethod($executionResult);
 
         if (!file_exists($file)) {
-            $config = $this->computedConfig;
+            $config = $this->globalComputedConfig;
 
             $header = $this->headerRenderer->renderClassHeader(
                 $config->getOutPhpClassName()
@@ -98,9 +92,9 @@ $result
 
 TAG;
         }
-        $this->insertIntoFile($file, '}', $result, false);
+        $this->insertIntoFile($file, '}', $result);
         $msg = "\nAdded a test to ( $file ).\n";
-        $this->out->writeln($msg);
+        $this->output->writeln($msg);
     }
 
     /**
@@ -111,7 +105,7 @@ TAG;
      */
     private function deleteExistingDestinationFileWhenNeeded($file)
     {
-        if (file_exists($file) && $this->computedConfig->isOverwriteExistingDestinationFile()) {
+        if (file_exists($file) && $this->globalComputedConfig->isOverwriteExistingDestinationFile()) {
             unlink($file);
         }
     }
@@ -129,7 +123,7 @@ TAG;
     private function insertIntoFile($file, $marker, $text)
     {
         if (!file_exists($file)) {
-            $this->directoryUtil->createDirectoriesWhenNeededForFile($file);
+            $this->fileUtil->createDirectoriesWhenNeededForFile($file);
             file_put_contents($file, $text);
         } else {
             // Pull the file contents, get the last occurrence of $marker.

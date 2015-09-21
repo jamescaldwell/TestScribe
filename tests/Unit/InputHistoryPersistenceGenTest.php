@@ -34,11 +34,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('f_history_file_path');
             }
         );
-        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil1 */
+        /** @var \Box\TestScribe\Utils\FileUtil $mockDirectoryUtil1 */
         $mockDirectoryUtil1 = $this->shmock(
-            '\\Box\\TestScribe\\Utils\\DirectoryUtil',
+            '\\Box\\TestScribe\\Utils\\FileUtil',
             function (
-                /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Utils\FileUtil|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -108,11 +108,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('f_history_file_path');
             }
         );
-        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil1 */
+        /** @var \Box\TestScribe\Utils\FileUtil $mockDirectoryUtil1 */
         $mockDirectoryUtil1 = $this->shmock(
-            '\\Box\\TestScribe\\Utils\\DirectoryUtil',
+            '\\Box\\TestScribe\\Utils\\FileUtil',
             function (
-                /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Utils\FileUtil|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -206,11 +206,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('f_history_file_path');
             }
         );
-        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil1 */
+        /** @var \Box\TestScribe\Utils\FileUtil $mockDirectoryUtil1 */
         $mockDirectoryUtil1 = $this->shmock(
-            '\\Box\\TestScribe\\Utils\\DirectoryUtil',
+            '\\Box\\TestScribe\\Utils\\FileUtil',
             function (
-                /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Utils\FileUtil|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.
@@ -301,11 +301,11 @@ class InputHistoryPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 $mock->return_value('f_history_file_path');
             }
         );
-        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil1 */
+        /** @var \Box\TestScribe\Utils\FileUtil $mockDirectoryUtil1 */
         $mockDirectoryUtil1 = $this->shmock(
-            '\\Box\\TestScribe\\Utils\\DirectoryUtil',
+            '\\Box\\TestScribe\\Utils\\FileUtil',
             function (
-                /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Utils\FileUtil|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 // Keep track of the order of calls made on this mock.

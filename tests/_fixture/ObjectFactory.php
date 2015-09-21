@@ -5,7 +5,7 @@ namespace Box\TestScribe\_fixture;
 
 use Box\TestScribe\Mock\MockClassLoader;
 use Box\TestScribe\Output;
-use Box\TestScribe\Utils\DirectoryUtil;
+use Box\TestScribe\Utils\FileUtil;
 use Box\TestScribe\Utils\ReflectionUtil;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -103,12 +103,12 @@ class ObjectFactory
     }
 
     /**
-     * @return \Box\TestScribe\Utils\DirectoryUtil
+     * @return \Box\TestScribe\Utils\FileUtil
      */
-    public function getDirectoryUtil()
+    public function getFileUtil()
     {
-        /** @var DirectoryUtil $obj */
-        $obj = $this->getClassInstance('\\Box\\TestScribe\\Utils\\DirectoryUtil');
+        /** @var FileUtil $obj */
+        $obj = $this->getClassInstance('\\Box\\TestScribe\\Utils\\FileUtil');
 
         return $obj;
     }

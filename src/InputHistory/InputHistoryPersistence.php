@@ -7,42 +7,43 @@ namespace Box\TestScribe\InputHistory;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\FunctionWrappers\GlobalFunction;
-use Box\TestScribe\Utils\DirectoryUtil;
+use Box\TestScribe\Utils\FileUtil;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
 
 /**
  * Class InputHistoryPersistence
  * @package Box\TestScribe
+ *
+ * @var GlobalComputedConfig|FileUtil|GlobalFunction
  */
 class InputHistoryPersistence
 {
-    /**
-     * @var GlobalComputedConfig
-     */
+    /** @var GlobalComputedConfig */
     private $globalComputedConfig;
 
-    /** @var DirectoryUtil */
-    private $directoryUtil;
+    /** @var FileUtil */
+    private $fileUtil;
 
-    /** @var  GlobalFunction */
+    /** @var GlobalFunction */
     private $globalFunction;
 
     /**
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
-     * @param \Box\TestScribe\Utils\DirectoryUtil  $directoryUtil
-     * @param \Box\TestScribe\FunctionWrappers\GlobalFunction       $globalFunction
+     * @param \Box\TestScribe\Utils\FileUtil $fileUtil
+     * @param \Box\TestScribe\FunctionWrappers\GlobalFunction $globalFunction
      */
     function __construct(
         GlobalComputedConfig $globalComputedConfig,
-        DirectoryUtil $directoryUtil,
+        FileUtil $fileUtil,
         GlobalFunction $globalFunction
     )
     {
         $this->globalComputedConfig = $globalComputedConfig;
-        $this->directoryUtil = $directoryUtil;
+        $this->fileUtil = $fileUtil;
         $this->globalFunction = $globalFunction;
     }
+
 
     /**
      * @return \Box\TestScribe\InputHistory\InputHistoryData
@@ -102,7 +103,7 @@ class InputHistoryPersistence
     {
         $historyFilePath = $this->globalComputedConfig->getHistoryFile();
         if (!$this->globalFunction->file_exists($historyFilePath)) {
-            $this->directoryUtil->createDirectoriesWhenNeededForFile($historyFilePath);
+            $this->fileUtil->createDirectoriesWhenNeededForFile($historyFilePath);
         }
         $this->globalFunction->file_put_contents($historyFilePath, $dataString);
     }

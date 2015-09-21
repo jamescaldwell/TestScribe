@@ -26,7 +26,7 @@ class GeneratorFunctionalTest extends \PHPUnit_Framework_TestCase
         $this->tempDir =
             $inputDir . DIRECTORY_SEPARATOR . self::FUNCTIONAL_TEST_TEMP_DIR;
         $objFactory = new ObjectFactory();
-        $dirUtil = $objFactory->getDirectoryUtil();
+        $dirUtil = $objFactory->getFileUtil();
         $dirUtil->createDirectoriesWhenNeeded($this->tempDir);
         $this->cleanUpFunctionalTestTempDir();
     }
