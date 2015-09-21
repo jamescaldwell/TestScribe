@@ -140,4 +140,50 @@ class DirectoryUtilGenTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\Utils\DirectoryUtil::putContent
+     * @covers \Box\TestScribe\Utils\DirectoryUtil
+     */
+    public function test_putContent()
+    {
+        // Execute the method under test.
+
+        /** @var \Box\TestScribe\Utils\DirectoryUtil $mockDirectoryUtil */
+        $mockDirectoryUtil = $this->shmock(
+            '\\Box\\TestScribe\\Utils\\DirectoryUtil',
+            function (
+                /** @var \Box\TestScribe\Utils\DirectoryUtil|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+
+                // Setup mocks for parameters to the constructor.
+
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+                $mockFileFunctionWrapper = $this->shmock(
+                    '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+                    function (
+                        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                        $shmock
+                    ) {
+                        $shmock->order_matters();
+                        $shmock->disable_original_constructor();
+
+                        /** @var $mock \Shmock\Spec */
+                        $mock = $shmock->file_put_contents('path/to/file', 'data');
+                        $mock->return_value(10);
+                    }
+                );
+
+                $shmock->set_constructor_arguments($mockFileFunctionWrapper);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->createDirectoriesWhenNeededForFile('path/to/file');
+                $mock->return_value(true);
+            }
+        );
+
+        $mockDirectoryUtil->putContent('path/to/file', 'data');
+    }
 }

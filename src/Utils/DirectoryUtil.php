@@ -68,5 +68,21 @@ class DirectoryUtil
 
         return $isCreated;
     }
+
+    /**
+     * Write the data string to the file.
+     * Create the directory in the path recursively if it doesn't exist.
+     *
+     * @param string $filename
+     * @param string $data
+     *
+     * @return void
+     * @exception TestScribeException
+     */
+    public function putContent($filename, $data)
+    {
+        $this->createDirectoriesWhenNeededForFile($filename);
+        $this->fileFunctionWrapper->file_put_contents($filename, $data);
+    }
 }
 
