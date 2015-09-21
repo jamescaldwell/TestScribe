@@ -53,8 +53,6 @@ class FileFunctionWrapper
      */
     function file_put_contents($filename, $data)
     {
-        // Suppress the PHP warning since we
-        // handle the failure explicitly.
         $rc = file_put_contents($filename, $data);
 
         if ($rc === false) {
