@@ -170,15 +170,22 @@ class FileFunctionWrapper
      * by the current umask, which you can change using
      * umask().
      * </p>
-     * @param bool $recursive [optional] <p>
-     * Allows the creation of nested directories specified in the pathname. Default to false.
-     * </p>
-     * @param resource $context [optional] &note.context-support;
      *
-     * @return bool true on success or false on failure.
+     * Aways allows the creation of nested directories specified in the pathname.
+     *
+     * </p>
+     *
+     * @return void
+     *
+     * @throws TestScribeException if the directory can't be created.
      */
-    function mkdir($pathname, $mode = 0777, $recursive = false, $context = null)
+    function mkdirRecursive($pathname, $mode = 0777)
     {
-        return mkdir($pathname, $mode, $recursive, $context);
+        $rc = mkdir($pathname, $mode, true);
+
+        if (!$rc) {
+            $msg = "Failed to create directory ( $pathname ).";
+            throw new TestScribeException($msg);
+        }
     }
 }

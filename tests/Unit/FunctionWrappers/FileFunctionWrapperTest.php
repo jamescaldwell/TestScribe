@@ -6,6 +6,58 @@ namespace Box\TestScribe\FunctionWrappers;
 class FileFunctionWrapperTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @param string $path
+     *
+     * @return void
+     */
+    private function removeDirectoryIfExist($path)
+    {
+        if (is_dir($path)) {
+            rmdir($path);
+        }
+    }
+
+    /**
+     * @param string $testDir
+     *
+     * @return void
+     */
+    private function removeTestDirectories($testDir)
+    {
+        $this->removeDirectoryIfExist($testDir);
+        $this->removeDirectoryIfExist(dirname($testDir));
+    }
+
+    public function test_mkdir_create_directories_recursively()
+    {
+        $tempDir = sys_get_temp_dir();
+        $testDir = "$tempDir/t1/t2";
+        $this->removeTestDirectories($testDir);
+        $mode = 0755;
+        $wrapperObj = new FileFunctionWrapper();
+        $wrapperObj->mkdirRecursive($testDir, $mode);
+        $this->assertTrue(is_dir($testDir));
+        $actualMode = fileperms($testDir);
+        $actualModeFiltered = $actualMode & 0777;
+        $this->assertSame($mode, $actualModeFiltered, "Mode is not set correctly.");
+        $this->removeTestDirectories($testDir);
+    }
+
+    /**
+     * @return void
+     * @throws \Box\TestScribe\Exception\TestScribeException
+     */
+    public function test_mkdir_throw_exception_when_the_directory_already_exists()
+    {
+        $tempDir = sys_get_temp_dir();
+        $mode = 0755;
+        $wrapperObj = new FileFunctionWrapper();
+        $this->setExpectedException('Box\\TestScribe\\Exception\\TestScribeException');
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        @$wrapperObj->mkdirRecursive($tempDir, $mode);
+    }
+
+    /**
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper::file_put_contents
      * @covers \Box\TestScribe\FunctionWrappers\FileFunctionWrapper
      */
