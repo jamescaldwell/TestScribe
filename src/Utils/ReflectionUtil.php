@@ -63,4 +63,17 @@ class ReflectionUtil
 
         return $executionResult;
     }
+
+    /**
+     * @param string $fullClassName
+     *
+     * @return bool
+     */
+    public function isAbstractClass($fullClassName)
+    {
+        $reflectionClass = new \ReflectionClass($fullClassName);
+        $isAbstract = $reflectionClass->isAbstract();
+
+        return $isAbstract;
+    }
 }
