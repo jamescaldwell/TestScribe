@@ -4,6 +4,7 @@
 namespace Box\TestScribe\Utils;
 
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
+use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
 
 
@@ -37,5 +38,19 @@ class YamlUtil
         $data = $parser->parse($yamlString);
 
         return $data;
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return string
+     */
+    public function dumpToString($value)
+    {
+        $dumper = new Dumper();
+        $dumper->setIndentation(2);
+        $yamlString = $dumper->dump($value, 5);
+
+        return $yamlString;
     }
 }

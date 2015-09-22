@@ -49,4 +49,41 @@ class YamlUtilGenTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult[\'spec_gen\'] ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\Utils\YamlUtil::dumpToString
+     * @covers \Box\TestScribe\Utils\YamlUtil
+     */
+    public function test_dumpToString()
+    {
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Utils\YamlUtil($mockFileFunctionWrapper);
+
+        $executionResult = $objectUnderTest->dumpToString(['key' => 2]);
+
+        // Validate the execution result.
+
+        $expected = 'key: 2' . "\n" .
+            '';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
 }
