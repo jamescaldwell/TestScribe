@@ -5,13 +5,13 @@ namespace Box\TestScribe\Spec;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\FunctionWrappers\FileFunctionWrapper;
-use Symfony\Component\Yaml\Dumper;
-use Symfony\Component\Yaml\Parser;
+use Box\TestScribe\Utils\FileUtil;
+use Box\TestScribe\Utils\YamlUtil;
 
 /**
  * Manage the spec file.
  *
- * @var GlobalComputedConfig|FileFunctionWrapper|SpecsPerClassPersistence
+ * @var GlobalComputedConfig|FileFunctionWrapper|SpecsPerClassPersistence|FileUtil|YamlUtil
  */
 class SpecPersistence
 {
@@ -24,21 +24,34 @@ class SpecPersistence
     /** @var SpecsPerClassPersistence */
     private $specsPerClassPersistence;
 
+    /** @var FileUtil */
+    private $fileUtil;
+
+    /** @var YamlUtil */
+    private $yamlUtil;
+
     /**
-     * @param GlobalComputedConfig $globalComputedConfig
-     * @param FileFunctionWrapper $fileFunctionWrapper
-     * @param SpecsPerClassPersistence $specsPerClassPersistence
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
+     * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
+     * @param \Box\TestScribe\Spec\SpecsPerClassPersistence $specsPerClassPersistence
+     * @param \Box\TestScribe\Utils\FileUtil $fileUtil
+     * @param \Box\TestScribe\Utils\YamlUtil $yamlUtil
      */
     function __construct(
         GlobalComputedConfig $globalComputedConfig,
         FileFunctionWrapper $fileFunctionWrapper,
-        SpecsPerClassPersistence $specsPerClassPersistence
+        SpecsPerClassPersistence $specsPerClassPersistence,
+        FileUtil $fileUtil,
+        YamlUtil $yamlUtil
     )
     {
         $this->globalComputedConfig = $globalComputedConfig;
         $this->fileFunctionWrapper = $fileFunctionWrapper;
         $this->specsPerClassPersistence = $specsPerClassPersistence;
+        $this->fileUtil = $fileUtil;
+        $this->yamlUtil = $yamlUtil;
     }
+
 
     /**
      * @param \Box\TestScribe\Spec\SpecsPerClass $spec
@@ -51,12 +64,10 @@ class SpecPersistence
     public function writeSpec(SpecsPerClass $spec)
     {
         $specsArray = $this->specsPerClassPersistence->encodeSpecsPerClass($spec);
-        $dumper = new Dumper();
-        $dumper->setIndentation(2);
-        $specAsYamlString = $dumper->dump($specsArray, 5);
+        $specAsYamlString = $this->yamlUtil->dumpToString($specsArray);
 
         $specFilePath = $this->globalComputedConfig->getSpecFilePath();
-        $this->fileFunctionWrapper->file_put_contents($specFilePath, $specAsYamlString);
+        $this->fileUtil->putContent($specFilePath, $specAsYamlString);
     }
 
     /**
@@ -66,9 +77,7 @@ class SpecPersistence
     {
         $specFilePath = $this->globalComputedConfig->getSpecFilePath();
         if ($this->fileFunctionWrapper->file_exists($specFilePath)) {
-            $yamlString = $this->fileFunctionWrapper->file_get_all_contents($specFilePath);
-            $parser = new Parser();
-            $data = $parser->parse($yamlString);
+            $data = $this->yamlUtil->loadYamlFile($specFilePath);
             $specsPerClass = $this->specsPerClassPersistence->loadSpecsPerClass($data);
         } else {
             $fullClassName = $this->globalComputedConfig->getFullClassName();

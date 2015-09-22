@@ -78,8 +78,6 @@ class Engine
         $this->inputHistory->saveHistoryToFile();
         $this->rendererService->render($executionResult);
 
-        // @TODO (Ray Yang 9/18/15) : the output directory structure is created
-        // in renderService. Remove this dependency.
         if ($this->globalComputedConfig->isGenerateSpec()){
             $this->specRenderer->genSpec($executionResult);
         }
