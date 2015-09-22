@@ -7,7 +7,7 @@ namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\Execution\ExecutionResult;
 use Box\TestScribe\Config\GlobalComputedConfig;
-use Box\TestScribe\Mock\MockClass;
+use Box\TestScribe\Mock\PartialMockUtil;
 use Box\TestScribe\Utils\ArrayUtil;
 
 /**
@@ -16,11 +16,11 @@ use Box\TestScribe\Utils\ArrayUtil;
  * Class InvocationRenderer
  * @package Box\TestScribe\Renderers
  *
- * @var \Box\TestScribe\Config\GlobalComputedConfig|MockRenderer|ArgumentsRenderer|ExecutionAndVerificationRenderer
+ * @var GlobalComputedConfig|MockRenderer|ArgumentsRenderer|ExecutionAndVerificationRenderer|PartialMockUtil
  */
 class InvocationRenderer
 {
-    /** @var \Box\TestScribe\Config\GlobalComputedConfig */
+    /** @var GlobalComputedConfig */
     private $globalComputedConfig;
 
     /** @var MockRenderer */
@@ -32,24 +32,31 @@ class InvocationRenderer
     /** @var ExecutionAndVerificationRenderer */
     private $executionAndVerificationRenderer;
 
+    /** @var PartialMockUtil */
+    private $partialMockUtil;
+
     /**
-     * @param \Box\TestScribe\Config\GlobalComputedConfig                       $globalComputedConfig
-     * @param \Box\TestScribe\Renderers\MockRenderer                     $mockRenderer
-     * @param \Box\TestScribe\Renderers\ArgumentsRenderer                $argumentsRenderer
+     * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
+     * @param \Box\TestScribe\Renderers\MockRenderer $mockRenderer
+     * @param \Box\TestScribe\Renderers\ArgumentsRenderer $argumentsRenderer
      * @param \Box\TestScribe\Renderers\ExecutionAndVerificationRenderer $executionAndVerificationRenderer
+     * @param \Box\TestScribe\Mock\PartialMockUtil $partialMockUtil
      */
     function __construct(
         GlobalComputedConfig $globalComputedConfig,
         MockRenderer $mockRenderer,
         ArgumentsRenderer $argumentsRenderer,
-        ExecutionAndVerificationRenderer $executionAndVerificationRenderer
+        ExecutionAndVerificationRenderer $executionAndVerificationRenderer,
+        PartialMockUtil $partialMockUtil
     )
     {
         $this->globalComputedConfig = $globalComputedConfig;
         $this->mockRenderer = $mockRenderer;
         $this->argumentsRenderer = $argumentsRenderer;
         $this->executionAndVerificationRenderer = $executionAndVerificationRenderer;
+        $this->partialMockUtil = $partialMockUtil;
     }
+
 
     /**
      * Return statements for invoking the test and verifying the result.
@@ -98,7 +105,7 @@ class InvocationRenderer
             2
         );
 
-        $isPartialMocking = $this->isClassUnderTestPartiallyMocked(
+        $isPartialMocking = $this->partialMockUtil->isClassUnderTestPartiallyMocked(
             $mockClassUnderTest
         );
 
@@ -106,9 +113,6 @@ class InvocationRenderer
         $targetObjectName = '';
         if (!$isStatic) {
             if ($isPartialMocking) {
-                // Only use partial mocking when the other public/protected methods of the 
-                // class under test are invoked during execution of the method under test.
-
                 // @TODO (ryang 3/4/15) : move the generated mock statements for the constructor into this scope.
                 $createObjectWithMocksStatement = $this->mockRenderer->renderPartialMock(
                     $mockClassUnderTest,
@@ -141,27 +145,6 @@ class InvocationRenderer
         );
 
         return $result;
-    }
-
-    /**
-     * Return true if partial mocking of the class under test is selected.
-     *
-     * @param MockClass|null $mockClassUnderTest
-     *
-     * @return bool
-     */
-    private function isClassUnderTestPartiallyMocked(
-        $mockClassUnderTest
-    )
-    {
-        if ($mockClassUnderTest === null) {
-            return false;
-        }
-
-        $mockMethodInvocations = $mockClassUnderTest->getMethodInvocations();
-        $count = count($mockMethodInvocations);
-
-        return ($count !== 0);
     }
 
 }
