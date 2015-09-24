@@ -34,6 +34,9 @@ It supports integration with Intellij.
 Select a method you would like to test in intellij.
 Press a key to launch the tool.
 
+The tool is initially targeted in PHP. But the technique is 
+[language agnostic](https://github.com/box/TestScribe/wiki/FAQ#does-this-technique-work-for-languages-other-than-php).
+
 # Documentation
 
 Please see [the wiki pages](https://github.com/box/TestScribe/wiki).
