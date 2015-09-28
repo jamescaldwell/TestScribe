@@ -26,9 +26,31 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
+                // Set up mocks of return values.
+
+                /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments */
+                $mockArguments = $this->shmock(
+                    '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
+                    function (
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                        $shmock
+                    ) {
+                        $shmock->order_matters();
+                        $shmock->disable_original_constructor();
+
+                        /** @var $mock \Shmock\Spec */
+                        $mock = $shmock->getValues();
+                        $mock->return_value(['param1', 'param2']);
+                    }
+                );
+
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getResultValue();
                 $mock->return_value('result');
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getMethodArguments();
+                $mock->return_value($mockArguments);
             }
         );
 

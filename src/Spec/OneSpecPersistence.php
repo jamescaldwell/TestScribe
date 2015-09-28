@@ -8,6 +8,7 @@ class OneSpecPersistence
 {
     const RESULT_KEY = 'result';
     const TEST_NAME = 'name';
+    const METHOD_PARAM = 'param';
 
     /**
      * @param array  $data
@@ -18,8 +19,9 @@ class OneSpecPersistence
     {
         $testName = $data[self::TEST_NAME];
         $result = $data[self::RESULT_KEY];
+        $methodParameters = $data[self::METHOD_PARAM];
 
-        $oneSpec = new OneSpec($testName, $result);
+        $oneSpec = new OneSpec($testName, $result, $methodParameters);
 
         return $oneSpec;
     }
@@ -33,10 +35,12 @@ class OneSpecPersistence
     {
         $testName = $spec->getTestName();
         $result = $spec->getResult();
+        $methodParameters = $spec->getMethodParameters();
 
         $encoded = [
             self::TEST_NAME => $testName,
-            self::RESULT_KEY => $result
+            self::RESULT_KEY => $result,
+            self::METHOD_PARAM => $methodParameters
         ];
 
         return $encoded;

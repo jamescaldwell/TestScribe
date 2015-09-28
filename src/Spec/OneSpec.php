@@ -15,14 +15,23 @@ class OneSpec
     /** @var  mixed */
     private $result;
 
+    /** @var  array parameters to the method under test*/
+    private $methodParameters;
+
     /**
      * @param string $testName
-     * @param mixed  $result
+     * @param mixed $result
+     * @param array $methodParameters
      */
-    function __construct($testName, $result)
+    function __construct(
+        $testName,
+        $result,
+        $methodParameters
+    )
     {
         $this->testName = $testName;
         $this->result = $result;
+        $this->methodParameters = $methodParameters;
     }
 
     /**
@@ -40,4 +49,13 @@ class OneSpec
     {
         return $this->result;
     }
+
+    /**
+     * @return array
+     */
+    public function getMethodParameters()
+    {
+        return $this->methodParameters;
+    }
+
 }

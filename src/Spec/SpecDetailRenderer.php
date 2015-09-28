@@ -36,7 +36,9 @@ class SpecDetailRenderer
     {
         $testName = $this->globalComputedConfig->getTestMethodName();
         $result = $executionResult->getResultValue();
-        $oneSpec = new OneSpec($testName, $result);
+        $methodArguments = $executionResult->getMethodArguments();
+        $methodParameters = $methodArguments->getValues();
+        $oneSpec = new OneSpec($testName, $result, $methodParameters);
 
         return $oneSpec;
     }
