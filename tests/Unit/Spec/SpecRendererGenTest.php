@@ -16,8 +16,8 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult5 */
-        $mockExecutionResult5 = $this->shmock(
+        /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult */
+        $mockExecutionResult = $this->shmock(
             '\\Box\\TestScribe\\Execution\\ExecutionResult',
             function (
                 /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
@@ -32,11 +32,11 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Spec\SpecPersistence $mockSpecPersistence1 */
-        $mockSpecPersistence1 = $this->shmock(
-            '\\Box\\TestScribe\\Spec\\SpecPersistence',
+        /** @var \Box\TestScribe\Spec\SavedSpecs $mockSavedSpecs */
+        $mockSavedSpecs = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\SavedSpecs',
             function (
-                /** @var \Box\TestScribe\Spec\SpecPersistence|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Spec\SavedSpecs|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -44,8 +44,8 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Spec\SpecsPerClass $mockSpecsPerClass6 */
-                $mockSpecsPerClass6 = $this->shmock(
+                /** @var \Box\TestScribe\Spec\SpecsPerClass $mockSpecsPerClass */
+                $mockSpecsPerClass = $this->shmock(
                     '\\Box\\TestScribe\\Spec\\SpecsPerClass',
                     function (
                         /** @var \Box\TestScribe\Spec\SpecsPerClass|\Shmock\PHPUnitMockInstance $shmock */
@@ -57,15 +57,15 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
                 );
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->loadSpec();
-                $mock->return_value($mockSpecsPerClass6);
+                $mock = $shmock->getSpecPerClass();
+                $mock->return_value($mockSpecsPerClass);
 
-                $shmock->writeSpec();
+                $shmock->saveNewSpec();
             }
         );
 
-        /** @var \Box\TestScribe\Spec\SpecDetailRenderer $mockSpecDetailRenderer2 */
-        $mockSpecDetailRenderer2 = $this->shmock(
+        /** @var \Box\TestScribe\Spec\SpecDetailRenderer $mockSpecDetailRenderer */
+        $mockSpecDetailRenderer = $this->shmock(
             '\\Box\\TestScribe\\Spec\\SpecDetailRenderer',
             function (
                 /** @var \Box\TestScribe\Spec\SpecDetailRenderer|\Shmock\PHPUnitMockInstance $shmock */
@@ -76,8 +76,8 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Spec\OneSpec $mockOneSpec7 */
-                $mockOneSpec7 = $this->shmock(
+                /** @var \Box\TestScribe\Spec\OneSpec $mockOneSpec */
+                $mockOneSpec = $this->shmock(
                     '\\Box\\TestScribe\\Spec\\OneSpec',
                     function (
                         /** @var \Box\TestScribe\Spec\OneSpec|\Shmock\PHPUnitMockInstance $shmock */
@@ -90,12 +90,12 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->genSpecDetail();
-                $mock->return_value($mockOneSpec7);
+                $mock->return_value($mockOneSpec);
             }
         );
 
-        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig3 */
-        $mockGlobalComputedConfig3 = $this->shmock(
+        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
+        $mockGlobalComputedConfig = $this->shmock(
             '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
             function (
                 /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
@@ -110,8 +110,8 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Spec\SpecsPerClassService $mockSpecsPerClassService4 */
-        $mockSpecsPerClassService4 = $this->shmock(
+        /** @var \Box\TestScribe\Spec\SpecsPerClassService $mockSpecsPerClassService */
+        $mockSpecsPerClassService = $this->shmock(
             '\\Box\\TestScribe\\Spec\\SpecsPerClassService',
             function (
                 /** @var \Box\TestScribe\Spec\SpecsPerClassService|\Shmock\PHPUnitMockInstance $shmock */
@@ -122,8 +122,8 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\Spec\SpecsPerClass $mockSpecsPerClass8 */
-                $mockSpecsPerClass8 = $this->shmock(
+                /** @var \Box\TestScribe\Spec\SpecsPerClass $mockSpecsPerClass1 */
+                $mockSpecsPerClass1 = $this->shmock(
                     '\\Box\\TestScribe\\Spec\\SpecsPerClass',
                     function (
                         /** @var \Box\TestScribe\Spec\SpecsPerClass|\Shmock\PHPUnitMockInstance $shmock */
@@ -136,12 +136,12 @@ class SpecRendererGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->addOneSpec();
-                $mock->return_value($mockSpecsPerClass8);
+                $mock->return_value($mockSpecsPerClass1);
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Spec\SpecRenderer($mockSpecPersistence1, $mockSpecDetailRenderer2, $mockGlobalComputedConfig3, $mockSpecsPerClassService4);
+        $objectUnderTest = new \Box\TestScribe\Spec\SpecRenderer($mockSavedSpecs, $mockSpecDetailRenderer, $mockGlobalComputedConfig, $mockSpecsPerClassService);
 
-        $objectUnderTest->genSpec($mockExecutionResult5);
+        $objectUnderTest->genSpec($mockExecutionResult);
     }
 }

@@ -32,22 +32,6 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
-        $mockGlobalComputedConfig = $this->shmock(
-            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
-            function (
-                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getSpecFilePath();
-                $mock->return_value('spec_file');
-            }
-        );
-
         /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
         $mockFileFunctionWrapper = $this->shmock(
             '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
@@ -108,9 +92,9 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence($mockGlobalComputedConfig, $mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
+        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence( $mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
 
-        $objectUnderTest->writeSpec($mockSpecsPerClass);
+        $objectUnderTest->writeSpec($mockSpecsPerClass, 'spec_file');
     }
 
     /**
@@ -122,22 +106,6 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
         // Execute the method under test.
 
         // Setup mocks for parameters to the constructor.
-
-        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
-        $mockGlobalComputedConfig = $this->shmock(
-            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
-            function (
-                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getSpecFilePath();
-                $mock->return_value('spec_file');
-            }
-        );
 
         /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
         $mockFileFunctionWrapper = $this->shmock(
@@ -215,9 +183,9 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence($mockGlobalComputedConfig, $mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
+        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence($mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
 
-        $executionResult = $objectUnderTest->loadSpec();
+        $executionResult = $objectUnderTest->loadSpec("spec_file", 'full_class_name');
 
         // Validate the execution result.
 
@@ -237,26 +205,6 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
         // Execute the method under test.
 
         // Setup mocks for parameters to the constructor.
-
-        /** @var \Box\TestScribe\Config\GlobalComputedConfig $mockGlobalComputedConfig */
-        $mockGlobalComputedConfig = $this->shmock(
-            '\\Box\\TestScribe\\Config\\GlobalComputedConfig',
-            function (
-                /** @var \Box\TestScribe\Config\GlobalComputedConfig|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getSpecFilePath();
-                $mock->return_value('spec_file');
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getFullClassName();
-                $mock->return_value('full_class_name');
-            }
-        );
 
         /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
         $mockFileFunctionWrapper = $this->shmock(
@@ -310,9 +258,9 @@ class SpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence($mockGlobalComputedConfig, $mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
+        $objectUnderTest = new \Box\TestScribe\Spec\SpecPersistence($mockFileFunctionWrapper, $mockSpecsPerClassPersistence, $mockFileUtil, $mockYamlUtil);
 
-        $executionResult = $objectUnderTest->loadSpec();
+        $executionResult = $objectUnderTest->loadSpec("spec_file", 'full_class_name');
 
         // Validate the execution result.
 

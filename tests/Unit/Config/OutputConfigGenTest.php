@@ -16,8 +16,8 @@ class OutputConfigGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Config\Options $mockOptions2 */
-        $mockOptions2 = $this->shmock(
+        /** @var \Box\TestScribe\Config\Options $mockOptions */
+        $mockOptions = $this->shmock(
             '\\Box\\TestScribe\\Config\\Options',
             function (
                 /** @var \Box\TestScribe\Config\Options|\Shmock\PHPUnitMockInstance $shmock */
@@ -36,8 +36,8 @@ class OutputConfigGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams3 */
-        $mockConfigParams3 = $this->shmock(
+        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams */
+        $mockConfigParams = $this->shmock(
             '\\Box\\TestScribe\\Config\\ConfigParams',
             function (
                 /** @var \Box\TestScribe\Config\ConfigParams|\Shmock\PHPUnitMockInstance $shmock */
@@ -60,8 +60,8 @@ class OutputConfigGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Config\OutputTestNameGetter $mockOutputTestNameGetter1 */
-        $mockOutputTestNameGetter1 = $this->shmock(
+        /** @var \Box\TestScribe\Config\OutputTestNameGetter $mockOutputTestNameGetter */
+        $mockOutputTestNameGetter = $this->shmock(
             '\\Box\\TestScribe\\Config\\OutputTestNameGetter',
             function (
                 /** @var \Box\TestScribe\Config\OutputTestNameGetter|\Shmock\PHPUnitMockInstance $shmock */
@@ -71,14 +71,44 @@ class OutputConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getTestName('in_method', true);
+                $mock = $shmock->getTestName();
                 $mock->return_value('out_method');
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Config\OutputConfig($mockOutputTestNameGetter1);
+        /** @var \Box\TestScribe\Spec\SavedSpecs $mockSavedSpecs */
+        $mockSavedSpecs = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\SavedSpecs',
+            function (
+                /** @var \Box\TestScribe\Spec\SavedSpecs|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
 
-        $executionResult = $objectUnderTest->getOutputParams($mockOptions2, $mockConfigParams3);
+                // Set up mocks of return values.
+
+                /** @var \Box\TestScribe\Spec\SpecsPerClass $mockSpecsPerClass */
+                $mockSpecsPerClass = $this->shmock(
+                    '\\Box\\TestScribe\\Spec\\SpecsPerClass',
+                    function (
+                        /** @var \Box\TestScribe\Spec\SpecsPerClass|\Shmock\PHPUnitMockInstance $shmock */
+                        $shmock
+                    ) {
+                        $shmock->order_matters();
+                        $shmock->disable_original_constructor();
+                    }
+                );
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->loadExistingSpecs();
+                $mock->return_value($mockSpecsPerClass);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\OutputConfig($mockOutputTestNameGetter, $mockSavedSpecs);
+
+        $executionResult = $objectUnderTest->getOutputParams($mockOptions, $mockConfigParams);
 
         // Validate the execution result.
 

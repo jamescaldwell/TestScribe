@@ -10,12 +10,12 @@ use Box\TestScribe\Execution\ExecutionResult;
  * They describe at a higher level what the expected results
  * should be.
  *
- * @var SpecPersistence|SpecDetailRenderer|GlobalComputedConfig|SpecsPerClassService
+ * @var SavedSpecs|SpecDetailRenderer|GlobalComputedConfig|SpecsPerClassService
  */
 class SpecRenderer
 {
-    /** @var SpecPersistence */
-    private $specPersistence;
+    /** @var SavedSpecs */
+    private $savedSpecs;
 
     /** @var SpecDetailRenderer */
     private $specDetailRenderer;
@@ -27,19 +27,19 @@ class SpecRenderer
     private $specsPerClassService;
 
     /**
-     * @param \Box\TestScribe\Spec\SpecPersistence $specPersistence
+     * @param \Box\TestScribe\Spec\SavedSpecs $savedSpecs
      * @param \Box\TestScribe\Spec\SpecDetailRenderer $specDetailRenderer
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
      * @param \Box\TestScribe\Spec\SpecsPerClassService $specsPerClassService
      */
     function __construct(
-        SpecPersistence $specPersistence,
+        SavedSpecs $savedSpecs,
         SpecDetailRenderer $specDetailRenderer,
         GlobalComputedConfig $globalComputedConfig,
         SpecsPerClassService $specsPerClassService
     )
     {
-        $this->specPersistence = $specPersistence;
+        $this->savedSpecs = $savedSpecs;
         $this->specDetailRenderer = $specDetailRenderer;
         $this->globalComputedConfig = $globalComputedConfig;
         $this->specsPerClassService = $specsPerClassService;
@@ -54,7 +54,8 @@ class SpecRenderer
         ExecutionResult $executionResult
     )
     {
-        $specsPerClass = $this->specPersistence->loadSpec();
+        // This method assumes that the saved specs have been loaded.
+        $specsPerClass = $this->savedSpecs->getSpecPerClass();
 
         $oneSpec = $this->specDetailRenderer->genSpecDetail($executionResult);
         $methodName = $this->globalComputedConfig->getMethodName();
@@ -64,7 +65,7 @@ class SpecRenderer
             $oneSpec
         );
 
-        $this->specPersistence->writeSpec($newSpecsPerClass);
+        $this->savedSpecs->saveNewSpec($newSpecsPerClass);
     }
 
 }

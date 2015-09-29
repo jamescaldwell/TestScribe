@@ -5,6 +5,7 @@ namespace Box\TestScribe\Config;
 
 use Box\TestScribe\Output;
 use Box\TestScribe\Input\RawInputWithPrompt;
+use Box\TestScribe\Spec\SpecsPerClass;
 
 
 /**
@@ -20,7 +21,7 @@ class OutputTestNameGetter
 
     /**
      * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
-     * @param \Box\TestScribe\Output             $output
+     * @param \Box\TestScribe\Output $output
      */
     function __construct(
         RawInputWithPrompt $rawInputWithPrompt,
@@ -36,22 +37,36 @@ class OutputTestNameGetter
      * Method has to begin with 'test'
      *
      * @param string $methodName
-     * @param bool   $useDefaultTestMethodName
+     * @param bool $useDefaultTestMethodName
+     * @param \Box\TestScribe\Spec\SpecsPerClass $specPerClass
      *
-     * @throws \Box\TestScribe\Exception\TestScribeException
      * @return string
      */
     public function getTestName(
         $methodName,
-        $useDefaultTestMethodName
+        $useDefaultTestMethodName,
+        SpecsPerClass $specPerClass
     )
     {
+        $specsPerMethod = $specPerClass->getSpecsPerMethodByName($methodName);
+        $specs = $specsPerMethod->getSpecs();
+        if ($specs) {
+            // @TODO (Ray Yang 9/29/15) :
+            // Prompt users if they want to update an existing test.
+            $existingTestNames = array_keys($specs);
+            $testMethodName = $existingTestNames[0];
+
+            $msg = "Updating existing test ( $testMethodName ).";
+            $this->output->writeln($msg);
+            return $testMethodName;
+        }
+
         $testMethodNamePart = $methodName;
 
         if (!$useDefaultTestMethodName) {
             $message =
                 "\nEnter the name of the test. It will be prefixed with 'test_'\n"
-                ."Press enter to use the method name ( $methodName ) as the default.";
+                . "Press enter to use the method name ( $methodName ) as the default.";
 
             $this->output->writeln($message);
 
