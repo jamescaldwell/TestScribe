@@ -77,10 +77,13 @@ class GlobalComputedConfig
     /** @var  bool */
     private $generateSpec;
 
+    /** @var  string */
+    private $specFilePath;
+
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
-     * @param \Box\TestScribe\MethodInfo\Method   $inMethod
-     * @param \Box\TestScribe\Config\Options      $options
+     * @param \Box\TestScribe\MethodInfo\Method $inMethod
+     * @param \Box\TestScribe\Config\Options $options
      * @param \Box\TestScribe\Config\ConfigParams $outputParams
      */
     function __construct(
@@ -101,6 +104,10 @@ class GlobalComputedConfig
         $this->sourceFilePathRelativeToSourceRoot = $options->getSourceFilePathRelativeToSourceRoot();
         $this->generateSpec = $options->isGenerateSpec();
         $this->outSourcePath = $options->getOutSourceFileDir();
+        $this->specFilePath = StaticConfigHelper::computeSpecFilePath(
+            $this->inPhpClassName,
+            $this->outSourcePath
+        );
     }
 
     /**
@@ -268,10 +275,7 @@ class GlobalComputedConfig
      */
     public function getSpecFilePath()
     {
-        $inClassName = $this->inPhpClassName->getClassName();
-        $specFilePath = $this->outSourcePath . DIRECTORY_SEPARATOR . $inClassName . '_ts.yaml';
-
-        return $specFilePath;
+        return $this->specFilePath;
     }
 
     /**
