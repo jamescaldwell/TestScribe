@@ -100,10 +100,7 @@ class GlobalComputedConfig
         $this->testFileRoot = $options->getTestRootPath();
         $this->sourceFilePathRelativeToSourceRoot = $options->getSourceFilePathRelativeToSourceRoot();
         $this->generateSpec = $options->isGenerateSpec();
-        $this->outSourcePath = PathUtil::getPathUnderRoot(
-            $this->testFileRoot,
-            $this->sourceFilePathRelativeToSourceRoot
-        );
+        $this->outSourcePath = $options->getOutSourceFileDir();
     }
 
     /**

@@ -154,8 +154,8 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams1 */
-        $mockConfigParams1 = $this->shmock(
+        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams */
+        $mockConfigParams = $this->shmock(
             '\\Box\\TestScribe\\Config\\ConfigParams',
             function (
                 /** @var \Box\TestScribe\Config\ConfigParams|\Shmock\PHPUnitMockInstance $shmock */
@@ -166,8 +166,8 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\ClassInfo\PhpClassName $mockPhpClassName5 */
-                $mockPhpClassName5 = $this->shmock(
+                /** @var \Box\TestScribe\ClassInfo\PhpClassName $mockPhpClassName */
+                $mockPhpClassName = $this->shmock(
                     '\\Box\\TestScribe\\ClassInfo\\PhpClassName',
                     function (
                         /** @var \Box\TestScribe\ClassInfo\PhpClassName|\Shmock\PHPUnitMockInstance $shmock */
@@ -184,16 +184,16 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getPhpClassName();
-                $mock->return_value($mockPhpClassName5);
+                $mock->return_value($mockPhpClassName);
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getSourceFile();
-                $mock->return_value('in_source');
+                $mock->return_value('out_source');
             }
         );
 
-        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod2 */
-        $mockMethod2 = $this->shmock(
+        /** @var \Box\TestScribe\MethodInfo\Method $mockMethod */
+        $mockMethod = $this->shmock(
             '\\Box\\TestScribe\\MethodInfo\\Method',
             function (
                 /** @var \Box\TestScribe\MethodInfo\Method|\Shmock\PHPUnitMockInstance $shmock */
@@ -204,8 +204,8 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Config\Options $mockOptions3 */
-        $mockOptions3 = $this->shmock(
+        /** @var \Box\TestScribe\Config\Options $mockOptions */
+        $mockOptions = $this->shmock(
             '\\Box\\TestScribe\\Config\\Options',
             function (
                 /** @var \Box\TestScribe\Config\Options|\Shmock\PHPUnitMockInstance $shmock */
@@ -225,11 +225,19 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getSourceFilePathRelativeToSourceRoot();
                 $mock->return_value('/relative/to/root');
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->isGenerateSpec();
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOutSourceFileDir();
+                $mock->return_value('out/source/dir');
             }
         );
 
-        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams4 */
-        $mockConfigParams4 = $this->shmock(
+        /** @var \Box\TestScribe\Config\ConfigParams $mockConfigParams1 */
+        $mockConfigParams1 = $this->shmock(
             '\\Box\\TestScribe\\Config\\ConfigParams',
             function (
                 /** @var \Box\TestScribe\Config\ConfigParams|\Shmock\PHPUnitMockInstance $shmock */
@@ -240,8 +248,8 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 // Set up mocks of return values.
 
-                /** @var \Box\TestScribe\ClassInfo\PhpClassName $mockPhpClassName6 */
-                $mockPhpClassName6 = $this->shmock(
+                /** @var \Box\TestScribe\ClassInfo\PhpClassName $mockPhpClassName1 */
+                $mockPhpClassName1 = $this->shmock(
                     '\\Box\\TestScribe\\ClassInfo\\PhpClassName',
                     function (
                         /** @var \Box\TestScribe\ClassInfo\PhpClassName|\Shmock\PHPUnitMockInstance $shmock */
@@ -254,7 +262,7 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getPhpClassName();
-                $mock->return_value($mockPhpClassName6);
+                $mock->return_value($mockPhpClassName1);
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getSourceFile();
@@ -266,13 +274,13 @@ class GlobalComputedConfigGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Config\GlobalComputedConfig($mockConfigParams1, $mockMethod2, $mockOptions3, $mockConfigParams4);
+        $objectUnderTest = new \Box\TestScribe\Config\GlobalComputedConfig($mockConfigParams, $mockMethod, $mockOptions, $mockConfigParams1);
 
         $executionResult = $objectUnderTest->getSpecFilePath();
 
         // Validate the execution result.
 
-        $expected = 'test_root_path/relative/to/root/inClass_ts.yaml';
+        $expected = 'out/source/dir/inClass_ts.yaml';
         $this->assertSame(
             $expected,
             $executionResult,
