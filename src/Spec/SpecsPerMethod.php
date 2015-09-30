@@ -3,6 +3,8 @@
 
 namespace Box\TestScribe\Spec;
 
+use Box\TestScribe\Utils\ArrayUtil;
+
 /**
  * All the specs associated with a method.
  */
@@ -46,5 +48,21 @@ class SpecsPerMethod
     public function getSpecs()
     {
         return $this->specs;
+    }
+
+    /**
+     * @param $testName
+     *
+     * @return OneSpec|null
+     */
+    public function getSpecForTest($testName){
+        /** @var OneSpec $spec */
+        $spec = ArrayUtil::lookupValueByKey(
+            $testName,
+            $this->specs,
+            null
+        );
+
+        return $spec;
     }
 }
