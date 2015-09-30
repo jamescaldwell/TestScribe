@@ -44,6 +44,22 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
                     }
                 );
 
+                /** @var \Box\TestScribe\ArgumentInfo\Arguments $mockArguments1 */
+                $mockArguments1 = $this->shmock(
+                    '\\Box\\TestScribe\\ArgumentInfo\\Arguments',
+                    function (
+                        /** @var \Box\TestScribe\ArgumentInfo\Arguments|\Shmock\PHPUnitMockInstance $shmock */
+                        $shmock
+                    ) {
+                        $shmock->order_matters();
+                        $shmock->disable_original_constructor();
+
+                        /** @var $mock \Shmock\Spec */
+                        $mock = $shmock->getValues();
+                        $mock->return_value(['constructor_param']);
+                    }
+                );
+
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getResultValue();
                 $mock->return_value('result');
@@ -51,6 +67,10 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getMethodArguments();
                 $mock->return_value($mockArguments);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getConstructorArguments();
+                $mock->return_value($mockArguments1);
             }
         );
 

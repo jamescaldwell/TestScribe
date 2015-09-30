@@ -2,6 +2,8 @@
 
 namespace Box\TestScribe\Spec;
 
+use Box\TestScribe\Utils\ArrayUtil;
+
 /**
  */
 class OneSpecPersistence
@@ -9,19 +11,31 @@ class OneSpecPersistence
     const RESULT_KEY = 'result';
     const TEST_NAME = 'name';
     const METHOD_PARAM = 'param';
+    const CONSTRUCTOR_PARAM = 'constructor_param';
+
 
     /**
-     * @param array  $data
+     * @param array $data
      *
      * @return \Box\TestScribe\Spec\OneSpec
      */
     public function loadOneSpec($data)
     {
         $testName = $data[self::TEST_NAME];
-        $result = $data[self::RESULT_KEY];
         $methodParameters = $data[self::METHOD_PARAM];
+        $result = $data[self::RESULT_KEY];
+        $constructorParameters = ArrayUtil::lookupValueByKey(
+            self::CONSTRUCTOR_PARAM,
+            $data,
+            []
+        );
 
-        $oneSpec = new OneSpec($testName, $result, $methodParameters);
+        $oneSpec = new OneSpec(
+            $testName,
+            $result,
+            $constructorParameters,
+            $methodParameters
+        );
 
         return $oneSpec;
     }
@@ -36,12 +50,18 @@ class OneSpecPersistence
         $testName = $spec->getTestName();
         $result = $spec->getResult();
         $methodParameters = $spec->getMethodParameters();
+        $constructorParameters = $spec->getConstructorParameters();
 
         $encoded = [
-            self::TEST_NAME => $testName,
-            self::METHOD_PARAM => $methodParameters,
-            self::RESULT_KEY => $result,
+            self::TEST_NAME => $testName
         ];
+
+        if ($constructorParameters) {
+            $encoded[self::CONSTRUCTOR_PARAM] = $constructorParameters;
+        }
+
+        $encoded[self::METHOD_PARAM] = $methodParameters;
+        $encoded[self::RESULT_KEY] = $result;
 
         return $encoded;
     }

@@ -3,7 +3,6 @@
 
 namespace Box\TestScribe\Spec;
 
-
 /**
  * One spec i.e. one test.
  */
@@ -15,22 +14,28 @@ class OneSpec
     /** @var  mixed */
     private $result;
 
-    /** @var  array parameters to the method under test*/
+    /** @var  array parameters to the method under test */
     private $methodParameters;
+
+    /** @var  array parameters to the constructor */
+    private $constructorParameters;
 
     /**
      * @param string $testName
      * @param mixed $result
+     * @param array $constructorParameters
      * @param array $methodParameters
      */
     function __construct(
         $testName,
         $result,
+        $constructorParameters,
         $methodParameters
     )
     {
         $this->testName = $testName;
         $this->result = $result;
+        $this->constructorParameters = $constructorParameters;
         $this->methodParameters = $methodParameters;
     }
 
@@ -58,4 +63,11 @@ class OneSpec
         return $this->methodParameters;
     }
 
+    /**
+     * @return array
+     */
+    public function getConstructorParameters()
+    {
+        return $this->constructorParameters;
+    }
 }

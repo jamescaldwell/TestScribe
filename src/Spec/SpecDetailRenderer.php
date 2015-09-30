@@ -38,7 +38,14 @@ class SpecDetailRenderer
         $result = $executionResult->getResultValue();
         $methodArguments = $executionResult->getMethodArguments();
         $methodParameters = $methodArguments->getValues();
-        $oneSpec = new OneSpec($testName, $result, $methodParameters);
+        $constructorArguments = $executionResult->getConstructorArguments();
+        $constructorParameters = $constructorArguments->getValues();
+        $oneSpec = new OneSpec(
+            $testName,
+            $result,
+            $constructorParameters,
+            $methodParameters
+        );
 
         return $oneSpec;
     }
