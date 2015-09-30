@@ -74,7 +74,7 @@ class Method
     /**
      * Return the constructor associated with the method.
      *
-     * @return \Box\TestScribe\Method|null
+     * @return \Box\TestScribe\MethodInfo\Method|null
      */
     public function getConstructor()
     {
@@ -392,5 +392,15 @@ class Method
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isConstructor()
+    {
+        $rc = $this->reflectionMethod->isConstructor();
+
+        return $rc;
     }
 }
