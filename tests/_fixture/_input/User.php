@@ -29,6 +29,17 @@ class User
     }
 
     /**
+     * @param string $msg
+     *
+     * @return string
+     */
+    public function greet($msg)
+    {
+        $greetMsg = "Hello. My name is $this->name. $msg";
+
+        return $greetMsg;
+    }
+    /**
      * @return array
      */
     public function getNameHistory()
