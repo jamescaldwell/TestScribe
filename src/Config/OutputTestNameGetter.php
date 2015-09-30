@@ -3,13 +3,14 @@
 
 namespace Box\TestScribe\Config;
 
+use Box\TestScribe\Input\TestNameSelector;
 use Box\TestScribe\Output;
 use Box\TestScribe\Input\RawInputWithPrompt;
 use Box\TestScribe\Spec\SpecsPerClass;
 
 
 /**
- * @var RawInputWithPrompt|Output
+ * @var RawInputWithPrompt|Output|TestNameSelector
  */
 class OutputTestNameGetter
 {
@@ -19,17 +20,23 @@ class OutputTestNameGetter
     /** @var Output */
     private $output;
 
+    /** @var TestNameSelector */
+    private $testNameSelector;
+
     /**
      * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
      * @param \Box\TestScribe\Output $output
+     * @param \Box\TestScribe\Input\TestNameSelector $testNameSelector
      */
     function __construct(
         RawInputWithPrompt $rawInputWithPrompt,
-        Output $output
+        Output $output,
+        TestNameSelector $testNameSelector
     )
     {
         $this->rawInputWithPrompt = $rawInputWithPrompt;
         $this->output = $output;
+        $this->testNameSelector = $testNameSelector;
     }
 
     /**
@@ -51,14 +58,16 @@ class OutputTestNameGetter
         $specsPerMethod = $specPerClass->getSpecsPerMethodByName($methodName);
         $specs = $specsPerMethod->getSpecs();
         if ($specs) {
-            // @TODO (Ray Yang 9/29/15) :
-            // Prompt users if they want to update an existing test.
             $existingTestNames = array_keys($specs);
-            $testMethodName = $existingTestNames[0];
 
-            $msg = "Updating existing test ( $testMethodName ).";
-            $this->output->writeln($msg);
-            return $testMethodName;
+            $testMethodName =
+                $this->testNameSelector->selectTestName($existingTestNames);
+            if ($testMethodName !== '') {
+                $msg = "Updating existing test ( $testMethodName ).";
+                $this->output->writeln($msg);
+
+                return $testMethodName;
+            }
         }
 
         $testMethodNamePart = $methodName;
