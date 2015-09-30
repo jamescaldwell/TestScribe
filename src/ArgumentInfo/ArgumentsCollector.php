@@ -79,14 +79,15 @@ class ArgumentsCollector
         $this->output->writeln($message);
 
         $methodParams = null;
-        if (!$method->isConstructor()) {
-            $testName = $this->globalComputedConfig->getTestMethodName();
-            $savedSpec = $this->savedSpecs->getSpecForTest($testName);
-            if ($savedSpec) {
+        $testName = $this->globalComputedConfig->getTestMethodName();
+        $savedSpec = $this->savedSpecs->getSpecForTest($testName);
+        if ($savedSpec) {
+            if ($method->isConstructor()) {
+                $methodParams = $savedSpec->getConstructorParameters();
+            } else {
                 $methodParams = $savedSpec->getMethodParameters();
             }
         }
-
         $argsArray = [];
         $index = 0;
         foreach ($args as $arg) {
@@ -97,7 +98,8 @@ class ArgumentsCollector
                 $argPromptSubject = "optional $argPromptSubject";
             }
 
-            if ($methodParams){
+            if ($methodParams) {
+                // @TODO (Ray Yang 9/30/15) : error checking
                 $value = $methodParams[$index];
                 $this->output->writeln("Get ( $value ) from the saved test for $argPromptSubject");
                 $inputValue = $this->inputValueFactory->createPrimitiveValue($value);
