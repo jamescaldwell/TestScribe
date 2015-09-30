@@ -39,8 +39,8 @@ class OneSpecPersistence
 
         $encoded = [
             self::TEST_NAME => $testName,
+            self::METHOD_PARAM => $methodParameters,
             self::RESULT_KEY => $result,
-            self::METHOD_PARAM => $methodParameters
         ];
 
         return $encoded;
