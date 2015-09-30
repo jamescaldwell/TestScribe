@@ -9,7 +9,7 @@ use Box\TestScribe\Config\StaticConfigHelper;
 
 /**
  * Stateful class that holds information about the existing tests/specs
- * @var specPersistence
+ * @var SpecPersistence
  */
 class SavedSpecs
 {
@@ -19,14 +19,14 @@ class SavedSpecs
     /** @var  string */
     private $specFilePath;
 
-    /** @var specPersistence */
+    /** @var SpecPersistence */
     private $specPersistence;
 
     /**
-     * @param \Box\TestScribe\Spec\specPersistence $specPersistence
+     * @param \Box\TestScribe\Spec\SpecPersistence $specPersistence
      */
     function __construct(
-        specPersistence $specPersistence
+        SpecPersistence $specPersistence
     )
     {
         $this->specPersistence = $specPersistence;
