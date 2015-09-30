@@ -33,8 +33,9 @@ class InputValue implements \JsonSerializable
     /**
      * Warning: Don't construct this instance directly.
      * Use factory methods @see InputValueFactory instead.
-     * 
-     * @param                                               $value
+     *
+     * @param bool $isVoid
+     * @param mixed $value
      * @param \Box\TestScribe\Input\ExpressionWithMocks $expressionWithMocks
      */
     function __construct($isVoid, $value, ExpressionWithMocks $expressionWithMocks)
