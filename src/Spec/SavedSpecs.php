@@ -22,6 +22,9 @@ class SavedSpecs
     /** @var SpecPersistence */
     private $specPersistence;
 
+    /** @var  string */
+    private $methodName;
+
     /**
      * @param \Box\TestScribe\Spec\SpecPersistence $specPersistence
      */
@@ -59,6 +62,8 @@ class SavedSpecs
             $inFullClassName
         );
 
+        $this->methodName = $inputParams->getMethodName();
+
         return $this->specPerClass;
     }
 
@@ -68,6 +73,29 @@ class SavedSpecs
     public function getSpecPerClass()
     {
         return $this->specPerClass;
+    }
+
+    /**
+     * @return \Box\TestScribe\Spec\SpecsPerMethod
+     */
+    public function getSpecsPerMethod()
+    {
+        $specsPerMethod = $this->specPerClass->getSpecsPerMethodByName($this->methodName);
+
+        return $specsPerMethod;
+    }
+
+    /**
+     * @param string $testName
+     *
+     * @return \Box\TestScribe\Spec\OneSpec|null
+     */
+    public function getSpecForTest($testName)
+    {
+        $specsPerMethod = $this->getSpecsPerMethod();
+        $spec = $specsPerMethod->getSpecForTest($testName);
+
+        return $spec;
     }
 
     /**
