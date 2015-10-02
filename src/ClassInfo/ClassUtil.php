@@ -9,6 +9,8 @@ namespace Box\TestScribe\ClassInfo;
 class ClassUtil
 {
     /**
+     * Get method names excluding the constructor.
+     *
      * @param string $fullClassName
      *
      * @return array
@@ -19,8 +21,10 @@ class ClassUtil
         $methods = $reflectionClass->getMethods();
         $methodNames = [];
         foreach ($methods as $m) {
-            $n = $m->getName();
-            $methodNames[] = $n;
+            if (!$m->isConstructor()) {
+                $n = $m->getName();
+                $methodNames[] = $n;
+            }
         }
 
         return $methodNames;
