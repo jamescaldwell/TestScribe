@@ -35,7 +35,9 @@ class TestNameSelector
         $selected = '';
         $menu = $existingTestNames;
         array_unshift($menu, 'Add a new test.');
-        $selectionId = $this->menuSelector->selectFromMenu($menu);
+        $selectionId = $this->menuSelector->selectFromMenu(
+            $menu,
+            'Update an existing test or adding a new test?');
 
         if ($selectionId){
             $selected = $menu[$selectionId];

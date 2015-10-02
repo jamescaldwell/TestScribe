@@ -44,7 +44,7 @@ class MenuSelectorGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->writeln('Select one by typing the associated number.');
+                $shmock->writeln('msg');
 
                 $shmock->writeln('0 : item1');
 
@@ -54,7 +54,7 @@ class MenuSelectorGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\Input\MenuSelector($mockRawInputWithPrompt, $mockOutput);
 
-        $executionResult = $objectUnderTest->selectFromMenu(['item1', 'item2']);
+        $executionResult = $objectUnderTest->selectFromMenu(['item1', 'item2'], 'msg');
 
         // Validate the execution result.
 
@@ -104,7 +104,7 @@ class MenuSelectorGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\Input\MenuSelector($mockRawInputWithPrompt, $mockOutput);
 
-        $objectUnderTest->selectFromMenu(['item']);
+        $objectUnderTest->selectFromMenu(['item'], '');
     }
 
     /**
@@ -145,6 +145,6 @@ class MenuSelectorGenTest extends \PHPUnit_Framework_TestCase
 
         $objectUnderTest = new \Box\TestScribe\Input\MenuSelector($mockRawInputWithPrompt, $mockOutput);
 
-        $objectUnderTest->selectFromMenu([]);
+        $objectUnderTest->selectFromMenu([], 'msg');
     }
 }

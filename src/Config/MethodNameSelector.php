@@ -50,7 +50,10 @@ class MethodNameSelector
         if ($numOfMethods === 1) {
             $methodName = $methodNames[0];
         } else {
-            $selectionId = $this->menuSelector->selectFromMenu($methodNames);
+            $selectionId = $this->menuSelector->selectFromMenu(
+                $methodNames,
+                "Select a method from the class ( $fullClassName )."
+            );
             $methodName = $methodNames[$selectionId];
         }
 

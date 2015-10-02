@@ -33,9 +33,12 @@ class MenuSelector
     /**
      * @param string[] $menu
      *
+     * @param string $msg
+     *
      * @return int
+     * @throws \Box\TestScribe\Exception\TestScribeException
      */
-    public function selectFromMenu(array $menu)
+    public function selectFromMenu(array $menu, $msg)
     {
         $itemCount = count($menu);
         if ($itemCount < 2) {
@@ -43,7 +46,7 @@ class MenuSelector
             throw new TestScribeException('Selecting from a menu with less than 2 items is not allowed.');
         }
 
-        $this->output->writeln("Select one by typing the associated number.");
+        $this->output->writeln($msg);
 
         for ($i = 0; $i < $itemCount; $i++) {
             /** @var string $name */
@@ -56,7 +59,7 @@ class MenuSelector
         $selectionString = $this->rawInputWithPrompt->getString();
 
         // @TODO (Ray Yang 9/30/15) : error handling
-        $selectionId = (int)$selectionString;
+        $selectionId = (int) $selectionString;
 
         return $selectionId;
     }
