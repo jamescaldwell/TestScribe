@@ -36,9 +36,8 @@ class MethodNameGetter
         $fullClassName
     )
     {
-        if ($input->hasArgument(CmdOption::METHOD_NAME_KEY)) {
-            $methodName = (string) $input->getArgument(CmdOption::METHOD_NAME_KEY);
-        } else {
+        $methodName = (string) $input->getArgument(CmdOption::METHOD_NAME_KEY);
+        if($methodName === '') {
             $methodName = $this->methodNameSelector->selectTestMethodName($fullClassName);
         }
 

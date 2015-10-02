@@ -28,10 +28,6 @@ class MethodNameGetterGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->dont_preserve_original_methods();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->hasArgument('method');
-                $mock->return_value(true);
-
-                /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getArgument('method');
                 $mock->return_value('test_method');
             }
@@ -87,8 +83,8 @@ class MethodNameGetterGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->dont_preserve_original_methods();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->hasArgument('method');
-                $mock->return_value(false);
+                $mock = $shmock->getArgument('method');
+                $mock->return_value('');
             }
         );
 
