@@ -9,7 +9,7 @@ use Symfony\Component\Console\Application as AbstractApplication;
  */
 class Application extends AbstractApplication
 {
-    const APP_VERSION = '0.3.5';
+    const APP_VERSION = '0.3.6';
 
     /**
      *
