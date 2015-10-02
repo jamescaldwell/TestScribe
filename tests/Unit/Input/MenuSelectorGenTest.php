@@ -44,7 +44,7 @@ class MenuSelectorGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->writeln('Please select an action by typing the associated number in the following menu.');
+                $shmock->writeln('Select one by typing the associated number.');
 
                 $shmock->writeln('0 : item1');
 

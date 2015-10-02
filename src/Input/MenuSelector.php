@@ -43,9 +43,7 @@ class MenuSelector
             throw new TestScribeException('Selecting from a menu with less than 2 items is not allowed.');
         }
 
-        $selected = 0;
-
-        $this->output->writeln("Please select an action by typing the associated number in the following menu.");
+        $this->output->writeln("Select one by typing the associated number.");
 
         for ($i = 0; $i < $itemCount; $i++) {
             /** @var string $name */
