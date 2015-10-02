@@ -46,7 +46,7 @@ class CmdOption
             )
             ->addArgument(
                 self::METHOD_NAME_KEY,
-                InputArgument::REQUIRED,
+                InputArgument::OPTIONAL,
                 'The name of the method to generate a test for'
             )
             ->addOption(

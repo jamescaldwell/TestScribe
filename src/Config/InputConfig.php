@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Initialize input parameters
- * @var FileFunctionWrapper|ClassExtractor|Output
+ * @var FileFunctionWrapper|ClassExtractor|Output|MethodNameGetter
  */
 class InputConfig
 {
@@ -26,20 +26,26 @@ class InputConfig
     /** @var Output */
     private $output;
 
+    /** @var MethodNameGetter */
+    private $methodNameGetter;
+
     /**
      * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
-     * @param \Box\TestScribe\Config\ClassExtractor                $classExtractor
-     * @param \Box\TestScribe\Output                               $output
+     * @param \Box\TestScribe\Config\ClassExtractor $classExtractor
+     * @param \Box\TestScribe\Output $output
+     * @param \Box\TestScribe\Config\MethodNameGetter $methodNameGetter
      */
     function __construct(
         FileFunctionWrapper $fileFunctionWrapper,
         ClassExtractor $classExtractor,
-        Output $output
+        Output $output,
+        MethodNameGetter $methodNameGetter
     )
     {
         $this->fileFunctionWrapper = $fileFunctionWrapper;
         $this->classExtractor = $classExtractor;
         $this->output = $output;
+        $this->methodNameGetter = $methodNameGetter;
     }
 
     /**
@@ -57,10 +63,13 @@ class InputConfig
         // if a call is from the class under test.
         $inSourceFile = $this->fileFunctionWrapper->realpath($originalInSourceFile);
 
-        $methodName = (string) $input->getArgument(CmdOption::METHOD_NAME_KEY);
-
-        $inClassName = $this->classExtractor->getClassName($inSourceFile, $methodName);
+        $inClassName = $this->classExtractor->getClassName($inSourceFile);
         $inPhpClassName = new PhpClassName($inClassName);
+
+        $methodName = $this->methodNameGetter->getTestMethodName(
+            $input,
+            $inClassName
+        );
 
         $msg = "Testing the method ( $methodName ) of the class ( $inClassName ).";
         $this->output->writeln($msg);

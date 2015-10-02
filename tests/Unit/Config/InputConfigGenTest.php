@@ -16,8 +16,8 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface4 */
-        $mockInputInterface4 = $this->shmock(
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
             '\\Symfony\\Component\\Console\\Input\\InputInterface',
             function (
                 /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
@@ -29,11 +29,7 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getArgument('class-source');
-                $mock->return_value('input source file path');
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getArgument('method');
-                $mock->return_value('method_name');
+                $mock->return_value('source_file');
             }
         );
 
@@ -41,8 +37,8 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper1 */
-        $mockFileFunctionWrapper1 = $this->shmock(
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
             '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
             function (
                 /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
@@ -52,13 +48,13 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->realpath('input source file path');
+                $mock = $shmock->realpath('source_file');
                 $mock->return_value('real file path');
             }
         );
 
-        /** @var \Box\TestScribe\Config\ClassExtractor $mockClassExtractor2 */
-        $mockClassExtractor2 = $this->shmock(
+        /** @var \Box\TestScribe\Config\ClassExtractor $mockClassExtractor */
+        $mockClassExtractor = $this->shmock(
             '\\Box\\TestScribe\\Config\\ClassExtractor',
             function (
                 /** @var \Box\TestScribe\Config\ClassExtractor|\Shmock\PHPUnitMockInstance $shmock */
@@ -68,13 +64,13 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getClassName('real file path', 'method_name');
-                $mock->return_value('full_class_name');
+                $mock = $shmock->getClassName('real file path');
+                $mock->return_value('/full/ClassName');
             }
         );
 
-        /** @var \Box\TestScribe\Output $mockOutput3 */
-        $mockOutput3 = $this->shmock(
+        /** @var \Box\TestScribe\Output $mockOutput */
+        $mockOutput = $this->shmock(
             '\\Box\\TestScribe\\Output',
             function (
                 /** @var \Box\TestScribe\Output|\Shmock\PHPUnitMockInstance $shmock */
@@ -83,13 +79,29 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
-                $shmock->writeln('Testing the method ( method_name ) of the class ( full_class_name ).');
+                $shmock->writeln('Testing the method ( method_name ) of the class ( /full/ClassName ).');
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Config\InputConfig($mockFileFunctionWrapper1, $mockClassExtractor2, $mockOutput3);
+        /** @var \Box\TestScribe\Config\MethodNameGetter $mockMethodNameGetter */
+        $mockMethodNameGetter = $this->shmock(
+            '\\Box\\TestScribe\\Config\\MethodNameGetter',
+            function (
+                /** @var \Box\TestScribe\Config\MethodNameGetter|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
 
-        $executionResult = $objectUnderTest->getInputParams($mockInputInterface4);
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getTestMethodName();
+                $mock->return_value('method_name');
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\InputConfig($mockFileFunctionWrapper, $mockClassExtractor, $mockOutput, $mockMethodNameGetter);
+
+        $executionResult = $objectUnderTest->getInputParams($mockInputInterface);
 
         // Validate the execution result.
 
@@ -100,7 +112,7 @@ class InputConfigGenTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(
-            '{"file path":"real file path","class name":"full_class_name","method name":"method_name"}',
+            '{"file path":"real file path","class name":"\\/full\\/ClassName","method name":"method_name"}',
             json_encode($executionResult),
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
