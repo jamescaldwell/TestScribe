@@ -18,11 +18,11 @@ class TestNameSelectorGenTest extends \PHPUnit_Framework_TestCase
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Input\RawInputWithPrompt $mockRawInputWithPrompt */
-        $mockRawInputWithPrompt = $this->shmock(
-            '\\Box\\TestScribe\\Input\\RawInputWithPrompt',
+        /** @var \Box\TestScribe\Input\MenuSelector $mockMenuSelector */
+        $mockMenuSelector = $this->shmock(
+            '\\Box\\TestScribe\\Input\\MenuSelector',
             function (
-                /** @var \Box\TestScribe\Input\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\MenuSelector|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
@@ -30,19 +30,7 @@ class TestNameSelectorGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        /** @var \Box\TestScribe\Output $mockOutput */
-        $mockOutput = $this->shmock(
-            '\\Box\\TestScribe\\Output',
-            function (
-                /** @var \Box\TestScribe\Output|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-            }
-        );
-
-        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockRawInputWithPrompt, $mockOutput);
+        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockMenuSelector);
 
         $executionResult = $objectUnderTest->selectTestName([]);
 
@@ -60,49 +48,36 @@ class TestNameSelectorGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\Input\TestNameSelector::selectTestName
      * @covers \Box\TestScribe\Input\TestNameSelector
      */
-    public function test_select_from_existing_tests()
+    public function test_existing()
     {
         // Execute the method under test.
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Input\RawInputWithPrompt $mockRawInputWithPrompt */
-        $mockRawInputWithPrompt = $this->shmock(
-            '\\Box\\TestScribe\\Input\\RawInputWithPrompt',
+        /** @var \Box\TestScribe\Input\MenuSelector $mockMenuSelector */
+        $mockMenuSelector = $this->shmock(
+            '\\Box\\TestScribe\\Input\\MenuSelector',
             function (
-                /** @var \Box\TestScribe\Input\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\MenuSelector|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getString();
-                $mock->return_value('1');
+                $mock = $shmock->selectFromMenu(
+                    array(
+                        0 =>
+                            'Add a new test.',
+                        1 => 't1',
+                        2 => 't2',
+                    )
+                );
+                $mock->return_value(1);
             }
         );
 
-        /** @var \Box\TestScribe\Output $mockOutput */
-        $mockOutput = $this->shmock(
-            '\\Box\\TestScribe\\Output',
-            function (
-                /** @var \Box\TestScribe\Output|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                $shmock->writeln('Please select an action by typing the associated number in the following menu.');
-
-                $shmock->writeln('0 : Add a new test.');
-
-                $shmock->writeln('1 : Update test ( t1 ).');
-
-                $shmock->writeln('2 : Update test ( t2 ).');
-            }
-        );
-
-        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockRawInputWithPrompt, $mockOutput);
+        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockMenuSelector);
 
         $executionResult = $objectUnderTest->selectTestName(['t1', 't2']);
 
@@ -120,49 +95,36 @@ class TestNameSelectorGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\Input\TestNameSelector::selectTestName
      * @covers \Box\TestScribe\Input\TestNameSelector
      */
-    public function test_add_new_tests_existing()
+    public function test_select_new_test()
     {
         // Execute the method under test.
 
         // Setup mocks for parameters to the constructor.
 
-        /** @var \Box\TestScribe\Input\RawInputWithPrompt $mockRawInputWithPrompt */
-        $mockRawInputWithPrompt = $this->shmock(
-            '\\Box\\TestScribe\\Input\\RawInputWithPrompt',
+        /** @var \Box\TestScribe\Input\MenuSelector $mockMenuSelector */
+        $mockMenuSelector = $this->shmock(
+            '\\Box\\TestScribe\\Input\\MenuSelector',
             function (
-                /** @var \Box\TestScribe\Input\RawInputWithPrompt|\Shmock\PHPUnitMockInstance $shmock */
+                /** @var \Box\TestScribe\Input\MenuSelector|\Shmock\PHPUnitMockInstance $shmock */
                 $shmock
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getString();
-                $mock->return_value('0');
+                $mock = $shmock->selectFromMenu(
+                    array(
+                        0 =>
+                            'Add a new test.',
+                        1 => 't1',
+                        2 => 't2',
+                    )
+                );
+                $mock->return_value(0);
             }
         );
 
-        /** @var \Box\TestScribe\Output $mockOutput */
-        $mockOutput = $this->shmock(
-            '\\Box\\TestScribe\\Output',
-            function (
-                /** @var \Box\TestScribe\Output|\Shmock\PHPUnitMockInstance $shmock */
-                $shmock
-            ) {
-                $shmock->order_matters();
-                $shmock->disable_original_constructor();
-
-                $shmock->writeln('Please select an action by typing the associated number in the following menu.');
-
-                $shmock->writeln('0 : Add a new test.');
-
-                $shmock->writeln('1 : Update test ( t1 ).');
-
-                $shmock->writeln('2 : Update test ( t2 ).');
-            }
-        );
-
-        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockRawInputWithPrompt, $mockOutput);
+        $objectUnderTest = new \Box\TestScribe\Input\TestNameSelector($mockMenuSelector);
 
         $executionResult = $objectUnderTest->selectTestName(['t1', 't2']);
 

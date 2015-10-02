@@ -3,31 +3,22 @@
 
 namespace Box\TestScribe\Input;
 
-use Box\TestScribe\Output;
-
-
 /**
- * @var RawInputWithPrompt|Output
+ * @var MenuSelector
  */
 class TestNameSelector
 {
-    /** @var RawInputWithPrompt */
-    private $rawInputWithPrompt;
-
-    /** @var Output */
-    private $output;
+    /** @var MenuSelector */
+    private $menuSelector;
 
     /**
-     * @param \Box\TestScribe\Input\RawInputWithPrompt $rawInputWithPrompt
-     * @param \Box\TestScribe\Output $output
+     * @param \Box\TestScribe\Input\MenuSelector $menuSelector
      */
     function __construct(
-        RawInputWithPrompt $rawInputWithPrompt,
-        Output $output
+        MenuSelector $menuSelector
     )
     {
-        $this->rawInputWithPrompt = $rawInputWithPrompt;
-        $this->output = $output;
+        $this->menuSelector = $menuSelector;
     }
 
     /**
@@ -42,26 +33,12 @@ class TestNameSelector
         }
 
         $selected = '';
+        $menu = $existingTestNames;
+        array_unshift($menu, 'Add a new test.');
+        $selectionId = $this->menuSelector->selectFromMenu($menu);
 
-        $this->output->writeln("Please select an action by typing the associated number in the following menu.");
-
-        $this->output->writeln("0 : Add a new test.");
-
-        $length = count($existingTestNames);
-
-        for ($i = 0; $i < $length; $i++) {
-            $name = $existingTestNames[$i];
-            $num = $i+1;
-            $msg = "$num : Update test ( $name ).";
-            $this->output->writeln($msg);
-        }
-
-        $selectionString = $this->rawInputWithPrompt->getString();
-
-        // @TODO (Ray Yang 9/30/15) : error handling
-        $selectionId = (int)$selectionString;
         if ($selectionId){
-            $selected = $existingTestNames[$selectionId-1];
+            $selected = $menu[$selectionId];
         }
 
         return $selected;
