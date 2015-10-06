@@ -87,7 +87,7 @@ class InputValueGetter
             // @TODO (ryang 1/9/15) : allow users to retry when they make a typo.
             // @TODO (ryang 1/9/15) : validate against the type
             $typeString = $typeInfo->getRepresentation();
-            $subjectWithTypeInfo = "$subject, type ( $typeString )";
+            $subjectWithTypeInfo = "$subject of the data type ( $typeString )";
 
             $expression = $this->inputWithHistory->getInputValue(
                 $subjectWithTypeInfo, 

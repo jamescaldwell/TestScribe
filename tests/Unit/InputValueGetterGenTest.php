@@ -177,7 +177,7 @@ class InputValueGetterGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->disable_original_constructor();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getInputValue('subject, type ( type_string )', 'className', 'methodName', 'paramName');
+                $mock = $shmock->getInputValue('subject of the data type ( type_string )', 'className', 'methodName', 'paramName');
                 $mock->return_value('user_input_string');
             }
         );
