@@ -39,7 +39,7 @@ class RawInputWithHelp
     {
         $promptMsg = "Provide the $subject.";
         if ($default !== '') {
-            $promptMsg .= "\nType return for the default value ( $default ).";
+            $promptMsg .= "\nType return for the default value ( $default ). Type 'h' for help.";
         }
 
         $str = $this->inputHelper->getInputString($promptMsg);

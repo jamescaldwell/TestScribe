@@ -70,7 +70,7 @@ class RawInputWithHelpGenTest extends \PHPUnit_Framework_TestCase
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getInputString('Provide the subject.' . "\n" .
-                'Type return for the default value ( default ).');
+                'Type return for the default value ( default ). Type \'h\' for help.');
                 $mock->return_value('');
             }
         );
