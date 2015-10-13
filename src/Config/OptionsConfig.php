@@ -47,11 +47,7 @@ class OptionsConfig
         $inSourceFile
     )
     {
-        if ($input->hasOption(CmdOption::CONFIG_FILE_PATH)) {
-            $configFilePath = $input->getOption(CmdOption::CONFIG_FILE_PATH);
-        } else {
-            $configFilePath = '';
-        }
+        $configFilePath = $this->configHelper->getConfigFilePath($input);
 
         $generateSpec = false;
         if ($configFilePath) {

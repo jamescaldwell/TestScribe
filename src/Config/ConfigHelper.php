@@ -147,4 +147,19 @@ class ConfigHelper
 
         return $sourceFileRoot;
     }
+
+    /**
+     * @param InputInterface $input
+     * @return string
+     */
+    public function getConfigFilePath(InputInterface $input)
+    {
+        if ($input->hasOption(CmdOption::CONFIG_FILE_PATH)) {
+            $configFilePath = $input->getOption(CmdOption::CONFIG_FILE_PATH);
+        } else {
+            $configFilePath = '';
+        }
+
+        return $configFilePath;
+    }
 }
