@@ -28,12 +28,8 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->dont_preserve_original_methods();
 
                 /** @var $mock \Shmock\Spec */
-                $mock = $shmock->hasOption('config-file-path');
-                $mock->return_value(false);
-
-                /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getOption('overwrite-dest-file');
-                $mock->return_value(false);
+                $mock->return_value('config_file_path');
             }
         );
 
@@ -50,6 +46,10 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getConfigFilePath();
+                $mock->return_value('config_path');
 
                 $shmock->loadBootstrapFile();
 
@@ -76,6 +76,10 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->loadYamlFile('config_path');
+                $mock->return_value(['generate_spec' => true]);
             }
         );
 
@@ -103,7 +107,7 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\Config\OptionsConfig::getOptions
      * @covers \Box\TestScribe\Config\OptionsConfig
      */
-    public function test_with_config_path()
+    public function test_getOptions_without_config_path()
     {
         // Setup mocks for parameters to the method under test.
 
@@ -117,14 +121,6 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
                 $shmock->dont_preserve_original_methods();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->hasOption('config-file-path');
-                $mock->return_value(true);
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->getOption('config-file-path');
-                $mock->return_value('config_file_path');
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getOption('overwrite-dest-file');
@@ -145,6 +141,10 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getConfigFilePath();
+                $mock->return_value('');
 
                 $shmock->loadBootstrapFile();
 
@@ -171,10 +171,6 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
             ) {
                 $shmock->order_matters();
                 $shmock->disable_original_constructor();
-
-                /** @var $mock \Shmock\Spec */
-                $mock = $shmock->loadYamlFile('config_file_path');
-                $mock->return_value(['generate_spec' => true]);
             }
         );
 

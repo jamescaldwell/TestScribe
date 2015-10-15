@@ -14,6 +14,8 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class ConfigHelper
 {
+    const DEFAULT_CONFIG_FILE_NAME = 'test_scribe_config.yaml';
+
     /** @var FileFunctionWrapper */
     private $fileFunctionWrapper;
 
@@ -22,7 +24,7 @@ class ConfigHelper
 
     /**
      * @param \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $fileFunctionWrapper
-     * @param \Box\TestScribe\FunctionWrappers\FunctionWrapper     $functionWrapper
+     * @param \Box\TestScribe\FunctionWrappers\FunctionWrapper $functionWrapper
      */
     function __construct(
         FileFunctionWrapper $fileFunctionWrapper,
@@ -122,8 +124,8 @@ class ConfigHelper
 
     /**
      * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param string                                          $testFileRoot
-     * @param string                                          $inSourceFile
+     * @param string $testFileRoot
+     * @param string $inSourceFile
      *
      * @return string
      * @throws \Box\TestScribe\Exception\TestScribeException
@@ -154,10 +156,18 @@ class ConfigHelper
      */
     public function getConfigFilePath(InputInterface $input)
     {
-        if ($input->hasOption(CmdOption::CONFIG_FILE_PATH)) {
-            $configFilePath = $input->getOption(CmdOption::CONFIG_FILE_PATH);
-        } else {
-            $configFilePath = '';
+        $configFilePath = $input->getOption(CmdOption::CONFIG_FILE_PATH);
+
+        if (!$configFilePath) {
+            // If the option is not given in the command line,
+            // null will be returned from the getOption call.
+            $pathCandidate = 'tests/' . self::DEFAULT_CONFIG_FILE_NAME;
+            if ($this->fileFunctionWrapper->file_exists($pathCandidate)
+            ) {
+                $configFilePath = $pathCandidate;
+            } else {
+                $configFilePath = '';
+            }
         }
 
         return $configFilePath;
