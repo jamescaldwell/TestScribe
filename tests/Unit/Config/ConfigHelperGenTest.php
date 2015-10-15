@@ -142,4 +142,375 @@ class ConfigHelperGenTest extends \PHPUnit_Framework_TestCase
             'Variable ( executionResult ) doesn\'t have the expected value.'
         );
     }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getConfigFilePath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function test_option_from_command_line ()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('config_path');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper */
+        $mockFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper, $mockFunctionWrapper);
+
+        $executionResult = $objectUnderTest->getConfigFilePath($mockInputInterface);
+
+        // Validate the execution result.
+
+        $expected = 'config_path';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getConfigFilePath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function test_default_config_from_tests_dir()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('tests/test_scribe_config.yaml');
+                $mock->return_value(true);
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper */
+        $mockFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper, $mockFunctionWrapper);
+
+        $executionResult = $objectUnderTest->getConfigFilePath($mockInputInterface);
+
+        // Validate the execution result.
+
+        $expected = 'tests/test_scribe_config.yaml';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getConfigFilePath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function test_config_from_test_dir()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('tests/test_scribe_config.yaml');
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('test/test_scribe_config.yaml');
+                $mock->return_value(true);
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper */
+        $mockFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper, $mockFunctionWrapper);
+
+        $executionResult = $objectUnderTest->getConfigFilePath($mockInputInterface);
+
+        // Validate the execution result.
+
+        $expected = 'test/test_scribe_config.yaml';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getConfigFilePath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function test_config_not_found()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('tests/test_scribe_config.yaml');
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('test/test_scribe_config.yaml');
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('test_scribe_config.yaml');
+                $mock->return_value(false);
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper */
+        $mockFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper, $mockFunctionWrapper);
+
+        $executionResult = $objectUnderTest->getConfigFilePath($mockInputInterface);
+
+        // Validate the execution result.
+
+        $expected = '';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
+
+    /**
+     * @covers \Box\TestScribe\Config\ConfigHelper::getConfigFilePath
+     * @covers \Box\TestScribe\Config\ConfigHelper
+     */
+    public function test_config_from_current_dir()
+    {
+        // Setup mocks for parameters to the method under test.
+
+        /** @var \Symfony\Component\Console\Input\InputInterface $mockInputInterface */
+        $mockInputInterface = $this->shmock(
+            '\\Symfony\\Component\\Console\\Input\\InputInterface',
+            function (
+                /** @var \Symfony\Component\Console\Input\InputInterface|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+                $shmock->dont_preserve_original_methods();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getOption('config-file-path');
+                $mock->return_value('');
+            }
+        );
+
+        // Execute the method under test.
+
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper $mockFileFunctionWrapper */
+        $mockFileFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FileFunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FileFunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('tests/test_scribe_config.yaml');
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('test/test_scribe_config.yaml');
+                $mock->return_value(false);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->file_exists('test_scribe_config.yaml');
+                $mock->return_value(true);
+            }
+        );
+
+        /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper $mockFunctionWrapper */
+        $mockFunctionWrapper = $this->shmock(
+            '\\Box\\TestScribe\\FunctionWrappers\\FunctionWrapper',
+            function (
+                /** @var \Box\TestScribe\FunctionWrappers\FunctionWrapper|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Config\ConfigHelper($mockFileFunctionWrapper, $mockFunctionWrapper);
+
+        $executionResult = $objectUnderTest->getConfigFilePath($mockInputInterface);
+
+        // Validate the execution result.
+
+        $expected = 'test_scribe_config.yaml';
+        $this->assertSame(
+            $expected,
+            $executionResult,
+            'Variable ( executionResult ) doesn\'t have the expected value.'
+        );
+    }
 }

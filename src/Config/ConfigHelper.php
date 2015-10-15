@@ -161,12 +161,14 @@ class ConfigHelper
         if (!$configFilePath) {
             // If the option is not given in the command line,
             // null will be returned from the getOption call.
-            $pathCandidate = 'tests/' . self::DEFAULT_CONFIG_FILE_NAME;
-            if ($this->fileFunctionWrapper->file_exists($pathCandidate)
-            ) {
-                $configFilePath = $pathCandidate;
-            } else {
-                $configFilePath = '';
+            $configFilePath = '';
+            $pathPrefixToSearch = ['tests/', 'test/', ''];
+            foreach ($pathPrefixToSearch as $prefix) {
+                $pathCandidate = $prefix . self::DEFAULT_CONFIG_FILE_NAME;
+                if ($this->fileFunctionWrapper->file_exists($pathCandidate)) {
+                    $configFilePath = $pathCandidate;
+                    break;
+                }
             }
         }
 
