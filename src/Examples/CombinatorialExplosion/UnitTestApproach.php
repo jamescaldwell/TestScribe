@@ -1,6 +1,7 @@
 <?php
 
 namespace Box\TestScribe\Examples\CombinatorialExplosion;
+
 /**
  * Demonstrates:
  *
@@ -8,6 +9,16 @@ namespace Box\TestScribe\Examples\CombinatorialExplosion;
  * challenges.
  *
  * How the tool can reduce the cost of the unit test approach.
+ *
+ * This is a simplified example.
+ * A real world example would likely to be much more complex.
+ * The inputs may come from a configuration file, HTTP GET parameters,
+ * a database, feature flip flags etc.
+ * Setting up a test scenario to hit a given code path is likely
+ * going to be more complex too.
+ *
+ * The more complex the program becomes, the benefit of a unit
+ * test approach would become bigger.
  *
  * @var BothTrueLevel2
  */
