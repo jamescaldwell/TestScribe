@@ -14,8 +14,8 @@ class ValueTransformer
 {
     /**
      * @param mixed $value
-     * @param bool $replaceMockObjectWithClassName
-     * true if full mock class name should be used instead of a more user readable name.
+     * @param bool $replaceMockObjectWithObjectName
+     * true if $mockObjectName should be used instead of a more user readable name.
      *
      * @return mixed Recursively translate any object or resource contained in
      * this value to its string representation.
@@ -25,11 +25,11 @@ class ValueTransformer
      */
     public function translateObjectsAndResourceToString(
         $value,
-        $replaceMockObjectWithClassName = false
+        $replaceMockObjectWithObjectName = false
     )
     {
         if (is_object($value)) {
-            $result = $this->translateObjectToString($value, $replaceMockObjectWithClassName);
+            $result = $this->translateObjectToString($value, $replaceMockObjectWithObjectName);
 
             return $result;
         }
@@ -40,7 +40,7 @@ class ValueTransformer
                 $simpleArray[$index] =
                     $this->translateObjectsAndResourceToString(
                         $element,
-                        $replaceMockObjectWithClassName
+                        $replaceMockObjectWithObjectName
                     );
             }
 
@@ -74,7 +74,8 @@ class ValueTransformer
             /* @var MockClass $mockObj */
             $mockObj = $value->__getUnitTestGeneratorMockInstance();
             if ($replaceMockObjectWithClassName){
-                $result = $mockObj->getClassNameBeingMocked();
+                $objectName = $mockObj->getMockObjectName();
+                $result = "$" . $objectName;
             } else {
                 $result = $mockObj->__toString();
             }

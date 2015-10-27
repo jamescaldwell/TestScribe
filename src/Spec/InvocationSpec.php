@@ -15,9 +15,9 @@ class InvocationSpec
     /**
      * @var  array
      *
-     * Mock objects are replaced by its fully qualified mocked class names.
-     * e.g. [ 'key' => $mockedFooClass ] becomes
-     * [ 'key' => \FooClass ]
+     * Mock objects are replaced by $mockObjectName.
+     * e.g. [ 'key' => mock Foo class instance ] becomes
+     * [ 'key' => $mockFoo1 ]
      */
     private $parameters;
 
