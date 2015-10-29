@@ -2,14 +2,28 @@
 namespace Box\TestScribe\Renderers;
 
 use Box\TestScribe\Execution\ExecutionResult;
+use Box\TestScribe\Utils\VarExporter;
 
 /**
  * Generate expected exception statement if an exception is thrown.
  *
- * @var InjectedMocksRenderer|ValueAssertionRenderer|InvocationRenderer
+ * @var VarExporter
  */
 class ExceptionRenderer
 {
+    /** @var VarExporter */
+    private $varExporter;
+
+    /**
+     * @param VarExporter $varExporter
+     */
+    function __construct(
+        VarExporter $varExporter
+    )
+    {
+        $this->varExporter = $varExporter;
+    }
+
     /**
      * Generate expected exception statement if an exception is thrown.
      * Otherwise return ''.
@@ -26,12 +40,12 @@ class ExceptionRenderer
         if ($exception !== null) {
             $exceptionType = get_class($exception);
 
-            // Since the class name should not contain "\n" character
-            // the regular var_export should be sufficient.
-            $exceptionTypeAsStringInCode = var_export($exceptionType, true);
-            // @TODO (ryang 6/3/15) : set more strict exception expectations e.g.
-            // exception message
-            $exceptionStatement = "\$this->setExpectedException($exceptionTypeAsStringInCode);";
+            $exceptionTypeAsStringInCode = $this->varExporter->exportVariable($exceptionType);
+
+            $exceptionMsg = $exception->getMessage();
+            $exceptionMsgInCode = $this->varExporter->exportVariable($exceptionMsg);
+
+            $exceptionStatement = "\$this->setExpectedException($exceptionTypeAsStringInCode, $exceptionMsgInCode);";
         } else {
             $exceptionStatement = '';
         }

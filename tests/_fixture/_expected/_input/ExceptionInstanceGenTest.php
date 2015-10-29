@@ -14,7 +14,7 @@ class ExceptionInstanceGenTest extends \PHPUnit_Framework_TestCase
      */
     public function test_throwExceptionWhenTheInputIsNotPositive()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->setExpectedException('InvalidArgumentException', 'Input should be a positive number');
 
         // Execute the method under test.
 

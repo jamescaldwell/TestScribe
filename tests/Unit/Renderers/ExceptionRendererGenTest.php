@@ -12,12 +12,12 @@ class ExceptionRendererGenTest extends \PHPUnit_Framework_TestCase
      * @covers \Box\TestScribe\Renderers\ExceptionRenderer::genExceptionExpectation
      * @covers \Box\TestScribe\Renderers\ExceptionRenderer
      */
-    public function test_genExceptionExpectation_no_exception()
+    public function test_genExceptionExpectation()
     {
         // Setup mocks for parameters to the method under test.
 
-        /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult1 */
-        $mockExecutionResult1 = $this->shmock(
+        /** @var \Box\TestScribe\Execution\ExecutionResult $mockExecutionResult */
+        $mockExecutionResult = $this->shmock(
             '\\Box\\TestScribe\\Execution\\ExecutionResult',
             function (
                 /** @var \Box\TestScribe\Execution\ExecutionResult|\Shmock\PHPUnitMockInstance $shmock */
@@ -34,9 +34,23 @@ class ExceptionRendererGenTest extends \PHPUnit_Framework_TestCase
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\Renderers\ExceptionRenderer();
+        // Setup mocks for parameters to the constructor.
 
-        $executionResult = $objectUnderTest->genExceptionExpectation($mockExecutionResult1);
+        /** @var \Box\TestScribe\Utils\VarExporter $mockVarExporter */
+        $mockVarExporter = $this->shmock(
+            '\\Box\\TestScribe\\Utils\\VarExporter',
+            function (
+                /** @var \Box\TestScribe\Utils\VarExporter|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Renderers\ExceptionRenderer($mockVarExporter);
+
+        $executionResult = $objectUnderTest->genExceptionExpectation($mockExecutionResult);
 
         // Validate the execution result.
 
