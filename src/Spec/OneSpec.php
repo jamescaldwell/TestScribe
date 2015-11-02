@@ -20,24 +20,32 @@ class OneSpec
     /** @var  array parameters to the constructor */
     private $constructorParameters;
 
+    /** @var  MockSpec[] */
+    private $mockSpecs;
+
     /**
+     * OneSpec constructor.
      * @param string $testName
      * @param mixed $result
-     * @param array $constructorParameters
      * @param array $methodParameters
+     * @param array $constructorParameters
+     * @param MockSpec[] $mockSpecs
      */
-    function __construct(
+    public function __construct(
         $testName,
         $result,
-        $constructorParameters,
-        $methodParameters
+        array $methodParameters,
+        array $constructorParameters,
+        array $mockSpecs
     )
     {
         $this->testName = $testName;
         $this->result = $result;
-        $this->constructorParameters = $constructorParameters;
         $this->methodParameters = $methodParameters;
+        $this->constructorParameters = $constructorParameters;
+        $this->mockSpecs = $mockSpecs;
     }
+
 
     /**
      * @return string
@@ -69,5 +77,13 @@ class OneSpec
     public function getConstructorParameters()
     {
         return $this->constructorParameters;
+    }
+
+    /**
+     * @return MockSpec[]
+     */
+    public function getMockSpecs()
+    {
+        return $this->mockSpecs;
     }
 }

@@ -16,7 +16,21 @@ class OneSpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
     {
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\Spec\OneSpecPersistence();
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\Spec\MockSpecPersistence $mockMockSpecPersistence */
+        $mockMockSpecPersistence = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\MockSpecPersistence',
+            function (
+                /** @var \Box\TestScribe\Spec\MockSpecPersistence|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Spec\OneSpecPersistence($mockMockSpecPersistence);
 
         $executionResult = $objectUnderTest->loadOneSpec(['name' => 'test_name', 'result' => 1, 'param' => [2]]);
 
@@ -65,12 +79,34 @@ class OneSpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getMethodParameters();
                 $mock->return_value([1]);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getConstructorParameters();
+                $mock->return_value([]);
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getMockSpecs();
+                $mock->return_value([]);
             }
         );
 
         // Execute the method under test.
 
-        $objectUnderTest = new \Box\TestScribe\Spec\OneSpecPersistence();
+        // Setup mocks for parameters to the constructor.
+
+        /** @var \Box\TestScribe\Spec\MockSpecPersistence $mockMockSpecPersistence */
+        $mockMockSpecPersistence = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\MockSpecPersistence',
+            function (
+                /** @var \Box\TestScribe\Spec\MockSpecPersistence|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Spec\OneSpecPersistence($mockMockSpecPersistence);
 
         $executionResult = $objectUnderTest->encodeOneSpec($mockOneSpec);
 
@@ -84,12 +120,6 @@ class OneSpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
             $executionResult['name'],
             'Variable ( executionResult[\'name\'] ) doesn\'t have the expected value.'
         );
-        $expected = 1;
-        $this->assertSame(
-            $expected,
-            $executionResult['result'],
-            'Variable ( executionResult[\'result\'] ) doesn\'t have the expected value.'
-        );
         $this->assertInternalType('array', $executionResult['param']);
         $this->assertCount(1, $executionResult['param']);
         $expected = 1;
@@ -97,6 +127,12 @@ class OneSpecPersistenceGenTest extends \PHPUnit_Framework_TestCase
             $expected,
             $executionResult['param'][0],
             'Variable ( executionResult[\'param\'][0] ) doesn\'t have the expected value.'
+        );
+        $expected = 1;
+        $this->assertSame(
+            $expected,
+            $executionResult['result'],
+            'Variable ( executionResult[\'result\'] ) doesn\'t have the expected value.'
         );
     }
 }

@@ -5,24 +5,31 @@ namespace Box\TestScribe\Spec;
 
 use Box\TestScribe\Config\GlobalComputedConfig;
 use Box\TestScribe\Execution\ExecutionResult;
+use Box\TestScribe\Mock\MockMgr;
 
 /**
  * Create one spec object for a test run.
- * @var GlobalComputedConfig
+ * @var GlobalComputedConfig| AllMockSpecs
  */
 class SpecDetailRenderer
 {
     /** @var GlobalComputedConfig */
     private $globalComputedConfig;
 
+    /** @var AllMockSpecs */
+    private $allMockSpecs;
+
     /**
      * @param \Box\TestScribe\Config\GlobalComputedConfig $globalComputedConfig
+     * @param \Box\TestScribe\Spec\AllMockSpecs           $allMockSpecs
      */
     function __construct(
-        GlobalComputedConfig $globalComputedConfig
+        GlobalComputedConfig $globalComputedConfig,
+        AllMockSpecs $allMockSpecs
     )
     {
         $this->globalComputedConfig = $globalComputedConfig;
+        $this->allMockSpecs = $allMockSpecs;
     }
 
     /**
@@ -40,11 +47,14 @@ class SpecDetailRenderer
         $methodParameters = $methodArguments->getValues();
         $constructorArguments = $executionResult->getConstructorArguments();
         $constructorParameters = $constructorArguments->getValues();
+        $mockSpecs = $this->allMockSpecs->getAllMockSpecs();
+
         $oneSpec = new OneSpec(
             $testName,
             $result,
             $constructorParameters,
-            $methodParameters
+            $methodParameters,
+            $mockSpecs
         );
 
         return $oneSpec;

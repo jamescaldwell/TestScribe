@@ -40,7 +40,7 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
 
                         /** @var $mock \Shmock\Spec */
                         $mock = $shmock->getValues();
-                        $mock->return_value(['param1', 'param2']);
+                        $mock->return_value(['param']);
                     }
                 );
 
@@ -56,7 +56,7 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
 
                         /** @var $mock \Shmock\Spec */
                         $mock = $shmock->getValues();
-                        $mock->return_value(['constructor_param']);
+                        $mock->return_value(['param']);
                     }
                 );
 
@@ -94,7 +94,23 @@ class SpecDetailRendererGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Spec\SpecDetailRenderer($mockGlobalComputedConfig);
+        /** @var \Box\TestScribe\Spec\AllMockSpecs $mockAllMockSpecs */
+        $mockAllMockSpecs = $this->shmock(
+            '\\Box\\TestScribe\\Spec\\AllMockSpecs',
+            function (
+                /** @var \Box\TestScribe\Spec\AllMockSpecs|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                /** @var $mock \Shmock\Spec */
+                $mock = $shmock->getAllMockSpecs();
+                $mock->return_value([]);
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Spec\SpecDetailRenderer($mockGlobalComputedConfig, $mockAllMockSpecs);
 
         $executionResult = $objectUnderTest->genSpecDetail($mockExecutionResult);
 
