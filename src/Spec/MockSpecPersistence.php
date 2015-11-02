@@ -5,14 +5,26 @@ namespace Box\TestScribe\Spec;
 
 /**
  * Save and load mock objects.
+ * @var InvocationSpecPersistence
  */
 class MockSpecPersistence
 {
     const NAME = 'name';
     const MOCKED_CLASS_NAME = 'mocked_class_name';
     const INVOCATION = 'invocation';
-    const RESULT_KEY = 'result';
-    const METHOD_PARAM = 'param';
+
+    /** @var InvocationSpecPersistence */
+    private $invocationSpecPersistence;
+
+    /**
+     * @param InvocationSpecPersistence $invocationSpecPersistence
+     */
+    function __construct(
+        InvocationSpecPersistence $invocationSpecPersistence
+    )
+    {
+        $this->invocationSpecPersistence = $invocationSpecPersistence;
+    }
 
     /**
      * @param array $data
@@ -21,7 +33,23 @@ class MockSpecPersistence
      */
     public function loadMockSpec($data)
     {
+        $mockName = $data[self::NAME];
+        $classNameBeingMocked = $data[self::MOCKED_CLASS_NAME];
+        $callArray = $data[self::INVOCATION];
+        $invocationArray = [];
+        foreach($callArray as $invocation){
+            $invocationArray[] =
+                $this->invocationSpecPersistence->loadInvocationSpec(
+                    $invocation
+                );
+        }
+        $mockSpec = new MockSpec(
+            $mockName,
+            $classNameBeingMocked,
+            $invocationArray
+        );
 
+        return $mockSpec;
     }
 
     /**
@@ -42,14 +70,8 @@ class MockSpecPersistence
 
         $callArray = [];
         foreach ($calls as $invocation) {
-            $methodName = $invocation->getMethodName();
-            $params = $invocation->getParameters();
-            $returnValue = $invocation->getReturnValue();
-            $callInfo = [
-                self::NAME => $methodName,
-                self::METHOD_PARAM => $params,
-                self::RESULT_KEY => $returnValue,
-            ];
+            $callInfo =
+                $this->invocationSpecPersistence->encodeInvocationSpec($invocation);
             $callArray[] = $callInfo;
         }
         $mockName = $mockSpec->getObjectName();
