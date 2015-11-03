@@ -19,7 +19,7 @@ class MockSpec
     private $invocations;
 
     /** @var  array methodName => [returnExpressions] */
-    private $returnExpressionMap;
+    private $returnExpressionMap = [];
 
     /**
      * MockSpec constructor.
