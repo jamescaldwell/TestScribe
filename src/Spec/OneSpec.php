@@ -29,7 +29,7 @@ class OneSpec
      * @param mixed $result
      * @param array $methodParameters
      * @param array $constructorParameters
-     * @param MockSpec[] $mockSpecs
+     * @param \Box\TestScribe\Spec\MockSpec[] $mockSpecs
      */
     public function __construct(
         $testName,
@@ -80,7 +80,7 @@ class OneSpec
     }
 
     /**
-     * @return MockSpec[]
+     * @return \Box\TestScribe\Spec\MockSpec[]
      */
     public function getMockSpecs()
     {
