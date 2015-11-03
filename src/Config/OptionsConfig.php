@@ -55,8 +55,6 @@ class OptionsConfig
             $generateSpec = ArrayUtil::lookupBoolValue(self::GENERATE_SPEC_KEY, $data, false);
         }
 
-        $this->configHelper->loadBootstrapFile($input);
-
         $overwriteExistingDestinationFile =
             $input->getOption(CmdOption::OVERWRITE_EXISTING_DESTINATION_FILE_OPTION);
 

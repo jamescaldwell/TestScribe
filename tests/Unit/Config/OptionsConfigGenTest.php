@@ -51,8 +51,6 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
                 $mock = $shmock->getConfigFilePath();
                 $mock->return_value('config_path');
 
-                $shmock->loadBootstrapFile();
-
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getTestRootPath();
                 $mock->return_value('test_root');
@@ -145,8 +143,6 @@ class OptionsConfigGenTest extends \PHPUnit_Framework_TestCase
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getConfigFilePath();
                 $mock->return_value('');
-
-                $shmock->loadBootstrapFile();
 
                 /** @var $mock \Shmock\Spec */
                 $mock = $shmock->getTestRootPath();
