@@ -29,7 +29,7 @@ class MockClass implements \JsonSerializable
      *  value: [
      *      Method class instance
      *      argument array
-     *      return value for that method. If it is a mock, an instance of MockClass.
+     *      return value for that method. Type InputValue
      *  ]
      */
     private $methodInvocations = [];
