@@ -46,7 +46,21 @@ class MockClassFactoryGenTest extends \PHPUnit_Framework_TestCase
             }
         );
 
-        $objectUnderTest = new \Box\TestScribe\Mock\MockClassFactory($mockMockClassService, $mockMockObjectNameMgr);
+        /** @var \Box\TestScribe\Mock\MockMgr $mockMockMgr */
+        $mockMockMgr = $this->shmock(
+            '\\Box\\TestScribe\\Mock\\MockMgr',
+            function (
+                /** @var \Box\TestScribe\Mock\MockMgr|\Shmock\PHPUnitMockInstance $shmock */
+                $shmock
+            ) {
+                $shmock->order_matters();
+                $shmock->disable_original_constructor();
+
+                $shmock->addMock();
+            }
+        );
+
+        $objectUnderTest = new \Box\TestScribe\Mock\MockClassFactory($mockMockClassService, $mockMockObjectNameMgr, $mockMockMgr);
 
         $executionResult = $objectUnderTest->create('\\Box\\TestScribe\\Output', false, 'method_to_pass_through');
 

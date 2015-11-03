@@ -8,7 +8,7 @@ use Box\TestScribe\ClassInfo\PhpClassName;
  * Class MockClassFactory
  * @package Box\TestScribe
  *
- * @var MockClassService | MockObjectNameMgr
+ * @var MockClassService | MockObjectNameMgr | MockMgr
  */
 class MockClassFactory
 {
@@ -18,17 +18,23 @@ class MockClassFactory
     /** @var MockObjectNameMgr */
     private $mockObjectNameMgr;
 
+    /** @var MockMgr */
+    private $mockMgr;
+
     /**
-     * @param \Box\TestScribe\Mock\MockClassService $mockClassService
+     * @param \Box\TestScribe\Mock\MockClassService  $mockClassService
      * @param \Box\TestScribe\Mock\MockObjectNameMgr $mockObjectNameMgr
+     * @param \Box\TestScribe\Mock\MockMgr           $mockMgr
      */
     function __construct(
         MockClassService $mockClassService,
-        MockObjectNameMgr $mockObjectNameMgr
+        MockObjectNameMgr $mockObjectNameMgr,
+        MockMgr $mockMgr
     )
     {
         $this->mockClassService = $mockClassService;
         $this->mockObjectNameMgr = $mockObjectNameMgr;
+        $this->mockMgr = $mockMgr;
     }
 
     /**
@@ -62,6 +68,8 @@ class MockClassFactory
             $nameOfTheMethodToPassThrough,
             $mockObjectName
         );
+
+        $this->mockMgr->addMock($mock);
 
         return $mock;
     }
