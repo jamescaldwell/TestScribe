@@ -3,6 +3,7 @@
 
 namespace Box\TestScribe\Spec;
 
+use Box\TestScribe\Input\InputValue;
 use Box\TestScribe\MethodInfo\Method;
 use Box\TestScribe\Mock\MockClass;
 use Box\TestScribe\Utils\ValueTransformer;
@@ -28,6 +29,7 @@ class MockSpecFactory
 
     /**
      * @param MockClass $mock
+     *
      * @return MockSpec
      */
     public function createMockSpecFromMockClass(MockClass $mock)
@@ -53,8 +55,9 @@ class MockSpecFactory
     private function convertToInvocationSpecs(array $methodInvocations)
     {
         $specArray = [];
-        foreach($methodInvocations as $invocation){
+        foreach ($methodInvocations as $invocation) {
             /** @var Method $methodObj */
+            /** @var InputValue $returnValue */
             list($methodObj, $parameters, $returnValue) = $invocation;
             $methodName = $methodObj->getName();
             $specArray[] = $this->convertOne(
@@ -68,25 +71,26 @@ class MockSpecFactory
     }
 
     /**
-     * @param string $methodName
-     * @param array $arguments
-     * @param mixed $returnValue
+     * @param string     $methodName
+     * @param array      $arguments
+     * @param InputValue $returnInputValue
      *
      * @return InvocationSpec
      */
-    private function convertOne($methodName, $arguments, $returnValue)
+    private function convertOne($methodName, array $arguments, InputValue $returnInputValue)
     {
         $convertedArguments = [];
-        foreach($arguments as $arg){
+        foreach ($arguments as $arg) {
             $convertedArguments[] = $this->valueTransformer->translateObjectsAndResourceToString(
                 $arg,
                 true
             );
         }
+        $returnValue = $returnInputValue->getValue();
         $convertedReturnValue = $this->valueTransformer->translateObjectsAndResourceToString(
-            $returnValue
+            $returnValue,
+            true
         );
-
         $spec = new InvocationSpec($methodName, $convertedArguments, $convertedReturnValue);
 
         return $spec;
