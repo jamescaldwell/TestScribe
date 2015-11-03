@@ -49,7 +49,7 @@ class YamlUtil
     {
         $dumper = new Dumper();
         $dumper->setIndentation(2);
-        $yamlString = $dumper->dump($value, 5);
+        $yamlString = $dumper->dump($value, 15);
 
         return $yamlString;
     }
