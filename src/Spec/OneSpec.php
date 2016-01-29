@@ -34,8 +34,8 @@ class OneSpec
     public function __construct(
         $testName,
         $result,
-        array $methodParameters,
         array $constructorParameters,
+        array $methodParameters,
         array $mockSpecs
     )
     {
