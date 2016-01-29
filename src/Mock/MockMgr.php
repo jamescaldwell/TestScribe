@@ -9,7 +9,7 @@ namespace Box\TestScribe\Mock;
 class MockMgr
 {
     /** @var  MockClass[] */
-    private $mocks;
+    private $mocks = [];
 
     /**
      * @param \Box\TestScribe\Mock\MockClass $mock
