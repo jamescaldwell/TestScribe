@@ -81,6 +81,34 @@ class ArrayUtil
     }
 
     /**
+      * Look up a key's value of a string type.
+      *
+      * The default value is returned if the key does not exist or the value
+      * is not a string type.
+      *
+      * @param mixed $key
+      * @param array $array
+      * @param string $defaultValue
+      *
+      * @return string
+      */
+    static public function lookupStringValue(
+        $key,
+        array $array,
+        $defaultValue
+    )
+    {
+        $value = self::lookupValueCheckType(
+            $key,
+            'string',
+            $array,
+            $defaultValue
+        );
+
+        return $value;
+    }
+
+    /**
      * @param mixed $key
      * @param array $array
      * @param mixed $defaultValue
