@@ -85,8 +85,6 @@ class RendererService
             // @TODO (ryang 8/21/14) : make it configurable which mocking framework to use.
             $result = <<<TAG
 $header{
-    use \\Shmock\\Shmockers;
-
 $result
 }
 

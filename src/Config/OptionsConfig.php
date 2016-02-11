@@ -16,6 +16,8 @@ use Symfony\Component\Console\Input\InputInterface;
 class OptionsConfig
 {
     const GENERATE_SPEC_KEY = 'generate_spec';
+    const TEST_BASE_CLASS_NAME_KEY = 'test_base_class_name';
+    const DEFAULT_TEST_BASE_CLASS_NAME = '\\PHPUnit_Framework_TestCase';
 
     /** @var ConfigHelper */
     private $configHelper;
@@ -50,9 +52,11 @@ class OptionsConfig
         $configFilePath = $this->configHelper->getConfigFilePath($input);
 
         $generateSpec = false;
+        $testBaseClassName = self::DEFAULT_TEST_BASE_CLASS_NAME;
         if ($configFilePath) {
             $data = $this->yamlUtil->loadYamlFile($configFilePath);
             $generateSpec = ArrayUtil::lookupBoolValue(self::GENERATE_SPEC_KEY, $data, false);
+            $testBaseClassName = ArrayUtil::lookupStringValue(self::TEST_BASE_CLASS_NAME_KEY, $data, self::DEFAULT_TEST_BASE_CLASS_NAME);
         }
 
         $overwriteExistingDestinationFile =
@@ -82,7 +86,8 @@ class OptionsConfig
             $sourceFileRoot,
             $outSourceFileDir,
             $sourceFilePathRelativeToSourceRoot,
-            $generateSpec
+            $generateSpec,
+            $testBaseClassName
         );
 
         return $inputOptions;

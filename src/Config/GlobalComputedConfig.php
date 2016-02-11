@@ -80,6 +80,9 @@ class GlobalComputedConfig
     /** @var  string */
     private $specFilePath;
 
+    /** @var  Options */
+    private $options;
+
     /**
      * @param \Box\TestScribe\Config\ConfigParams $inputParams
      * @param \Box\TestScribe\MethodInfo\Method $inMethod
@@ -108,6 +111,7 @@ class GlobalComputedConfig
             $this->inPhpClassName,
             $this->outSourcePath
         );
+        $this->options = $options;
     }
 
     /**
@@ -296,4 +300,13 @@ class GlobalComputedConfig
     {
         return $this->generateSpec;
     }
+
+    /**
+     * @return string
+     */
+    public function getTestBaseClassName()
+    {
+        return $this->options->getTestBaseClassName();
+    }
+
 }

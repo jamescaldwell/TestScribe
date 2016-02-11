@@ -25,10 +25,13 @@ class TestCreator
          $projectRootDir = Directory::getProjectRoot();
          $fixtureDir = Directory::getFixtureDir();
          $inputDir = Directory::getInputDataDir();
+         $config_file_path_option = \Box\TestScribe\CLI\CmdOption::CONFIG_FILE_PATH;
+         $config_file_path = $inputDir . "/test_scribe_config.yaml";
 
          $cmd = "cat $inputDir/$answerFileName.txt | "
              . "php $projectRootDir/bin/test_scribe.php generate-test "
              . " $inputDir/$className.php $methodName "
+             . " --$config_file_path_option=$config_file_path "
              . " --test-source-root=$testRootDir "
              . " --bootstrap=$fixtureDir/bootstrapForTest.php -o";
 
